@@ -1,0 +1,29 @@
+2015/04/04 10:54:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api".' in D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api')
+#1 D:\xampp\htdocs\bloodDonation\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bloodDonation\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonation/index.php/api
+---
+2015/04/04 10:55:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in D:\xampp\htdocs\bloodDonation\protected\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bloodDonation\protected\framework\web\CController.php(270): CController->missingAction('')
+#1 D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api')
+#3 D:\xampp\htdocs\bloodDonation\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bloodDonation\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/bloodDonation/index.php/api
+---
+2015/04/04 10:56:08 [error] [php] Undefined index: model (D:\xampp\htdocs\bloodDonation\protected\controllers\ApiController.php:28)
+Stack trace:
+#0 D:\xampp\htdocs\bloodDonation\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bloodDonation\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bloodDonation\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bloodDonation\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bloodDonation\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonation/index.php/api/list/donationRequest
+in D:\xampp\htdocs\bloodDonation\protected\controllers\ApiController.php (28)
+in D:\xampp\htdocs\bloodDonation\index.php (13)
