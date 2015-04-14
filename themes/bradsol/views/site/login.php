@@ -42,7 +42,10 @@ $this->breadcrumbs=array(
 		<?php echo $form->label($model,'rememberMe'); ?>
 		<?php echo $form->error($model,'rememberMe'); ?>
 	</div>
-
+<div class="row buttons"> 
+        <?php echo CHtml::link('forgetpassword',array('userDetails/forget')); ?><br>
+        <?php echo CHtml::link('Are you new  user Sign Up here',array('userDetails/create')); ?>
+    </div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Login'); ?>
 	</div>

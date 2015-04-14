@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'lookup_value'); ?>
-		<?php echo $form->textField($model,'lookup_value'); ?>
+		<?php echo $form->textField($model,'lookup_value',array('size'=>30,'maxlength'=>30)); ?>
 	</div>
 
 	<div class="row">

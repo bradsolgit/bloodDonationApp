@@ -29,8 +29,5 @@ $this->menu=array(
 		'number',
 		'hospital',
 		'date',
-		'lookup_details_lookup_id',
-		'lookup_details_2_lookup_id',
-		'lookup_details_3_lookup_id',
 	),
 )); ?>

@@ -58,24 +58,8 @@
 	<?php echo CHtml::encode($data->donation_status); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('lookup_details_lookup_id')); ?>:</b>
-	<?php echo CHtml::encode($data->lookup_details_lookup_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('lookup_details_2_lookup_id')); ?>:</b>
-	<?php echo CHtml::encode($data->lookup_details_2_lookup_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('lookup_details_3_lookup_id')); ?>:</b>
-	<?php echo CHtml::encode($data->lookup_details_3_lookup_id); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('blood_group')); ?>:</b>
 	<?php echo CHtml::encode($data->blood_group); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('lookup_details_4_lookup_id')); ?>:</b>
-	<?php echo CHtml::encode($data->lookup_details_4_lookup_id); ?>
 	<br />
 
 	*/ ?>

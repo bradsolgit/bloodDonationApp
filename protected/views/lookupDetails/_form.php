@@ -14,17 +14,10 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_type_id'); ?>
-		<?php echo $form->dropDownList($model,'lookup_type_id',Utilities::getLookupTypeList(),array('empty' => 'Select a Lookup Type')); ?>
-		<?php echo $form->error($model,'lookup_type_id'); ?>
-	</div>
-	
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'lookup_value'); ?>
-		<?php echo $form->textField($model,'lookup_value'); ?>
+		<?php echo $form->textField($model,'lookup_value',array('size'=>30,'maxlength'=>30)); ?>
 		<?php echo $form->error($model,'lookup_value'); ?>
 	</div>
 
@@ -40,7 +33,12 @@
 		<?php echo $form->error($model,'lookup_description'); ?>
 	</div>
 
-	
+	<div class="row">
+		<?php echo $form->labelEx($model,'lookup_type_id'); ?>
+		<?php echo $form->textField($model,'lookup_type_id'); ?>
+		<?php echo $form->error($model,'lookup_type_id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

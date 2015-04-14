@@ -69,9 +69,9 @@ class LookupDetails extends CActiveRecord
 			'donationRequests1' => array(self::HAS_MANY, 'DonationRequest', 'city'),
 			'donationRequests2' => array(self::HAS_MANY, 'DonationRequest', 'state'),
 			'userDetails' => array(self::HAS_MANY, 'UserDetails', 'area'),
-			'userDetails1' => array(self::HAS_MANY, 'UserDetails', 'city'),
-			'userDetails2' => array(self::HAS_MANY, 'UserDetails', 'state'),
-			'userDetails3' => array(self::HAS_MANY, 'UserDetails', 'blood_group'),
+			'userDetails1' => array(self::HAS_MANY, 'UserDetails', 'blood_group'),
+			'userDetails2' => array(self::HAS_MANY, 'UserDetails', 'city'),
+			'userDetails3' => array(self::HAS_MANY, 'UserDetails', 'state'),
 		);
 	}
 
@@ -81,11 +81,11 @@ class LookupDetails extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'lookup_value' => 'Lookup Value',
-			'lookup_parent_id' => 'Lookup Parent',
-			'lookup_description' => 'Lookup Description',
-			'lookup_id' => 'Lookup',
-			'lookup_type_id' => 'Lookup Type',
+			'lookup_value' => 'Name',
+			'lookup_parent_id' => 'Parent',
+			'lookup_description' => 'Description',
+			'lookup_id' => 'Id',
+			'lookup_type_id' => ' Type ID',
 		);
 	}
 

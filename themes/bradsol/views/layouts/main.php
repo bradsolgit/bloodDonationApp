@@ -74,8 +74,11 @@
  <p><a href="<?php echo $this->createUrl('site/login')?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/signin.png" /></a></p>
 </div>
 <?php }else{?>
+<div class="roe buttons"> 
+       <p><a class="reset" href="<?php echo $this->createUrl('userDetails/reset')?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/change_pwd.png" /></a></p>
+    </div>
 <div class="logout-not-absolute">
-<p>Welcome back !</p>
+<p>Welcome back <?php echo Yii::app()->user->name ?></p>
 
 
 

@@ -22,23 +22,44 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'area'); ?>
-		<?php echo $form->textField($model,'area'); ?>
-		<?php echo $form->error($model,'area'); ?>
+		<?php echo $form->labelEx($model,'state'); ?>
+	<?php echo CHtml::dropDownList('state','',Utilities::getLookupListByState(),
+array(
+	'empty'=>'select',
+    'ajax' => array(
+    'type'=>'POST', //request type
+    'url'=>CController::createUrl('UserDetails/getCity'), //url to call.
+    //Style: CController::createUrl('currentController/methodToCall')
+    'update'=>'#city', //selector to update
+    //'data'=>'js:javascript statement' 
+    //leave out the data key to pass all form values through
+))); 
+//empty since it will be filled by the other dropdown
+?>
+	<?php echo $form->error($model,'state'); ?>
 	</div>
-
 	<div class="row">
-		<?php echo $form->labelEx($model,'city'); ?>
-		<?php echo $form->textField($model,'city'); ?>
+	<?php echo $form->labelEx($model,'city'); ?>
+		<?php echo  CHtml::dropDownList('city','',array(),array(
+	'empty'=>'select',
+    'ajax' => array(
+    'type'=>'POST', //request type
+    'url'=>CController::createUrl('UserDetails/getArea'), //url to call.
+    //Style: CController::createUrl('currentController/methodToCall')
+    'update'=>'#area', //selector to update
+    //'data'=>'js:javascript statement' 
+    //leave out the data key to pass all form values through
+))); 
+//empty since it will be filled by the other dropdown
+?>
 		<?php echo $form->error($model,'city'); ?>
 	</div>
-
 	<div class="row">
-		<?php echo $form->labelEx($model,'state'); ?>
-		<?php echo $form->textField($model,'state'); ?>
-		<?php echo $form->error($model,'state'); ?>
+		<?php echo $form->labelEx($model,'area'); ?>
+		<?php echo  CHtml::dropDownList('area','', array(''=>"please select"));?>
+		<?php echo $form->error($model,'area'); ?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'number'); ?>
 		<?php echo $form->textField($model,'number'); ?>
@@ -53,27 +74,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
+		<?php
+$this->widget('ext.my97DatePicker.JMy97DatePicker',array(
+    'name'=>CHtml::activeName($model,'date'),
+    'value'=>$model->date,
+		
+    'options'=>array('dateFmt'=>'dd-MM-yyyy',),
+));
+?>
 		<?php echo $form->error($model,'date'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_2_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_3_lookup_id'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

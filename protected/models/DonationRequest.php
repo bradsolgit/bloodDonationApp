@@ -9,12 +9,9 @@
  * @property integer $area
  * @property integer $city
  * @property integer $state
- * @property integer $number
+ * @property string $number
  * @property string $hospital
  * @property string $date
- * @property integer $lookup_details_lookup_id
- * @property integer $lookup_details_2_lookup_id
- * @property integer $lookup_details_3_lookup_id
  *
  * The followings are the available model relations:
  * @property LookupDetails $area0
@@ -49,12 +46,13 @@ class DonationRequest extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, area, city, state, number, hospital, date, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id', 'required'),
-			array('area, city, state, number, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id', 'numerical', 'integerOnly'=>true),
+			array('name, area, city, state, number, hospital, date', 'required'),
+			array('area, city,number, state', 'numerical', 'integerOnly'=>true),
 			array('name, hospital', 'length', 'max'=>100),
+			array('number', 'length','min'=>10, 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('request_id, name, area, city, state, number, hospital, date, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id', 'safe', 'on'=>'search'),
+			array('request_id, name, area, city, state, number, hospital, date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,9 +84,6 @@ class DonationRequest extends CActiveRecord
 			'number' => 'Number',
 			'hospital' => 'Hospital',
 			'date' => 'Date',
-			'lookup_details_lookup_id' => 'Lookup Details Lookup',
-			'lookup_details_2_lookup_id' => 'Lookup Details 2 Lookup',
-			'lookup_details_3_lookup_id' => 'Lookup Details 3 Lookup',
 		);
 	}
 
@@ -108,12 +103,9 @@ class DonationRequest extends CActiveRecord
 		$criteria->compare('area',$this->area);
 		$criteria->compare('city',$this->city);
 		$criteria->compare('state',$this->state);
-		$criteria->compare('number',$this->number);
+		$criteria->compare('number',$this->number,true);
 		$criteria->compare('hospital',$this->hospital,true);
 		$criteria->compare('date',$this->date,true);
-		$criteria->compare('lookup_details_lookup_id',$this->lookup_details_lookup_id);
-		$criteria->compare('lookup_details_2_lookup_id',$this->lookup_details_2_lookup_id);
-		$criteria->compare('lookup_details_3_lookup_id',$this->lookup_details_3_lookup_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

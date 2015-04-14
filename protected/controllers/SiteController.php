@@ -71,7 +71,13 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
-
+	public function loadModel($id)
+	{
+		$model=UserDetails::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 	/**
 	 * Displays the login page
 	 */
@@ -92,6 +98,13 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
+				$id=Yii::app()->user->getState("user_id") ;
+			
+			$model=$this->loadModel($id);
+			if($model->validate_Status=='N')
+			{
+				$this->redirect(array("validateOtp"));
+			}
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
@@ -105,5 +118,24 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+	public function actionvalidateOtp()
+	{
+		if(isset($_POST['otp']))
+		{
+			$id=Yii::app()->user->getState("user_id") ;
+				
+			$model=$this->loadModel($id);
+			if($model->confirmation_code==$_POST['otp'])
+			{
+				$model->validate_Status="Y";
+				$model->save();
+				$this->redirect(Yii::app()->user->returnUrl);
+			}
+			else {
+				Yii::app()->user->setFlash('error', "otp password is wrong");
+			}
+		}
+		$this->render('validateOtp');
 	}
 }

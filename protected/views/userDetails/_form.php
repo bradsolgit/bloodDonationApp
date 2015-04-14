@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->emailField($model,'email',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
@@ -32,28 +32,59 @@
 		<?php echo $form->textField($model,'number'); ?>
 		<?php echo $form->error($model,'number'); ?>
 	</div>
-
+<div class="row">
+		<?php echo $form->labelEx($model,'state'); ?>
+	<?php echo CHtml::dropDownList('state','',Utilities::getLookupListByState(),
+array(
+	'empty'=>'select',
+    'ajax' => array(
+    'type'=>'POST', //request type
+    'url'=>CController::createUrl('UserDetails/getCity'), //url to call.
+    //Style: CController::createUrl('currentController/methodToCall')
+    'update'=>'#city', //selector to update
+    //'data'=>'js:javascript statement' 
+    //leave out the data key to pass all form values through
+))); 
+//empty since it will be filled by the other dropdown
+?>
+	<?php echo $form->error($model,'state'); ?>
+	</div>
+	<div class="row">
+	<?php echo $form->labelEx($model,'city'); ?>
+		<?php echo  CHtml::dropDownList('city','',array(),array(
+	'empty'=>'select',
+    'ajax' => array(
+    'type'=>'POST', //request type
+    'url'=>CController::createUrl('UserDetails/getArea'), //url to call.
+    //Style: CController::createUrl('currentController/methodToCall')
+    'update'=>'#area', //selector to update
+    //'data'=>'js:javascript statement' 
+    //leave out the data key to pass all form values through
+))); 
+//empty since it will be filled by the other dropdown
+?>
+		<?php echo $form->error($model,'city'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'area'); ?>
-		<?php echo $form->textField($model,'area'); ?>
+		<?php echo  CHtml::dropDownList('area','', array(''=>"please select"));?>
 		<?php echo $form->error($model,'area'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'city'); ?>
-		<?php echo $form->textField($model,'city'); ?>
-		<?php echo $form->error($model,'city'); ?>
-	</div>
+	
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'state'); ?>
-		<?php echo $form->textField($model,'state'); ?>
-		<?php echo $form->error($model,'state'); ?>
-	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'gender'); ?>
-		<?php echo $form->textField($model,'gender',array('size'=>1,'maxlength'=>1)); ?>
+	male:<?php echo $form->radioButton($model, 'gender', array(
+    'value'=>'M',
+    'uncheckValue'=>null
+));
+ ?>female:<?php 
+echo $form->radioButton($model, 'gender', array(
+    'value'=>'F',
+    'uncheckValue'=>null
+)); ?>
 		<?php echo $form->error($model,'gender'); ?>
 	</div>
 
@@ -65,7 +96,14 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dob'); ?>
-		<?php echo $form->textField($model,'dob'); ?>
+		<?php
+$this->widget('ext.my97DatePicker.JMy97DatePicker',array(
+    'name'=>CHtml::activeName($model,'dob'),
+    'value'=>$model->dob,
+		
+    'options'=>array('dateFmt'=>'dd-MM-yyyy',),
+));
+?>
 		<?php echo $form->error($model,'dob'); ?>
 	</div>
 
@@ -74,47 +112,30 @@
 		<?php echo $form->passwordField($model,'password',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
-
+<!--  
 	<div class="row">
+	
 		<?php echo $form->labelEx($model,'confirmation_code'); ?>
 		<?php echo $form->textField($model,'confirmation_code',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'confirmation_code'); ?>
+		
 	</div>
-
+ -->
 	<div class="row">
 		<?php echo $form->labelEx($model,'donation_status'); ?>
-		<?php echo $form->textField($model,'donation_status',array('size'=>1,'maxlength'=>1)); ?>
+	<?php 
+		echo $form->dropDownList($model,
+                        'donation_status',
+                        array('Y'=>'Y','N'=>'N'),
+                        array('empty'=>'Select Option'));
+		?>
 		<?php echo $form->error($model,'donation_status'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_2_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_3_lookup_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'blood_group'); ?>
-		<?php echo $form->textField($model,'blood_group'); ?>
+		<?php echo $form->dropDownList($model,'blood_group',Utilities::getLookupListBybloodGroup(), array('empty'=>'Select Option')); ?>
 		<?php echo $form->error($model,'blood_group'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'lookup_details_4_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_4_lookup_id'); ?>
-		<?php echo $form->error($model,'lookup_details_4_lookup_id'); ?>
 	</div>
 
 	<div class="row buttons">

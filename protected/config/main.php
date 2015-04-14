@@ -36,13 +36,21 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		
+			'sms' => array(
+					'class'=>'ext.ClickatellSms.ClickatellSms',
+					'clickatell_username'=>'abhibhattad',
+					'clickatell_password'=>'BRAD',
+					'clickatell_apikey'=>'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx',
+			),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
 			// REST patterns
+					
 			array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
 			array('api/view', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
+					array('api/view1', 'pattern'=>'api/<model:\w+>/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
+					array('api/view2', 'pattern'=>'api/<model:\w+>/<name:\w+>', 'verb'=>'GET'),
 			array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
 			array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
 			array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),

@@ -26,5 +26,32 @@ class Utilities{
 						'lookup_number'=>$id
 				)), 'lookup_id','lookup_name');
 	}
+	static function getLookupListByState() {
+		return CHtml::listData(LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>1
+				)), 'lookup_id','lookup_value');
+	}
+	static function getLookupListByCity($id) {
+		return CHtml::listData( LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>2,
+						'lookup_parent_id'=>(int)$id
+				)),'lookup_id','lookup_value');
+	
+	}
+static function getLookupListByArea($id) {
+		return LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>3,
+						'lookup_parent_id'=>(int)$id
+				));
+	}
+static function getLookupListBybloodGroup() {
+	return CHtml::listData(LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>4
+				)), 'lookup_id','lookup_value');
+	}
 	
 }

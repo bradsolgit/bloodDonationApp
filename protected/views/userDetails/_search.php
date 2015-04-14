@@ -72,28 +72,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_2_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_3_lookup_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'blood_group'); ?>
 		<?php echo $form->textField($model,'blood_group'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_4_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_4_lookup_id'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -51,21 +51,6 @@
 		<?php echo $form->textField($model,'date'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_2_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_2_lookup_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'lookup_details_3_lookup_id'); ?>
-		<?php echo $form->textField($model,'lookup_details_3_lookup_id'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

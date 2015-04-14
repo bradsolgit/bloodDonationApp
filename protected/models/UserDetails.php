@@ -7,7 +7,7 @@
  * @property integer $user_id
  * @property string $name
  * @property string $email
- * @property integer $number
+ * @property string $number
  * @property integer $area
  * @property integer $city
  * @property integer $state
@@ -17,17 +17,14 @@
  * @property string $password
  * @property string $confirmation_code
  * @property string $donation_status
- * @property integer $lookup_details_lookup_id
- * @property integer $lookup_details_2_lookup_id
- * @property integer $lookup_details_3_lookup_id
  * @property integer $blood_group
- * @property integer $lookup_details_4_lookup_id
+ * @property string $validate_Status
  *
  * The followings are the available model relations:
  * @property LookupDetails $area0
+ * @property LookupDetails $bloodGroup
  * @property LookupDetails $city0
  * @property LookupDetails $state0
- * @property LookupDetails $bloodGroup
  */
 class UserDetails extends CActiveRecord
 {
@@ -57,17 +54,19 @@ class UserDetails extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email, number, area, city, state, password, confirmation_code, donation_status, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id, blood_group, lookup_details_4_lookup_id', 'required'),
-			array('number, area, city, state, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id, blood_group, lookup_details_4_lookup_id', 'numerical', 'integerOnly'=>true),
+			array('name, email, number, area, city, state, password, confirmation_code, donation_status, blood_group', 'required'),
+			array('area, city, number,state, blood_group', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>100),
-			array('gender, donation_status', 'length', 'max'=>1),
+			array('number', 'length','min'=>10, 'max'=>30),
+				array('number','unique'),
+			array('gender, donation_status, validate_Status', 'length', 'max'=>1),
 			array('address', 'length', 'max'=>255),
 			array('password', 'length', 'max'=>10),
 			array('confirmation_code', 'length', 'max'=>20),
 			array('dob', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, name, email, number, area, city, state, gender, address, dob, password, confirmation_code, donation_status, lookup_details_lookup_id, lookup_details_2_lookup_id, lookup_details_3_lookup_id, blood_group, lookup_details_4_lookup_id', 'safe', 'on'=>'search'),
+			array('user_id, name, email, number, area, city, state, gender, address, dob, password, confirmation_code, donation_status, blood_group, validate_Status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,9 +79,9 @@ class UserDetails extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
+			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
-			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 		);
 	}
 
@@ -105,11 +104,8 @@ class UserDetails extends CActiveRecord
 			'password' => 'Password',
 			'confirmation_code' => 'Confirmation Code',
 			'donation_status' => 'Donation Status',
-			'lookup_details_lookup_id' => 'Lookup Details Lookup',
-			'lookup_details_2_lookup_id' => 'Lookup Details 2 Lookup',
-			'lookup_details_3_lookup_id' => 'Lookup Details 3 Lookup',
 			'blood_group' => 'Blood Group',
-			'lookup_details_4_lookup_id' => 'Lookup Details 4 Lookup',
+			'validate_Status' => 'Validate Status',
 		);
 	}
 
@@ -127,7 +123,7 @@ class UserDetails extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('number',$this->number);
+		$criteria->compare('number',$this->number,true);
 		$criteria->compare('area',$this->area);
 		$criteria->compare('city',$this->city);
 		$criteria->compare('state',$this->state);
@@ -137,11 +133,8 @@ class UserDetails extends CActiveRecord
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('confirmation_code',$this->confirmation_code,true);
 		$criteria->compare('donation_status',$this->donation_status,true);
-		$criteria->compare('lookup_details_lookup_id',$this->lookup_details_lookup_id);
-		$criteria->compare('lookup_details_2_lookup_id',$this->lookup_details_2_lookup_id);
-		$criteria->compare('lookup_details_3_lookup_id',$this->lookup_details_3_lookup_id);
 		$criteria->compare('blood_group',$this->blood_group);
-		$criteria->compare('lookup_details_4_lookup_id',$this->lookup_details_4_lookup_id);
+		$criteria->compare('validate_Status',$this->validate_Status,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

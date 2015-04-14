@@ -6,7 +6,7 @@ class DonationRequestController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/main';
+	public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -70,7 +70,19 @@ class DonationRequestController extends Controller
 		if(isset($_POST['DonationRequest']))
 		{
 			$model->attributes=$_POST['DonationRequest'];
+			$model->state=$_POST['state'];
+			$model->city=$_POST['city'];
+			$model->area=$_POST['area'];
+					$model->area=$_POST['area'];
+	$time = strtotime($model->date);
+
+$newformat = date('Y-m-d',$time);
+$model->date=$newformat;
+$number=$model->number;
+$message=$this->generateRandomString();
 			if($model->save())
+				$payload = file_get_contents('http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to='.$number.'&from=BHATTD&message='.$message);
+				
 				$this->redirect(array('view','id'=>$model->request_id));
 		}
 
@@ -94,7 +106,17 @@ class DonationRequestController extends Controller
 		if(isset($_POST['DonationRequest']))
 		{
 			$model->attributes=$_POST['DonationRequest'];
+			$model->state=$_POST['state'];
+			$model->city=$_POST['city'];
+			$model->area=$_POST['area'];
+					$model->area=$_POST['area'];
+	$time = strtotime($model->date);
+
+$newformat = date('Y-m-d',$time);
+$model->date=$newformat;
+
 			if($model->save())
+				
 				$this->redirect(array('view','id'=>$model->request_id));
 		}
 
@@ -102,7 +124,11 @@ class DonationRequestController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	public function generateRandomString($length = 4) {
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$characters = str_shuffle($characters);
+		return substr($characters, 0, $length);
+	}
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

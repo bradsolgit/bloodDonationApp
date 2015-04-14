@@ -59,11 +59,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'password',
 		'confirmation_code',
 		'donation_status',
-		'lookup_details_lookup_id',
-		'lookup_details_2_lookup_id',
-		'lookup_details_3_lookup_id',
 		'blood_group',
-		'lookup_details_4_lookup_id',
 		*/
 		array(
 			'class'=>'CButtonColumn',

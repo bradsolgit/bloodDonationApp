@@ -84,6 +84,58 @@ class ApiController extends Controller
     	else
     		$this->_sendResponse(200, CJSON::encode($model));
     }
+    public function actionView1()
+    {
+    	// Check if id was submitted via GET
+    	if(!isset($_GET['id']))
+    		$this->_sendResponse(500, 'Error: Parameter <b>id</b> is missing' );
+    	 
+    	switch($_GET['name'])
+    	{
+    		// Find respective model
+    		case 'city':
+    			$model = Utilities::getLookupListByCity($_GET['id']);
+    			break;
+    		case 'area':
+    			$model =Utilities::getLookupListByArea($_GET['id']);
+    			break;
+    		default:
+    			$this->_sendResponse(501, sprintf(
+    			'Mode <b>view</b> is not implemented for model <b>%s</b>',
+    			$_GET['name']) );
+    			Yii::app()->end();
+    	}
+    	// Did we find the requested model? If not, raise an error
+    	if(is_null($model))
+    		$this->_sendResponse(404, 'No Item found with id '.$_GET['id']);
+    	else
+    		$this->_sendResponse(200, CJSON::encode($model));
+    }
+    public function actionView2()
+    {
+    
+    	switch($_GET['name'])
+    	{
+    		// Find respective model
+    		case 'state':
+    			$model = Utilities::getLookupListByState();
+    			break;
+    		case 'bloodgroup':
+    			$model =Utilities::getLookupListBybloodGroup();
+    			break;
+    		default:
+    			$this->_sendResponse(501, sprintf(
+    			'Mode <b>view</b> is  not kwemkwmkm implemented for model <b>%s</b>',
+    			$_GET['name']) );
+    			Yii::app()->end();
+    	}
+    	// Did we find the requested model? If not, raise an error
+    	if(is_null($model))
+    		$this->_sendResponse(404, 'No Item found with id '.$_GET['id']);
+    	else
+    		$this->_sendResponse(200, CJSON::encode($model));
+    
+    }
     public function actionCreate()
     {
     	switch($_GET['model'])

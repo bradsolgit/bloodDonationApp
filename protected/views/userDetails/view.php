@@ -34,10 +34,6 @@ $this->menu=array(
 		'password',
 		'confirmation_code',
 		'donation_status',
-		'lookup_details_lookup_id',
-		'lookup_details_2_lookup_id',
-		'lookup_details_3_lookup_id',
 		'blood_group',
-		'lookup_details_4_lookup_id',
 	),
 )); ?>
