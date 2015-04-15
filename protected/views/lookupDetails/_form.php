@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'lookup_value'); ?>
-		<?php echo $form->textField($model,'lookup_value',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->textField($model,'lookup_value',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'lookup_value'); ?>
 	</div>
 

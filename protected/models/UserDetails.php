@@ -11,6 +11,7 @@
  * @property integer $area
  * @property integer $city
  * @property integer $state
+ * @property integer $district
  * @property string $gender
  * @property string $address
  * @property string $dob
@@ -54,11 +55,10 @@ class UserDetails extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email, number, area, city, state, password, confirmation_code, donation_status, blood_group', 'required'),
-			array('area, city, number,state, blood_group', 'numerical', 'integerOnly'=>true),
+			array('name, email, number, area, city, state, district, password, confirmation_code, donation_status, blood_group', 'required'),
+			array('area, city, number,state, district, blood_group', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>100),
-			array('number', 'length','min'=>10, 'max'=>30),
-				array('number','unique'),
+			array('number', 'length','min'=>10, 'max'=>10),
 			array('gender, donation_status, validate_Status', 'length', 'max'=>1),
 			array('address', 'length', 'max'=>255),
 			array('password', 'length', 'max'=>10),
@@ -66,7 +66,7 @@ class UserDetails extends CActiveRecord
 			array('dob', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, name, email, number, area, city, state, gender, address, dob, password, confirmation_code, donation_status, blood_group, validate_Status', 'safe', 'on'=>'search'),
+			array('user_id, name, email, number, area, city, state, district, gender, address, dob, password, confirmation_code, donation_status, blood_group, validate_Status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -98,6 +98,7 @@ class UserDetails extends CActiveRecord
 			'area' => 'Area',
 			'city' => 'City',
 			'state' => 'State',
+			'district' => 'District',
 			'gender' => 'Gender',
 			'address' => 'Address',
 			'dob' => 'Dob',
@@ -127,6 +128,7 @@ class UserDetails extends CActiveRecord
 		$criteria->compare('area',$this->area);
 		$criteria->compare('city',$this->city);
 		$criteria->compare('state',$this->state);
+		$criteria->compare('district',$this->district);
 		$criteria->compare('gender',$this->gender,true);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('dob',$this->dob,true);

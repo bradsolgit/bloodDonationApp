@@ -49,7 +49,7 @@ class LookupDetails extends CActiveRecord
 		return array(
 			array('lookup_value, lookup_parent_id, lookup_type_id', 'required'),
 			array('lookup_parent_id, lookup_type_id', 'numerical', 'integerOnly'=>true),
-			array('lookup_value', 'length', 'max'=>30),
+			array('lookup_value', 'length', 'max'=>500),
 			array('lookup_description', 'length', 'max'=>244),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -81,11 +81,11 @@ class LookupDetails extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'lookup_value' => 'Name',
-			'lookup_parent_id' => 'Parent',
-			'lookup_description' => 'Description',
-			'lookup_id' => 'Id',
-			'lookup_type_id' => ' Type ID',
+			'lookup_value' => 'Lookup Value',
+			'lookup_parent_id' => 'Lookup Parent',
+			'lookup_description' => 'Lookup Description',
+			'lookup_id' => 'Lookup',
+			'lookup_type_id' => 'Lookup Type',
 		);
 	}
 

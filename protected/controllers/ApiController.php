@@ -96,9 +96,15 @@ class ApiController extends Controller
     		case 'city':
     			$model = Utilities::getLookupListByCity($_GET['id']);
     			break;
+    			case 'district':
+    				$model = Utilities::getLookupListByDistrict($_GET['id']);
+    				break;
     		case 'area':
     			$model =Utilities::getLookupListByArea($_GET['id']);
     			break;
+    			case 'mobileno':
+    				$model =Utilities::getMobileNo($_GET['id']);
+    				break;
     		default:
     			$this->_sendResponse(501, sprintf(
     			'Mode <b>view</b> is not implemented for model <b>%s</b>',

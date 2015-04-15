@@ -32,12 +32,20 @@ class Utilities{
 						'lookup_type_id'=>1
 				)), 'lookup_id','lookup_value');
 	}
-	static function getLookupListByCity($id) {
-		return CHtml::listData( LookupDetails::model()->findAllByAttributes(
+	static function getLookupListByDistrict($id) {
+		return  LookupDetails::model()->findAllByAttributes(
 				array(
 						'lookup_type_id'=>2,
 						'lookup_parent_id'=>(int)$id
-				)),'lookup_id','lookup_value');
+				));
+	
+	}
+	static function getLookupListByCity($id) {
+		return  LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>5,
+						'lookup_parent_id'=>(int)$id
+				));
 	
 	}
 static function getLookupListByArea($id) {
@@ -53,5 +61,10 @@ static function getLookupListBybloodGroup() {
 						'lookup_type_id'=>4
 				)), 'lookup_id','lookup_value');
 	}
-	
+	static function getMobileNo($id) {
+		return CHtml::listData(UserDetails::model()->findAllByAttributes(
+				array(
+						'user_id'=>(int)$id
+				)), 'user_id','number');
+	}
 }

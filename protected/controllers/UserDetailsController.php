@@ -28,7 +28,7 @@ class UserDetailsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getCity','getArea','create','Forget','reset','validateOtp'),
+				'actions'=>array('index','view','getCity','getArea','getDistrict','create','Forget','reset','validateOtp'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -60,11 +60,24 @@ class UserDetailsController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actiongetCity()
+	public function actiongetDistrict()
 	{
 		$id=$_POST['state'];
-		  $data=Utilities::getLookupListByCity($id);
+		  $data=Utilities::getLookupListByDistrict($id);
 
+	
+		$data=CHtml::listData($data,'lookup_id','lookup_value');
+		foreach($data as $value=>$name)
+		{
+			echo CHtml::tag('option',
+					array('value'=>$value),CHtml::encode($name),true);
+		}
+	}
+	public function actiongetCity()
+	{
+		$id=$_POST['district'];
+		$data=Utilities::getLookupListByCity($id);
+	
 	
 		$data=CHtml::listData($data,'lookup_id','lookup_value');
 		foreach($data as $value=>$name)
@@ -97,6 +110,7 @@ class UserDetailsController extends Controller
 		{
 			$model->attributes=$_POST['UserDetails'];
 			$model->city=$_POST['city'];
+			$model->district=$_POST['district'];
 			$model->state=$_POST['state'];
 			$model->area=$_POST['area'];
 	$time = strtotime($model->dob);
@@ -236,6 +250,7 @@ $model->confirmation_code=$message;
 		{
 			$model->attributes=$_POST['UserDetails'];
 			$model->city=$_POST['city'];
+			$model->district=$_POST['district'];
 			$model->state=$_POST['state'];
 			$model->area=$_POST['area'];
 $time = strtotime($model->dob);

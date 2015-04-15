@@ -53,6 +53,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'city',
 		/*
 		'state',
+		'district',
 		'gender',
 		'address',
 		'dob',
@@ -60,6 +61,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'confirmation_code',
 		'donation_status',
 		'blood_group',
+		'validate_Status',
 		*/
 		array(
 			'class'=>'CButtonColumn',

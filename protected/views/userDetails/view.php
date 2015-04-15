@@ -28,6 +28,7 @@ $this->menu=array(
 		'area',
 		'city',
 		'state',
+		'district',
 		'gender',
 		'address',
 		'dob',
@@ -35,5 +36,6 @@ $this->menu=array(
 		'confirmation_code',
 		'donation_status',
 		'blood_group',
+		'validate_Status',
 	),
 )); ?>

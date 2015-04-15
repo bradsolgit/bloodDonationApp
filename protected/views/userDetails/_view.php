@@ -34,6 +34,10 @@
 	<br />
 
 	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('district')); ?>:</b>
+	<?php echo CHtml::encode($data->district); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('gender')); ?>:</b>
 	<?php echo CHtml::encode($data->gender); ?>
 	<br />
@@ -60,6 +64,10 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('blood_group')); ?>:</b>
 	<?php echo CHtml::encode($data->blood_group); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('validate_Status')); ?>:</b>
+	<?php echo CHtml::encode($data->validate_Status); ?>
 	<br />
 
 	*/ ?>

@@ -6,7 +6,7 @@ class LookupDetailsController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/column1';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class LookupDetailsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','create'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,8 +70,25 @@ class LookupDetailsController extends Controller
 		if(isset($_POST['LookupDetails']))
 		{
 			$model->attributes=$_POST['LookupDetails'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->lookup_id));
+			$values=$model->lookup_value;
+			$val=explode(',',$values);
+			for($i=0;$i<count($val);$i++)
+			{
+				$model1=new LookupDetails;
+				//$model->menu_id=$menus[$i];
+				$model1->attributes=$_POST['LookupDetails'];
+				$model1->lookup_value=$val[$i];
+				if($model1->save()){
+					$valid = true;
+				}else{
+					$valid = false;
+				}					
+
+				
+			}
+			
+			if($valid)
+				$this->redirect(array('create'));
 		}
 
 		$this->render('create',array(

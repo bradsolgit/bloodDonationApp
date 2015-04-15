@@ -28,7 +28,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'number'); ?>
-		<?php echo $form->textField($model,'number'); ?>
+		<?php echo $form->textField($model,'number',array('size'=>30,'maxlength'=>30)); ?>
 	</div>
 
 	<div class="row">
@@ -44,6 +44,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'state'); ?>
 		<?php echo $form->textField($model,'state'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'district'); ?>
+		<?php echo $form->textField($model,'district'); ?>
 	</div>
 
 	<div class="row">
@@ -74,6 +79,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'blood_group'); ?>
 		<?php echo $form->textField($model,'blood_group'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'validate_Status'); ?>
+		<?php echo $form->textField($model,'validate_Status',array('size'=>1,'maxlength'=>1)); ?>
 	</div>
 
 	<div class="row buttons">
