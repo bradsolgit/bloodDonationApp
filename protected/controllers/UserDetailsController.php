@@ -118,7 +118,7 @@ class UserDetailsController extends Controller
 $newformat = date('Y-m-d',$time);
 $model->dob=$newformat;
 $number=$model->number;
-$message=$this->generateRandomString();
+$message=Utilities::generateRandomString();
 $model->confirmation_code=$message;
 
 			if($model->save())
@@ -132,11 +132,6 @@ $model->confirmation_code=$message;
 		$this->render('create',array(
 			'model'=>$model,
 		));
-	}
-	public function generateRandomString($length = 4) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$characters = str_shuffle($characters);
-		return substr($characters, 0, $length);
 	}
 	
 	public function actionreset()

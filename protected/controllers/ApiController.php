@@ -22,7 +22,7 @@ class ApiController extends Controller
     }
  
     // Actions
-    public function actionModel_List()
+    public function actionmodelList()
     {
     	// Get the respective model instance
     	switch($_GET['model'])
@@ -57,7 +57,7 @@ class ApiController extends Controller
     		$this->_sendResponse(200, CJSON::encode($rows));
     	}
     }
-    public function actionModel_Id()
+    public function actionmodelId()
     {
     	// Check if id was submitted via GET
     	if(!isset($_GET['id']))
@@ -84,7 +84,7 @@ class ApiController extends Controller
     	else
     		$this->_sendResponse(200, CJSON::encode($model));
     }
-    public function actionModel_Name_Id()
+    public function actionmodelNameId()
     {
     	// Check if id was submitted via GET
     	if(!isset($_GET['id']))
@@ -115,6 +115,19 @@ class ApiController extends Controller
     					case 'bloodgroup':
     						$model =Utilities::getBloodGroup($_GET['id']);
     						break;
+    					case 'password':
+    						$message = "Invalid";
+    						$number = $_POST['number'];
+    						$password = $_POST['password'];
+    						$user = Utilities::getMobileNo($number);
+    						if($user->password == $password){
+    							$message = "Valid";
+    						}
+    						$this->_sendResponse(200, CJSON::encode($message));
+    					case 'otp':
+    						$model = new UserDetails();
+    						break;
+    						
     				default:
     					$this->_sendResponse(501, sprintf(
     					'Mode <b>view</b> is not implemented for model <b>%s</b>',
@@ -162,7 +175,7 @@ class ApiController extends Controller
     	else
     		$this->_sendResponse(200, CJSON::encode($model));
     }
-    public function actionModel_Name()
+    public function actionmodelName()
     {
     
     	switch($_GET['name'])
@@ -187,20 +200,43 @@ class ApiController extends Controller
     		$this->_sendResponse(200, CJSON::encode($model));
     
     }
+
+    public function actionvalidateApi()
+    {
+    	$message = "Invalid";
+    	switch($_GET['validate'])
+    	{
+    		// Get an instance of the respective model
+    		case 'password':
+    			$number = $_POST['number'];
+    			$password = $_POST['password'];
+    			$user = UserDetails::model()->findByAttributes(array(
+						'number'=>$number,
+    					'password'=>$password
+				));
+    			if(!empty($user)){
+    				$message = "Valid";
+    			}
+    			break;
+    		case 'otp':
+    				$model = new UserDetails();
+    				break;
+    		default:
+    			$this->_sendResponse(501,
+    			sprintf('Mode <b>create</b> is not implemented for model <b>%s</b>',
+    			$_GET['model']) );
+    			Yii::app()->end();
+    	}
+    	$this->_sendResponse(200, CJSON::encode($message));
+    }
     public function actionCreate()
     {
     	switch($_GET['model'])
     	{
     		// Get an instance of the respective model
-    		case 'userDetails':
+    		case 'user':
     			$model = new UserDetails();
     			break;
-    		case 'lookupDetails':
-    			$model = new LookupDetails();
-    				break;
-    		case 'donationRequest':
-    			$model = new DonationRequest();
-    					break;
     		default:
     			$this->_sendResponse(501,
     			sprintf('Mode <b>create</b> is not implemented for model <b>%s</b>',
@@ -212,14 +248,23 @@ class ApiController extends Controller
     		// Does the model have this attribute? If not raise an error
     		if($model->hasAttribute($var))
     			$model->$var = $value;
-    		else
-    			$this->_sendResponse(500,
-    					sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
-    							$_GET['model']) );
+//     		else
+//     			$this->_sendResponse(500,
+//     					sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
+//     							$_GET['model']) );
     	}
     	// Try to save the model
-    	if($model->save())
+    	$model->confirmation_code = '0000';
+    	$model->area=$model->city;
+    	$number=$model->number;
+    	$message=Utilities::generateRandomString();
+    	$model->confirmation_code=$message;
+    	// Try to save the model
+    	if($model->save()){
+    		$model->password = "";
+    		$payload = file_get_contents('http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to='.$number.'&from=BHATTD&message='.$message);
     		$this->_sendResponse(200, CJSON::encode($model));
+    	}
     	else {
     		// Errors occurred
     		$msg = "<h1>Error</h1>";

@@ -119,4 +119,10 @@ static function getLookupListBybloodGroup() {
 		
 		return UserDetails::model()->findAll($criteria);
 	}
+	
+	static function generateRandomString($length = 4){
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$characters = str_shuffle($characters);
+		return substr($characters, 0, $length);
+	}
 }

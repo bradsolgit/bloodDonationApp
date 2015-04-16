@@ -2835,22 +2835,12 @@ ul.p_n-list li {
 	color:#f2871e;
 	border: 1.5px solid #ffd0a1;
 }
-.section-country
-{
-	border-bottom: 1px solid #cdcdcd;
-}
-.section-status
-{
-	border-bottom: 1px solid #cdcdcd;
-}
+
 select {
 	color:#747474;
 	font-size: 0.9em;
-	padding: 8px;
-	outline: none;
-	margin: 5px 0;
 	border: none;
-	width: 49%;
+	width: 90%;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
 }
@@ -3153,3 +3143,15 @@ transition: all 0.3s ease-out;
 	}
 }
 /****------end-media Queries-----****/
+
+
+label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic;
+	font-weight: normal;
+}
+
+.section{
+	padding: 10px;
+}

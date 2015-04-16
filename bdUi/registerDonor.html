@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <!--js-->
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -22,79 +23,213 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
+	var bloodGroups = [];
+	var districts = [];
+	var states = [];
+	var cities = [];
+	var areas = [];
+	var confirmCode;
+	var user;
 			jQuery(document).ready(function($) {
+				// validate signup form on keyup and submit
+				$("#otpForm").validate({
+					rules: {
+						otp: "required",
+					},
+					messages: {
+						otp: "Please enter your name"
+					}
+				});
+				$("#userForm").validate({
+					rules: {
+						name: "required",
+						password: {
+							required: true,
+							minlength: 5
+						},
+						cnfpassword: {
+							required: true,
+							minlength: 5,
+							equalTo: "#password"
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						topic: {
+							required: "#newsletter:checked",
+							minlength: 2
+						},
+						city: "required",
+						state: "required",
+						district : "required",
+						gender : "required",
+						donation_status : "required",
+						blood_group : "required"
+					},
+					messages: {
+						name: "Please enter your name",
+						password: {
+							required: "Please provide a password",
+							minlength: "Your password must be at least 5 characters long"
+						},
+						cnfpassword: {
+							required: "Please provide a password",
+							minlength: "Your password must be at least 5 characters long",
+							equalTo: "Please enter the same password as above"
+						},
+						email: "Please enter a valid email address",
+						agree: "Please accept our policy",
+						city: "Please select City",
+						state: "Please select State",
+						district: "Please select District",
+						blood_group: "Please select Blood Group",
+						donation_status: "Please select Donation Status",
+						gender: "Please select Gender"
+							
+					}
+				});
 				
-				var json1 = [{"lookup_value":"vijayawada","lookup_parent_id":"2","lookup_description":"","lookup_id":"8","lookup_type_id":"2"},{"lookup_value":"nellore","lookup_parent_id":"2","lookup_description":"","lookup_id":"9","lookup_type_id":"2"}];
-				$.each(json1, function(k, item) { 
-			    	
-			       $("#state").append($("<option></option>")
-			             .attr("value", item.lookup_id)
-			             .text(item.lookup_value));
-			   		 });
-			
+				$json1 = [{"lookup_value":"vijayawada","lookup_parent_id":"2","lookup_description":"","lookup_id":"8","lookup_type_id":"2"},{"lookup_value":"nellore","lookup_parent_id":"2","lookup_description":"","lookup_id":"9","lookup_type_id":"2"}];
+				$("#state").empty();
+				$("#bloodgroup").empty();
+				$("#state").append($("<option></option>")
+			             .attr("value", "")
+			             .text("State"));
+				$("#bloodgroup").append($("<option></option>")
+			             .attr("value", "")
+			             .text("Blood Group"));
+				$.ajax({
+		            type: 'GET',
+		            url: 'http://localhost/bdApp/index.php/api/lookupDetails',
+					dataType: 'json',
+		            success: function(data)
+                      {
+		            	$json1 = data;
+		            	
+		            	data.forEach( function (item)
+		            			{
+		            			    if(item.lookup_type_id == "4"){
+		            			    	bloodGroups.push(item);
+		            			    	 $("#bloodgroup").append($("<option></option>")
+					 			             .attr("value", item.lookup_id)
+					 			             .text(item.lookup_value));
+		            			    }else if(item.lookup_type_id == "2"){
+		            			    	districts.push(item);
+		            			    }else if(item.lookup_type_id == "1"){
+		            			    	states.push(item);
+		            			    	 $("#state").append($("<option></option>")
+				 			             .attr("value", item.lookup_id)
+				 			             .text(item.lookup_value));
+		            			    }else if(item.lookup_type_id == "3"){
+		            			    	areas.push(item);
+		            			    }else if(item.lookup_type_id == "5"){
+		            			    	cities.push(item);
+		            			    }
+		            			    
+		            			});
+						}
+             		});
+				
+				
 				 $('#state').change(function(event){
 				    	
 				    	var state= this.value;
-						$.ajax({
-				            type: 'POST',
-				            url: url,
-							dataType: 'json',
-				            data: { lookupId:state},
-	                        success: function(data)
-	                          {
-									 $('#city').empty();
-									   $('#city')
-							             .append($("<option></option>")
-							             .attr("value", "")
-							             .text("City"));
-							    	   $.each(data, function(k, item) { 
-										       $('#city')
-										             .append($("<option></option>")
-										             .attr("value", item.lookup_id)
-										             .text(item.lookup_value));
-											    });
-											}
-				             		});
+				    	 $('#district').empty();
+						   $('#district')
+				             .append($("<option></option>")
+				             .attr("value", "")
+				             .text("District"));
+						   districts.forEach( function (item)
+			            			{
+							   if(item.lookup_parent_id == state){
+								   $("#district").append($("<option></option>")
+		 			             .attr("value", item.lookup_id)
+		 			             .text(item.lookup_value));
+							   }
+							   
+			            	});
 	    	
 						    });
-	 			$('#city').change(function(event){
+				 
+				 $('#district').change(function(event){
+				    	
+				    	var district= this.value;
+				    	 $('#city').empty();
+						   $('#city')
+				             .append($("<option></option>")
+				             .attr("value", "1")
+				             .text("City"));
+						   cities.forEach( function (item)
+			            			{
+							   if(item.lookup_parent_id == district){
+								   $("#city").append($("<option></option>")
+		 			             .attr("value", item.lookup_id)
+		 			             .text(item.lookup_value));
+							   }
+							   
+			            	});
+	    	
+						    });
+				 
+				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-						$.ajax({
-				            type: 'POST',
-				            url: url,
-							dataType: 'json',
-				            data: { lookupId:city},
-	                        success: function(data)
-	                          {
-									 $('#area').empty();
-									   $('#area')
-							             .append($("<option></option>")
-							             .attr("value", "")
-							             .text("Area"));
-							    	   $.each(data, function(k, item) { 
-										       $('#area')
-										             .append($("<option></option>")
-										             .attr("value", item.lookup_id)
-										             .text(item.lookup_value));
-											    });
-											}
-				             		});
+				    	 $('#area').empty();
+						   $('#area')
+				             .append($("<option></option>")
+				             .attr("value", "1")
+				             .text("Area"));
+						   areas.forEach( function (item)
+			            			{
+							   if(item.lookup_parent_id == city){
+								   $("#area").append($("<option></option>")
+		 			             .attr("value", item.lookup_id)
+		 			             .text(item.lookup_value));
+							   }
+							   
+			            	});
 	    	
 						    });
-			
+				
+	 			
 
 	 			
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
+				
+				$("#otpButton").click(function(){
+					$("#invalidOtpMsg").hide();
+					if($("#otp").val() === confirmCode){
+						 sessionStorage.setItem("login", "true");
+						 sessionStorage.setItem("number", "9966866886");
+						 window.location="index.html";
+					}else{
+						$("#invalidOtpMsg").show();
+					}
+				});
 				$(".submitbotton").click(function(){	
-					
+					if($("#userForm").valid()){
 					 var userValues = $("#userForm").serialize();
 					 
 					 var user = $("#userForm").serializeArray();
-					 alert(userValues);
+					 $.ajax({
+			            	type: 'POST',
+			           		url: 'http://localhost/bdApp/index.php/api/user',
+							dataType: 'json',
+							 data: userValues,
+			            	success: function(data)
+	                     		{
+			            		confirmCode = data.confirmation_code;
+			            		user = data;
+			            		$("#userForm").hide();
+			            		$("#otpForm").show();
+	                     		}
+							});
+							
+					}
 				});
 			});
 	</script>
@@ -146,7 +281,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				<!----------start top_section----------->
 				<div class="section">
 						<div class="input-sign details">
-							<input type="email" name="email"  placeholder="Your Email" value="" required/> 
+							<input type="email" name="email"  placeholder="Your Email" /> 
 						</div>
 						<div class="input-sign details">
 							<input type="text" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
@@ -154,11 +289,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="clear"> </div>
 					</div>
 					<div class="section">
-						<div class="input password">
-							<input type="password" name="password"   placeholder="Password" required/>
+						<div class="input-sign details">
+							<input type="password" name="password" id="password"   placeholder="Password" required/>
 						</div>
-						<div class="input cnf-password">
-							<input type="password" name="cnfpassword" placeholder="Confirm Password" required/>
+						<div class="input-sign details1">
+							<input type="password" name="cnfpassword" id="cnfpassword" placeholder="Confirm Password" required/>
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -171,22 +306,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					<!----------start name section----------->
 					<div class="section ">
 						<div class="input-sign details name">
-							<input type="text" name="name"  placeholder="Name" required/>
+							<input type="text" name="name"  placeholder="Name" />
 						</div>
 						
 						<div class="clear"> </div>
 					</div>
 					<!----------start city section----------->
 					<div class="section">
-						<div class="input-sign details">
-						<select id="state"  class="frm-field required" name="state" required="required" >
+						<div class="section-address details">
+						<select id="state"  class="frm-field required" name="state"  >
 						<option value="" selected="selected">State</option>
 						</select>
 						
 						</div>
-						<div class="input-sign details1">
-						<select id="city"  class="frm-field required" name="city" required="required" >
-						<option value="" selected="selected">City</option>
+						<div class="section-address details1">
+						<select id="district"  class="frm-field required" name="district" >
+						<option value="" selected="selected">District</option>
 						</select>
 						 
 						</div>
@@ -195,49 +330,83 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					</div>
 					<!----------start Address section----------->
 					<div class="section">
-						<div class="input-sign details">
-							<select id="area"  class="frm-field required" name="area" required="required" >
-						<option value="" selected="selected">Area</option>
+						<div class="section-address details">
+							<select id="city"  class="frm-field required" name="city" >
+							<option value="" selected="selected">City</option>
 						</select>
 						 
 						</div>
-					<div class="section details1">
-						<input type="radio" name="sex" name="gender"  value="male" >Male&nbsp;
-						<input type="radio" name="sex" name="gender"  value="female">Female
-					</div>
-					
+						<div class="section-address details1">
+							<select id="area"  class="frm-field required" name="area" >
+							<option value="" selected="selected">Area</option>
+						</select>
+						 
+						</div>
+						
 						<div class="clear"> </div>
 					</div>
 					
+					
 					<div class="section">
-					<textarea name="address"  rows="4" cols="50" id="address" placeholder="Address"></textarea>
+					<div class="section details">
+					<label for="gender">Gender</label>
+						<input type="radio" name="sex" name="gender"  value="male" >Male&nbsp;
+						<input type="radio" name="sex" name="gender"  value="female">Female
 					</div>
+					<div class="section details1">
+					
+					<input type="text" name="address" id="address"  placeholder="Address" />
+					</div>
+					</div>
+					<br/>
+					<br/>
 					<div class="section">
-					<div class="section-country">
-						<select id="bloodgroup"  class="frm-field required" required="required"  >
+						<div class="section-address details">
+						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
 						<option value="" selected="selected">Blood Group</option>
-						<option value="O+ve">O+ve</option>
-						  <option value="O-ve">O-ve</option>
 						</select>
 						
-					</div>
-					<div class="section-status">
-						<select id="status"  class="frm-field required" required="required" >
-						<option value="" selected="selected">Donation Status</option>
+						</div>
+						<div class="section-address details1">
+						<select id="status" name="donation_status"  class="frm-field required"  >
+						<option value="" selected="selected">Blood Donation Status</option>
 						<option value="y">Yes</option>
 						  <option value="n">No</option>
 						</select>
+						 
+						</div>
 						
+						<div class="clear"> </div>
 					</div>
 					
-					</div>
+					
+					
+					<div class="section">
+					<label for="agree">Please agree to our policy</label>
+						<input type="checkbox" class="checkbox" id="agree" name="agree">
+						</div>
+					
 					<div class="submit">
-					<input class="bluebutton submitbotton" type="submit" value="Sign up" />	
+					<input class="bluebutton submitbotton" type="button" value="Reuqest for OTP" />	
 					</div>
 				</div>
 				<!----------end bottom-section----------->
 			</form>
 			<!----------end form----------->
+			
+			<form class="sign simple-form" id="otpForm" name="userForm" style="display: none;">
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			
+			<div class="section">
+						<div class="input-sign details">
+							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+				<div class="submit">
+					<input class="bluebutton" id="otpButton" type="button" value="Sign up" />	
+					</div>
+			</form>
 		</div>
 	 	  
 	 		<div class="clearfix"> </div>

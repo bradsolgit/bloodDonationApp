@@ -2420,3 +2420,65 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/bloodDonationApp/index.php/api/userDetails/mobile%20no/9959167378
 ---
+2015/04/16 16:30:56 [error] [php] Undefined index: number (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:198)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/user/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (198)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/16 16:31:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in D:\xampp\htdocs\bdApp\protected\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(270): CController->missingAction('user')
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('user')
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/user/passwo...')
+#3 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/bdApp/index.php/api/user/password
+---
+2015/04/16 16:37:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "validate/password".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('validate/passwo...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/validate/password
+---
+2015/04/16 16:38:37 [error] [php] Undefined index: number (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:211)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (211)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/16 16:39:33 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:214)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (214)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/16 16:41:33 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:214)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (214)
+in D:\xampp\htdocs\bdApp\index.php (13)

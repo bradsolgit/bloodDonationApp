@@ -27,6 +27,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
+				
+				if(sessionStorage.getItem("login") == null){
+					$("#dd").hide();
+				}else{
+					$("#dd").show();
+				}
 			});
 	</script>
 <!-- //end-smoth-scrolling -->

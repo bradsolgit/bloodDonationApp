@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'lookup_type_id'); ?>
-		<?php echo $form->textField($model,'lookup_type_id'); ?>
+		<?php echo CHtml::dropDownList('state','',Utilities::getLookupTypeList(), array('empty'=>'Select')); ?>
 		<?php echo $form->error($model,'lookup_type_id'); ?>
 	</div>
 
