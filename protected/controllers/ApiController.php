@@ -22,7 +22,7 @@ class ApiController extends Controller
     }
  
     // Actions
-    public function actionList()
+    public function actionModel_List()
     {
     	// Get the respective model instance
     	switch($_GET['model'])
@@ -57,7 +57,7 @@ class ApiController extends Controller
     		$this->_sendResponse(200, CJSON::encode($rows));
     	}
     }
-    public function actionView()
+    public function actionModel_Id()
     {
     	// Check if id was submitted via GET
     	if(!isset($_GET['id']))
@@ -84,40 +84,85 @@ class ApiController extends Controller
     	else
     		$this->_sendResponse(200, CJSON::encode($model));
     }
-    public function actionView1()
+    public function actionModel_Name_Id()
     {
     	// Check if id was submitted via GET
     	if(!isset($_GET['id']))
     		$this->_sendResponse(500, 'Error: Parameter <b>id</b> is missing' );
-    	 
-    	switch($_GET['name'])
+    	switch($_GET['model'])
     	{
     		// Find respective model
-    		case 'city':
-    			$model = Utilities::getLookupListByCity($_GET['id']);
+    		case 'userDetails':
+    			switch($_GET['name'])
+    			{
+    				// Find respective model
+    			
+    				case 'mobileno':
+    					$model =Utilities::getMobileNo($_GET['id']);
+    					break;
+    					case 'state':
+    						$model =Utilities::getState($_GET['id']);
+    						break;
+    				    case 'district':
+    						$model =Utilities::getDistrict($_GET['id']);
+    						break;
+    					case 'city':
+    						$model =Utilities::getCity($_GET['id']);
+    						break;
+    					case 'area':
+    						$model =Utilities::getArea($_GET['id']);
+    						break;
+    					case 'bloodgroup':
+    						$model =Utilities::getBloodGroup($_GET['id']);
+    						break;
+    				default:
+    					$this->_sendResponse(501, sprintf(
+    					'Mode <b>view</b> is not implemented for model <b>%s</b>',
+    					$_GET['name']) );
+    					Yii::app()->end();
+    			}
     			break;
-    			case 'district':
-    				$model = Utilities::getLookupListByDistrict($_GET['id']);
-    				break;
-    		case 'area':
-    			$model =Utilities::getLookupListByArea($_GET['id']);
+    		case 'lookupDetails':
+    			switch($_GET['name'])
+    			{
+    				// Find respective model
+    				case 'city':
+    					$model = Utilities::getLookupListByCity($_GET['id']);
+    					break;
+    				case 'district':
+    					$model = Utilities::getLookupListByDistrict($_GET['id']);
+    					break;
+    				case 'area':
+    					$model =Utilities::getLookupListByArea($_GET['id']);
+    					break;
+    			
+    				case 'lookupParent':
+    					$model =Utilities::getLookupParent($_GET['id']);
+    					break;
+    				case 'lookupType':
+    					$model =Utilities::getLookupType($_GET['id']);
+    					break;
+    				default:
+    					$this->_sendResponse(501, sprintf(
+    					'Mode <b>view</b> is not implemented for model <b>%s</b>',
+    					$_GET['name']) );
+    					Yii::app()->end();
+    			}
     			break;
-    			case 'mobileno':
-    				$model =Utilities::getMobileNo($_GET['id']);
-    				break;
     		default:
     			$this->_sendResponse(501, sprintf(
     			'Mode <b>view</b> is not implemented for model <b>%s</b>',
-    			$_GET['name']) );
+    			$_GET['model']) );
     			Yii::app()->end();
     	}
+    	
     	// Did we find the requested model? If not, raise an error
     	if(is_null($model))
     		$this->_sendResponse(404, 'No Item found with id '.$_GET['id']);
     	else
     		$this->_sendResponse(200, CJSON::encode($model));
     }
-    public function actionView2()
+    public function actionModel_Name()
     {
     
     	switch($_GET['name'])
@@ -131,7 +176,7 @@ class ApiController extends Controller
     			break;
     		default:
     			$this->_sendResponse(501, sprintf(
-    			'Mode <b>view</b> is  not kwemkwmkm implemented for model <b>%s</b>',
+    			'Mode <b>view</b> is  not  implemented for model <b>%s</b>',
     			$_GET['name']) );
     			Yii::app()->end();
     	}
@@ -147,9 +192,15 @@ class ApiController extends Controller
     	switch($_GET['model'])
     	{
     		// Get an instance of the respective model
-    		case 'posts':
-    			$model = new Post;
+    		case 'userDetails':
+    			$model = new UserDetails();
     			break;
+    		case 'lookupDetails':
+    			$model = new LookupDetails();
+    				break;
+    		case 'donationRequest':
+    			$model = new DonationRequest();
+    					break;
     		default:
     			$this->_sendResponse(501,
     			sprintf('Mode <b>create</b> is not implemented for model <b>%s</b>',
@@ -194,8 +245,14 @@ class ApiController extends Controller
     	switch($_GET['model'])
     	{
     		// Find respective model
-    		case 'posts':
-    			$model = Post::model()->findByPk($_GET['id']);
+    		case 'userDetails':
+    			$model = UserDetails::model()->findByPk($_GET['id']);
+    			break;
+    		case 'lookupDetails':
+    			$model = LookupDetails::model()->findByPk($_GET['id']);
+    			break;
+    		case 'donationRequest':
+    			$model = DonationRequest::model()->findByPk($_GET['id']);
     			break;
     		default:
     			$this->_sendResponse(501,
@@ -234,8 +291,14 @@ class ApiController extends Controller
     	switch($_GET['model'])
     	{
     		// Load the respective model
-    		case 'posts':
-    			$model = Post::model()->findByPk($_GET['id']);
+    		case 'userDetails':
+    			$model = UserDetails::model()->findByPk($_GET['id']);
+    			break;
+    		case 'lookupDetails':
+    			$model = LookupDetails::model()->findByPk($_GET['id']);
+    			break;
+    		case 'donationRequest':
+    			$model = DonationRequest::model()->findByPk($_GET['id']);
     			break;
     		default:
     			$this->_sendResponse(501,
@@ -351,7 +414,7 @@ class ApiController extends Controller
     	$username = $_SERVER['HTTP_X_USERNAME'];
     	$password = $_SERVER['HTTP_X_PASSWORD'];
     	// Find the user
-    	$user=User::model()->find('LOWER(username)=?',array(strtolower($username)));
+    	$user=UserDetails::model()->find('number=?',array($username));
     	if($user===null) {
     		// Error: Unauthorized
     		$this->_sendResponse(401, 'Error: User Name is invalid');

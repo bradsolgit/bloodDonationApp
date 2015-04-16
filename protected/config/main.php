@@ -47,10 +47,11 @@ return array(
 			'rules'=>array(
 			// REST patterns
 					
-			array('api/list', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
-			array('api/view', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
-					array('api/view1', 'pattern'=>'api/<model:\w+>/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
-					array('api/view2', 'pattern'=>'api/<model:\w+>/<name:\w+>', 'verb'=>'GET'),
+			array('api/Model_List', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
+			array('api/Model_Id', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
+					array('api/Model_Name_Id', 'pattern'=>'api/<model:\w+>/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
+					array('api/Model_Name', 'pattern'=>'api/<model:\w+>/<name:\w+>', 'verb'=>'GET'),
+				
 			array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
 			array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
 			array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),

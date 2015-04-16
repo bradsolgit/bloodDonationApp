@@ -62,9 +62,61 @@ static function getLookupListBybloodGroup() {
 				)), 'lookup_id','lookup_value');
 	}
 	static function getMobileNo($id) {
-		return CHtml::listData(UserDetails::model()->findAllByAttributes(
+		return UserDetails::model()->findAllByAttributes(
 				array(
-						'user_id'=>(int)$id
-				)), 'user_id','number');
+						'number'=>$id
+				));
+	}
+	static function getLookupParent($id) {
+		return LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_parent_id'=>(int)$id
+				));
+	}
+	static function getLookupType($id) {
+		return LookupDetails::model()->findAllByAttributes(
+				array(
+						'lookup_type_id'=>(int)$id
+				));
+	}
+	static function getState($id) {
+		return UserDetails::model()->findAllByAttributes(
+				array(
+						'state'=>(int)$id
+				));
+	}
+	static function getDistrict($id) {
+		return UserDetails::model()->findAllByAttributes(
+				array(
+						'district'=>(int)$id
+				));
+	}
+	static function getCity($id) {
+		return UserDetails::model()->findAllByAttributes(
+				array(
+						'city'=>(int)$id
+				));
+	}
+	static function getArea($id) {
+		return UserDetails::model()->findAllByAttributes(
+				array(
+						'area'=>(int)$id
+				));
+	}
+	static function getBloodGroup($id) {
+		return UserDetails::model()->findAllByAttributes(
+				array(
+						'blood_group'=>(int)$id
+				));
+	}
+	static function getSearch($id) {
+		$criteria = new CDbCriteria();
+			$criteria->compare('area',$this->area);
+		$criteria->compare('city',$this->city);
+		$criteria->compare('state',$this->state);
+		$criteria->compare('district',$this->district);
+		$criteria->compare('blood_group',$this->blood_group);
+		
+		return UserDetails::model()->findAll($criteria);
 	}
 }

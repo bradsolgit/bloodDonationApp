@@ -132,11 +132,7 @@ $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
 		<?php echo $form->error($model,'confirmation_code'); ?>
 	</div>
  -->
-	<div class="row">
-		<?php echo $form->labelEx($model,'donation_status'); ?>
-		<?php echo $form->textField($model,'donation_status',array('size'=>1,'maxlength'=>1)); ?>
-		<?php echo $form->error($model,'donation_status'); ?>
-	</div>
+	
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'donation_status'); ?>
