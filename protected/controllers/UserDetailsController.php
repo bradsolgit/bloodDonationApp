@@ -28,7 +28,7 @@ class UserDetailsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getCity','getArea','getDistrict','create','Forget','reset','validateOtp'),
+				'actions'=>array('index','view','getCity','getArea','admin','getDistrict','create','Forget','reset','validateOtp'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -170,11 +170,11 @@ $model->confirmation_code=$message;
 				$newPassword = $_POST['new_password'];
 				$userid= Yii::app()->user->getState("user_id");
 	
-				$model=$this->loadModel($userid);
+				$mod=UserDetails::model()->findByAttributes(array('password' =>$oldid));
 	
-				$model->password =$_POST['new_password'];
-				$model->save();
-				if($model->save())
+				$mod->password =$_POST['new_password'];
+				$mod->save();
+				if($mod->save())
 					$this->redirect(array('view','id'=>$model->user_id));
 	
 			}

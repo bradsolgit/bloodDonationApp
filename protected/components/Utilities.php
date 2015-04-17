@@ -109,6 +109,12 @@ static function getLookupListBybloodGroup() {
 						'blood_group'=>(int)$id
 				));
 	}
+	static function getLookupListByConfirnationcode($user_id) {
+		return UserDetails::model()->findByAttributes(
+				array(
+						'user_id'=>(int)$user_id
+				));
+	}
 	static function getSearch($id) {
 		$criteria = new CDbCriteria();
 			$criteria->compare('area',$this->area);
@@ -121,7 +127,7 @@ static function getLookupListBybloodGroup() {
 	}
 	
 	static function generateRandomString($length = 4){
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$characters = '0123456789';
 		$characters = str_shuffle($characters);
 		return substr($characters, 0, $length);
 	}

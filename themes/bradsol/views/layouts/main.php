@@ -38,7 +38,7 @@
 		<ul>
 		<li class='active'><a href='<?php echo $this->createUrl('site/index')?>'><span>Home</span></a></li>
 	
-	<li class='has-sub'><a href='#'><span>User Details</span></a>
+	<li class='has-sub'><a href='#'><span>Donor Details</span></a>
       <ul>
           <li><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
            <li><a href='<?php echo $this->createUrl('userDetails/index')?>'><span>View User</span></a></li>
