@@ -14,6 +14,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
+<script src="js/constants.js"></script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -29,9 +31,70 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 	var cities = [];
 	var areas = [];
 	var confirmCode;
-	var user;
+	var userDetails = "";
+	$.validator.addMethod("custom_number", function(value, element) {
+	    return this.optional(element) || value === "NA" ||
+	        value.match(/[789][0-9]{9}/);
+	}, "Please enter a valid number, or 'NA'");
+	
 			jQuery(document).ready(function($) {
 				// validate signup form on keyup and submit
+				$("#loginForm").validate({
+					rules: {
+						number:{
+				            required: true,
+				            custom_number: true
+				        },
+						lgpassword: "required"
+						
+					},
+					messages: {
+						number: {
+							required: "Please enter number",
+							minlength: "Your enter a valid number"
+						},
+						lgpassword: "Please enter your Password"
+					}
+				});
+				
+			$("#loginButton").click(function(){	
+					
+					if($("#loginForm").valid()){
+						$("#invMsg").hide();
+						var userValues = $("#loginForm").serialize();
+						 
+						 var user = $("#loginForm").serializeArray();
+					$.ajax({
+		            	type: 'POST',
+		           		url: url+'/validate/password',
+						dataType: 'json',
+						data: userValues,
+		            	success: function(data)
+                     		{
+		            		if(data == "Valid"){
+								 sessionStorage.setItem("login", "true");
+								 sessionStorage.setItem("number", "9966866886");
+								 window.location="index.html";
+								 }else{
+									 $("#invMsg").toggle("slow"); 
+								 }
+                     		}
+						});
+						
+					}
+					 
+				});
+				
+				$("#fgtPwdLnk").click(function(){	
+					$("#mobMsg").hide();
+					 $("#cnfMsg").hide();
+					 if($("#number").val() == "" || $("#number").val() == "undefined"){
+						 $("#mobMsg").toggle("slow");
+						 $("#cnfMsg").toggle("slow");
+					 }else{
+						 $("#cnfMsg").toggle("slow");
+					 }
+				});
 				$("#otpForm").validate({
 					rules: {
 						otp: "required",
@@ -89,8 +152,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 							
 					}
 				});
-				
-				$json1 = [{"lookup_value":"vijayawada","lookup_parent_id":"2","lookup_description":"","lookup_id":"8","lookup_type_id":"2"},{"lookup_value":"nellore","lookup_parent_id":"2","lookup_description":"","lookup_id":"9","lookup_type_id":"2"}];
+				$('#horizontalTab').easyResponsiveTabs({
+					type: 'default', //Types: default, vertical, accordion           
+					width: 'auto', //auto or any width like 600px
+					fit: true   // 100% fit in a container
+				});
+
 				$("#state").empty();
 				$("#bloodgroup").empty();
 				$("#state").append($("<option></option>")
@@ -101,100 +168,120 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			             .text("Blood Group"));
 				$.ajax({
 		            type: 'GET',
-		            url: 'http://localhost/bdApp/index.php/api/lookupDetails',
+		            url: url+'/lookupType/1',
 					dataType: 'json',
 		            success: function(data)
                       {
-		            	$json1 = data;
-		            	
 		            	data.forEach( function (item)
 		            			{
-		            			    if(item.lookup_type_id == "4"){
-		            			    	bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-					 			             .attr("value", item.lookup_id)
-					 			             .text(item.lookup_value));
-		            			    }else if(item.lookup_type_id == "2"){
-		            			    	districts.push(item);
-		            			    }else if(item.lookup_type_id == "1"){
 		            			    	states.push(item);
 		            			    	 $("#state").append($("<option></option>")
 				 			             .attr("value", item.lookup_id)
 				 			             .text(item.lookup_value));
-		            			    }else if(item.lookup_type_id == "3"){
-		            			    	areas.push(item);
-		            			    }else if(item.lookup_type_id == "5"){
-		            			    	cities.push(item);
-		            			    }
 		            			    
 		            			});
 						}
              		});
 				
+				$.ajax({
+		            type: 'GET',
+		            url: url+'/lookupType/4',
+					dataType: 'json',
+		            success: function(data)
+                      {
+		            	data.forEach( function (item)
+		            			{
+		            					bloodGroups.push(item);
+		            			    	 $("#bloodgroup").append($("<option></option>")
+				 			             .attr("value", item.lookup_id)
+				 			             .text(item.lookup_value));
+		            			    
+		            			});
+						}
+             		});
 				
 				 $('#state').change(function(event){
 				    	
 				    	var state= this.value;
-				    	 $('#district').empty();
-						   $('#district')
-				             .append($("<option></option>")
-				             .attr("value", "")
-				             .text("District"));
-						   districts.forEach( function (item)
-			            			{
-							   if(item.lookup_parent_id == state){
-								   $("#district").append($("<option></option>")
-		 			             .attr("value", item.lookup_id)
-		 			             .text(item.lookup_value));
-							   }
-							   
-			            	});
+				    	$.ajax({
+				            type: 'GET',
+				            url: url+'/lookupId/district/'+state,
+							dataType: 'json',
+				            success: function(data)
+		                      {
+				           	 $('#district').empty();
+							   $('#district')
+					             .append($("<option></option>")
+					             .attr("value", "")
+					             .text("District"));
+							   data.forEach( function (item)
+				            			{
+								     $("#district").append($("<option></option>")
+			 			             .attr("value", item.lookup_id)
+			 			             .text(item.lookup_value));
+								  });
+								}
+		             		});
+						
+				    
 	    	
 						    });
 				 
 				 $('#district').change(function(event){
 				    	
 				    	var district= this.value;
-				    	 $('#city').empty();
-						   $('#city')
-				             .append($("<option></option>")
-				             .attr("value", "1")
-				             .text("City"));
-						   cities.forEach( function (item)
-			            			{
-							   if(item.lookup_parent_id == district){
-								   $("#city").append($("<option></option>")
-		 			             .attr("value", item.lookup_id)
-		 			             .text(item.lookup_value));
-							   }
-							   
-			            	});
+				    	$.ajax({
+				            type: 'GET',
+				            url: url+'/lookupId/city/'+district,
+							dataType: 'json',
+				            success: function(data)
+		                      {
+				            	$('#city').empty();
+								   $('#city')
+						             .append($("<option></option>")
+						             .attr("value", "1")
+						             .text("City"));
+								   data.forEach( function (item)
+					            			{
+									      $("#city").append($("<option></option>")
+				 			             .attr("value", item.lookup_id)
+				 			             .text(item.lookup_value));
+									   
+					            	});
+								  }
+		             		});
+						
+				    
 	    	
 						    });
 				 
 				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-				    	 $('#area').empty();
-						   $('#area')
-				             .append($("<option></option>")
-				             .attr("value", "1")
-				             .text("Area"));
-						   areas.forEach( function (item)
-			            			{
-							   if(item.lookup_parent_id == city){
-								   $("#area").append($("<option></option>")
-		 			             .attr("value", item.lookup_id)
-		 			             .text(item.lookup_value));
-							   }
-							   
-			            	});
-	    	
-						    });
-				
-	 			
-
-	 			
+				    	$.ajax({
+				            type: 'GET',
+				            url: url+'/lookupId/area/'+city,
+							dataType: 'json',
+				            success: function(data)
+		                      {
+				            	$('#area').empty();
+								 $('#area')
+						             .append($("<option></option>")
+						             .attr("value", "1")
+						             .text("Area"));
+								   data.forEach( function (item)
+					            		{
+										   $("#area").append($("<option></option>")
+				 			             .attr("value", item.lookup_id)
+				 			             .text(item.lookup_value));
+									   
+					            	});
+			    	
+								  }
+		             		});
+				    	 
+				    });
+				 			
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
@@ -202,14 +289,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				
 				$("#otpButton").click(function(){
 					$("#invalidOtpMsg").hide();
-					if($("#otp").val() === confirmCode){
-						 sessionStorage.setItem("login", "true");
-						 sessionStorage.setItem("number", "9966866886");
-						 window.location="index.html";
-					}else{
-						$("#invalidOtpMsg").show();
-					}
-				});
+					$.ajax({
+		            	type: 'POST',
+		           		url: url+'/validate/validateotp',
+						dataType: 'json',
+						 data: {otp:$("#otp").val(),number: userDetails.number},
+		            	success: function(data)
+                     		{
+		            		if(data == "Valid"){
+								 $.ajax({
+						            	type: 'POST',
+						           		url: url+'/validate/validatestatus',
+										dataType: 'json',
+										 data: {user_id: userDetails.user_id},
+						            	success: function(data)
+				                     		{
+						            		if(data == "Valid"){
+												 sessionStorage.setItem("login", "true");
+												 sessionStorage.setItem("number", userDetails.number);
+												 window.location="index.html";
+												 }else{
+													 $("#invalidOtpMsg").toggle("slow"); 
+												 }
+				                    		},
+				                     		error: function(xhr, error){
+				                     	        $("#errorMsg").html(xhr.responseText).show();
+				                     		 }
+										});
+								
+								 
+								 }else{
+									 $("#invalidOtpMsg").toggle("slow"); 
+								 }
+                    		},
+                     		error: function(xhr, error){
+                     	        $("#errorMsg").html(xhr.responseText).show();
+                     		 }
+						});
+					});
+				
 				$(".submitbotton").click(function(){	
 					if($("#userForm").valid()){
 					 var userValues = $("#userForm").serialize();
@@ -217,20 +335,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					 var user = $("#userForm").serializeArray();
 					 $.ajax({
 			            	type: 'POST',
-			           		url: 'http://localhost/bdApp/index.php/api/user',
+			           		url: url+'/api/userDetails',
 							dataType: 'json',
 							 data: userValues,
 			            	success: function(data)
 	                     		{
 			            		confirmCode = data.confirmation_code;
-			            		user = data;
+			            		userDetails = data;
 			            		$("#userForm").hide();
 			            		$("#otpForm").show();
-	                     		}
+	                     		},
+	                     		error: function(xhr, error){
+	                     	        $("#errorMsg").html(xhr.responseText).show();
+	                     		 }
 							});
 							
 					}
 				});
+				if(sessionStorage.getItem("login") == null){
+					$("#dd").hide();
+					$("#loginLink").show();
+				}else{
+					$("#dd").show();
+					$("#loginLink").hide();
+				}
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
@@ -247,14 +375,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			<div class="clear"> </div>
 			<div class="navg">
 				<ul class="res">
-					<li><a class="active" href="index.html">HOME</a></li>
+					<li><a href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT US</a></li>
-					<li><a href="projects.html">PROJECTS</a></li>
+					<li><a href="searchDonor.html">SEARCH DONOR</a></li>
+					<li><a href="bloodDonationRequest.html">REQUEST FOR BLOOD</a></li>
 					<li><a href="blog.html">BLOG</a></li>
 					<li><a href="events.html">EVENTS</a></li>
 					<li><a href="gallery.html">GALLERY</a></li>
 					<li><a href="contact.html">CONTACT US</a></li>
+					<li id="loginLink"><a class="active" href="registerDonor.html">LOGIN/REGISTER</a></li>
 				</ul>
+				
 				 <script>
 			                                                      $( "span.menu").click(function() {
 			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
@@ -268,23 +399,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 	</div>
 </div>
 <!--heder end here-->
-
-<!--below banner start here-->
-
-<div class="section2">
-	 <div class="col-md-7 below-center">
-	 	  <!----------start sign_up----------->
-		<div class="sign_up" >
+<div class="sap_tabs">	
+			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+			  <ul class="resp-tabs-list">
+			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Register</span>
+			  	  	
+				</li>
+				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Login</span></li>
+				  
+				 
+			  </ul>		
+			  <!---->		  	 
+			<div class="resp-tabs-container">
+					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+					<div class="facts">
+							<!--login1-->
+						<div class="register">
+							<div class="sign_up" >
 			<!----------start form----------->
 			<form class="sign simple-form" id="userForm" name="userForm" >
+			<span id="errorMsg" style="display: none;"></span>
+			
 				<div class="formtitle">Become a Donor.</div>
 				<!----------start top_section----------->
 				<div class="section">
 						<div class="input-sign details">
-							<input type="email" name="email"  placeholder="Your Email" /> 
+							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
 						<div class="input-sign details">
-							<input type="text" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
+							<input type="text" class="text" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -306,7 +449,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					<!----------start name section----------->
 					<div class="section ">
 						<div class="input-sign details name">
-							<input type="text" name="name"  placeholder="Name" />
+							<input type="text" class="text" name="name"  placeholder="Name" />
 						</div>
 						
 						<div class="clear"> </div>
@@ -382,8 +525,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					
 					
 					<div class="section">
-					<label for="agree">Please agree to our policy</label>
-						<input type="checkbox" class="checkbox" id="agree" name="agree">
+					<input type="checkbox" class="checkbox" id="agree" name="agree"><label for="agree">Agree to our policy</label>
+						
 						</div>
 					
 					<div class="submit">
@@ -404,12 +547,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="clear"> </div>
 					</div>
 				<div class="submit">
-					<input class="bluebutton" id="otpButton" type="button" value="Sign up" />	
+					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
 					</div>
 			</form>
 		</div>
 	 	  
-	 		<div class="clearfix"> </div>
+	 	
+						</div>
+					</div>
+				</div>		
+			 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+					 	<div class="facts">
+							 <div class="login">
+								<!----------start member-login----------->
+		<div class="member-login">
+			<!----------star form----------->
+			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
+			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
+			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
+			<form class="login" id="loginForm"  action="" method="post" >
+	
+					<div class="formtitle">Member Login</div>
+					<div class="input">
+						<input type="text" placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						
+					</div>
+					<div class="input">
+						<input type="password" id="lgpassword" name="lgpassword"  placeholder="Password" />
+						
+					</div>
+					<div class="buttons">
+						<a href="#" id="fgtPwdLnk">Forgot password?</a>
+						<input class="bluebutton" id="loginButton" type="button" value="Login" />
+						<div class="clear"> </div>
+					</div>
+		
+				</form>
+				<!----------end form----------->
+		</div>
+		<!----------end member-login----------->
+						</div>
+				</div> 
+			</div> 			        					 
+				        </div>	
+				     </div>	
+		        </div>
+	 
+<!--below banner start here-->
+
+<div class="section2">
+	 <div class="col-md-7 below-center">
+	 	  <!----------start sign_up----------->
+			<div class="clearfix"> </div>
 	 </div>
 	 
 	 <div class="clearfix"> </div>

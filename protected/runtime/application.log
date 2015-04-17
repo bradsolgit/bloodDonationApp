@@ -3258,3 +3258,25 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/bloodDonationApp/index.php/validate/donationreqests
 ---
+2015/04/17 13:40:10 [error] [php] Undefined index: number (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:212)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (212)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/17 15:08:06 [error] [php] Undefined index: password (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:187)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/password
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (187)
+in D:\xampp\htdocs\bdApp\index.php (13)

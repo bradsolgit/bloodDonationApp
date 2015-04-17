@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <!--js-->
 <script src="js/jquery.min.js"></script>
+<script src="js/constants.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -27,11 +28,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
-				
 				if(sessionStorage.getItem("login") == null){
 					$("#dd").hide();
+					$("#loginLink").show();
 				}else{
 					$("#dd").show();
+					$("#loginLink").hide();
 				}
 			});
 	</script>
@@ -51,12 +53,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				<ul class="res">
 					<li><a class="active" href="index.html">HOME</a></li>
 					<li><a href="about.html">ABOUT US</a></li>
-					<li><a href="projects.html">PROJECTS</a></li>
+					<li><a href="searchDonor.html">SEARCH DONOR</a></li>
+					<li><a href="bloodDonationRequest.html">REQUEST FOR BLOOD</a></li>
 					<li><a href="blog.html">BLOG</a></li>
 					<li><a href="events.html">EVENTS</a></li>
 					<li><a href="gallery.html">GALLERY</a></li>
 					<li><a href="contact.html">CONTACT US</a></li>
-					<li><a href="login.html">LOGIN</a></li>
+					<li id="loginLink"><a href="registerDonor.html">LOGIN/REGISTER</a></li>
 				</ul>
 				 <script>
 			                                                      $( "span.menu").click(function() {

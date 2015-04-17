@@ -49,14 +49,14 @@ return array(
 					
 			array('api/modelList', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
 			array('api/modelId', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
-			array('api/modelNameId', 'pattern'=>'api/<model:\w+>/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
-			array('api/modelName', 'pattern'=>'api/<model:\w+>/<name:\w+>', 'verb'=>'GET'),
-			array('api/validateApi', 'pattern'=>'validate/<validate:\w+>', 'verb'=>'GET'),
+			array('api/lookupIdList', 'pattern'=>'lookupId/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
+			array('api/lookupTypeList', 'pattern'=>'lookupType/<id:\w+>', 'verb'=>'GET'),
 			
+			array('api/validateApi', 'pattern'=>'validate/<validate:\w+>', 'verb'=>'POST'),
+			array('api/userDetails', 'pattern'=>'userDetails/<property:\w+>/<id:\d+>', 'verb'=>'GET'),
 			array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
 			array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
 			array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
-			
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
