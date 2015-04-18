@@ -427,7 +427,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
 						<div class="input-sign details">
-							<input type="text" class="text" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
+							<input type="text" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -490,19 +490,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					</div>
 					
 					
-					<div class="section">
-					<div class="section details">
-					<label for="gender">Gender</label>
-						<input type="radio" name="sex" name="gender"  value="male" >Male&nbsp;
-						<input type="radio" name="sex" name="gender"  value="female">Female
-					</div>
-					<div class="section details1">
+			<div class="section address-bs">
 					
-					<input type="text" name="address" id="address"  placeholder="Address" />
+					<textarea rows="4" cols="4" name="address" id="address"  placeholder="Address" ></textarea>
 					</div>
-					</div>
-					<br/>
-					<br/>
 					<div class="section">
 						<div class="section-address details">
 						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
@@ -522,10 +513,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="clear"> </div>
 					</div>
 					
-					
+						<div class="section">
+					<div class="section details gender-bs">
+					<label for="gender">Gender&nbsp;&nbsp;&nbsp;</label>
+						<input type="radio" name="sex" name="gender"  value="male" > &nbsp;Male&nbsp;
+						<input type="radio" name="sex" name="gender"  value="female">&nbsp;Female&nbsp;
+					</div>
+					<div style="clear:both;"></div>
+					</div>
 					
 					<div class="section">
-					<input type="checkbox" class="checkbox" id="agree" name="agree"><label for="agree">Agree to our policy</label>
+					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
 						</div>
 					
@@ -558,28 +556,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				</div>		
 			 <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
 					 	<div class="facts">
-							 <div class="login">
-								<!----------start member-login----------->
-		<div class="member-login">
+							<div class="register">
+							<div class="sign_up" >
 			<!----------star form----------->
 			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
 			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
 			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
-			<form class="login" id="loginForm"  action="" method="post" >
+			<form class="sign simple-form" id="loginForm"  action="" method="post" >
 	
 					<div class="formtitle">Member Login</div>
-					<div class="input">
-						<input type="text" placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						
 					</div>
-					<div class="input">
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
+					<div class="input-sign login-mbnumber">
 						<input type="password" id="lgpassword" name="lgpassword"  placeholder="Password" />
 						
 					</div>
-					<div class="buttons">
+					<div style="clear:both;"></div>
+					</div>
+					<div class="buttons login-button1">
 						<a href="#" id="fgtPwdLnk">Forgot password?</a>
 						<input class="bluebutton" id="loginButton" type="button" value="Login" />
-						<div class="clear"> </div>
+						
 					</div>
 		
 				</form>

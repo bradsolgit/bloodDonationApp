@@ -2612,6 +2612,14 @@ ul.p_n-list li {
 	border-radius: 6px;
 	overflow: hidden;
 }
+#loginForm .details{
+	clear:both;
+	
+}
+#loginForm .details input[type="text"], #loginForm .details input[type="password"]{
+	margin:0 auto;
+}
+
 .formtitle {
 	padding: 1em;
 	line-height: 16px;
@@ -2670,7 +2678,6 @@ ul.p_n-list li {
 	font-size: 0.96em;
 	text-decoration: none;
 	line-height: 12px;
-	float:left;
 	padding: 0.8em 0em;
 }
 
@@ -2692,7 +2699,7 @@ ul.p_n-list li {
 	padding: 7px 21px;
 	color: #FFF;
 	font-family: 'Open Sans', sans-serif;
-	float: right;
+
 	margin-left: 10px;
 	cursor: pointer;
 	outline: none;
@@ -2728,7 +2735,6 @@ ul.p_n-list li {
 {
 	width:650px;
 	margin: 4% auto 4% auto; 
-	background: #FFF;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -2760,7 +2766,7 @@ ul.p_n-list li {
 {
 	float: right;
 	width:50%;
-	border-left: 1px solid #DDD;
+	//border-left: 1px solid #DDD;
 }
 
 .email input[type="email"]
@@ -2772,26 +2778,99 @@ ul.p_n-list li {
 	color:#747474;
 }
 .title {
-	padding: 1em;
-	line-height: 16px;
-	font-size: 1em;
-	color: #1D1E20;
-	border-bottom: 1px solid #cdcdcd;
-	font-weight: 600;
+	 color: #1d1e20;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: 15px;
+    padding: 30px 10px 5px;
 }
+.mbnumber{
+		background-image:url("../images/phone.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+
+}
+
 .details input[type="text"],.details1 input[type="text"]
 {
 	color:#747474;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	border:1px solid #ccc;
+	border-radius:5px;
+		padding-left:45px;
+	
 }
+.login-mbnumber, .login-button1{
+	margin:0 auto;
+	width: 60%;
+}
+.login-mbnumber input[type="text"]{
+			 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+			background-image:url("../images/phone.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    width: 261px;
+}
+
+ .name input[type="text"]{
+     transition: all 0.3s ease 0s;
+    background-image:url("../images/uname.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    width: 96%;
+ }
+ .login-mbnumber input[type="password"], .details input[type="password"], .details1  input[type="password"] {
+		 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    background-image:url("../images/pwd.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    width: 261px;
+}
+
+.details select, .details1 select {
+			 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    background-image:url("../images/pwd.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    width: 261px;
+}
+
 .details input[type="email"],.details1 input[type="email"]
 {
 	color:#747474;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	border:1px solid #ccc;
+	border-radius:5px;
+	background-image:url("../images/mail.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	padding-left:45px;
+	
 }
 .details input[type="email"]:hover
 {
@@ -2817,25 +2896,32 @@ ul.p_n-list li {
 	width: 100%;
 }
 .section textarea{
-	padding: 10px 11px 0px 11px;
-	border: 1px solid #FFF;
-	line-height: 15px;
-	color: #747474;
-	width: 93%;
-	margin: 0;
-	font-size: 0.9em;
-	outline: none;
-	font-family: 'Open Sans', sans-serif;
-	resize: none;
-	font-weight: 600;
-	border-bottom: 1px solid #DDD;
+				 border: 1px solid #ccc;
+			background-image:url("../images/address.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+    width:96%;
 }
 .section textarea:hover
 {
 	color:#f2871e;
 	border: 1.5px solid #ffd0a1;
 }
-
+label {
+	font-weight:500 !important;
+	 color: #747474 !important;
+}
+.agree{
+	float: left;
+    line-height: normal;
+    margin: 3px 20px 17px !important;
+}
 select {
 	color:#747474;
 	font-size: 0.9em;
@@ -2847,6 +2933,13 @@ select {
 .submit {
 	text-align: center;
 	padding: 1.7em 1em;
+}
+#horizontalTab ul{
+	margin:16%;
+}
+.register{
+	
+ background: none repeat scroll 0 0 #eb5242;
 }
 .submitbotton
 {
@@ -3127,11 +3220,23 @@ transition: all 0.3s ease-out;
 }
 /****-----end-copyright----****/
 /****----*media Queries----****/
+@media only screen and (max-width: 768px) and (min-width:320px){
+	.details{
+	margin-bottom:10px;
+	}
+	.cnf-password, .details1{
+	clear:right !important;
+	float:none;
+	}
+
+}
+
 @media only screen and (max-width: 480px) and (min-width:320px)
 {
 	.wrapper-demo {
-	width: 350px;
+	width: 300px;
 	}
+	.
 }
 @media only screen and (max-width: 320px) and (min-width:240px)
 {
@@ -3150,6 +3255,7 @@ label.error {
 	color: red;
 	font-style: italic;
 	font-weight: normal;
+	font-size:12px;
 }
 
 .section{
@@ -3646,6 +3752,16 @@ li.resp-tab-item.lost{
   font-size: 2em;
   padding:1em 0;
   }
+  .details{
+  width:80%;
+  height:auto;
+  clear:left  !important;
+  }
+  .cnf-password, .details1{
+  width:80%;
+  height:auto;
+  clear:right !important;
+  }
 }
 @media (max-width:320px){
   .wrap {
@@ -3719,4 +3835,9 @@ form.sub input[type="password"] {
 .main h1 {
   font-size: 1.45em;
   }
+}
+/* bs start */
+input{
+	
+	border:1px solid #000 !important;
 }
