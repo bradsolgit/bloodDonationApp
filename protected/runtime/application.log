@@ -3338,3 +3338,88 @@ Stack trace:
 REQUEST_URI=/bdApp/index.php/user/update
 in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (470)
 in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:35:13 [error] [php] file_get_contents(http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&amp;password=BRAD&amp;to=9966866886&amp;from=BHATTD&amp;message=Welcome to Mahesh Foundation Blood Donation App. Your OTP is 8135): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:409)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (409)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:38:02 [error] [php] file_get_contents(http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&amp;password=BRAD&amp;to=9966866886&amp;from=BHATTD&amp;message=Welcome to Mahesh Foundation Blood Donation App. Your OTP is 0682): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:409)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (409)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:41:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_blood_donation`.`user_details`, CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `user_details` (`validate_Status`, `email`, `number`, `password`, `name`, `state`, `district`, `city`, `area`, `address`, `blood_group`, `donation_status`, `gender`, `confirmation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13).
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (403)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:41:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_blood_donation`.`user_details`, CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `user_details` (`validate_Status`, `email`, `number`, `password`, `name`, `state`, `district`, `city`, `area`, `address`, `blood_group`, `donation_status`, `gender`, `confirmation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9, :yp10, :yp11, :yp12, :yp13)' in D:\xampp\htdocs\bdApp\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 D:\xampp\htdocs\bdApp\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php(403): CActiveRecord->save()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): ApiController->actionCreate()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bdApp/index.php/api/userDetails
+HTTP_REFERER=http://localhost/bdApp/bdUi/registerDonor.php
+---
+2015/04/20 19:42:16 [error] [php] file_get_contents(http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&amp;password=BRAD&amp;to=9966866886&amp;from=BHATTD&amp;message=Welcome to Mahesh Foundation. Your OTP is 1025): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:409)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (409)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:45:14 [error] [php] file_get_contents(http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&amp;password=BRAD&amp;to=9966866886&amp;from=BHATTD&amp;message=Welcome to Mahesh Foundation. Your OTP is 2643): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:409)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (409)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/04/20 19:48:23 [error] [php] file_get_contents(http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&amp;password=BRAD&amp;to=9966866886&amp;from=BHATTD&amp;message=Welcome to Mahesh Foundation. Your OTP is {$OTP}0541): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:409)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (409)
+in D:\xampp\htdocs\bdApp\index.php (13)

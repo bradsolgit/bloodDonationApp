@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -7,30 +10,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <html>
 <head>
 <title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<!--web-fonts-->
-<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-<!--js-->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/constants.js"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
-</script>
-<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-	var bloodGroups = [];
-	var districts = [];
-	var states = [];
-	var cities = [];
-	var areas = [];
-	var confirmCode;
+
+<?php 
+
+include 'header.php';
+?>
+<script type="text/javascript">
+	var state = "";
+	var city = "";
+	var district = "";
+	var area = "";
+	var bloddgroup = "";
+    var confirmCode;
 	var userDetails = "";
 	$.validator.addMethod("custom_number", function(value, element) {
 	    return this.optional(element) || value === "NA" ||
@@ -73,8 +64,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
                      		{
 		            		if(data == "Valid"){
 								 sessionStorage.setItem("login", "true");
-								 sessionStorage.setItem("number", $("#mobnumber").val() );
-								 window.location="index.php";
+								 sessionStorage.setItem("number", "9966866886");
+								 window.location="index.html";
 								 }else{
 									 $("#invMsg").toggle("slow"); 
 								 }
@@ -88,7 +79,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				$("#fgtPwdLnk").click(function(){	
 					$("#mobMsg").hide();
 					 $("#cnfMsg").hide();
-					 $("#invMsg").hide();
 					 if($("#number").val() == "" || $("#number").val() == "undefined"){
 						 $("#mobMsg").toggle("slow");
 						 $("#cnfMsg").toggle("slow");
@@ -158,53 +148,107 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					width: 'auto', //auto or any width like 600px
 					fit: true   // 100% fit in a container
 				});
-
-				$("#state").empty();
-				$("#bloodgroup").empty();
-				$("#state").append($("<option></option>")
-			             .attr("value", "")
-			             .text("State"));
-				$("#bloodgroup").append($("<option></option>")
-			             .attr("value", "")
-			             .text("Blood Group"));
+				
+				var number = sessionStorage.getItem("number");
+				var frm = $("#userForm");
 				$.ajax({
 		            type: 'GET',
-		            url: url+'/lookupType/1',
+		            url: url+'/user/number/'+number,
 					dataType: 'json',
 		            success: function(data)
                       {
-		            	data.forEach( function (item)
-		            			{
-		            			    	states.push(item);
-		            			    	 $("#state").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
+		            	
+		            	userDetails = data;
+		            	state = data["state"];
+		            	city = data["city"];
+		            	district = data["district"];
+		            	area = data["area"];
+		            	bloddgroup = data["blood_group"];
+		            	getInitialValues();
+		            	getDistrictValues(state);
+		            	getCityValues(district);
+		            	getAreaValues(city);
+		            	 $("#area").val(area);
+		                  	 $.each(data, function(key, value){
+							   // $('[name='+key+']', frm).val(value);
+		                  		var $ctrl = $('[name='+key+']', frm); 
+		                  		
+		                  	    if($ctrl.is('select')){
+		                  	       
+		                  	    }
+		                  	    else {
+		                  	        switch($ctrl.attr("type"))  
+		                  	        {  
+		                  	            case "text" :    
+		                  	                $ctrl.val(value);   
+		                  	                break;
+		                  	          case "email" :    
+		                  	                $ctrl.val(value);   
+		                  	                break;
+		                  	          case "hidden": 
+		                  	        	   $ctrl.val(value);
+		                  	        		break;
+		                  	          case "textarea":
+		                  	        	   $ctrl.val(value);
+		                  	        		break;
+		                  	            case "radio" : case "checkbox":   
+		                  	                $ctrl.each(function(){
+		                  	                   if($(this).attr('value') == value) {  $(this).attr("checked",value); } });   
+		                  	                break;
+		                  	        } 
+		                  	    }
+		                  	  
+							  });
+		                  	$("#address").val(data["address"]);
 						}
              		});
 				
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/4',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            					bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				 $('#state').change(function(event){
-				    	
-				    	var state= this.value;
-				    	$.ajax({
+				 function getInitialValues(){
+					 $("#state").empty();
+						$("#blood_group").empty();
+						$("#state").append($("<option></option>")
+					             .attr("value", "")
+					             .text("State"));
+						$("#blood_group").append($("<option></option>")
+					             .attr("value", "")
+					             .text("Blood Group"));
+						$.ajax({
+				            type: 'GET',
+				            url: url+'/lookupType/1',
+							dataType: 'json',
+				            success: function(data)
+		                      {
+				            	data.forEach( function (item)
+				            			{
+				            			    	 $("#state").append($("<option></option>")
+						 			             .attr("value", item.lookup_id)
+						 			             .text(item.lookup_value));
+				            			    
+				            			});
+				            	
+								}
+		             		});
+						
+						$.ajax({
+				            type: 'GET',
+				            url: url+'/lookupType/4',
+							dataType: 'json',
+				            success: function(data)
+		                      {
+				            	data.forEach( function (item)
+				            			{
+				            			    	 $("#blood_group").append($("<option></option>")
+						 			             .attr("value", item.lookup_id)
+						 			             .text(item.lookup_value));
+				            			    
+				            			});
+								}
+		             		});
+						
+				 }
+				 
+				 function getDistrictValues(state){
+					 $.ajax({
 				            type: 'GET',
 				            url: url+'/lookupId/district/'+state,
 							dataType: 'json',
@@ -221,17 +265,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			 			             .attr("value", item.lookup_id)
 			 			             .text(item.lookup_value));
 								  });
+							   $("#state").val(state);
 								}
 		             		});
 						
 				    
-	    	
-						    });
+				 }
 				 
-				 $('#district').change(function(event){
-				    	
-				    	var district= this.value;
-				    	$.ajax({
+				 function getCityValues(district){
+						$.ajax({
 				            type: 'GET',
 				            url: url+'/lookupId/city/'+district,
 							dataType: 'json',
@@ -240,7 +282,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				            	$('#city').empty();
 								   $('#city')
 						             .append($("<option></option>")
-						             .attr("value", "1")
+						             .attr("value", "")
 						             .text("City"));
 								   data.forEach( function (item)
 					            			{
@@ -249,9 +291,54 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				 			             .text(item.lookup_value));
 									   
 					            	});
+								   $("#district").val(district);
 								  }
 		             		});
-						
+					
+				 }
+				 
+	            function getAreaValues(city){
+	            	$.ajax({
+			            type: 'GET',
+			            url: url+'/lookupId/area/'+city,
+						dataType: 'json',
+			            success: function(data)
+	                      {
+			            	$('#area').empty();
+							 $('#area')
+					             .append($("<option></option>")
+					             .attr("value", "")
+					             .text("Area"));
+							   data.forEach( function (item)
+				            		{
+									   $("#area").append($("<option></option>")
+			 			             .attr("value", item.lookup_id)
+			 			             .text(item.lookup_value));
+								   
+				            	});
+							   $("#city").val(city);
+							   $("#district").val(userDetails.district);
+							   $("#state").val(userDetails.state);
+							   $("#area").val(userDetails.area);
+							   $("#blood_group").val(userDetails.blood_group);
+							   $(".gender").val(userDetails.gender);
+							  }
+	             		});
+			    
+	            }
+	                
+				
+				 $('#state').change(function(event){
+				    	
+				    	var state= this.value;
+				    	getDistrictValues(state);
+	    	
+						    });
+				 
+				 $('#district').change(function(event){
+				    	
+				    	var district= this.value;
+				    	getCityValues(district);
 				    
 	    	
 						    });
@@ -259,28 +346,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/area/'+city,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#area').empty();
-								 $('#area')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("Area"));
-								   data.forEach( function (item)
-					            		{
-										   $("#area").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-			    	
-								  }
-		             		});
-				    	 
+				    	getAreaValues(city);
 				    });
 				 			
 				$(".scroll").click(function(event){		
@@ -329,22 +395,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						});
 					});
 				
-				$(".submitbotton").click(function(){	
+				$("#updateBtn").click(function(){	
 					if($("#userForm").valid()){
 					 var userValues = $("#userForm").serialize();
 					 
 					 var user = $("#userForm").serializeArray();
 					 $.ajax({
 			            	type: 'POST',
-			           		url: url+'/api/userDetails',
+			           		url: url+'/user/update/'+userDetails.user_id,
 							dataType: 'json',
 							 data: userValues,
 			            	success: function(data)
 	                     		{
-			            		confirmCode = data.confirmation_code;
 			            		userDetails = data;
-			            		$("#userForm").hide();
-			            		$("#otpForm").show();
+			            		
 	                     		},
 	                     		error: function(xhr, error){
 	                     	        $("#errorMsg").html(xhr.responseText).show();
@@ -363,50 +427,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
-</head>
-<body>
-<!--header start here-->
-<div class="mothergrid">
-	<div class="container">
-		<div class="header">
-			<div class="logo">
-				<a href="index.html"> <img src="images/logo.png" alt=""/> </a>
-			</div>
-			<span class="menu"> <img src="images/icon.png" alt=""/></span>
-			<div class="clear"> </div>
-			<div class="navg">
-				<ul class="res">
-					<li><a href="index.html">HOME</a></li>
-					<li><a href="about.html">ABOUT US</a></li>
-					<li><a href="searchDonor.html">SEARCH DONOR</a></li>
-					<li><a href="bloodDonationRequest.html">REQUEST FOR BLOOD</a></li>
-					<li><a href="blog.html">BLOG</a></li>
-					<li><a href="events.html">EVENTS</a></li>
-					<li><a href="gallery.html">GALLERY</a></li>
-					<li><a href="contact.html">CONTACT US</a></li>
-					<li id="loginLink"><a class="active" href="registerDonor.html">LOGIN/REGISTER</a></li>
-				</ul>
-				
-				 <script>
-			                                                      $( "span.menu").click(function() {
-			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
-			                                                                                         // Animation complete.
-			                                                                                         });
-			                                                                                         });
-		                                                     </script>
-			</div>
-		<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<!--heder end here-->
 <div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
-			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Register</span>
+			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Edit Details</span>
 			  	  	
 				</li>
-				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Login</span></li>
+				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Reset Password</span></li>
 				  
 				 
 			  </ul>		
@@ -428,16 +455,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
 						<div class="input-sign details1">
-							<input type="text" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="section">
-						<div class="input-sign details">
-							<input type="password" name="password" id="password"   placeholder="Password" required/>
-						</div>
-						<div class="input-sign details1">
-							<input type="password" name="cnfpassword" id="cnfpassword" placeholder="Confirm Password" required/>
+							<input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -459,13 +477,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					<div class="section">
 						<div class="section-address details add-icon">
 						<select id="state"  class="frm-field required" name="state"  >
-						<option value="" selected="selected">State</option>
 						</select>
 						
 						</div>
 						<div class="section-address details1 add-icon">
 						<select id="district"  class="frm-field required" name="district" >
-						<option value="" selected="selected">District</option>
 						</select>
 						 
 						</div>
@@ -476,13 +492,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					<div class="section">
 						<div class="section-address details add-icon">
 							<select id="city"  class="frm-field required" name="city" >
-							<option value="" selected="selected">City</option>
 						</select>
 						 
 						</div>
 						<div class="section-address details1 add-icon">
 							<select id="area"  class="frm-field required" name="area" >
-							<option value="" selected="selected">Area</option>
 						</select>
 						 
 						</div>
@@ -497,14 +511,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					</div>
 					<div class="section">
 						<div class="section-address details blood-icon">
-						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
-						<option value="" selected="selected">Blood Group</option>
+						<select id="blood_group" name="blood_group"  class="frm-field required" >
+						<option value="">Blood Group</option>
 						</select>
 						
 						</div>
 						<div class="section-address details1 blood-icon">
 						<select id="status" name="donation_status"  class="frm-field required"  >
-						<option value="" selected="selected">Blood Donation Status</option>
+						<option value="">Donation Status</option>
 						<option value="y">Yes</option>
 						  <option value="n">No</option>
 						</select>
@@ -517,36 +531,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="section">
 					<div class="section details gender-bs">
 					<label for="gender">Gender&nbsp;&nbsp;&nbsp;</label>
-						<input type="radio" class="gender"  name="gender"  value="M" > &nbsp;Male&nbsp;
-						<input type="radio" class="gender"  name="gender"  value="F">&nbsp;Female&nbsp;
+						<input type="radio" class="gender" name="gender"  value="M" > &nbsp;Male&nbsp;
+						<input type="radio" class="gender" name="gender"  value="F">&nbsp;Female&nbsp;
 					</div>
 					<div style="clear:both;"></div>
 					</div>
-					
 					<div class="section">
-					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
-						
+						<div class="input-sign details">
+							<input type="text" class="text captcha" name="captcha"  id="" /> 
 						</div>
-					
+						<div class="clear"> </div>
+					</div>
 					<div class="submit">
-					<input class="bluebutton submitbotton" type="button" value="Reuqest for OTP" />	
+					<input class="bluebutton" id="updateBtn" type="button" value="Update" />	
 					</div>
 				</div>
 				<!----------end bottom-section----------->
 			</form>
 			<!----------end form----------->
 			
-			<form class="sign simple-form" id="otpForm" name="userForm">
+			<form class="sign simple-form" id="otpForm" name="otpForm" style="display: none;">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			
-			<div class="section">
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						
+					</div>
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
 						<div class="input-sign details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
-				<div class="submit">
-					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
+					<div class="submit">
+					<input class="bluebutton" id="otpButton" type="button" value="Update Mobile Number" />	
 					</div>
 			</form>
 		</div>
@@ -565,24 +585,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
 			<form class="sign simple-form" id="loginForm"  action="" method="post" >
 	
-					<div class="formtitle">Member Login</div>
+					<div class="formtitle">Reset Password</div>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="mobnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="password" id="lgpassword" name="lgpassword"  placeholder="Password" />
+						<input type="password" id="lgpassword" name="lgpassword"  placeholder="Old Password" />
 						
 					</div>
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+						<input type="password" id="lgpassword" name="lgpassword"  placeholder="New Password" />
+						
+					</div>
+					<div class="section">
+						<div class="input-sign details">
+							<input type="text" class="text captcha" name="captcha"  id="" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+					
 					<div style="clear:both;"></div>
 					</div>
 					<div class="buttons login-button1">
-						<a href="#" id="fgtPwdLnk">Forgot password?</a>
-						<input class="bluebutton" id="loginButton" type="button" value="Login" />
+						<input class="bluebutton" id="loginButton" type="button" value="Reset Password" />
 						
 					</div>
 		
@@ -597,6 +630,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				     </div>	
 		        </div>
 	 
+	
+			
 
+<?php 
+include 'news.php';
+?>
+
+<?php 
+include 'footer.php';
+?>
 </body>
 </html>

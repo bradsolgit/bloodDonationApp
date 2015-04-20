@@ -330,7 +330,17 @@ class ApiController extends Controller {
 					$message = "Valid";
 				}
 				break;
+			case 'captcha' :
+				if (! isset ( $_POST ['captcha'] ))
+					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 				
+				$hash = 5381;
+				$value = strtoupper($_POST ['captcha'] );
+				for($i = 0; $i < strlen($value); $i++) {
+					$hash = (($hash << 5) + $hash) + ord(substr($value, $i));
+				}
+				$this->_sendResponse ( 200, CJSON::encode ( $message ) );
+				break;
 			case 'validationcode' :
 				$user_id = $_POST ['user_id'];
 				
@@ -392,26 +402,28 @@ class ApiController extends Controller {
 		// Try to save the model
 		if ($model->save ()) {
 			$model->password = "";
+			$str = Constants::$otp_message;
+			$repstr = strtr($str, array('{$OTP}' => $message));
+				
 			if ($_GET ['model'] == "userDetails") {
-				$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' . $message );
+				$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message='.Constants::$otp_message.''. $message );
 			}
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {
 			// Errors occurred
-			$msg = "<h1>Error</h1>";
-			$msg .= sprintf ( "Couldn't create model <b>%s</b>", $_GET ['model'] );
-			$msg .= "<ul>";
+			$msg = "";
 			foreach ( $model->errors as $attribute => $attr_errors ) {
-				$msg .= "<li>Attribute: $attribute</li>";
 				$msg .= "<ul>";
 				foreach ( $attr_errors as $attr_error )
 					$msg .= "<li>$attr_error</li>";
 				$msg .= "</ul>";
 			}
-			$msg .= "</ul>";
+			//$msg .= "</ul>";
 			$this->_sendResponse ( 500, $msg );
 		}
 	}
+	
+	
 	
 	public function actionrequestCreate() {
 		switch ($_GET ['model']) {
@@ -445,7 +457,7 @@ class ApiController extends Controller {
 			$model->password = "";
 			$str = Constants::$otp_message;
 			$repstr = strtr($str, array('{$OTP}' => $message));
-			$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' . $repstr );
+			$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' .$repstr);
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {
 			// Errors occurred

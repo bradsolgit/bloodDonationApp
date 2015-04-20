@@ -5,11 +5,14 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.realperson.css"> 
+<link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/constants.js"></script>
 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script src="js/jquery.dataTables.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -18,6 +21,8 @@
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/jquery.plugin.js"></script> 
+<script type="text/javascript" src="js/jquery.realperson.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 	$(".scroll").click(function(event){
@@ -31,7 +36,8 @@ jQuery(document).ready(function($) {
 		$("#dd").show();
 		$("#loginLink").hide();
 	}
-
+	$(".captcha").realperson({chars: $.realperson.alphanumeric});
+	
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");
 		 sessionStorage.setItem("number", "null");
@@ -55,12 +61,11 @@ jQuery(document).ready(function($) {
 <ul class="res">
 <li><a class="active" href="index.php">HOME</a></li>
 <li><a href="about.php">ABOUT US</a></li>
-<li><a href="searchDonor.html">SEARCH DONOR</a></li>
-<li><a href="bloodDonationRequest.html">REQUEST FOR BLOOD</a></li>
+<li><a href="searchDonor.php">SEARCH DONOR</a></li>
+<li><a href="bloodRequirement.php">REQUEST FOR BLOOD</a></li>
 <li><a href="blog.html">BLOG</a></li>
-<li><a href="events.html">EVENTS</a></li>
-<li><a href="gallery.html">GALLERY</a></li>
-<li><a href="contact.html">CONTACT US</a></li>
+<li><a href="gallery.php">GALLERY</a></li>
+<li><a href="contact.php">CONTACT US</a></li>
 <li id="loginLink"><a href="registerDonor.html">LOGIN/REGISTER</a></li>
 </ul>
 <script>
@@ -84,8 +89,8 @@ $( "span.menu").click(function() {
 	<div id="dd" class="wrapper-dropdown-2" tabindex="1">menu<span><img src="images/menu.png"/></span>
 							<ul class="dropdown">
 							
-									<li><a href="#">Edit Personal Details <span class="icon"> </span></a></li>
-									<li><a href="#">Reset Password<span class="icon stat"> </span></a></li>
+									<li><a href="editDonor.php">Edit Personal Details <span class="icon"> </span></a></li>
+									<li><a href="editDonor.php">Reset Password<span class="icon stat"> </span></a></li>
 									<li><a href="#" id="signOut">Sign out<span class="icon signout"> </span></a></li>
 							</ul>
 					</div>

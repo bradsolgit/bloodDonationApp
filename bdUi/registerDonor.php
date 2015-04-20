@@ -120,7 +120,8 @@ include 'header.php';
 						district : "required",
 						gender : "required",
 						donation_status : "required",
-						blood_group : "required"
+						blood_group : "required",
+						captcha : "required"
 					},
 					messages: {
 						name: "Please enter your name",
@@ -140,7 +141,8 @@ include 'header.php';
 						district: "Please select District",
 						blood_group: "Please select Blood Group",
 						donation_status: "Please select Donation Status",
-						gender: "Please select Gender"
+						gender: "Please select Gender",
+						captcha : "Please enter captcha"
 							
 					}
 				});
@@ -299,7 +301,7 @@ include 'header.php';
 						            		if(data == "Valid"){
 												 sessionStorage.setItem("login", "true");
 												 sessionStorage.setItem("number", userDetails.number);
-												 window.location="index.html";
+												 window.location="index.php";
 												 }else{
 													 $("#invalidOtpMsg").toggle("slow"); 
 												 }
@@ -325,6 +327,9 @@ include 'header.php';
 					 var userValues = $("#userForm").serialize();
 					 
 					 var user = $("#userForm").serializeArray();
+					 //var valid = validateCaptcha($("#usrCaptcha").val());
+					 var valid = "valid";
+					 if(valid === "valid"){
 					 $.ajax({
 			            	type: 'POST',
 			           		url: url+'/api/userDetails',
@@ -341,7 +346,9 @@ include 'header.php';
 	                     	        $("#errorMsg").html(xhr.responseText).show();
 	                     		 }
 							});
-							
+					 }else{
+						 $("#errorMsg").html("Invalid Captcha").toggle("show");
+					}
 					}
 				});
 				if(sessionStorage.getItem("login") == null){
@@ -351,6 +358,8 @@ include 'header.php';
 					$("#dd").show();
 					$("#loginLink").hide();
 				}
+
+				
 			});
 	</script>
 <div class="sap_tabs">	
@@ -475,7 +484,13 @@ include 'header.php';
 					</div>
 					<div style="clear:both;"></div>
 					</div>
-					
+					<div class="section">
+						<div class="input-sign details">
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+				
 					<div class="section">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
