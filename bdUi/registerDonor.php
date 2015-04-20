@@ -380,7 +380,7 @@ include 'header.php';
 						<div class="input-sign details">
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
-						<div class="input-sign details">
+						<div class="input-sign details1">
 							<input type="text" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
 						</div>
 						<div class="clear"> </div>
@@ -410,13 +410,13 @@ include 'header.php';
 					</div>
 					<!----------start city section----------->
 					<div class="section">
-						<div class="section-address details">
+						<div class="section-address details add-icon">
 						<select id="state"  class="frm-field required" name="state"  >
 						<option value="" selected="selected">State</option>
 						</select>
 						
 						</div>
-						<div class="section-address details1">
+						<div class="section-address details1 add-icon">
 						<select id="district"  class="frm-field required" name="district" >
 						<option value="" selected="selected">District</option>
 						</select>
@@ -427,13 +427,13 @@ include 'header.php';
 					</div>
 					<!----------start Address section----------->
 					<div class="section">
-						<div class="section-address details">
+						<div class="section-address details add-icon">
 							<select id="city"  class="frm-field required" name="city" >
 							<option value="" selected="selected">City</option>
 						</select>
 						 
 						</div>
-						<div class="section-address details1">
+						<div class="section-address details1 add-icon">
 							<select id="area"  class="frm-field required" name="area" >
 							<option value="" selected="selected">Area</option>
 						</select>
@@ -449,13 +449,13 @@ include 'header.php';
 					<textarea rows="4" cols="4" name="address" id="address"  placeholder="Address" ></textarea>
 					</div>
 					<div class="section">
-						<div class="section-address details">
+						<div class="section-address details blood-icon">
 						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
 						<option value="" selected="selected">Blood Group</option>
 						</select>
 						
 						</div>
-						<div class="section-address details1">
+						<div class="section-address details1 blood-icon">
 						<select id="status" name="donation_status"  class="frm-field required"  >
 						<option value="" selected="selected">Blood Donation Status</option>
 						<option value="y">Yes</option>
@@ -489,7 +489,7 @@ include 'header.php';
 			</form>
 			<!----------end form----------->
 			
-			<form class="sign simple-form" id="otpForm" name="userForm" style="display: none;">
+			<form class="sign simple-form" id="otpForm" name="userForm">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
 			
 			<div class="section">
@@ -549,7 +549,7 @@ include 'header.php';
 				        </div>	
 				     </div>	
 		        </div>
-
+	
 			
 
 <?php 
