@@ -54,7 +54,7 @@ class Utilities {
 		) ), 'lookup_id', 'lookup_value' );
 	}
 	static function getMobileNo($id) {
-		return UserDetails::model ()->findAllByAttributes ( array (
+		return UserDetails::model ()->findByAttributes ( array (
 				'number' => $id 
 		) );
 	}

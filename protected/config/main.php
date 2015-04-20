@@ -51,10 +51,10 @@ return array(
 			array('api/modelId', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
 			array('api/lookupIdList', 'pattern'=>'lookupId/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
 			array('api/lookupTypeList', 'pattern'=>'lookupType/<id:\w+>', 'verb'=>'GET'),
-			
+			array('api/searchApi', 'pattern'=>'search/<type:\w+>', 'verb'=>'POST'),
 			array('api/validateApi', 'pattern'=>'validate/<validate:\w+>', 'verb'=>'POST'),
-			array('api/userDetails', 'pattern'=>'userDetails/<property:\w+>/<id:\d+>', 'verb'=>'GET'),
-			array('api/update', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'PUT'),
+			array('api/userDetails', 'pattern'=>'user/<property:\w+>/<id:\d+>', 'verb'=>'GET'),
+			array('api/updateUser', 'pattern'=>'user/update/<id:\d+>', 'verb'=>'POST'),
 			array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
 			array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',

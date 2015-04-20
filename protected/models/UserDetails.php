@@ -26,6 +26,7 @@
  * @property LookupDetails $bloodGroup
  * @property LookupDetails $city0
  * @property LookupDetails $state0
+ * @property LookupDetails $district0
  */
 class UserDetails extends CActiveRecord
 {
@@ -83,6 +84,7 @@ class UserDetails extends CActiveRecord
 			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
+			'district0' => array(self::BELONGS_TO, 'LookupDetails', 'district'),
 		);
 	}
 

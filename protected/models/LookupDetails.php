@@ -18,6 +18,7 @@
  * @property UserDetails[] $userDetails1
  * @property UserDetails[] $userDetails2
  * @property UserDetails[] $userDetails3
+ * @property UserDetails[] $userDetails4
  */
 class LookupDetails extends CActiveRecord
 {
@@ -72,6 +73,7 @@ class LookupDetails extends CActiveRecord
 			'userDetails1' => array(self::HAS_MANY, 'UserDetails', 'blood_group'),
 			'userDetails2' => array(self::HAS_MANY, 'UserDetails', 'city'),
 			'userDetails3' => array(self::HAS_MANY, 'UserDetails', 'state'),
+				'userDetails4' => array(self::HAS_MANY, 'UserDetails', 'district'),
 		);
 	}
 

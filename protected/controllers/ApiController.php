@@ -218,6 +218,55 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 	}
 	
+	public function actionsearchApi(){
+		$state = $_POST ['state'];
+		$city = $_POST ['city'];
+		$area =$_POST ['area'];
+		$district = $_POST ['district'];
+		$blood_group = $_POST ['blood_group'];
+		$criteria = new CDbCriteria ();
+		$criteria->compare ( 'area', $area );
+		$criteria->compare ( 'city', $city );
+		$criteria->compare ( 'state', $state );
+		$criteria->compare ( 'district', $district );
+		$criteria->compare ( 'blood_group', $blood_group );
+		switch ($_GET ['type']) {
+			case 'donors' :
+			$models = array();
+			$srchResults = UserDetails::model ()->findAll ( $criteria );
+			foreach ($srchResults as $i=>$model){
+				$tempModel = $model;
+				$tempModel->district = $model->district0->lookup_value;
+				$tempModel->city = $model->city0->lookup_value;
+				$tempModel->state = $model->state0->lookup_value;
+				$tempModel->area = $model->area0->lookup_value;
+				$tempModel->blood_group = $model->bloodGroup->lookup_value;
+				$models[$i] = $tempModel;
+			}
+			break;
+		case 'donationreqests' :
+			$srchResults = DonationRequest::model ()->findAll ( $criteria );
+			foreach ($srchResults as $i=>$model){
+				$tempModel = $model;
+				$tempModel->district = $model->district0->lookup_value;
+				$tempModel->city = $model->city0->lookup_value;
+				$tempModel->state = $model->state0->lookup_value;
+				$tempModel->area = $model->area0->lookup_value;
+				$tempModel->blood_group = $model->bloodGroup->lookup_value;
+				$models[$i] = $tempModel;
+			}
+			break;
+			default :
+				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['type'] ) );
+				Yii::app ()->end ();
+			
+		}
+		
+		if (is_null ( $models ))
+			$this->_sendResponse ( 404, 'No Item found ' );
+		else
+			$this->_sendResponse ( 200, CJSON::encode ( $models ) );
+	}
 	public function actionvalidateApi() {
 		$message = "Invalid";
 		
@@ -304,47 +353,13 @@ class ApiController extends Controller {
 					$message = "Valid";
 				}
 				break;
-			case 'userdetails_requests' :
-				$state = "";
-				$city = "";
-				$area = "";
-				$district = "";
-				$blood_group = "";
-				$state = 58;
-				$district = 563;
-				
-				$criteria = new CDbCriteria ();
-				$criteria->compare ( 'area', $area );
-				$criteria->compare ( 'city', $city );
-				$criteria->compare ( 'state', $state );
-				$criteria->compare ( 'district', $district );
-				$criteria->compare ( 'blood_group', $blood_group );
-				
-				$message = UserDetails::model ()->findAll ( $criteria );
-				break;
-			case 'donationreqests' :
-				$state = "";
-				$city = "";
-				$area = "";
-				$district = "";
-				$blood_group = "";
-				$state = 58;
-				$district = 561;
-				$criteria = new CDbCriteria ();
-				$criteria->compare ( 'area', $area );
-				$criteria->compare ( 'city', $city );
-				$criteria->compare ( 'state', $state );
-				$criteria->compare ( 'district', $district );
-				$criteria->compare ( 'blood_group', $blood_group );
-				
-				$message = DonationRequest::model ()->findAll ( $criteria );
-				break;
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['validate'] ) );
 				Yii::app ()->end ();
 		}
 		$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 	}
+	
 	public function actionCreate() {
 		switch ($_GET ['model']) {
 			// Get an instance of the respective model
@@ -397,6 +412,7 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 500, $msg );
 		}
 	}
+	
 	public function actionrequestCreate() {
 		switch ($_GET ['model']) {
 			// Get an instance of the respective model
@@ -445,47 +461,54 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 500, $msg );
 		}
 	}
-	public function actionUpdate() {
+	
+	public function actionupdateUser() {
 		// Parse the PUT parameters. This didn't work: parse_str(file_get_contents('php://input'), $put_vars);
-		$json = file_get_contents ( 'php://input' ); // $GLOBALS['HTTP_RAW_POST_DATA'] is not preferred: http://www.php.net/manual/en/ini.core.php#ini.always-populate-raw-post-data
-		$put_vars = CJSON::decode ( $json, true ); // true means use associative array
+		//$json = file_get_contents ( 'php://input' ); // $GLOBALS['HTTP_RAW_POST_DATA'] is not preferred: http://www.php.net/manual/en/ini.core.php#ini.always-populate-raw-post-data
+		//$put_vars = CJSON::decode ( $json, true ); // true means use associative array
+		if (! isset ( $_GET ['id'] ))
+			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
 		
-		switch ($_GET ['model']) {
-			// Find respective model
-			case 'userDetails' :
-				$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
-				break;
-			case 'lookupDetails' :
-				$model = LookupDetails::model ()->findByPk ( $_GET ['id'] );
-				break;
-			case 'donationRequest' :
-				$model = DonationRequest::model ()->findByPk ( $_GET ['id'] );
-				break;
-			default :
-				$this->_sendResponse ( 501, sprintf ( 'Error: Mode <b>update</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
-				Yii::app ()->end ();
-		}
+		$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
+		
 		// Did we find the requested model? If not, raise an error
 		if ($model === null)
 			$this->_sendResponse ( 400, sprintf ( "Error: Didn't find any model <b>%s</b> with ID <b>%s</b>.", $_GET ['model'], $_GET ['id'] ) );
 			
 			// Try to assign PUT parameters to attributes
-		foreach ( $put_vars as $var => $value ) {
-			// Does model have this attribute? If not, raise an error
+// 		foreach ( $put_vars as $var => $value ) {
+// 			// Does model have this attribute? If not, raise an error
+// 			if ($model->hasAttribute ( $var ))
+// 				$model->$var = $value;
+// 		}
+		
+		foreach ( $_POST as $var => $value ) {
+			// Does the model have this attribute? If not raise an error
 			if ($model->hasAttribute ( $var ))
 				$model->$var = $value;
-			else {
-				$this->_sendResponse ( 500, sprintf ( 'Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var, $_GET ['model'] ) );
-			}
+			// else
+			// $this->_sendResponse(500,
+			// sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
+			// $_GET['model']) );
 		}
 		// Try to save the model
 		if ($model->save ())
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-		else
-			// prepare the error $msg
-			// see actionCreate
-			// ...
+		else {
+			// Errors occurred
+			$msg = "<h1>Error</h1>";
+			$msg .= sprintf ( "Couldn't create model <b>%s</b>", $_GET ['model'] );
+			$msg .= "<ul>";
+			foreach ( $model->errors as $attribute => $attr_errors ) {
+				$msg .= "<li>Attribute: $attribute</li>";
+				$msg .= "<ul>";
+				foreach ( $attr_errors as $attr_error )
+					$msg .= "<li>$attr_error</li>";
+				$msg .= "</ul>";
+			}
+			$msg .= "</ul>";
 			$this->_sendResponse ( 500, $msg );
+		}
 	}
 	public function actionDelete() {
 		switch ($_GET ['model']) {

@@ -9,11 +9,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Home :: w3layouts</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.dataTables.js"></script>
+
 <script src="js/constants.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,23 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 	        value.match(/[789][0-9]{9}/);
 	}, "Please enter a valid number, or 'NA'");
 			jQuery(document).ready(function($) {
-				$("#loginForm").validate({
-					rules: {
-						number:{
-				            required: true,
-				            custom_number: true
-				        },
-						password: "required"
-						
-					},
-					messages: {
-						number: {
-							required: "Please enter number",
-							minlength: "Your enter a valid number"
-						},
-						password: "Please enter your Password"
-					}
-				});
+				var oTable = $('#jsontable').dataTable();
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
@@ -138,7 +125,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				            	$('#city').empty();
 								   $('#city')
 						             .append($("<option></option>")
-						             .attr("value", "1")
+						             .attr("value", "")
 						             .text("City"));
 								   data.forEach( function (item)
 					            			{
@@ -166,7 +153,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				            	$('#area').empty();
 								 $('#area')
 						             .append($("<option></option>")
-						             .attr("value", "1")
+						             .attr("value", "")
 						             .text("Area"));
 								   data.forEach( function (item)
 					            		{
@@ -180,6 +167,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 		             		});
 				    	 
 				    });
+				 $("#searchBtn").click(function(){	
+					 
+					var searchCrit = $("#searchForm").serialize();
+					 
+					 var user = $("#searchForm").serializeArray();
+					 $.ajax({
+			            	type: 'POST',
+			           		url: url+'/search/donors',
+							dataType: 'json',
+							 data: searchCrit,
+			            	success: function(data)
+	                     		{
+			            		oTable.fnClearTable();
+			            		for(var i = 0; i < data.length; i++) {
+			            		oTable.fnAddData([
+			            		data[i].name,
+			            		data[i].email,
+			            		data[i].state,
+			            		data[i].district,
+			            		data[i].city,
+			            		data[i].area,
+			            		data[i].number,
+			            		data[i].blood_group
+			            		]);
+			            		} // End Fo
+			            		 $("#jsontable_wrapper").show();
+	                     		},
+	                     		error: function(xhr, error){
+	                     	        $("#errorMsg").html(xhr.responseText).show();
+	                     		 }
+							});
+							
+				 });
+				 $("#jsontable_wrapper").hide();
+				 
 				 if(sessionStorage.getItem("login") == null){
 						$("#dd").hide();
 						$("#loginLink").show();
@@ -279,12 +301,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="clear"> </div>
 					</div>
 					
-					
+					<div class="submit">
+					<input class="bluebutton" id="searchBtn" type="button" value="Search Donor" />	
+					</div>
 			</form>
 				<!----------end form----------->
 		
 	</div>
-</div>
+
+		
+	</div>
+	<table id="jsontable" class="display table table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>State</th>
+					<th>District.</th>
+					<th>City</th>
+					<th>Area</th>
+					<th>Number</th>
+					<th>Blood Group</th>
+				</tr>
+			</thead>
+			
+			
+		</table>
 <!--banner end here-->
 <div class="news">
       <div class="container">

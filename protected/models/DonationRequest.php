@@ -12,11 +12,15 @@
  * @property string $number
  * @property string $hospital
  * @property string $date
+ * @property integer $district
+ * @property integer $blood_group
  *
  * The followings are the available model relations:
  * @property LookupDetails $area0
  * @property LookupDetails $city0
  * @property LookupDetails $state0
+ * @property LookupDetails $district0
+ * @property LookupDetails $bloodGroup
  */
 class DonationRequest extends CActiveRecord
 {
@@ -67,6 +71,8 @@ class DonationRequest extends CActiveRecord
 			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
+				'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
+			'district0' => array(self::BELONGS_TO, 'LookupDetails', 'district'),
 		);
 	}
 
@@ -84,6 +90,8 @@ class DonationRequest extends CActiveRecord
 			'number' => 'Number',
 			'hospital' => 'Hospital',
 			'date' => 'Date',
+			'district' => 'District',
+				'blood_group' => 'Blood Group',
 		);
 	}
 
@@ -106,6 +114,8 @@ class DonationRequest extends CActiveRecord
 		$criteria->compare('number',$this->number,true);
 		$criteria->compare('hospital',$this->hospital,true);
 		$criteria->compare('date',$this->date,true);
+		$criteria->compare('district',$this->district);
+		$criteria->compare('blood_group',$this->blood_group);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
