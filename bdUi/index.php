@@ -23,7 +23,7 @@ include 'header.php';
 			<h1>WELCOME  TO  MY  CHARITY</h1>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
 		 <div class="bwn">
-			<a href="registerDonor.html"> Become a Donor </a>
+			<a href="registerDonor.php"> Become a Donor </a>
 		</div>
 		</div>
 	</div>

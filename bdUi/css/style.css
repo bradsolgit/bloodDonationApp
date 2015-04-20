@@ -157,7 +157,7 @@ span.menu {
 	padding: 2em 2em 0em 0em;
 }
 form {
-	margin: 0em 4em 0em 0em;
+	//margin: 0em 4em 0em 0em;
 }
 .below-top p {
 	font-size: 15px;
@@ -2733,7 +2733,8 @@ ul.p_n-list li {
 }
 .sign_up
 {
-	width:650px;
+	//width:650px;
+	width:100%;
 	margin: 4% auto 4% auto; 
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -2800,6 +2801,7 @@ ul.p_n-list li {
 	border:1px solid #ccc;
 	border-radius:5px;
 		padding-left:45px;
+		width:100%;
 	
 }
 .login-mbnumber, .login-button1{
@@ -2818,7 +2820,8 @@ ul.p_n-list li {
 	
 	padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    width: 261px;
+   // width: 261px;
+   width: 100%;
 }
 
  .name input[type="text"]{
@@ -2828,7 +2831,7 @@ ul.p_n-list li {
 	background-repeat:no-repeat;
 	padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    width: 96%;
+    width: 100%;
  }
  .login-mbnumber input[type="password"], .details input[type="password"], .details1  input[type="password"] {
 		 border: 1px solid #ccc;
@@ -2841,7 +2844,8 @@ ul.p_n-list li {
 	background-repeat:no-repeat;
 	padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    width: 261px;
+    //width: 261px;
+       width:100%;
 }
 
 .details select, .details1 select {
@@ -2850,12 +2854,21 @@ ul.p_n-list li {
     color: #747474;
     padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    background-image:url("../images/pwd.png");
-	background-position:6px 12px ;
-	background-repeat:no-repeat;
 	padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    width: 261px;
+   // width: 261px;
+   width:100%;
+}
+.add-icon select{
+	   background-image:url("../images/locator.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	
+}
+.blood-icon select{
+		   background-image:url("../images/blood-icon.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
 }
 
 .details input[type="email"],.details1 input[type="email"]
@@ -2870,6 +2883,7 @@ ul.p_n-list li {
 	background-position:6px 12px ;
 	background-repeat:no-repeat;
 	padding-left:45px;
+	width: 100%;
 	
 }
 .details input[type="email"]:hover
@@ -2906,7 +2920,7 @@ ul.p_n-list li {
     transition: all 0.3s ease 0s;
 	padding: 9px 45px;
     transition: all 0.3s ease 0s;
-    width:96%;
+    width:100%;
 }
 .section textarea:hover
 {
@@ -2935,7 +2949,7 @@ select {
 	padding: 1.7em 1em;
 }
 #horizontalTab ul{
-	margin:16%;
+	margin:16% 0px;
 }
 .register{
 	
@@ -2978,7 +2992,7 @@ transition: all 0.3s ease-out;
 @media only screen and (max-width: 640px)
 {
 	.sign_up {
-	width: 570px;
+	//width: 570px;
 	}	
 	.input input[type="text"],.input input[type="password"]
 	{
@@ -2988,7 +3002,7 @@ transition: all 0.3s ease-out;
 @media only screen and (max-width: 480px)
 {
 	.sign_up {
-	width: 420px;
+//	width: 420px;
 	}	
 	.input input[type="text"],.input input[type="password"]
 	{
@@ -3001,7 +3015,7 @@ transition: all 0.3s ease-out;
 	width: 280px;
 	}
 	.sign_up {
-	width: 280px;
+		width:100%;
 	}	
 	.input input[type="text"],.input input[type="password"]
 	{
@@ -3702,7 +3716,7 @@ li.resp-tab-item.lost{
   font-size: 0.7em;
   }
   .register input[type="text"], .register input[type="password"] {
-  width: 92%;
+ // width: 92%;
   }
   .register p,form.sub p {
   font-size: 0.95em;
@@ -3753,12 +3767,12 @@ li.resp-tab-item.lost{
   padding:1em 0;
   }
   .details{
-  width:80%;
+  width:100%;
   height:auto;
   clear:left  !important;
   }
   .cnf-password, .details1{
-  width:80%;
+  width:100%;
   height:auto;
   clear:right !important;
   }
@@ -3776,7 +3790,7 @@ li.resp-tab-item.lost{
   padding: 0.5em 0;
   }
   .register input[type="text"], .register input[type="password"] {
-  width: 91%;
+  width: 100%;
   font-size: 13px;
   }
   .sign-up input[type="reset"] {
@@ -3837,7 +3851,3 @@ form.sub input[type="password"] {
   }
 }
 /* bs start */
-input{
-	
-	border:1px solid #000 !important;
-}

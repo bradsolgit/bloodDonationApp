@@ -7,7 +7,9 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <!--js-->
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
 <script src="js/constants.js"></script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
@@ -22,13 +24,19 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 	});
-	if(sessionStorage.getItem("login") == null){
+	if(sessionStorage.getItem("login") === "null"){
 		$("#dd").hide();
 		$("#loginLink").show();
 	}else{
 		$("#dd").show();
 		$("#loginLink").hide();
 	}
+
+	$("#signOut").click(function(event){
+		sessionStorage.setItem("login", "null");
+		 sessionStorage.setItem("number", "null");
+		 window.location="index.php";
+	});
 });
 </script>
 <!-- //end-smoth-scrolling -->
@@ -78,6 +86,6 @@ $( "span.menu").click(function() {
 							
 									<li><a href="#">Edit Personal Details <span class="icon"> </span></a></li>
 									<li><a href="#">Reset Password<span class="icon stat"> </span></a></li>
-									<li><a href="#">Sign out<span class="icon signout"> </span></a></li>
+									<li><a href="#" id="signOut">Sign out<span class="icon signout"> </span></a></li>
 							</ul>
 					</div>

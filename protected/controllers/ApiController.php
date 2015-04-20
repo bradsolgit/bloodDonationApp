@@ -443,7 +443,9 @@ class ApiController extends Controller {
 		// Try to save the model
 		if ($model->save ()) {
 			$model->password = "";
-			$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' . $message );
+			$str = Constants::$otp_message;
+			$repstr = strtr($str, array('{$OTP}' => $message));
+			$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' . $repstr );
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {
 			// Errors occurred

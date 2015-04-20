@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -7,24 +10,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <html>
 <head>
 <title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Home :: w3layouts</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<!--web-fonts-->
-<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-<!--js-->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/constants.js"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
-</script>
-<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
+
+<?php 
+
+include 'header.php';
+?>
+<script type="text/javascript">
 	var bloodGroups = [];
 	var districts = [];
 	var states = [];
@@ -362,44 +353,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				}
 			});
 	</script>
-<!-- //end-smoth-scrolling -->
-</head>
-<body>
-<!--header start here-->
-<div class="mothergrid">
-	<div class="container">
-		<div class="header">
-			<div class="logo">
-				<a href="index.html"> <img src="images/logo.png" alt=""/> </a>
-			</div>
-			<span class="menu"> <img src="images/icon.png" alt=""/></span>
-			<div class="clear"> </div>
-			<div class="navg">
-				<ul class="res">
-					<li><a href="index.html">HOME</a></li>
-					<li><a href="about.html">ABOUT US</a></li>
-					<li><a href="searchDonor.html">SEARCH DONOR</a></li>
-					<li><a href="bloodDonationRequest.html">REQUEST FOR BLOOD</a></li>
-					<li><a href="blog.html">BLOG</a></li>
-					<li><a href="events.html">EVENTS</a></li>
-					<li><a href="gallery.html">GALLERY</a></li>
-					<li><a href="contact.html">CONTACT US</a></li>
-					<li id="loginLink"><a class="active" href="registerDonor.html">LOGIN/REGISTER</a></li>
-				</ul>
-				
-				 <script>
-			                                                      $( "span.menu").click(function() {
-			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
-			                                                                                         // Animation complete.
-			                                                                                         });
-			                                                                                         });
-		                                                     </script>
-			</div>
-		<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<!--heder end here-->
 <div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
@@ -427,7 +380,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 						<div class="input-sign details">
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
-						<div class="input-sign details1">
+						<div class="input-sign details">
 							<input type="text" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
 						</div>
 						<div class="clear"> </div>
@@ -457,13 +410,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					</div>
 					<!----------start city section----------->
 					<div class="section">
-						<div class="section-address details add-icon">
+						<div class="section-address details">
 						<select id="state"  class="frm-field required" name="state"  >
 						<option value="" selected="selected">State</option>
 						</select>
 						
 						</div>
-						<div class="section-address details1 add-icon">
+						<div class="section-address details1">
 						<select id="district"  class="frm-field required" name="district" >
 						<option value="" selected="selected">District</option>
 						</select>
@@ -474,13 +427,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					</div>
 					<!----------start Address section----------->
 					<div class="section">
-						<div class="section-address details add-icon">
+						<div class="section-address details">
 							<select id="city"  class="frm-field required" name="city" >
 							<option value="" selected="selected">City</option>
 						</select>
 						 
 						</div>
-						<div class="section-address details1 add-icon">
+						<div class="section-address details1">
 							<select id="area"  class="frm-field required" name="area" >
 							<option value="" selected="selected">Area</option>
 						</select>
@@ -496,13 +449,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 					<textarea rows="4" cols="4" name="address" id="address"  placeholder="Address" ></textarea>
 					</div>
 					<div class="section">
-						<div class="section-address details blood-icon">
+						<div class="section-address details">
 						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
 						<option value="" selected="selected">Blood Group</option>
 						</select>
 						
 						</div>
-						<div class="section-address details1 blood-icon">
+						<div class="section-address details1">
 						<select id="status" name="donation_status"  class="frm-field required"  >
 						<option value="" selected="selected">Blood Donation Status</option>
 						<option value="y">Yes</option>
@@ -536,7 +489,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			</form>
 			<!----------end form----------->
 			
-			<form class="sign simple-form" id="otpForm" name="userForm">
+			<form class="sign simple-form" id="otpForm" name="userForm" style="display: none;">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
 			
 			<div class="section">
@@ -596,7 +549,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 				        </div>	
 				     </div>	
 		        </div>
-	 
 
+			
+
+<?php 
+include 'news.php';
+?>
+
+<?php 
+include 'footer.php';
+?>
 </body>
 </html>

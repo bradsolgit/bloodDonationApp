@@ -11,5 +11,6 @@ class Constants{
 	static $role_list = array('1'=>'admin','2'=>'general');
 	static $purchase_rows = 3;
 	static $sales_rows = 3;
+	static $otp_message = 'Welcome to Mahesh Foundation Blood Donation App. Your OTP is {$OTP}'';
 	
 }
