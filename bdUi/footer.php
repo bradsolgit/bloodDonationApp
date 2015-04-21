@@ -9,7 +9,7 @@
 			<div class="footer-navg">
 				<ul>
 					<li><a class="active" href="index.html">HOME</a></li>
-					<li><a href="about.html">ABOUT US</a></li>
+					<li><a href="about.php">ABOUT US</a></li>
 					<li><a href="projects.html">PROJECTS</a></li>
 					<li><a href="blog.html">BLOG</a></li>
 					<li><a href="events.html">EVENTS</a></li>

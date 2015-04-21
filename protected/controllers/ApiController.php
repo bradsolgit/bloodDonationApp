@@ -219,32 +219,22 @@ class ApiController extends Controller {
 	}
 	
 	public function actionsearchApi(){
-		$state = $_POST ['state'];
-		$city = $_POST ['city'];
-		$area =$_POST ['area'];
-		$district = $_POST ['district'];
-		$blood_group = $_POST ['blood_group'];
-		$criteria = new CDbCriteria ();
-		$criteria->compare ( 'area', $area );
-		$criteria->compare ( 'city', $city );
-		$criteria->compare ( 'state', $state );
-		$criteria->compare ( 'district', $district );
-		$criteria->compare ( 'blood_group', $blood_group );
+		
 		switch ($_GET ['type']) {
-			case 'donors' :
+			
+			case 'donationRequest' :
+				$state = $_POST ['state'];
+				$city = $_POST ['city'];
+				$area =$_POST ['area'];
+				$district = $_POST ['district'];
+				$blood_group = $_POST ['blood_group'];
+				$criteria = new CDbCriteria ();
+				$criteria->compare ( 'area', $area );
+				$criteria->compare ( 'city', $city );
+				$criteria->compare ( 'state', $state );
+				$criteria->compare ( 'district', $district );
+				$criteria->compare ( 'blood_group', $blood_group );
 			$models = array();
-			$srchResults = UserDetails::model ()->findAll ( $criteria );
-			foreach ($srchResults as $i=>$model){
-				$tempModel = $model;
-				$tempModel->district = $model->district0->lookup_value;
-				$tempModel->city = $model->city0->lookup_value;
-				$tempModel->state = $model->state0->lookup_value;
-				$tempModel->area = $model->area0->lookup_value;
-				$tempModel->blood_group = $model->bloodGroup->lookup_value;
-				$models[$i] = $tempModel;
-			}
-			break;
-		case 'donationreqests' :
 			$srchResults = DonationRequest::model ()->findAll ( $criteria );
 			foreach ($srchResults as $i=>$model){
 				$tempModel = $model;
@@ -256,6 +246,30 @@ class ApiController extends Controller {
 				$models[$i] = $tempModel;
 			}
 			break;
+			case 'donors' :
+				$state = $_POST ['state'];
+				$city = $_POST ['city'];
+				$area =$_POST ['area'];
+				$district = $_POST ['district'];
+				$blood_group = $_POST ['blood_group'];
+				$criteria = new CDbCriteria ();
+				$criteria->compare ( 'area', $area );
+				$criteria->compare ( 'city', $city );
+				$criteria->compare ( 'state', $state );
+				$criteria->compare ( 'district', $district );
+				$criteria->compare ( 'blood_group', $blood_group );
+				$models = array();
+				$srchResults = UserDetails::model ()->findAll ( $criteria );
+				foreach ($srchResults as $i=>$model){
+					$tempModel = $model;
+					$tempModel->district = $model->district0->lookup_value;
+					$tempModel->city = $model->city0->lookup_value;
+					$tempModel->state = $model->state0->lookup_value;
+					$tempModel->area = $model->area0->lookup_value;
+					$tempModel->blood_group = $model->bloodGroup->lookup_value;
+					$models[$i] = $tempModel;
+				}
+				break;
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['type'] ) );
 				Yii::app ()->end ();
@@ -396,15 +410,19 @@ class ApiController extends Controller {
 			$model->confirmation_code = '0000';
 			
 			$number = $model->number;
-			$message = Utilities::generateRandomString ();
-			$model->confirmation_code = $message;
+			$otp = Utilities::generateRandomString ();
+			$model->confirmation_code = $otp;
 		}
 		// Try to save the model
 		if ($model->save ()) {
 			$model->password = "";
 				
 			if ($_GET ['model'] == "userDetails") {
-				$payload = file_get_contents (Utilities::getSMSURL($otp, $number));
+				$encoding = explode(" ", Utilities::getSMSURL($otp, $number)); 
+			
+				
+				$payload = file_get_contents ($encoding);
+				
 			}
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {

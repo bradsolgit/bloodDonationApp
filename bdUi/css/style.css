@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+*{
+	margin:0px;
+	padding:0px;
+	outline:none;
+	border:none;
+}
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
@@ -14,19 +20,69 @@ html, body{
    background:#fff; 
 }
 /*--header start here--*/
+.mothergrid{
+background: rgb(174,191,188); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(174,191,188,1) 4%, rgba(142,166,162,1) 37%, rgba(142,166,162,1) 54%, rgba(142,166,162,1) 54%, rgba(142,166,162,1) 61%, rgba(216,224,222,1) 97%, rgba(216,224,222,1) 97%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,rgba(174,191,188,1)), color-stop(37%,rgba(142,166,162,1)), color-stop(54%,rgba(142,166,162,1)), color-stop(54%,rgba(142,166,162,1)), color-stop(61%,rgba(142,166,162,1)), color-stop(97%,rgba(216,224,222,1)), color-stop(97%,rgba(216,224,222,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(174,191,188,1) 4%,rgba(142,166,162,1) 37%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 61%,rgba(216,224,222,1) 97%,rgba(216,224,222,1) 97%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(174,191,188,1) 4%,rgba(142,166,162,1) 37%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 61%,rgba(216,224,222,1) 97%,rgba(216,224,222,1) 97%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(174,191,188,1) 4%,rgba(142,166,162,1) 37%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 61%,rgba(216,224,222,1) 97%,rgba(216,224,222,1) 97%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(174,191,188,1) 4%,rgba(142,166,162,1) 37%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 54%,rgba(142,166,162,1) 61%,rgba(216,224,222,1) 97%,rgba(216,224,222,1) 97%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aebfbc', endColorstr='#d8e0de',GradientType=0 ); /* IE6-9 */	
+}
 .header{
 	padding:1em 0px;
 }
 .logo{
+	border:5px solid #c99;
+	border-radius:5px;
+}
+.logo img{
+	
+	margin:13px auto;
+	
+}
+/*
+.logo{
 	float:left;
 	cursor:pointer;
+	width:20%;
+	float:left;
+}
+.menu-bs{
+	//width: 320px;
+
+	width:26%;
+float: right;
+	
+}
+.header-ads{
+
+	width:54%;
+	float:left;
+}*/
+.header-ads img{
+	width:100%;
+	max-height:70px;
+	}
+.menu-bs .icon{
+	box-shadow:0 0 11px 0px;
+}
+.menu-bs span{
+	box-shadow:2px 2px 2px 2px;
+	border-radius:5px;
+	text-align:center;
+	padding:5px;
+	color:#000;
 }
 .navg{
-	float:right;
+	//float:right;
+	text-align:right;
 }
 .navg ul{
 	list-style:none;
 	padding:0px;
+	margin-top:15px;
 }
 .navg ul li{
 	display:inline-block;
@@ -48,6 +104,13 @@ html, body{
  -webkit-transition: 0.5s all;
  -moz-transition:  0.5s all;
  -o-transition:  0.5s all;
+}
+.mobile-menu{
+	text-align:center !important;
+	margin-right:20px;
+}
+.reg-form-bd{
+	background: #9B242D;
 }
 span.menu {
 	display: none;
@@ -1498,6 +1561,7 @@ span.menu{
 	 float:right;
 	 padding-top: 5px;
 }
+.menu-bs{display:none;}
 ul.res{
 	 display:none;
 	 padding:0px;
@@ -2729,6 +2793,7 @@ ul.p_n-list li {
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+	    margin-top: 20px;
 	overflow: hidden;
 }
 .sign_up
@@ -2807,6 +2872,47 @@ ul.p_n-list li {
 .login-mbnumber, .login-button1{
 	margin:0 auto;
 	width: 60%;
+}
+
+.captcha-center-details{
+		  width: 50%;
+   margin:0 auto;
+	
+}
+.captcha-center-details input[type="text"]{
+		 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+			background-image:url("../images/captcha.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+   // width: 261px;
+ 
+	}
+.otp-center-details{
+	  width: 50%;
+   margin:0 auto;
+}
+.otp-center-details input[type="text"]{
+	 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+			background-image:url("../images/otp.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+	
+	padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+   // width: 261px;
+ 
+	
 }
 .login-mbnumber input[type="text"]{
 			 border: 1px solid #ccc;
@@ -2949,7 +3055,7 @@ select {
 	padding: 1.7em 1em;
 }
 #horizontalTab ul{
-	margin:16% 0px;
+	//margin:16% 0px;
 }
 .register{
 	
@@ -3042,8 +3148,8 @@ transition: all 0.3s ease-out;
 /****-----start-wrapper-dropdown-2----****/
 .wrapper-dropdown-2 {
     position: relative;
-	padding: 17px 20px 17px 15px;
-	background: #fff;
+//	padding: 17px 20px 17px 15px;
+
 	cursor: pointer;
 	outline: none;
 	color: #5f5f5f;	
@@ -3055,12 +3161,16 @@ transition: all 0.3s ease-out;
 	text-transform: capitalize;
 	font-weight: 600;
 }
+.wrapper-dropdown-2 ul{
+	margin-top:70px;
+	padding:0 !important;
+}
 .dropdown:before {
 	content: "";
 	width: 0;
 	height: 0;
 	position: absolute;
-	right: 20px;
+	right: 104px;
 	top: -3%;
 	margin-top: -6px;
 	border-width: 0px 12px 12px 12px;
@@ -3069,28 +3179,18 @@ transition: all 0.3s ease-out;
 }
 
 .wrapper-dropdown-2 .dropdown {
-  /* Size & position */
-    position: absolute;
-    top: 136%;
-    left: 0px;
-    right: 0px;
-	border-radius:5px;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	-o-border-radius:5px;
-    /* Styles */
-    background:#fff;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    list-style: none;
-    z-index:1;
-
-    /* Hiding */
+      background: linear-gradient(to bottom, rgba(216, 224, 222, 1) 0%, rgba(140, 151, 153, 1) 22%, rgba(153, 175, 171, 1) 33%, rgba(142, 166, 162, 1) 50%, rgba(130, 157, 152, 1) 97%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    height: auto;
+    left: -100px;
+    list-style: outside none none;
     opacity: 0;
     pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 136%;
+    transition: all 0.3s ease-out 0s;
+    width: 250px;
 }
 .wrapper-dropdown-2 .dropdown li:last-child{
 	border-bottom:none;
@@ -3106,7 +3206,7 @@ transition: all 0.3s ease-out;
 .wrapper-dropdown-2 .dropdown li a {
     display: block;
 	text-decoration: none;
-	color: #5f5f5f;
+	color: #000;
 	padding:15px;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
@@ -3115,7 +3215,7 @@ transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 	text-transform: capitalize;
 	font-size: 0.99em;
-	font-weight: 600;
+border:1px solid #000;
 	
 }
 .dropdown li a:hover{
@@ -3278,10 +3378,13 @@ label.error {
 
 /*----sap-----*/
 .sap_tabs {
-  clear: both;
+ /* clear: both;
   margin: 0 auto;
   width:40%;
-  /*text-align: center;*/
+  /*text-align: center;*/*/
+}
+.left-ads, .ads-right{
+	margin-top:128px;
 }
 .facts{
   padding: 4% 4% 5% 4%;
@@ -3630,9 +3733,9 @@ li.resp-tab-item.lost{
 
 @media (max-width:1366px){
   .sap_tabs {
-  clear: both;
+ /* clear: both;
   margin: 0 auto;
-  width: 43%;
+  width: 43%;*/
   }
    .login input[type="text"],.login input[type="password"] {
   width: 86.3%;
@@ -3851,3 +3954,8 @@ form.sub input[type="password"] {
   }
 }
 /* bs start */
+.otp-float-none{
+	float:none;
+	clear:both;
+	margin:0 auto;
+}

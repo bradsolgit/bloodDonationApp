@@ -27,160 +27,76 @@ include 'header.php';
 	    return this.optional(element) || value === "NA" ||
 	        value.match(/[789][0-9]{9}/);
 		}, "Please enter a valid number, or 'NA'");
-			jQuery(document).ready(function($) {
-				$("#loginForm").validate({
-					rules: {
-						number:{
-				            required: true,
-				            custom_number: true
-				        },
-						password: "required"
-						
-					},
-					messages: {
-						number: {
-							required: "Please enter number",
-							minlength: "Your enter a valid number"
-						},
-						password: "Please enter your Password"
-					}
-				});
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-				
-				$("#state").empty();
-				$("#bloodgroup").empty();
-				$("#state").append($("<option></option>")
-			             .attr("value", "")
-			             .text("State"));
-				$("#bloodgroup").append($("<option></option>")
-			             .attr("value", "")
-			             .text("Blood Group"));
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/1',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            			    	states.push(item);
-		            			    	 $("#state").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/4',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            					bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				 $('#state').change(function(event){
-				    	
-				    	var state= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/district/'+state,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				           	 $('#district').empty();
-							   $('#district')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("District"));
-							   data.forEach( function (item)
-				            			{
-								     $("#district").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								  });
-								}
-		             		});
-						
-				    
-	    	
-						    });
-				 
-				 $('#district').change(function(event){
-				    	
-				    	var district= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/city/'+district,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#city').empty();
-								   $('#city')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("City"));
-								   data.forEach( function (item)
-					            			{
-									      $("#city").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-								  }
-		             		});
-						
-				    
-	    	
-						    });
-				 
-				 $('#city').change(function(event){
-				    	
-				    	var city= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/area/'+city,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#area').empty();
-								 $('#area')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("Area"));
-								   data.forEach( function (item)
-					            		{
-										   $("#area").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-			    	
-								  }
-		             		});
-				    	 
+	jQuery(document).ready(function($) {
+		var oTable = $('#jsontable').dataTable();
+
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+		
+		getStateValues();
+		getBloodGroupValues();
+		
+		 $('#state').change(function(event){
+		    	
+		    	var state= this.value;
+		    	getDistrictValues(state);
+	
 				    });
-				 if(sessionStorage.getItem("login") == null){
-						$("#dd").hide();
-						$("#loginLink").show();
-					}else{
-						$("#dd").show();
-						$("#loginLink").hide();
-					}
-			});
+		 
+		 $('#district').change(function(event){
+		    	
+		    	var district= this.value;
+		    	getCityValues(district);
+		    
+	
+				    });
+		 
+		 $('#city').change(function(event){
+		    	
+		    	var city= this.value;
+		    	getAreaValues(city);
+		    });
+		 $("#searchBtn").click(function(){	
+			 
+			var searchCrit = $("#reqForm").serialize();
+			 
+			 var user = $("#reqForm").serializeArray();
+			 $.ajax({
+	            	type: 'POST',
+	           		url: url+'/search/donationRequest',
+					dataType: 'json',
+					 data: searchCrit,
+	            	success: function(data)
+                 		{
+	            		oTable.fnClearTable();
+	            		for(var i = 0; i < data.length; i++) {
+	            		oTable.fnAddData([
+	            		data[i].name,
+	            		data[i].hospital,
+	            		data[i].state,
+	            		data[i].district,
+	            		data[i].city,
+	            		data[i].area,
+	            		data[i].number,
+	            		data[i].blood_group,
+	            		data[i].hospital
+	            		]);
+	            		} // End Fo
+	            		 $("#jsontable_wrapper").show();
+                 		},
+                 		error: function(xhr, error){
+                 	        $("#errorMsg").html(xhr.responseText).show();
+                 		 }
+					});
+					
+		 });
+
+		 $("#jsontable_wrapper").hide();
+		 
+		
+		 });
 	</script>
 	
 	<div class="container">
@@ -255,13 +171,30 @@ include 'header.php';
 					</div>
 					
 					<div class="submit">
-					<input class="bluebutton submitbotton" type="button" value="Raise a Request" />
-					<input class="bluebutton submitbotton" type="button" value="Search for a Request" />	
+					<input class="bluebutton submitbotton" type="button" id="createBtn" value="Raise a Request" />
+					<input class="bluebutton submitbotton" type="button" id="searchBtn" value="Search for a Request" />	
 					</div>
 				
 			</form>
 	
 	</div>
+		<table id="jsontable" class="display table table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					
+					<th>State</th>
+					<th>District.</th>
+					<th>City</th>
+					<th>Area</th>
+					<th>Number</th>
+					<th>Blood Group</th>
+					<th>Hospital</th>
+				</tr>
+			</thead>
+			
+			
+		</table>
 <?php 
 include 'news.php';
 ?>

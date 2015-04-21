@@ -1,7 +1,7 @@
 /**
  * 
  */
-url = 'http://localhost/bdApp/index.php';
+url = 'http://localhost/bloodDonationApp/index.php';
 
 
 function validateCaptcha(captcha,hash,callback){
@@ -120,9 +120,9 @@ function getStateValues(){
 }
 function getBloodGroupValues(){
 	 
-		$("#blood_group").empty();
+		$("#bloodgroup").empty();
 		
-		$("#blood_group").append($("<option></option>")
+		$("#bloodgroup").append($("<option></option>")
 	             .attr("value", "")
 	             .text("Blood Group"));
 		
@@ -135,7 +135,7 @@ function getBloodGroupValues(){
              {
            	data.forEach( function (item)
            			{
-           			    	 $("#blood_group").append($("<option></option>")
+           			    	 $("#bloodgroup").append($("<option></option>")
 		 			             .attr("value", item.lookup_id)
 		 			             .text(item.lookup_value));
            			    

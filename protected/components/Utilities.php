@@ -125,12 +125,14 @@ class Utilities {
 	
 	static function getSMSURL($otp,$number){
 		$str = Constants::$otp_message;
+		
+
 		$repstr = strtr($str, array('{$OTP}' => $otp));
 			
 		$tempurl = Constants::$sms_url;
 		
 		$url1 = strtr($tempurl, array('{$number}' => $number,'{$message}' => $repstr));
-		$url = str_replace("&amp;","&",$url1);
-		return $url;
+		
+		return $url1;
 	}
 }
