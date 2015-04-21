@@ -113,4 +113,24 @@ class Utilities {
 		$characters = str_shuffle ( $characters );
 		return substr ( $characters, 0, $length );
 	}
+	
+	static function rpHash($value) {
+		$hash = 5381;
+		$value = strtoupper($value);
+		for($i = 0; $i < strlen($value); $i++) {
+			$hash = (($hash << 5) + $hash) + ord(substr($value, $i));
+		}
+		return $hash;
+	}
+	
+	static function getSMSURL($otp,$number){
+		$str = Constants::$otp_message;
+		$repstr = strtr($str, array('{$OTP}' => $otp));
+			
+		$tempurl = Constants::$sms_url;
+		
+		$url1 = strtr($tempurl, array('{$number}' => $number,'{$message}' => $repstr));
+		$url = str_replace("&amp;","&",$url1);
+		return $url;
+	}
 }

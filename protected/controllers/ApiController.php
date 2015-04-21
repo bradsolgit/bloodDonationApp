@@ -267,6 +267,31 @@ class ApiController extends Controller {
 		else
 			$this->_sendResponse ( 200, CJSON::encode ( $models ) );
 	}
+	
+	public function actionsendOTP(){
+		if (! isset ( $_POST ['number'] ))
+			$this->_sendResponse ( 500, 'Error: Parameter is missing' );
+		
+		$number = $_POST ['number'];
+		
+		$user = UserDetails::model()->findByAttributes ( array (
+				'number' => $number
+		) );
+		
+		if (! empty ( $user )) {
+			$otp = Utilities::generateRandomString ();
+			$user->confirmation_code = $otp;
+			$user->save ();
+			
+			$payload = file_get_contents (Utilities::getSMSURL($otp, $number));
+				
+			$message = "success";
+		} else {
+			$message = "unsuccess";
+		}
+		$this->_sendResponse ( 200, CJSON::encode ( $message ) );
+	}
+	
 	public function actionvalidateApi() {
 		$message = "Invalid";
 		
@@ -288,30 +313,7 @@ class ApiController extends Controller {
 				}
 				break;
 			
-			case 'sendotp' :
-				if (! isset ( $_POST ['number'] ))
-					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
-				
-				$number = $_POST ['number'];
-				
-				$User = DonationRequest::model ()->findByAttributes ( array (
-						'number' => $number 
-				) );
-				
-				if (! empty ( $User )) {
-					$otp = Utilities::generateRandomString ();
-					$User->confirmation_code = $otp;
-					$User->save ();
-					
-					$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' . $otp );
-					
-					$message = "success";
-				} else {
-					$message = "unsuccess";
-				}
-				
-				break;
-				
+			
 			case 'validatestatus' :
 				if (! isset ( $_POST ['user_id'] ))
 					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
@@ -334,11 +336,9 @@ class ApiController extends Controller {
 				if (! isset ( $_POST ['captcha'] ))
 					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 				
-				$hash = 5381;
-				$value = strtoupper($_POST ['captcha'] );
-				for($i = 0; $i < strlen($value); $i++) {
-					$hash = (($hash << 5) + $hash) + ord(substr($value, $i));
-				}
+					if (Utilities::rpHash($_POST ['captcha']) == $_POST['hash']) {
+						$message = "Valid";
+					}
 				$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				break;
 			case 'validationcode' :
@@ -402,23 +402,20 @@ class ApiController extends Controller {
 		// Try to save the model
 		if ($model->save ()) {
 			$model->password = "";
-			$str = Constants::$otp_message;
-			$repstr = strtr($str, array('{$OTP}' => $message));
 				
 			if ($_GET ['model'] == "userDetails") {
-				$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message='.Constants::$otp_message.''. $message );
+				$payload = file_get_contents (Utilities::getSMSURL($otp, $number));
 			}
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {
 			// Errors occurred
 			$msg = "";
+			$msg .= "<ul>";
 			foreach ( $model->errors as $attribute => $attr_errors ) {
-				$msg .= "<ul>";
 				foreach ( $attr_errors as $attr_error )
 					$msg .= "<li>$attr_error</li>";
-				$msg .= "</ul>";
 			}
-			//$msg .= "</ul>";
+			$msg .= "</ul>";
 			$this->_sendResponse ( 500, $msg );
 		}
 	}
@@ -455,9 +452,7 @@ class ApiController extends Controller {
 		// Try to save the model
 		if ($model->save ()) {
 			$model->password = "";
-			$str = Constants::$otp_message;
-			$repstr = strtr($str, array('{$OTP}' => $message));
-			$payload = file_get_contents ( 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to=' . $number . '&from=BHATTD&message=' .$repstr);
+			$payload = file_get_contents (Utilities::getSMSURL($otp, $number));
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		} else {
 			// Errors occurred
@@ -482,43 +477,44 @@ class ApiController extends Controller {
 		//$put_vars = CJSON::decode ( $json, true ); // true means use associative array
 		if (! isset ( $_GET ['id'] ))
 			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
+		switch ($_GET ['property']) {
+			// Get an instance of the respective model
+			case 'update' :
+				$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
+				foreach ( $_POST as $var => $value ) {
+					// Does the model have this attribute? If not raise an error
+					if ($model->hasAttribute ( $var ))
+						$model->$var = $value;
+					// else
+					// $this->_sendResponse(500,
+					// sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
+					// $_GET['model']) );
+				}
+				break;
+			case 'number' :
+				$model = Utilities::getMobileNo ( $_GET ['id'] );
+				$model->number = $_POST['number'];
+				break;
+			default :
+				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
+				Yii::app ()->end ();
+		}
 		
-		$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
 		
 		// Did we find the requested model? If not, raise an error
 		if ($model === null)
 			$this->_sendResponse ( 400, sprintf ( "Error: Didn't find any model <b>%s</b> with ID <b>%s</b>.", $_GET ['model'], $_GET ['id'] ) );
 			
-			// Try to assign PUT parameters to attributes
-// 		foreach ( $put_vars as $var => $value ) {
-// 			// Does model have this attribute? If not, raise an error
-// 			if ($model->hasAttribute ( $var ))
-// 				$model->$var = $value;
-// 		}
-		
-		foreach ( $_POST as $var => $value ) {
-			// Does the model have this attribute? If not raise an error
-			if ($model->hasAttribute ( $var ))
-				$model->$var = $value;
-			// else
-			// $this->_sendResponse(500,
-			// sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
-			// $_GET['model']) );
-		}
 		// Try to save the model
 		if ($model->save ())
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 		else {
 			// Errors occurred
-			$msg = "<h1>Error</h1>";
-			$msg .= sprintf ( "Couldn't create model <b>%s</b>", $_GET ['model'] );
+			$msg = "";
 			$msg .= "<ul>";
 			foreach ( $model->errors as $attribute => $attr_errors ) {
-				$msg .= "<li>Attribute: $attribute</li>";
-				$msg .= "<ul>";
 				foreach ( $attr_errors as $attr_error )
 					$msg .= "<li>$attr_error</li>";
-				$msg .= "</ul>";
 			}
 			$msg .= "</ul>";
 			$this->_sendResponse ( 500, $msg );

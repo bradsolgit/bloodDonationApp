@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2015 at 03:20 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Apr 21, 2015 at 07:54 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,15 +34,10 @@ CREATE TABLE IF NOT EXISTS `donation_request` (
   `state` int(11) NOT NULL,
   `number` varchar(10) NOT NULL,
   `hospital` varchar(100) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `donation_request`
---
-
-INSERT INTO `donation_request` (`request_id`, `name`, `area`, `city`, `state`, `number`, `hospital`, `date`) VALUES
-(1, 'sqsqw', 11, 11, 11, '9959167378', 'jh', '2015-04-01');
+  `date` date NOT NULL,
+  `district` int(11) DEFAULT NULL,
+  `blood_group` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -56,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `lookup_details` (
   `lookup_description` varchar(244) DEFAULT NULL,
 `lookup_id` int(11) NOT NULL,
   `lookup_type_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1196 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1196 ;
 
 --
 -- Dumping data for table `lookup_details`
@@ -1121,14 +1116,15 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `donation_status` char(1) NOT NULL,
   `blood_group` int(11) NOT NULL,
   `validate_Status` char(1) NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `user_details`
 --
 
 INSERT INTO `user_details` (`user_id`, `name`, `email`, `number`, `area`, `city`, `state`, `district`, `gender`, `address`, `dob`, `password`, `confirmation_code`, `donation_status`, `blood_group`, `validate_Status`) VALUES
-(3, 'srikrishna mekal', 'msrikrishna140@gmail.com', '9959167378', 580, 571, 58, 561, 'M', '', '2015-03-29', 'srikrishna', 'RwmN', 'Y', 15, 'Y');
+(3, 'srikrishna mekal', 'msrikrishna140@gmail.com', '9959167378', 580, 571, 58, 561, 'M', '', '2015-03-29', 'srikrishna', 'RwmN', 'Y', 15, 'Y'),
+(22, 'Rohit Bhattad', 'rohibhattad@gmail.com', '9966866886', 771, 727, 58, 562, 'M', 'Vijayawada', NULL, 'password', '0541', 'y', 17, 'N');
 
 --
 -- Indexes for dumped tables
@@ -1138,7 +1134,7 @@ INSERT INTO `user_details` (`user_id`, `name`, `email`, `number`, `area`, `city`
 -- Indexes for table `donation_request`
 --
 ALTER TABLE `donation_request`
- ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`area`,`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`);
+ ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`area`,`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`), ADD KEY `fk_dstid1` (`district`), ADD KEY `fk_bgid1` (`blood_group`);
 
 --
 -- Indexes for table `lookup_details`
@@ -1150,7 +1146,7 @@ ALTER TABLE `lookup_details`
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
- ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `number` (`number`), ADD KEY `user_details_idx_1` (`area`,`city`,`state`), ADD KEY `fk_CityId` (`city`), ADD KEY `fk_StateId` (`state`), ADD KEY `fk_BgrpId` (`blood_group`);
+ ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `number` (`number`), ADD KEY `user_details_idx_1` (`area`,`city`,`state`), ADD KEY `fk_CityId` (`city`), ADD KEY `fk_StateId` (`state`), ADD KEY `fk_BgrpId` (`blood_group`), ADD KEY `fk_dstid` (`district`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1170,7 +1166,7 @@ MODIFY `lookup_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1196;
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- Constraints for dumped tables
 --
@@ -1184,7 +1180,9 @@ ADD CONSTRAINT `donation_request_lookup_details_2` FOREIGN KEY (`city`) REFERENC
 ADD CONSTRAINT `donation_request_lookup_details_3` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_AreaId1` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_CityId1` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
-ADD CONSTRAINT `fk_StateId1` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`);
+ADD CONSTRAINT `fk_StateId1` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_bgid1` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_dstid1` FOREIGN KEY (`district`) REFERENCES `lookup_details` (`lookup_id`);
 
 --
 -- Constraints for table `user_details`
@@ -1194,6 +1192,8 @@ ADD CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lo
 ADD CONSTRAINT `fk_BgrpId` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_CityId` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_StateId` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_bgid` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_dstid` FOREIGN KEY (`district`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details_2` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details_3` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),

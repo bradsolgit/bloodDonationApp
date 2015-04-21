@@ -152,99 +152,20 @@ include 'header.php';
 					fit: true   // 100% fit in a container
 				});
 
-				$("#state").empty();
-				$("#bloodgroup").empty();
-				$("#state").append($("<option></option>")
-			             .attr("value", "")
-			             .text("State"));
-				$("#bloodgroup").append($("<option></option>")
-			             .attr("value", "")
-			             .text("Blood Group"));
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/1',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            			    	states.push(item);
-		            			    	 $("#state").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/4',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            					bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
+				getStateValues();
+				getBloodGroupValues();
 				
 				 $('#state').change(function(event){
 				    	
 				    	var state= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/district/'+state,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				           	 $('#district').empty();
-							   $('#district')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("District"));
-							   data.forEach( function (item)
-				            			{
-								     $("#district").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								  });
-								}
-		             		});
-						
-				    
+				    	getDistrictValues(state);
 	    	
 						    });
 				 
 				 $('#district').change(function(event){
 				    	
 				    	var district= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/city/'+district,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#city').empty();
-								   $('#city')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("City"));
-								   data.forEach( function (item)
-					            			{
-									      $("#city").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-								  }
-		             		});
-						
+				    	getCityValues(district);
 				    
 	    	
 						    });
@@ -252,28 +173,7 @@ include 'header.php';
 				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/area/'+city,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#area').empty();
-								 $('#area')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("Area"));
-								   data.forEach( function (item)
-					            		{
-										   $("#area").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-			    	
-								  }
-		             		});
-				    	 
+				    	getAreaValues(city);
 				    });
 				 			
 				$(".scroll").click(function(event){		
@@ -324,42 +224,40 @@ include 'header.php';
 				
 				$(".submitbotton").click(function(){	
 					if($("#userForm").valid()){
-					 var userValues = $("#userForm").serialize();
-					 
-					 var user = $("#userForm").serializeArray();
-					 //var valid = validateCaptcha($("#usrCaptcha").val());
-					 var valid = "valid";
-					 if(valid === "valid"){
-					 $.ajax({
-			            	type: 'POST',
-			           		url: url+'/api/userDetails',
-							dataType: 'json',
-							 data: userValues,
-			            	success: function(data)
-	                     		{
-			            		confirmCode = data.confirmation_code;
-			            		userDetails = data;
-			            		$("#userForm").hide();
-			            		$("#otpForm").show();
-	                     		},
-	                     		error: function(xhr, error){
-	                     	        $("#errorMsg").html(xhr.responseText).show();
-	                     		 }
-							});
-					 }else{
-						 $("#errorMsg").html("Invalid Captcha").toggle("show");
-					}
+					
+					 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),saveUser);
+					// var hash = $("#usrCaptcha").realperson('getHash');
+					// var valid = "valid";
+					
 					}
 				});
-				if(sessionStorage.getItem("login") == null){
-					$("#dd").hide();
-					$("#loginLink").show();
-				}else{
-					$("#dd").show();
-					$("#loginLink").hide();
-				}
-
 				
+
+				function saveUser(valid){
+ 					var userValues = $("#userForm").serialize();
+					 
+					 var user = $("#userForm").serializeArray();
+					 if(valid === "Valid"){
+						 $.ajax({
+				            	type: 'POST',
+				           		url: url+'/api/userDetails',
+								dataType: 'json',
+								 data: userValues,
+				            	success: function(data)
+		                     		{
+				            		confirmCode = data.confirmation_code;
+				            		userDetails = data;
+				            		$("#userForm").hide();
+				            		$("#otpForm").show();
+		                     		},
+		                     		error: function(xhr, error){
+		                     	        $("#errorMsg").html(xhr.responseText).show();
+		                     		 }
+								});
+						 }else{
+							 $("#errorMsg").html("Invalid Captcha").show("show");
+						}
+				}
 			});
 	</script>
 <div class="sap_tabs">	
@@ -490,7 +388,7 @@ include 'header.php';
 						</div>
 						<div class="clear"> </div>
 					</div>
-				
+<!-- 				<input type="hidden" id="salt" value="123456"> -->
 					<div class="section">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						

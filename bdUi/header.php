@@ -36,7 +36,12 @@ jQuery(document).ready(function($) {
 		$("#dd").show();
 		$("#loginLink").hide();
 	}
-	$(".captcha").realperson({chars: $.realperson.alphanumeric});
+	$(".captcha").realperson({
+		chars: $.realperson.alphanumeric,
+		regenerate: 'Click to change', // Instruction text to regenerate 
+		hashName: '{captcha}Hash', // Name of the hash value field to compare with, 
+        // use {n} to substitute with the original field name 
+        });
 	
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");

@@ -12,5 +12,5 @@ class Constants{
 	static $purchase_rows = 3;
 	static $sales_rows = 3;
 	static $otp_message = 'Welcome to Mahesh Foundation. Your OTP is {$OTP}';
-	
+	static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=BHATTD&message={$message}';
 }

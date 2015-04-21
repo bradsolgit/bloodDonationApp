@@ -28,104 +28,26 @@ include 'header.php';
 	}, "Please enter a valid number, or 'NA'");
 			jQuery(document).ready(function($) {
 				var oTable = $('#jsontable').dataTable();
+
 				$(".scroll").click(function(event){		
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 				
-				$("#state").empty();
-				$("#bloodgroup").empty();
-				$("#state").append($("<option></option>")
-			             .attr("value", "")
-			             .text("State"));
-				$("#bloodgroup").append($("<option></option>")
-			             .attr("value", "")
-			             .text("Blood Group"));
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/1',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            			    	states.push(item);
-		            			    	 $("#state").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/4',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            					bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
+				getStateValues();
+				getBloodGroupValues();
 				
 				 $('#state').change(function(event){
 				    	
 				    	var state= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/district/'+state,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				           	 $('#district').empty();
-							   $('#district')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("District"));
-							   data.forEach( function (item)
-				            			{
-								     $("#district").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								  });
-								}
-		             		});
-						
-				    
+				    	getDistrictValues(state);
 	    	
 						    });
 				 
 				 $('#district').change(function(event){
 				    	
 				    	var district= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/city/'+district,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#city').empty();
-								   $('#city')
-						             .append($("<option></option>")
-						             .attr("value", "")
-						             .text("City"));
-								   data.forEach( function (item)
-					            			{
-									      $("#city").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-								  }
-		             		});
-						
+				    	getCityValues(district);
 				    
 	    	
 						    });
@@ -133,28 +55,7 @@ include 'header.php';
 				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/area/'+city,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#area').empty();
-								 $('#area')
-						             .append($("<option></option>")
-						             .attr("value", "")
-						             .text("Area"));
-								   data.forEach( function (item)
-					            		{
-										   $("#area").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-			    	
-								  }
-		             		});
-				    	 
+				    	getAreaValues(city);
 				    });
 				 $("#searchBtn").click(function(){	
 					 
@@ -189,19 +90,15 @@ include 'header.php';
 							});
 							
 				 });
+
 				 $("#jsontable_wrapper").hide();
 				 
-				 if(sessionStorage.getItem("login") == null){
-						$("#dd").hide();
-						$("#loginLink").show();
-					}else{
-						$("#dd").show();
-						$("#loginLink").hide();
-					}
+				
 				 });
 	</script>
 <!-- //end-smoth-scrolling -->
-	
+	</head>
+<body>
 	<div class="container">
 			<!----------star form----------->
 			<form class="sign simple-form" id="searchForm"  action="" method="post" >

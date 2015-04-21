@@ -30,13 +30,14 @@ include 'header.php';
 	
 			jQuery(document).ready(function($) {
 				// validate signup form on keyup and submit
-				$("#loginForm").validate({
+				$("#numForm").validate({
 					rules: {
 						number:{
 				            required: true,
 				            custom_number: true
 				        },
-						lgpassword: "required"
+						captcha: "required",
+						otp : "required"
 						
 					},
 					messages: {
@@ -44,56 +45,15 @@ include 'header.php';
 							required: "Please enter number",
 							minlength: "Your enter a valid number"
 						},
-						lgpassword: "Please enter your Password"
+						captcha: "Please enter values as shown in Figure",
+						otp : "Please enter OTP"
 					}
 				});
 				
-			$("#loginButton").click(function(){	
-					
-					if($("#loginForm").valid()){
-						$("#invMsg").hide();
-						var userValues = $("#loginForm").serialize();
-						 
-						 var user = $("#loginForm").serializeArray();
-					$.ajax({
-		            	type: 'POST',
-		           		url: url+'/validate/password',
-						dataType: 'json',
-						data: userValues,
-		            	success: function(data)
-                     		{
-		            		if(data == "Valid"){
-								 sessionStorage.setItem("login", "true");
-								 sessionStorage.setItem("number", "9966866886");
-								 window.location="index.html";
-								 }else{
-									 $("#invMsg").toggle("slow"); 
-								 }
-                     		}
-						});
-						
-					}
-					 
-				});
+			
 				
-				$("#fgtPwdLnk").click(function(){	
-					$("#mobMsg").hide();
-					 $("#cnfMsg").hide();
-					 if($("#number").val() == "" || $("#number").val() == "undefined"){
-						 $("#mobMsg").toggle("slow");
-						 $("#cnfMsg").toggle("slow");
-					 }else{
-						 $("#cnfMsg").toggle("slow");
-					 }
-				});
-				$("#otpForm").validate({
-					rules: {
-						otp: "required",
-					},
-					messages: {
-						otp: "Please enter your name"
-					}
-				});
+				
+				
 				$("#userForm").validate({
 					rules: {
 						name: "required",
@@ -159,16 +119,13 @@ include 'header.php';
                       {
 		            	
 		            	userDetails = data;
-		            	state = data["state"];
-		            	city = data["city"];
-		            	district = data["district"];
-		            	area = data["area"];
+		            	
 		            	bloddgroup = data["blood_group"];
-		            	getInitialValues();
-		            	getDistrictValues(state);
-		            	getCityValues(district);
-		            	getAreaValues(city);
-		            	 $("#area").val(area);
+		            	getStateValues();
+		            	getBloodGroupValues();
+		            	getDistrictValues(data["state"]);
+		            	getCityValues(data["district"]);
+		            	getAreaValues(data["city"],setValues);
 		                  	 $.each(data, function(key, value){
 							   // $('[name='+key+']', frm).val(value);
 		                  		var $ctrl = $('[name='+key+']', frm); 
@@ -203,130 +160,14 @@ include 'header.php';
 						}
              		});
 				
-				 function getInitialValues(){
-					 $("#state").empty();
-						$("#blood_group").empty();
-						$("#state").append($("<option></option>")
-					             .attr("value", "")
-					             .text("State"));
-						$("#blood_group").append($("<option></option>")
-					             .attr("value", "")
-					             .text("Blood Group"));
-						$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupType/1',
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	data.forEach( function (item)
-				            			{
-				            			    	 $("#state").append($("<option></option>")
-						 			             .attr("value", item.lookup_id)
-						 			             .text(item.lookup_value));
-				            			    
-				            			});
-				            	
-								}
-		             		});
-						
-						$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupType/4',
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	data.forEach( function (item)
-				            			{
-				            			    	 $("#blood_group").append($("<option></option>")
-						 			             .attr("value", item.lookup_id)
-						 			             .text(item.lookup_value));
-				            			    
-				            			});
-								}
-		             		});
-						
-				 }
-				 
-				 function getDistrictValues(state){
-					 $.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/district/'+state,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				           	 $('#district').empty();
-							   $('#district')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("District"));
-							   data.forEach( function (item)
-				            			{
-								     $("#district").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								  });
-							   $("#state").val(state);
-								}
-		             		});
-						
-				    
-				 }
-				 
-				 function getCityValues(district){
-						$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/city/'+district,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#city').empty();
-								   $('#city')
-						             .append($("<option></option>")
-						             .attr("value", "")
-						             .text("City"));
-								   data.forEach( function (item)
-					            			{
-									      $("#city").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-								   $("#district").val(district);
-								  }
-		             		});
-					
-				 }
-				 
-	            function getAreaValues(city){
-	            	$.ajax({
-			            type: 'GET',
-			            url: url+'/lookupId/area/'+city,
-						dataType: 'json',
-			            success: function(data)
-	                      {
-			            	$('#area').empty();
-							 $('#area')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("Area"));
-							   data.forEach( function (item)
-				            		{
-									   $("#area").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								   
-				            	});
-							   $("#city").val(city);
-							   $("#district").val(userDetails.district);
-							   $("#state").val(userDetails.state);
-							   $("#area").val(userDetails.area);
-							   $("#blood_group").val(userDetails.blood_group);
-							   $(".gender").val(userDetails.gender);
-							  }
-	             		});
-			    
-	            }
-	                
+				function setValues(){
+					$("#city").val(userDetails.city);
+				   $("#district").val(userDetails.district);
+				   $("#state").val(userDetails.state);
+				   $("#area").val(userDetails.area);
+				   $("#blood_group").val(userDetails.blood_group);
+				   $(".gender").val(userDetails.gender);
+				}
 				
 				 $('#state').change(function(event){
 				    	
@@ -356,50 +197,79 @@ include 'header.php';
 				
 				$("#otpButton").click(function(){
 					$("#invalidOtpMsg").hide();
-					$.ajax({
-		            	type: 'POST',
-		           		url: url+'/validate/validateotp',
-						dataType: 'json',
-						 data: {otp:$("#otp").val(),number: userDetails.number},
-		            	success: function(data)
-                     		{
-		            		if(data == "Valid"){
-								 $.ajax({
-						            	type: 'POST',
-						           		url: url+'/validate/validatestatus',
-										dataType: 'json',
-										 data: {user_id: userDetails.user_id},
-						            	success: function(data)
-				                     		{
-						            		if(data == "Valid"){
-												 sessionStorage.setItem("login", "true");
-												 sessionStorage.setItem("number", userDetails.number);
-												 window.location="index.html";
-												 }else{
-													 $("#invalidOtpMsg").toggle("slow"); 
-												 }
-				                    		},
-				                     		error: function(xhr, error){
-				                     	        $("#errorMsg").html(xhr.responseText).show();
-				                     		 }
-										});
-								
-								 
-								 }else{
-									 $("#invalidOtpMsg").toggle("slow"); 
-								 }
-                    		},
-                     		error: function(xhr, error){
-                     	        $("#errorMsg").html(xhr.responseText).show();
-                     		 }
-						});
+					 $("#valMobMsg").hide();
+					 $("#otpCnfMsg").hide("slow");
+					if($("#numForm").valid()){
+						 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),validateOTP);
+						}
 					});
+
+				function validateOTP(data){
+					if(data === "Valid"){
+						var formVals = $("#numForm").serialize();
+						validateOTP($("#otp").val(),$("#updNumber").val(),updateNumber);
+					 }else{
+						 $("#invalidCaptchapMsg").show("show");
+						}
+				}
 				
 				$("#updateBtn").click(function(){	
 					if($("#userForm").valid()){
-					 var userValues = $("#userForm").serialize();
-					 
-					 var user = $("#userForm").serializeArray();
+						 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),updateUser);
+					}
+				});
+
+				
+				$("#updteNum").click(function(){	
+					if(confirm("Do you want to change the mobile number?")){
+						$("#userForm").hide();
+						$("#numForm").show();
+						}
+					
+				});
+
+				$("#reqOtpBtn").click(function(){
+					 $("#valMobMsg").hide();
+					var val = 	$("#updNumber").val();
+					if (!val.match(/[789][0-9]{9}/)) {
+			            $("#valMobMsg").show();
+			            return false;
+			        }else{
+					if(confirm("Do you want to send OTP to this mobile number?")){
+						sendOtp(val,showConfMsg)
+						}
+			        }
+					
+				});
+				
+				function showConfMsg(){
+					 $("#otpCnfMsg").show("slow");
+				}
+				
+				function updateNumber(data){
+				if(data == "Valid"){
+					
+					 $.ajax({
+			            	type: 'POST',
+			           		url: url+'/user/number/'+$("#updNumber").val(),
+							dataType: 'json',
+							data: {number:$("#updNumber").val()},
+			            	success: function(data)
+	                     		{
+			            		userDetails = data;
+			            		
+	                     		},
+	                     		error: function(xhr, error){
+	                     	        $("#errorMsg").html(xhr.responseText).show();
+	                     		 }
+							});
+				}else{
+					 $("#invalidOtpMsg").show("slow"); 
+				 }
+				}
+				function updateUser(valid){
+					 if(valid === "Valid"){
+					var userValues = $("#userForm").serialize();
 					 $.ajax({
 			            	type: 'POST',
 			           		url: url+'/user/update/'+userDetails.user_id,
@@ -414,19 +284,15 @@ include 'header.php';
 	                     	        $("#errorMsg").html(xhr.responseText).show();
 	                     		 }
 							});
-							
+				 }else{
+					 $("#errorMsg").html("Invalid Captcha").show("show");
 					}
-				});
-				if(sessionStorage.getItem("login") == null){
-					$("#dd").hide();
-					$("#loginLink").show();
-				}else{
-					$("#dd").show();
-					$("#loginLink").hide();
 				}
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+</head>
+<body>
 <div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
@@ -455,7 +321,8 @@ include 'header.php';
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
 						<div class="input-sign details1">
-							<input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/> 
+							<input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/>
+							<input type="button" value="Update Number" id="updteNum"> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -538,7 +405,7 @@ include 'header.php';
 					</div>
 					<div class="section">
 						<div class="input-sign details">
-							<input type="text" class="text captcha" name="captcha"  id="" /> 
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -550,18 +417,28 @@ include 'header.php';
 			</form>
 			<!----------end form----------->
 			
-			<form class="sign simple-form" id="otpForm" name="otpForm" style="display: none;">
+			<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidCaptchapMsg" style="display: none;">Please enter valid captcha</span>
+			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
+			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
+			
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
-						
+						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="button" value="Request OTP" id="reqOtpBtn"> 
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
 						<div class="input-sign details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+					<div class="section">
+						<div class="input-sign details">
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
