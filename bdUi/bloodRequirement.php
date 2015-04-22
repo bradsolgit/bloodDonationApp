@@ -98,8 +98,13 @@ include 'header.php';
 		
 		 });
 	</script>
+	</head>
 	
+<div class="blog">
 	<div class="container">
+		<div class="row">
+			<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+	<div class="bloodRq col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
 		<form class="sign simple-form" id="reqForm"  action="" method="post" >
 	
 					<div class="formtitle">Blood Request Form</div>
@@ -116,11 +121,11 @@ include 'header.php';
 						<div class="clear"> </div>
 					</div>
 				
-				<div class="section">
+				<div class="section ">
 						<div class="input-sign details">
 							<input type="text" class="text" name="hospital"  placeholder="Hospital" /> 
 						</div>
-						<div class="input-sign details1">
+						<div class="input-sign details1 date-bdApp">
 							<input type="date" class="text" name="date" placeholder="Date of Requirement" /> 
 						</div>
 						<div class="clear"> </div>
@@ -175,8 +180,12 @@ include 'header.php';
 					<input class="bluebutton submitbotton" type="button" id="searchBtn" value="Search for a Request" />	
 					</div>
 				
-			</form>
+			</form></div>
 	
+					<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+
+	<div style="clear:both;"></div>
+	</div></div>
 	</div>
 		<table id="jsontable" class="display table table-bordered">
 			<thead>

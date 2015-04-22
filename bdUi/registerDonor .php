@@ -362,7 +362,7 @@ include 'header.php';
 				
 			});
 	</script>
-	<div class="reg-form-bd">
+	<div class="blog">
 	<div class="container">
 <div class="row">
 <div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
