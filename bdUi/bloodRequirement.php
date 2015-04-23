@@ -208,7 +208,7 @@ if(otp1==otp2)
 					<!----------start city section----------->
 					
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign details user-name">
 							<input type="text" class="text" name="name"  placeholder="Your Name" /> 
 						</div>
 						<div class="input-sign details1">
@@ -218,7 +218,7 @@ if(otp1==otp2)
 					</div>
 				
 				<div class="section ">
-						<div class="input-sign details">
+						<div class="input-sign details hospital">
 							<input type="text" class="text" name="hospital"  placeholder="Hospital" /> 
 						</div>
 						<div class="input-sign details1 date-bdApp">
@@ -276,7 +276,7 @@ if(otp1==otp2)
 					<input class="bluebutton submitbotton" type="button" id="searchBtn" value="Search for a Request" />	
 					</div>
 				
-<<<<<<< HEAD
+
 			</form>
 			<form class="sign simple-form" id="otpForm" name="userForm">
 			
@@ -298,16 +298,17 @@ if(otp1==otp2)
 					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
 					</div>
 			</form>
-=======
-			</form></div>
->>>>>>> 29f330adcf1465ea951a4174c13800c6a5be8675
+
+			</div>
+			</div>
+		
+
 	
 					<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 
 	<div style="clear:both;"></div>
-	</div></div>
-	</div>
-		<table id="jsontable" class="display table table-bordered">
+		<div class="table-responsive tb-mgn-top">
+		<table id="jsontable" class="display table table-bordered table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -325,6 +326,10 @@ if(otp1==otp2)
 			
 			
 		</table>
+			</div>
+	</div></div>
+
+			</div>
 <?php 
 include 'news.php';
 ?>

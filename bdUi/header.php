@@ -45,16 +45,24 @@ jQuery(document).ready(function($) {
 	});
 });
 </script>
-<<script type="text/javascript">$(function() {
-    $( 'ul.nav li' ).on( 'click', function() {
-        $( this ).parent().find( 'li.active' ).removeClass( 'active' );
-        $( this ).addClass( 'active' );
-  });
+<script type="text/javascript">
+$(function(){
+
+    var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there
+        // now grab every link from the navigation
+        $('.navg a').each(function(){
+            // and test its normalized href against the url pathname regexp
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('active');
+            }
+        });
+
 });</script>
 <!--
 
 //-->
-</script>
+
 <!-- //end-smoth-scrolling -->
 </head>
 <body>
@@ -83,7 +91,7 @@ jQuery(document).ready(function($) {
 
 <div class="navg">
 <ul class="res nav">
-<li><a class="active" href="index.php">HOME</a></li>
+<li><a href="index.php">HOME</a></li>
 <li><a href="about.php">ABOUT US</a></li>
 <li><a href="searchDonor.php">SEARCH DONOR</a></li>
 <li><a href="bloodRequirement.php">REQUEST FOR BLOOD</a></li>

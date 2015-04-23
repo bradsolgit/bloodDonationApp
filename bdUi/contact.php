@@ -27,9 +27,10 @@ include 'header.php';
 			 
 			  </div class="row">
 			   <div class="col-md-9 get-right">
-			    <h3 style="border-bottom:5px solid #ccc;text-align:center;">Get in Touch</h3>
+			    <h3 style="border-bottom:5px solid #ccc;text-align:center;font-size:36px;">Get in Touch</h3>
 			    <div class="contact-bs">
-					<p class="ls-address"><b>Address :</b> Richard McClintock  <span>&nbsp;&nbsp;</span><b>   Street :</b> Letraset sheets    <b><span>&nbsp;&nbsp;</span>ph :</b> 0000-0000-000</p>
+					<p class="ls-address"><b style="color:#9b242d;">Address :</b> Richard McClintock  <span>&nbsp;&nbsp;</span><b style="color:#9b242d;">   Street :</b> Letraset sheets    <b style="color:#9b242d;"><span>&nbsp;&nbsp;</span>ph :</b> 0000-0000-000</p>
+					
 					</div>
 					
 					<div class="map">
@@ -48,7 +49,7 @@ include 'header.php';
 			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
 			  	 <p>Website</p>
 			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
-			  	  	<hp>Message</hp>
+			  	  	<p>Message</p>
 			  	<textarea   onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/> </textarea>
 			  	<div class="clearfix"> </div>	
 			  	 <input type="submit" value="Send">
