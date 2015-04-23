@@ -123,7 +123,7 @@ class Utilities {
 		return $hash;
 	}
 	
-	static function getSMSURL($otp,$number){
+	static function getSMSURL($otp, $oldNumber){
 		$str = Constants::$otp_message;
 		
 
@@ -131,7 +131,7 @@ class Utilities {
 			
 		$tempurl = Constants::$sms_url;
 		
-		$url1 = strtr($tempurl, array('{$number}' => $number,'{$message}' => $repstr));
+		$url1 = strtr($tempurl, array('{$number}' =>  $oldNumber,'{$message}' => $repstr));
 		$url2 = preg_replace('/ /', '%20',$url1);
 		
 		return $url2;

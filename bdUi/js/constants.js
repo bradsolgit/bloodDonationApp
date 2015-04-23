@@ -149,7 +149,7 @@ function sendOtp(number,callback){
 	$.ajax({
         type: 'POST',
         url: url+'/sendOTP/'+number,
-        data: {number: number},
+        data: {newnumber: number,oldnumber: userDetails.number},
 		dataType: 'json',
         success: function(data)
           {

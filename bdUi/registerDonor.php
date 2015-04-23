@@ -324,33 +324,40 @@ include 'header.php';
 				
 				$(".submitbotton").click(function(){	
 					if($("#userForm").valid()){
-					 var userValues = $("#userForm").serialize();
-					 
-					 var user = $("#userForm").serializeArray();
-					 //var valid = validateCaptcha($("#usrCaptcha").val());
-					 var valid = "valid";
-					 if(valid === "valid"){
-					 $.ajax({
-			            	type: 'POST',
-			           		url: url+'/api/userDetails',
-							dataType: 'json',
-							 data: userValues,
-			            	success: function(data)
-	                     		{
-			            		confirmCode = data.confirmation_code;
-			            		userDetails = data;
-			            		$("#userForm").hide();
-			            		$("#otpForm").show();
-	                     		},
-	                     		error: function(xhr, error){
-	                     	        $("#errorMsg").html(xhr.responseText).show();
-	                     		 }
-							});
-					 }else{
-						 $("#errorMsg").html("Invalid Captcha").toggle("show");
-					}
+					
+					 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),saveUser);
+					// var hash = $("#usrCaptcha").realperson('getHash');
+					// var valid = "valid";
+					
 					}
 				});
+				
+				function saveUser(valid){
+ 					var userValues = $("#userForm").serialize();
+					 
+					 var user = $("#userForm").serializeArray();
+					 if(valid === "Valid"){
+						 $.ajax({
+				            	type: 'POST',
+				           		url: url+'/api/userDetails',
+								dataType: 'json',
+								 data: userValues,
+				            	success: function(data)
+		                     		{
+				            		confirmCode = data.confirmation_code;
+				            		userDetails = data;
+				            		$("#userForm").hide();
+				            		$("#otpForm").show();
+		                     		},
+		                     		error: function(xhr, error){
+		                     	        $("#errorMsg").html(xhr.responseText).show();
+		                     		 }
+								});
+						 }else{
+							 $("#errorMsg").html("Invalid Captcha").show("show");
+						}
+				}
+			
 				if(sessionStorage.getItem("login") == null){
 					$("#dd").hide();
 					$("#loginLink").show();

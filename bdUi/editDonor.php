@@ -22,6 +22,7 @@ include 'header.php';
 	var area = "";
 	var bloddgroup = "";
     var confirmCode;
+    var password;
 	var userDetails = "";
 	$.validator.addMethod("custom_number", function(value, element) {
 	    return this.optional(element) || value === "NA" ||
@@ -47,6 +48,39 @@ include 'header.php';
 						},
 						captcha: "Please enter values as shown in Figure",
 						otp : "Please enter OTP"
+					}
+				});
+				$("#resetPasswordForm").validate({
+					rules: {
+						number: "required",
+						oldpassword: {
+							required: true,
+							minlength: 5
+						},
+						newpassword: {
+							required: true,
+							minlength: 5,
+							
+						},
+						captcha: "required",
+						
+					},
+					messages: {
+						number: {
+							required: "Please enter number",
+							minlength: "Your enter a valid number"
+						},
+						oldpassword: {
+							required: "Please enter oldpassword",
+							minlength: "Your enter a valid oldpassword"
+						},
+						newpassword: {
+							required: "Please enter newpassword",
+							minlength: "Your enter a valid newpassword"
+							
+						},
+						captcha: "Please enter values as shown in Figure",
+						
 					}
 				});
 				
@@ -195,21 +229,19 @@ include 'header.php';
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 				});
 				
-				$("#otpButton").click(function(){
-					$("#invalidOtpMsg").hide();
-					 $("#valMobMsg").hide();
-					 $("#otpCnfMsg").hide("slow");
+				$("#numButton").click(function(){
+					
 					if($("#numForm").valid()){
-						 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),validateOTP);
+						 validateCaptcha($("#numCaptcha").val(),$("#numCaptcha").realperson('getHash'),otpValidate);
 						}
 					});
 
-				function validateOTP(data){
+				function otpValidate(data){
 					if(data === "Valid"){
 						var formVals = $("#numForm").serialize();
 						validateOTP($("#otp").val(),$("#updNumber").val(),updateNumber);
 					 }else{
-						 $("#invalidCaptchapMsg").show("show");
+						 $("#invalidCaptcha").show();
 						}
 				}
 				
@@ -218,7 +250,12 @@ include 'header.php';
 						 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),updateUser);
 					}
 				});
-
+				$("#resetButton").click(function(){	
+					if($("#resetPasswordForm").valid()){
+						 validateCaptcha($("#resetCaptcha").val(),$("#resetCaptcha").realperson('getHash'),resetPassword);
+					}
+				});
+				
 				
 				$("#updteNum").click(function(){	
 					if(confirm("Do you want to change the mobile number?")){
@@ -229,8 +266,9 @@ include 'header.php';
 				});
 
 				$("#reqOtpBtn").click(function(){
+					alert("juwihjs");
 					 $("#valMobMsg").hide();
-					var val = 	$("#updNumber").val();
+					var val = 	$("#updateNumber").val();
 					if (!val.match(/[789][0-9]{9}/)) {
 			            $("#valMobMsg").show();
 			            return false;
@@ -245,18 +283,40 @@ include 'header.php';
 				function showConfMsg(){
 					 $("#otpCnfMsg").show("slow");
 				}
-				
+				function resetPassword(data){
+					if(data == "Valid"){
+						var password=$("#newpassword").val();
+						 $.ajax({
+				            	type: 'POST',
+				           		url: url+'/user/resetPassword/'+$("#number").val(),
+								dataType: 'json',
+								data: {password:password},
+				            	success: function(data)
+		                     		{
+				            		
+				            		 window.location="registerDonor.php";
+				            		
+		                     		},
+		                     		error: function(xhr, error){
+		                     	        $("#errorMsg").html(xhr.responseText).show();
+		                     		 }
+								});
+					}else{
+						 $("#OtpMsg").show(); 
+					 }
+					}
 				function updateNumber(data){
 				if(data == "Valid"){
-					
+					var number=$("#updateNumber").val();
 					 $.ajax({
 			            	type: 'POST',
-			           		url: url+'/user/number/'+$("#updNumber").val(),
+			           		url: url+'/user/number/'+userDetails.number,
 							dataType: 'json',
-							data: {number:$("#updNumber").val()},
+							data: {number:number},
 			            	success: function(data)
 	                     		{
 			            		userDetails = data;
+			            		window.location="registerDonor.php";
 			            		
 	                     		},
 	                     		error: function(xhr, error){
@@ -264,7 +324,7 @@ include 'header.php';
 	                     		 }
 							});
 				}else{
-					 $("#invalidOtpMsg").show("slow"); 
+					$("#invalidOtp").show();
 				 }
 				}
 				function updateUser(valid){
@@ -421,14 +481,12 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
-			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			<span id="invalidCaptchapMsg" style="display: none;">Please enter valid captcha</span>
-			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
-			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
+			<span id="invalidCaptcha" style="display: none;">Invalid Captcha</span>
 			
+			<span id="invalidOtp" style="display: none;">Invalid Otp</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
 					</div>
 					<div style="clear:both;"></div>
@@ -441,12 +499,12 @@ include 'header.php';
 					</div>
 					<div class="section">
 						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+							<input type="text" class="text captcha" name="captcha"  id="numCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					<div class="submit">
-					<input class="bluebutton" id="otpButton" type="button" value="Update Mobile Number" />	
+					<input class="bluebutton" id="numButton" type="button" value="Update Mobile Number" />	
 					</div>
 			</form>
 		</div>
@@ -460,12 +518,12 @@ include 'header.php';
 							<div class="register">
 							<div class="sign_up" >
 			<!----------star form----------->
-			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
-			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
-			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
-			<form class="sign simple-form" id="loginForm"  action="" method="post" >
+			
+			
+			<form class="sign simple-form" id="resetPasswordForm"  action="" method="post" >
 	
 					<div class="formtitle">Reset Password</div>
+					<span id="OtpMsg" style="display: none;">Invalid OTP Code</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
@@ -475,27 +533,28 @@ include 'header.php';
 					</div>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="password" id="lgpassword" name="lgpassword"  placeholder="Old Password" />
+						<input type="password" id="oldpassword" name="oldpassword"  placeholder="Old Password" />
 						
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="password" id="lgpassword" name="lgpassword"  placeholder="New Password" />
+						<input type="password" id="newpassword" name="newpassword"  placeholder="New Password" />
 						
 					</div>
-					<div class="section">
+					<div class="clear"> </div>
+					</div>
+						<div class="section">
 						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="" /> 
+							<input type="text" class="text captcha" name="captcha"  id="resetCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					
-					<div style="clear:both;"></div>
-					</div>
+					
 					<div class="buttons login-button1">
-						<input class="bluebutton" id="loginButton" type="button" value="Reset Password" />
+						<input class="bluebutton" id="resetButton" type="button" value="Reset Password" />
 						
 					</div>
 		

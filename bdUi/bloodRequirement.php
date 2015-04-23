@@ -91,6 +91,24 @@ include 'header.php';
 						
 				}
 			});
+		 $("#otpForm").validate({
+				rules: {
+					
+					
+					captcha: "required",
+					otp: "required",
+					
+				
+				},
+				messages: {
+					captcha: "Please enter your captcha",
+					otp: "Please enter your otp ",
+	
+				
+					
+						
+				}
+			});
 			$("#createBtn").click(function(){	
 				
 				if($("#reqForm").valid()){
@@ -156,41 +174,52 @@ include 'header.php';
 					});
 					
 		 });
-			$("#otpButton").click(function(){	
-				var otp1=userDetails.confirmatiocode;
-				var otp2=$("#otp").val();
-
-
-if(otp1==otp2)
-{
+		 $("#otpButton").click(function(){	
+				if($("#otpForm").valid()){
+				
+				 validateCaptcha($("#usrCaptcha").val(),$("#usrCaptcha").realperson('getHash'),saveUser);
+				// var hash = $("#usrCaptcha").realperson('getHash');
+				// var valid = "valid";
+				
+				}
+			});
+			
+			function saveUser(valid){
+			
+				 if(valid === "Valid"){
+					 var otp=$("#otp").val();
+					 var otp1=userDetails.confirmatiocode;
+					
+					 
+					 
+					 if(otp===otp1)
+					 {
 					 $.ajax({
-				     	type: 'POST',
-				    		url: url+'/api/donationRequest1',
+			            	type: 'POST',
+			           		url: url+'/api/donationRequest1',
 							dataType: 'json',
 							 data: userDetails,
-				     	success: function(data)
-				      		{
-				     		
-				     		 window.location="index.php";
-				     		
-				      		},
-				      		error: function(xhr, error){
-				      	        $("#errorMsg").html(xhr.responseText).show();
-				      		 }
+			            	success: function(data)
+	                     		{
+			            
+			            		 window.location="index.php";
+			            		
+	                     		},
+	                     		error: function(xhr, error){
+	                     	        $("#errorMsg").html(xhr.responseText).show();
+	                     		 }
 							});
-
-
-}else
-{
-	$("#invalidOtpMsg").show(); 
-	}
-				
-				
-
-
-								});
+					 }
+					 else
+					 {
+						 $("#invalidOtpMsg").show();
+						 }
+					 }else{
+						 $("#invalidCaptchaMsg").show();
+					}
+			}
 		 $("#jsontable_wrapper").hide();
-		 $("#otpForm").show();
+		 $("#otpForm").hide();
 		
 		 });
 	</script>
@@ -276,11 +305,11 @@ if(otp1==otp2)
 					<input class="bluebutton submitbotton" type="button" id="searchBtn" value="Search for a Request" />	
 					</div>
 				
-<<<<<<< HEAD
 			</form>
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			
+			<span id="errorMsg" style="display: none;"></span>
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidCaptchaMsg" style="display: none;">Invalid Captcha Code</span>
 			
 			<div class="section">
 						<div class="input-sign otp-center-details">
@@ -298,9 +327,8 @@ if(otp1==otp2)
 					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
 					</div>
 			</form>
-=======
+
 			</form></div>
->>>>>>> 29f330adcf1465ea951a4174c13800c6a5be8675
 	
 					<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 

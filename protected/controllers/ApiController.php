@@ -283,25 +283,29 @@ class ApiController extends Controller {
 	}
 	
 	public function actionsendOTP(){
-		if (! isset ( $_POST ['number'] ))
+		if (! isset ( $_POST ['newnumber']))
 			$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 		
-		$number = $_POST ['number'];
+		$newNumber = $_POST ['newnumber'];
+		$oldNumber = $_POST ['oldnumber'];
 		
 		$user = UserDetails::model()->findByAttributes ( array (
-				'number' => $number
+				'number' => $newNumber
 		) );
 		
-		if (! empty ( $user )) {
+		if (empty($user)) {
+	$user = UserDetails::model()->findByAttributes ( array (
+				'number' => $oldNumber
+) );
 			$otp = Utilities::generateRandomString ();
 			$user->confirmation_code = $otp;
 			$user->save ();
 			
-			$payload = file_get_contents (Utilities::getSMSURL($otp, $number));
+			$payload = file_get_contents (Utilities::getSMSURL($otp, $newNumber));
 				
-			$message = "success";
+			$message = "Valid";
 		} else {
-			$message = "unsuccess";
+			$message = "Invalid";
 		}
 		$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 	}
@@ -370,12 +374,15 @@ class ApiController extends Controller {
 				$otp = $_POST ['otp'];
 				$number = $_POST ['number'];
 				$user = UserDetails::model ()->findByAttributes ( array (
-						'confirmation_code' => $otp,
-						'number' => $number 
-				) );
-				if (! empty ( $user )) {
+				'number' =>$number,
+				'confirmation_code' =>$otp
+		) );
+			
+				if (!empty($user)) {
 					$message = "Valid";
+$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				}
+				
 				break;
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['validate'] ) );
@@ -563,6 +570,10 @@ class ApiController extends Controller {
 				$model = Utilities::getMobileNo ( $_GET ['id'] );
 				$model->number = $_POST['number'];
 				break;
+				case 'resetPassword' :
+					$model = Utilities::getMobileNo ( $_GET ['id'] );
+					$model->password = $_POST['password'];
+					break;
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
 				Yii::app ()->end ();
