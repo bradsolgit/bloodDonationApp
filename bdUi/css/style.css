@@ -3259,6 +3259,7 @@ transition: all 0.3s ease-out;
     top: 136%;
     transition: all 0.3s ease-out 0s;
     width: 250px;
+    z-index:11;
 }
 .wrapper-dropdown-2 .dropdown li:last-child{
 	border-bottom:none;
