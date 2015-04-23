@@ -7,15 +7,16 @@
 	<div class="container">
 		<div class="footer-main">
 			<div class="footer-navg">
-				<ul>
-					<li><a class="active" href="index.html">HOME</a></li>
-					<li><a href="about.php">ABOUT US</a></li>
-					<li><a href="projects.html">PROJECTS</a></li>
-					<li><a href="blog.html">BLOG</a></li>
-					<li><a href="events.html">EVENTS</a></li>
-					<li><a href="gallery.html">GALLERY</a></li>
-					<li><a href="contact.html">CONTACT US</a></li>
-				</ul>
+			<ul>
+<li><a class="active" href="index.php">HOME</a></li>
+<li><a href="about.php">ABOUT US</a></li>
+<li><a href="searchDonor.php">SEARCH DONOR</a></li>
+<li><a href="bloodRequirement.php">REQUEST FOR BLOOD</a></li>
+<li><a href="blog.php">BLOG</a></li>
+<li><a href="gallery.php">GALLERY</a></li>
+<li><a href="contact.php">CONTACT US</a></li>
+<li id="loginLink"><a href="registerDonor.php">LOGIN/REGISTER</a></li>
+</ul>
 			</div>
 			<div class="footer-top">
 				<div class="col-md-4 footer-left">
@@ -40,7 +41,7 @@
 			<div class="clearfix"> </div>
 			</div>
 			<div class="footer-bottom">
-				<p>2014 &copy Template by <a href="http://w3layouts.com/"> W3layouts </a> </p>
+				<p>Designed By  <a href="http://bradsol.com/">BRADSOL </a> </p>
 			</div>
 		<div class="clearfix"> </div>
 			<script type="text/javascript">

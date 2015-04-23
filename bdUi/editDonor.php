@@ -292,13 +292,16 @@ include 'header.php';
 	</script>
 <!-- //end-smoth-scrolling -->
 </head>
-<body>
-<div class="sap_tabs">	
+<body>	
+	<div class="blog">
+<div class="container">
+		<div class="row magin-top">
+			<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+				<div class="sap_tabs col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
 			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Edit Details</span>
-			  	  	
-				</li>
+			  	  	</li>
 				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Reset Password</span></li>
 				  
 				 
@@ -322,7 +325,7 @@ include 'header.php';
 						</div>
 						<div class="input-sign details1">
 							<input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/>
-							<input type="button" value="Update Number" id="updteNum"> 
+							<input type="button" class="update-mbn" value="Update Number" id="updteNum"> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -404,7 +407,7 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign captcha-reset-details">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
@@ -426,18 +429,18 @@ include 'header.php';
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
-						<input type="button" value="Request OTP" id="reqOtpBtn"> 
+						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign otp-reset-details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign captcha-reset-details">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
@@ -483,7 +486,7 @@ include 'header.php';
 						
 					</div>
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign captcha-reset-details">
 							<input type="text" class="text captcha" name="captcha"  id="" /> 
 						</div>
 						<div class="clear"> </div>
@@ -503,10 +506,15 @@ include 'header.php';
 						</div>
 				</div> 
 			</div> 			        					 
-				        </div>	
-				     </div>	
-		        </div>
-	 
+				    	
+				</div>
+	</div>
+	</div>
+	 		<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+	<div style="clear:both;"></div>
+	</div>
+	</div>
+	</div>
 	
 			
 
