@@ -22,7 +22,7 @@ include 'header.php';
 	var states = [];
 	var cities = [];
 	var areas = [];
-	
+	var userDetails = "";
 	$.validator.addMethod("custom_number", function(value, element) {
 	    return this.optional(element) || value === "NA" ||
 	        value.match(/[789][0-9]{9}/);
@@ -58,8 +58,72 @@ include 'header.php';
 		    	var city= this.value;
 		    	getAreaValues(city);
 		    });
+		 $("#reqForm").validate({
+				rules: {
+					name: "required",
+				
+					number: {
+						required: true,
+						number: true
+					},
+					
+					hospital: "required",
+					date: "required",
+					city: "required",
+					state: "required",
+					district : "required",
+					state: "required",
+				
+					blood_group : "required",
+				
+				},
+				messages: {
+					name: "Please enter your name",
+					number: "Please enter your number ",
+					hospital: "Please enter your hospital name",
+					date: "Please enter your date",
+				    city: "Please select City",
+					state: "Please select State",
+					district: "Please select District",
+					blood_group: "Please select Blood Group",
+				
+					
+						
+				}
+			});
+			$("#createBtn").click(function(){	
+				
+				if($("#reqForm").valid()){
+				 var userValues = $("#reqForm").serialize();
+				 
+				 var user = $("#reqForm").serializeArray();
+				 //var valid = validateCaptcha($("#usrCaptcha").val());
+				
+				 
+				 $.ajax({
+		            	type: 'POST',
+		           		url: url+'/api/donationRequest',
+						dataType: 'json',
+						 data: userValues,
+		            	success: function(data)
+                     		{
+		            		
+		            		userDetails = data;
+		            		$("#reqForm").hide();
+		            		$("#otpForm").show();
+		            		
+                     		},
+                     		error: function(xhr, error){
+                     	        $("#errorMsg").html(xhr.responseText).show();
+                     		 }
+						});
+				 
+				}
+			});
+		
+				
 		 $("#searchBtn").click(function(){	
-			 
+			
 			var searchCrit = $("#reqForm").serialize();
 			 
 			 var user = $("#reqForm").serializeArray();
@@ -74,14 +138,14 @@ include 'header.php';
 	            		for(var i = 0; i < data.length; i++) {
 	            		oTable.fnAddData([
 	            		data[i].name,
-	            		data[i].hospital,
-	            		data[i].state,
+	      data[i].state,
 	            		data[i].district,
 	            		data[i].city,
 	            		data[i].area,
 	            		data[i].number,
 	            		data[i].blood_group,
-	            		data[i].hospital
+	            		data[i].hospital,
+	            		data[i].date
 	            		]);
 	            		} // End Fo
 	            		 $("#jsontable_wrapper").show();
@@ -92,16 +156,48 @@ include 'header.php';
 					});
 					
 		 });
+			$("#otpButton").click(function(){	
+				var otp1=userDetails.confirmatiocode;
+				var otp2=$("#otp").val();
 
+
+if(otp1==otp2)
+{
+					 $.ajax({
+				     	type: 'POST',
+				    		url: url+'/api/donationRequest1',
+							dataType: 'json',
+							 data: userDetails,
+				     	success: function(data)
+				      		{
+				     		
+				     		 window.location="index.php";
+				     		
+				      		},
+				      		error: function(xhr, error){
+				      	        $("#errorMsg").html(xhr.responseText).show();
+				      		 }
+							});
+
+
+}else
+{
+	$("#invalidOtpMsg").show(); 
+	}
+				
+				
+
+
+								});
 		 $("#jsontable_wrapper").hide();
-		 
+		 $("#otpForm").show();
 		
 		 });
 	</script>
 	
 	<div class="container">
 		<form class="sign simple-form" id="reqForm"  action="" method="post" >
-	
+	<span id="errorMsg" style="display: none;"></span>
 					<div class="formtitle">Blood Request Form</div>
 					
 					<!----------start city section----------->
@@ -176,6 +272,26 @@ include 'header.php';
 					</div>
 				
 			</form>
+			<form class="sign simple-form" id="otpForm" name="userForm">
+			
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			
+			<div class="section">
+						<div class="input-sign otp-center-details">
+							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+						</div>
+						</div>
+						<div class="clear"> </div>
+						<div class="section">
+						<div class="input-sign captcha-center-details">
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+						</div>
+						<div class="clear"> </div>
+					
+				<div class="submit">
+					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
+					</div>
+			</form>
 	
 	</div>
 		<table id="jsontable" class="display table table-bordered">
@@ -190,6 +306,7 @@ include 'header.php';
 					<th>Number</th>
 					<th>Blood Group</th>
 					<th>Hospital</th>
+					<th>Date</th>
 				</tr>
 			</thead>
 			

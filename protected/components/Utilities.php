@@ -132,7 +132,8 @@ class Utilities {
 		$tempurl = Constants::$sms_url;
 		
 		$url1 = strtr($tempurl, array('{$number}' => $number,'{$message}' => $repstr));
+		$url2 = preg_replace('/ /', '%20',$url1);
 		
-		return $url1;
+		return $url2;
 	}
 }

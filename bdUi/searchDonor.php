@@ -175,6 +175,7 @@ include 'header.php';
 			
 			
 		</table>
+		
 <?php 
 include 'news.php';
 ?>
