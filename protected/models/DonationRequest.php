@@ -14,13 +14,15 @@
  * @property string $date
  * @property integer $district
  * @property integer $blood_group
+ * @property string $confirmatiocode
+ * @property string $validatestatus
  *
  * The followings are the available model relations:
  * @property LookupDetails $area0
  * @property LookupDetails $city0
  * @property LookupDetails $state0
- * @property LookupDetails $district0
  * @property LookupDetails $bloodGroup
+ * @property LookupDetails $district0
  */
 class DonationRequest extends CActiveRecord
 {
@@ -50,13 +52,14 @@ class DonationRequest extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, area, city, state, number, hospital, date', 'required'),
-			array('area, city,number, state', 'numerical', 'integerOnly'=>true),
+			array('name, area, city, state, number, hospital, date, blood_group, confirmatiocode', 'required'),
+			array('area, city, state, district, blood_group', 'numerical', 'integerOnly'=>true),
 			array('name, hospital', 'length', 'max'=>100),
-			array('number', 'length','min'=>10, 'max'=>10),
+			array('number, confirmatiocode', 'length', 'max'=>10),
+			array('validatestatus', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('request_id, name, area, city, state, number, hospital, date', 'safe', 'on'=>'search'),
+			array('request_id, name, area, city, state, number, hospital, date, district, blood_group, confirmatiocode, validatestatus', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,7 +74,7 @@ class DonationRequest extends CActiveRecord
 			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
-				'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
+			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 			'district0' => array(self::BELONGS_TO, 'LookupDetails', 'district'),
 		);
 	}
@@ -91,7 +94,9 @@ class DonationRequest extends CActiveRecord
 			'hospital' => 'Hospital',
 			'date' => 'Date',
 			'district' => 'District',
-				'blood_group' => 'Blood Group',
+			'blood_group' => 'Blood Group',
+			'confirmatiocode' => 'Confirmatiocode',
+			'validatestatus' => 'Validatestatus',
 		);
 	}
 
@@ -116,6 +121,8 @@ class DonationRequest extends CActiveRecord
 		$criteria->compare('date',$this->date,true);
 		$criteria->compare('district',$this->district);
 		$criteria->compare('blood_group',$this->blood_group);
+		$criteria->compare('confirmatiocode',$this->confirmatiocode,true);
+		$criteria->compare('validatestatus',$this->validatestatus,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

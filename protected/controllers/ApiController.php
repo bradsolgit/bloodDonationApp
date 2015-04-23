@@ -390,7 +390,12 @@ class ApiController extends Controller {
 			case 'userDetails' :
 				$model = new UserDetails ();
 				break;
-			
+				case 'donationRequest' :
+					$model = new DonationRequest ();
+					break;
+					case 'donationRequest1' :
+						$model = new DonationRequest ();
+						break;
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
 				Yii::app ()->end ();
@@ -407,34 +412,79 @@ class ApiController extends Controller {
 		}
 		// Try to save the model
 		if ($_GET ['model'] == "userDetails") {
-			$model->confirmation_code = '0000';
+			
 			
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;
-		}
-		// Try to save the model
-		if ($model->save ()) {
-			$model->password = "";
+			if ($model->save ()) {
+				$model->password="";
+				$payload = file_get_contents ( Utilities::getSMSURL($otp, $number));
 				
-			if ($_GET ['model'] == "userDetails") {
-				$encoding = explode(" ", Utilities::getSMSURL($otp, $number)); 
+				
+				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
+				} else {
+					// Errors occurred
+					$msg = "";
+					$msg .= "<ul>";
+					foreach ( $model->errors as $attribute => $attr_errors ) {
+						foreach ( $attr_errors as $attr_error )
+							$msg .= "<li>$attr_error</li>";
+					}
+					$msg .= "</ul>";
+					$this->_sendResponse ( 500, $msg );
+				}
+			
+		}
+		elseif ($_GET ['model'] == "donationRequest1") {
+				
+				
+			
+			if ($model->save ()) {
+				
+		
+		
+				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
+			} else {
+				// Errors occurred
+				$msg = "";
+				$msg .= "<ul>";
+				foreach ( $model->errors as $attribute => $attr_errors ) {
+					foreach ( $attr_errors as $attr_error )
+						$msg .= "<li>$attr_error</li>";
+				}
+				$msg .= "</ul>";
+				$this->_sendResponse ( 500, $msg );
+			}
+				
+		}
+		elseif ($_GET ['model'] == "donationRequest") {
 			
 				
-				$payload = file_get_contents ($encoding);
+			$number = $model->number;
+			$otp = Utilities::generateRandomString ();
+			
+			$model->confirmatiocode=$otp;
+			
+			if($payload = file_get_contents ( Utilities::getSMSURL($otp, $number)))
+			{
+			
+		
 				
-			}
-			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-		} else {
-			// Errors occurred
-			$msg = "";
-			$msg .= "<ul>";
-			foreach ( $model->errors as $attribute => $attr_errors ) {
-				foreach ( $attr_errors as $attr_error )
-					$msg .= "<li>$attr_error</li>";
-			}
-			$msg .= "</ul>";
-			$this->_sendResponse ( 500, $msg );
+				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
+			}else {
+					// Errors occurred
+					$msg = "";
+					$msg .= "<ul>";
+					foreach ( $model->errors as $attribute => $attr_errors ) {
+						foreach ( $attr_errors as $attr_error )
+							$msg .= "<li>$attr_error</li>";
+					}
+					$msg .= "</ul>";
+					$this->_sendResponse ( 500, $msg );
+				}
+			
+			
 		}
 	}
 	
