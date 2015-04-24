@@ -4323,6 +4323,7 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/api/donationRequest
 HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
 ---
+<<<<<<< HEAD
 2015/04/23 08:04:51 [error] [php] Undefined index: hash (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:353)
 Stack trace:
 #0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
@@ -4853,3 +4854,281 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/user/number/9959167378
 in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (569)
 in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+=======
+2015/04/23 11:05:59 [error] [php] Undefined index: number (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:371)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/validateotp
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (371)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/23 11:06:12 [error] [php] Undefined index: number (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:371)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/validateotp
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (371)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/23 12:26:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 12:26:43 [error] [php] Undefined index: number (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:371)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/validate/validateotp
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (371)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/23 12:26:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 12:29:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 12:44:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 12:59:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 13:01:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/23 13:56:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+>>>>>>> c6e4ce4b8a3a92ff61d36ebee1c10b8939d60e0f
+2015/04/24 07:28:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/1
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:28:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/4
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:28:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:29:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:29:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/4
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:29:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/1
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:29:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donationRequest
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:29:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/editDonor.php
+---
+2015/04/24 07:30:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/1
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:30:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/4
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:30:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/1
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:30:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/4
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:30:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donationRequest
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/bloodRequirement.php
+---
+2015/04/24 07:31:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/4
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:31:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/lookupTypeList".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/lookupTypeL...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/lookupType/1
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:31:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:31:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:31:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:31:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "api/searchApi".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/searchDonor.php
+---
+2015/04/24 07:40:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/editDonor.php
+---
