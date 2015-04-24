@@ -15,7 +15,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 
 include 'header.php';
 ?>
-
 <script type="text/javascript">
 	var bloodGroups = [];
 	var districts = [];
@@ -29,7 +28,6 @@ include 'header.php';
 		}, "Please enter a valid number, or 'NA'");
 	jQuery(document).ready(function($) {
 		var oTable = $('#jsontable').dataTable();
-
 		$(".scroll").click(function(event){		
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
@@ -127,8 +125,7 @@ include 'header.php';
                      		{
 		            		
 		            		userDetails = data;
-		            		$("#reqForm").hide();
-		            		$("#otpForm").show();
+		            		
 		            		
                      		},
                      		error: function(xhr, error){
@@ -212,6 +209,7 @@ include 'header.php';
 					 }
 					 else
 					 {
+						 $("#invalidCaptchaMsg").hide();
 						 $("#invalidOtpMsg").show();
 						 }
 					 }else{
@@ -219,7 +217,7 @@ include 'header.php';
 					}
 			}
 		 $("#jsontable_wrapper").hide();
-		 $("#otpForm").hide();
+		 $("#otpForm").show();
 		
 		 });
 	</script>
@@ -231,13 +229,13 @@ include 'header.php';
 			<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 	<div class="bloodRq col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
 		<form class="sign simple-form" id="reqForm"  action="" method="post" >
-	<span id="errorMsg" style="display: none;"></span>
+	<span id="errorMsg" class="error" style="display: none;"></span>
 					<div class="formtitle">Blood Request Form</div>
 					
 					<!----------start city section----------->
 					
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign details user-name">
 							<input type="text" class="text" name="name"  placeholder="Your Name" /> 
 						</div>
 						<div class="input-sign details1">
@@ -247,7 +245,7 @@ include 'header.php';
 					</div>
 				
 				<div class="section ">
-						<div class="input-sign details">
+						<div class="input-sign details hospital">
 							<input type="text" class="text" name="hospital"  placeholder="Hospital" /> 
 						</div>
 						<div class="input-sign details1 date-bdApp">
@@ -305,12 +303,12 @@ include 'header.php';
 					<input class="bluebutton submitbotton" type="button" id="searchBtn" value="Search for a Request" />	
 					</div>
 				
+
 			</form>
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			<span id="errorMsg" style="display: none;"></span>
-			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			<span id="invalidCaptchaMsg" style="display: none;">Invalid Captcha Code</span>
 			
+			<span id="invalidOtpMsg" class="error"style="display: none;">Invalid OTP Code</span>
+			<span id="invalidCaptchaMsg" class="error" style="display: none;">Invalid Captcha</span>
 			<div class="section">
 						<div class="input-sign otp-center-details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
@@ -328,14 +326,16 @@ include 'header.php';
 					</div>
 			</form>
 
-			</form></div>
+			</div>
+			</div>
+		
+
 	
 					<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 
 	<div style="clear:both;"></div>
-	</div></div>
-	</div>
-		<table id="jsontable" class="display table table-bordered">
+		<div class="table-responsive tb-mgn-top">
+		<table id="jsontable" class="display table table-bordered table">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -353,6 +353,10 @@ include 'header.php';
 			
 			
 		</table>
+			</div>
+	</div></div>
+
+			</div>
 <?php 
 include 'news.php';
 ?>

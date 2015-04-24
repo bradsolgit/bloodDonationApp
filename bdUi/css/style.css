@@ -113,7 +113,7 @@ float: right;
 	padding:10px 12px;
 	border-radius: 3px;
 }
-
+.error{color:red}
 .navg ul li a:hover,.navg ul li a.active{
 	color: #fff;
 	text-decoration: none;

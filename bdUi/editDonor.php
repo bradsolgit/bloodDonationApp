@@ -266,7 +266,7 @@ include 'header.php';
 				});
 
 				$("#reqOtpBtn").click(function(){
-					alert("juwihjs");
+					
 					 $("#valMobMsg").hide();
 					var val = 	$("#updateNumber").val();
 					if (!val.match(/[789][0-9]{9}/)) {
@@ -298,7 +298,8 @@ include 'header.php';
 				            		
 		                     		},
 		                     		error: function(xhr, error){
-		                     	        $("#errorMsg").html(xhr.responseText).show();
+		                     			$("#OtpMsg").hide(); 
+		                     	        $("#errMsg").html(xhr.responseText).show();
 		                     		 }
 								});
 					}else{
@@ -316,14 +317,17 @@ include 'header.php';
 			            	success: function(data)
 	                     		{
 			            		userDetails = data;
-			            		window.location="registerDonor.php";
+			            		 sessionStorage.setItem("number",userDetails.number);
+			            		window.location="editDonor.php";
 			            		
 	                     		},
 	                     		error: function(xhr, error){
+	                     		
 	                     	        $("#errorMsg").html(xhr.responseText).show();
 	                     		 }
 							});
 				}else{
+					 $("#invalidCaptcha").hide();
 					$("#invalidOtp").show();
 				 }
 				}
@@ -375,7 +379,7 @@ include 'header.php';
 							<div class="sign_up" >
 			<!----------start form----------->
 			<form class="sign simple-form" id="userForm" name="userForm" >
-			<span id="errorMsg" style="display: none;"></span>
+			<span id="errorMsg" class="error" style="display: none;"></span>
 			
 				<div class="formtitle">Become a Donor.</div>
 				<!----------start top_section----------->
@@ -481,9 +485,9 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
-			<span id="invalidCaptcha" style="display: none;">Invalid Captcha</span>
+			<span id="invalidCaptcha" class="error" style="display: none;">Invalid Captcha</span>
 			
-			<span id="invalidOtp" style="display: none;">Invalid Otp</span>
+			<span id="invalidOtp" class="error" style="display: none;">Invalid Otp</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
@@ -523,7 +527,8 @@ include 'header.php';
 			<form class="sign simple-form" id="resetPasswordForm"  action="" method="post" >
 	
 					<div class="formtitle">Reset Password</div>
-					<span id="OtpMsg" style="display: none;">Invalid OTP Code</span>
+					<span id="OtpMsg" class="error" style="display: none;">Invalid Captcha</span>
+						<span id="errMsg" class="error" style="display: none;"></span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 

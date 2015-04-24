@@ -56,6 +56,7 @@ return array(
 			array('api/userDetails', 'pattern'=>'user/<property:\w+>/<id:\d+>', 'verb'=>'GET'),
 			array('api/updateUser', 'pattern'=>'user/<property:\w+>/<id:\d+>', 'verb'=>'POST'),
 			array('api/sendOTP', 'pattern'=>'sendOTP/<number:\d+>', 'verb'=>'POST'),
+					array('api/sendPASSWORD', 'pattern'=>'sendPASSWORD/<mobilenumber:\d+>', 'verb'=>'POST'),
 			array('api/delete', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'DELETE'),
 			array('api/create', 'pattern'=>'api/<model:\w+>', 'verb'=>'POST'),
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',

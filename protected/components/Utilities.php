@@ -136,4 +136,17 @@ class Utilities {
 		
 		return $url2;
 	}
+	static function getPASSWORDURL($otp, $oldNumber){
+		$str = Constants::$password_message;
+	
+	
+		$repstr = strtr($str, array('{$OTP}' => $otp));
+			
+		$tempurl = Constants::$sms_url;
+	
+		$url1 = strtr($tempurl, array('{$number}' =>  $oldNumber,'{$message}' => $repstr));
+		$url2 = preg_replace('/ /', '%20',$url1);
+	
+		return $url2;
+	}
 }

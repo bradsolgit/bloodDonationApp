@@ -77,15 +77,8 @@ include 'header.php';
 				});
 				
 				$("#fgtPwdLnk").click(function(){	
-					$("#mobMsg").hide();
-					 $("#cnfMsg").hide();
-					 $("#invMsg").hide();
-					 if($("#number").val() == "" || $("#number").val() == "undefined"){
-						 $("#mobMsg").toggle("slow");
-						 $("#cnfMsg").toggle("slow");
-					 }else{
-						 $("#cnfMsg").toggle("slow");
-					 }
+					$("#loginForm").hide();
+            		$("#forgotForm").show();
 				});
 				$("#otpForm").validate({
 					rules: {
@@ -93,6 +86,24 @@ include 'header.php';
 					},
 					messages: {
 						otp: "Please enter your name"
+					}
+				});
+				$("#forgotForm").validate({
+					rules: {
+					
+						mobilenumber:{
+				            required: true,
+				            custom_number: true
+				        },
+						forgotCaptcha: "required"
+					},
+					messages: {
+					
+						forgotCaptcha: "Please enter your captcha",
+						mobilenumber: {
+							required: "Please enter number",
+							minlength: "Your enter a valid number"
+						},
 					}
 				});
 				$("#userForm").validate({
@@ -231,8 +242,41 @@ include 'header.php';
 					
 					}
 				});
-				
-
+				$("#forgotButton").click(function(){	
+					if($("#forgotForm").valid()){
+					
+					 validateCaptcha($("#forgotCaptcha").val(),$("#forgotCaptcha").realperson('getHash'),forgotUser);
+					// var hash = $("#usrCaptcha").realperson('getHash');
+					// var valid = "valid";
+					
+					}
+				});
+				function forgotUser(valid){
+ 				
+					 
+					
+					 if(valid === "Valid"){
+						 var number=$("#mobilenumber").val();
+						 $.ajax({
+				            	type: 'POST',
+				            	   url: url+'/sendPASSWORD/'+number,
+				                   data: {number: number},
+								dataType: 'json',
+								 
+				            	success: function(data)
+		                     		{
+				            		 $("#erMsg").hide();
+				            		 $("#successMsg").html("PASSWORD IS SEND TO YOUR MOBILE NUMBER").show("show");
+				            		
+		                     		},
+		                     		error: function(xhr, error){
+		                     	        $("#erMsg").html(xhr.responseText).show();
+		                     		 }
+								});
+						 }else{
+							 $("#erMsg").html("Invalid Captcha").show("show");
+						}
+				}
 				function saveUser(valid){
  					var userValues = $("#userForm").serialize();
 					 
@@ -258,6 +302,7 @@ include 'header.php';
 							 $("#errorMsg").html("Invalid Captcha").show("show");
 						}
 				}
+				$("#forgotForm").hide();
 			});
 	</script>
 <div class="sap_tabs">	
@@ -279,7 +324,7 @@ include 'header.php';
 							<div class="sign_up" >
 			<!----------start form----------->
 			<form class="sign simple-form" id="userForm" name="userForm" >
-			<span id="errorMsg" style="display: none;"></span>
+			<span id="errorMsg" class="error" style="display: none;"></span>
 			
 				<div class="formtitle">Become a Donor.</div>
 				<!----------start top_section----------->
@@ -403,7 +448,7 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidOtpMsg" class="error" style="display: none;">Invalid OTP Code</span>
 			
 			<div class="section">
 						<div class="input-sign details">
@@ -426,9 +471,9 @@ include 'header.php';
 							<div class="register">
 							<div class="sign_up" >
 			<!----------star form----------->
-			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
-			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
-			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
+			<span id="mobMsg" class="error" style="display: none;">Enter Mobile Number</span>
+			<span id="cnfMsg" class="error" style="display: none;">Password would be sent to Mobile Number.</span>
+			<span id="invMsg" class="error" style="display: none;">Invalid Credentials.</span>	
 			<form class="sign simple-form" id="loginForm"  action="" method="post" >
 	
 					<div class="formtitle">Member Login</div>
@@ -451,6 +496,35 @@ include 'header.php';
 						<input class="bluebutton" id="loginButton" type="button" value="Login" />
 						
 					</div>
+		
+				</form>
+				<form class="sign simple-form" id="forgotForm"  action="" method="post" >
+				<span id="erMsg"  class="error"  style="display: none;"></span>
+				<span id="successMsg" class="error" style="display: none;"></span>
+	
+					<div class="formtitle">Forgot Password</div>
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="mobilenumber" name="mobilenumber" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						
+					</div>
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+							<input type="text" class="text captcha" name="forgotCaptcha"  id="forgotCaptcha" /> 
+						
+					</div>
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+							<input class="bluebutton" id="forgotButton" type="button" value="Login" />
+						
+					</div>
+					<div style="clear:both;"></div>
+					</div>
+					
 		
 				</form>
 				<!----------end form----------->
