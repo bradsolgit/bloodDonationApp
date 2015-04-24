@@ -152,99 +152,20 @@ include 'header.php';
 					fit: true   // 100% fit in a container
 				});
 
-				$("#state").empty();
-				$("#bloodgroup").empty();
-				$("#state").append($("<option></option>")
-			             .attr("value", "")
-			             .text("State"));
-				$("#bloodgroup").append($("<option></option>")
-			             .attr("value", "")
-			             .text("Blood Group"));
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/1',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            			    	states.push(item);
-		            			    	 $("#state").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
-				
-				$.ajax({
-		            type: 'GET',
-		            url: url+'/lookupType/4',
-					dataType: 'json',
-		            success: function(data)
-                      {
-		            	data.forEach( function (item)
-		            			{
-		            					bloodGroups.push(item);
-		            			    	 $("#bloodgroup").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-		            			    
-		            			});
-						}
-             		});
+				getStateValues();
+				getBloodGroupValues();
 				
 				 $('#state').change(function(event){
 				    	
 				    	var state= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/district/'+state,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				           	 $('#district').empty();
-							   $('#district')
-					             .append($("<option></option>")
-					             .attr("value", "")
-					             .text("District"));
-							   data.forEach( function (item)
-				            			{
-								     $("#district").append($("<option></option>")
-			 			             .attr("value", item.lookup_id)
-			 			             .text(item.lookup_value));
-								  });
-								}
-		             		});
-						
-				    
+				    	getDistrictValues(state);
 	    	
 						    });
 				 
 				 $('#district').change(function(event){
 				    	
 				    	var district= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/city/'+district,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#city').empty();
-								   $('#city')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("City"));
-								   data.forEach( function (item)
-					            			{
-									      $("#city").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-								  }
-		             		});
-						
+				    	getCityValues(district);
 				    
 	    	
 						    });
@@ -252,28 +173,7 @@ include 'header.php';
 				 $('#city').change(function(event){
 				    	
 				    	var city= this.value;
-				    	$.ajax({
-				            type: 'GET',
-				            url: url+'/lookupId/area/'+city,
-							dataType: 'json',
-				            success: function(data)
-		                      {
-				            	$('#area').empty();
-								 $('#area')
-						             .append($("<option></option>")
-						             .attr("value", "1")
-						             .text("Area"));
-								   data.forEach( function (item)
-					            		{
-										   $("#area").append($("<option></option>")
-				 			             .attr("value", item.lookup_id)
-				 			             .text(item.lookup_value));
-									   
-					            	});
-			    	
-								  }
-		             		});
-				    	 
+				    	getAreaValues(city);
 				    });
 				 			
 				$(".scroll").click(function(event){		
@@ -332,6 +232,7 @@ include 'header.php';
 					}
 				});
 				
+
 				function saveUser(valid){
  					var userValues = $("#userForm").serialize();
 					 
@@ -357,33 +258,18 @@ include 'header.php';
 							 $("#errorMsg").html("Invalid Captcha").show("show");
 						}
 				}
-			
-				if(sessionStorage.getItem("login") == null){
-					$("#dd").hide();
-					$("#loginLink").show();
-				}else{
-					$("#dd").show();
-					$("#loginLink").hide();
-				}
-
-				
 			});
 	</script>
-	<div class="blog">
-	<div class="container">
-<div class="row magin-top">
-<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-<div class="sap_tabs col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+<div class="sap_tabs">	
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
 			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Register</span>
 			  	  	
 				</li>
 				  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><div class="top-img"><img src="images/top-lock.png" alt=""/></div><span>Login</span></li>
-				  	  
+				  
 				 
 			  </ul>		
-			  <div style="clear:both;"></div>
 			  <!---->		  	 
 			<div class="resp-tabs-container">
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
@@ -488,7 +374,7 @@ include 'header.php';
 						<div class="clear"> </div>
 					</div>
 					
-						<div class="section ">
+						<div class="section">
 					<div class="section details gender-bs">
 					<label for="gender">Gender&nbsp;&nbsp;&nbsp;</label>
 						<input type="radio" class="gender"  name="gender"  value="M" > &nbsp;Male&nbsp;
@@ -497,13 +383,13 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign captcha-center-details">
+						<div class="input-sign details">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
-				
-					<div class="section otp-center-details">
+<!-- 				<input type="hidden" id="salt" value="123456"> -->
+					<div class="section">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
 						</div>
@@ -520,7 +406,7 @@ include 'header.php';
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
 			
 			<div class="section">
-						<div class="input-sign otp-center-details">
+						<div class="input-sign details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
@@ -576,10 +462,8 @@ include 'header.php';
 				        </div>	
 				     </div>	
 		        </div>
-		        <div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-	</div>
-	<div style="clear:both;"></div>
-			</div></div>
+	
+			
 
 <?php 
 include 'news.php';
