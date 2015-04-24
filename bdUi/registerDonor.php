@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <html>
 <head>
 <title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Home :: w3layouts</title>
-
+</head>
 <?php 
 
 include 'header.php';
@@ -305,7 +305,11 @@ include 'header.php';
 				$("#forgotForm").hide();
 			});
 	</script>
-<div class="sap_tabs">	
+	<div class="blog">
+	<div class="container">
+<div class="row magin-top">
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+<div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
 			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Register</span>
@@ -324,7 +328,7 @@ include 'header.php';
 							<div class="sign_up" >
 			<!----------start form----------->
 			<form class="sign simple-form" id="userForm" name="userForm" >
-			<span id="errorMsg" class="error" style="display: none;"></span>
+			<span id="errorMsg" style="display: none;"></span>
 			
 				<div class="formtitle">Become a Donor.</div>
 				<!----------start top_section----------->
@@ -428,13 +432,13 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign captcha-center-details">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 <!-- 				<input type="hidden" id="salt" value="123456"> -->
-					<div class="section">
+					<div class="section otp-center-details">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
 						</div>
@@ -448,10 +452,10 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			<span id="invalidOtpMsg" class="error" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
 			
 			<div class="section">
-						<div class="input-sign details">
+						<div class="input-sign otp-center-details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
@@ -471,9 +475,9 @@ include 'header.php';
 							<div class="register">
 							<div class="sign_up" >
 			<!----------star form----------->
-			<span id="mobMsg" class="error" style="display: none;">Enter Mobile Number</span>
-			<span id="cnfMsg" class="error" style="display: none;">Password would be sent to Mobile Number.</span>
-			<span id="invMsg" class="error" style="display: none;">Invalid Credentials.</span>	
+			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
+			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
+			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
 			<form class="sign simple-form" id="loginForm"  action="" method="post" >
 	
 					<div class="formtitle">Member Login</div>
@@ -538,7 +542,11 @@ include 'header.php';
 		        </div>
 	
 			
-
+		        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+	</div>
+	<div style="clear:both;"></div>
+			</div>
+			</div>
 <?php 
 include 'news.php';
 ?>

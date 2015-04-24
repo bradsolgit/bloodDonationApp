@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 <html>
 <head>
 <title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Home :: w3layouts</title>
-
+</head>
 <?php 
 
 include 'header.php';
@@ -205,8 +205,8 @@ include 'header.php';
 		<div class="blog">
 	<div class="container">
 <div class="row">
-<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
-<div class="bd-search col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
+<div class="bd-search col-lg-8 col-md-8 col-xs-12 ">
 			<!----------star form----------->
 			<form class="sign simple-form" id="searchForm"  action="" method="post" >
 	
@@ -264,7 +264,7 @@ include 'header.php';
 				<!----------end form----------->
 		
 	</div>	
-	   <div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
+	   <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
 	<div style="clear:both;"></div>
 		<div class="table-responsive tb-mgn-top">
 		<table id="jsontable" class="display table table-bordered table">

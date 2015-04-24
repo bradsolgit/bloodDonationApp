@@ -360,8 +360,8 @@ include 'header.php';
 	<div class="blog">
 <div class="container">
 		<div class="row magin-top">
-			<div class="left-ads col-lg-2 col-md-2 col-sm-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
-				<div class="sap_tabs col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+			<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+				<div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
 			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><div class="top-img"><img src="images/top-note.png" alt=""/></div><span>Edit Details</span>
@@ -379,7 +379,7 @@ include 'header.php';
 							<div class="sign_up" >
 			<!----------start form----------->
 			<form class="sign simple-form" id="userForm" name="userForm" >
-			<span id="errorMsg" class="error" style="display: none;"></span>
+			<span id="errorMsg" style="display: none;"></span>
 			
 				<div class="formtitle">Become a Donor.</div>
 				<!----------start top_section----------->
@@ -485,12 +485,14 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
-			<span id="invalidCaptcha" class="error" style="display: none;">Invalid Captcha</span>
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidCaptchapMsg" style="display: none;">Please enter valid captcha</span>
+			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
+			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
 			
-			<span id="invalidOtp" class="error" style="display: none;">Invalid Otp</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
 					</div>
 					<div style="clear:both;"></div>
@@ -503,12 +505,12 @@ include 'header.php';
 					</div>
 					<div class="section">
 						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="numCaptcha" /> 
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					<div class="submit">
-					<input class="bluebutton" id="numButton" type="button" value="Update Mobile Number" />	
+					<input class="bluebutton" id="otpButton" type="button" value="Update Mobile Number" />	
 					</div>
 			</form>
 		</div>
@@ -522,13 +524,12 @@ include 'header.php';
 							<div class="register">
 							<div class="sign_up" >
 			<!----------star form----------->
-			
-			
-			<form class="sign simple-form" id="resetPasswordForm"  action="" method="post" >
+			<span id="mobMsg" style="display: none;">Enter Mobile Number</span>
+			<span id="cnfMsg" style="display: none;">Password would be sent to Mobile Number.</span>
+			<span id="invMsg" style="display: none;">Invalid Credentials.</span>	
+			<form class="sign simple-form" id="loginForm"  action="" method="post" >
 	
 					<div class="formtitle">Reset Password</div>
-					<span id="OtpMsg" class="error" style="display: none;">Invalid Captcha</span>
-						<span id="errMsg" class="error" style="display: none;"></span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 						<input type="text" class="text mbnumber"  placeholder="Mobile Number" id="number" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
@@ -557,7 +558,8 @@ include 'header.php';
 						<div class="clear"> </div>
 					</div>
 					
-					
+					<div style="clear:both;"></div>
+					</div>
 					<div class="buttons login-button1">
 						<input class="bluebutton" id="resetButton" type="button" value="Reset Password" />
 						
@@ -574,7 +576,7 @@ include 'header.php';
 				</div>
 	</div>
 	</div>
-	 		<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+	 		<div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 	<div style="clear:both;"></div>
 	</div>
 	</div>
