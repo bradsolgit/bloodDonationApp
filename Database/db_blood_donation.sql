@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2015 at 07:54 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Apr 25, 2015 at 07:16 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,8 +36,30 @@ CREATE TABLE IF NOT EXISTS `donation_request` (
   `hospital` varchar(100) NOT NULL,
   `date` date NOT NULL,
   `district` int(11) DEFAULT NULL,
-  `blood_group` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `blood_group` int(11) NOT NULL,
+  `confirmatiocode` varchar(10) NOT NULL,
+  `validatestatus` char(1) NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donation_request`
+--
+
+INSERT INTO `donation_request` (`request_id`, `name`, `area`, `city`, `state`, `number`, `hospital`, `date`, `district`, `blood_group`, `confirmatiocode`, `validatestatus`) VALUES
+(2, 'sss', 772, 727, 58, '9959167378', 'ssssssssssssss', '0000-00-00', 562, 18, '', 'N'),
+(3, 'sss', 772, 727, 58, '9959167378', 'ssssssssssssss', '0000-00-00', 562, 18, '', 'N'),
+(4, 'srikri', 770, 727, 58, '9959167378', 'asqsq', '2011-11-25', 562, 17, '', 'N'),
+(5, 'sss', 770, 727, 58, '9959167378', 'sqsqs', '2011-11-25', 562, 18, '', 'N'),
+(6, 'wndsjwnj', 770, 727, 58, '9959167378', 'knjnjn', '0000-00-00', 562, 19, '', 'N'),
+(7, 'srikrishna', 772, 727, 58, '9959167378', 'hghbh', '2015-04-16', 562, 16, '', 'N'),
+(8, 'jhbdshw', 771, 727, 58, '9959167378', 'kendkjeni', '2011-11-25', 562, 19, '', 'N'),
+(9, 'sqswq', 772, 727, 58, '9959167378', 'saqw', '2011-11-25', 562, 20, '', 'N'),
+(10, 'srikrishna', 770, 727, 58, '9959167378', 'nwjnjwn', '2011-11-25', 562, 19, '', 'N'),
+(11, 'srikrishna', 770, 727, 58, '9959167378', 'srikrishna', '2011-11-25', 562, 17, '0298', 'N'),
+(12, 'srikrishna', 774, 727, 58, '9959167378', 'srikrishna', '2015-04-03', 562, 18, '1603', 'N'),
+(13, 'srikrishna mekala', 775, 727, 58, '9959167378', 'srikrishna', '2011-11-25', 562, 19, '6571', 'N'),
+(14, 'srikrids', 768, 727, 58, '9959167378', 'xsbshwbsh', '2011-11-25', 562, 21, '7594', 'N'),
+(15, 'SRIKRISHNA', 770, 727, 58, '9959167378', 'SSS', '2011-11-25', 562, 18, '1930', 'N');
 
 -- --------------------------------------------------------
 
@@ -51,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `lookup_details` (
   `lookup_description` varchar(244) DEFAULT NULL,
 `lookup_id` int(11) NOT NULL,
   `lookup_type_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1196 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1196 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lookup_details`
@@ -1116,14 +1138,14 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `donation_status` char(1) NOT NULL,
   `blood_group` int(11) NOT NULL,
   `validate_Status` char(1) NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_details`
 --
 
 INSERT INTO `user_details` (`user_id`, `name`, `email`, `number`, `area`, `city`, `state`, `district`, `gender`, `address`, `dob`, `password`, `confirmation_code`, `donation_status`, `blood_group`, `validate_Status`) VALUES
-(3, 'srikrishna mekal', 'msrikrishna140@gmail.com', '9959167378', 580, 571, 58, 561, 'M', '', '2015-03-29', 'srikrishna', 'RwmN', 'Y', 15, 'Y'),
+(3, 'srikrishna mekal', 'msrikrishna140@gmail.com', '9603370171', 580, 571, 58, 561, 'M', '', '2015-03-29', 'SRIKRISHNA', '8596', 'Y', 15, 'Y'),
 (22, 'Rohit Bhattad', 'rohibhattad@gmail.com', '9966866886', 771, 727, 58, 562, 'M', 'Vijayawada', NULL, 'password', '0541', 'y', 17, 'N');
 
 --
@@ -1156,7 +1178,7 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `donation_request`
 --
 ALTER TABLE `donation_request`
-MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `lookup_details`
 --

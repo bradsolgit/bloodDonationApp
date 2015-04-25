@@ -154,7 +154,7 @@ include 'header.php';
 		            	
 		            	userDetails = data;
 		            	
-		            	bloddgroup = data["blood_group"];
+		            
 		            	getStateValues();
 		            	getBloodGroupValues();
 		            	getDistrictValues(data["state"]);
