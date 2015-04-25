@@ -28,9 +28,11 @@
 				</ul>
 				</div>
 				<div class="col-md-4 footer-middle">
+					<span id="erMsg" style="display: none;"></span>
 					<h3>NEWS LETTER</h3>
-					<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}"/>
-					<input type="submit" value="Subscribe">
+					
+					<input type="text" id="email"  value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}"/>
+					<input type="submit" id="Subscribe" value="Subscribe">
 				</div>
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
@@ -56,6 +58,30 @@
 											*/
 											
 											$().UItoTop({ easingType: 'easeOutQuart' });
+											$("#Subscribe").click(function(){
+												var email=$("#email").val();
+												 $.ajax({
+										            	type: 'POST',
+										           		url: url+'/user/resetPassword/'+$("#number").val(),
+														dataType: 'json',
+														data: {email:email},
+										            	success: function(data)
+								                     		{
+										            		
+										            		 window.location="index.php";
+										            		
+								                     		},
+								                     		error: function(xhr, error){
+								                     			
+								                     	        $("#erMsg").html(xhr.responseText).show();
+								                     		 }
+														});
+												
+												
+											
+												
+							            		
+											});
 											
 										});
 									</script>

@@ -56,7 +56,7 @@ include 'header.php';
 		    	var city= this.value;
 		    	getAreaValues(city);
 		    });
-		 $("#reqForm").validate({
+		 $("#requestForm").validate({
 				rules: {
 					name: "required",
 				
@@ -109,10 +109,10 @@ include 'header.php';
 			});
 			$("#createBtn").click(function(){	
 				
-				if($("#reqForm").valid()){
-				 var userValues = $("#reqForm").serialize();
+				if($("#requestForm").valid()){
+				 var userValues = $("#requestForm").serialize();
 				 
-				 var user = $("#reqForm").serializeArray();
+				 var user = $("#requestForm").serializeArray();
 				 //var valid = validateCaptcha($("#usrCaptcha").val());
 				
 				 
@@ -125,6 +125,8 @@ include 'header.php';
                      		{
 		            		
 		            		userDetails = data;
+		            		 $("#requestForm").hide();
+		            		 $("#otpForm").show();
 		            		
 		            		
                      		},
@@ -139,9 +141,9 @@ include 'header.php';
 				
 		 $("#searchBtn").click(function(){	
 			
-			var searchCrit = $("#reqForm").serialize();
+			var searchCrit = $("#requestForm").serialize();
 			 
-			 var user = $("#reqForm").serializeArray();
+			 var user = $("#requestForm").serializeArray();
 			 $.ajax({
 	            	type: 'POST',
 	           		url: url+'/search/donationRequest',
@@ -199,7 +201,8 @@ include 'header.php';
 			            	success: function(data)
 	                     		{
 			            
-			            		 window.location="index.php";
+			            		
+			            		 $("#errorMsg").html("SUCCESSFULLY REQUEST RAISED").show();
 			            		
 	                     		},
 	                     		error: function(xhr, error){
@@ -217,7 +220,7 @@ include 'header.php';
 					}
 			}
 		 $("#jsontable_wrapper").hide();
-		 $("#otpForm").show();
+		 $("#otpForm").hide();
 		
 		 });
 	</script>
@@ -228,8 +231,9 @@ include 'header.php';
 		<div class="row">
 			<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
 	<div class="bloodRq col-lg-8 col-md-8 col-xs-12 ">
-		<form class="sign simple-form" id="reqForm"  action="" method="post" >
+		<form class="sign simple-form" id="requestForm"  action="" method="post" >
 	<span id="errorMsg" class="error" style="display: none;"></span>
+		<span id="successMsg" class="error" style="display: none;"></span>
 					<div class="formtitle">Blood Request Form</div>
 					
 					<!----------start city section----------->
@@ -289,7 +293,7 @@ include 'header.php';
 					</div>
 					<div class="section">
 						<div class="section-address details blood-icon">
-						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
+						<select id="blood_group" name="blood_group"  class="frm-field required" >
 						<option value="" selected="selected">Blood Group</option>
 						</select>
 						
@@ -306,7 +310,8 @@ include 'header.php';
 
 			</form>
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			
+			<span id="successMsg" class="error" style="display: none;"></span>
+				<span id="errorMsg" class="error" style="display: none;"></span>
 			<span id="invalidOtpMsg" class="error"style="display: none;">Invalid OTP Code</span>
 			<span id="invalidCaptchaMsg" class="error" style="display: none;">Invalid Captcha</span>
 			<div class="section">

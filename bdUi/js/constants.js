@@ -136,7 +136,7 @@ function getBloodGroupValues(){
              {
            	data.forEach( function (item)
            			{
-           			    	 $("#bloodgroup").append($("<option></option>")
+           			    	 $("#blood_group").append($("<option></option>")
 		 			             .attr("value", item.lookup_id)
 		 			             .text(item.lookup_value));
            			    

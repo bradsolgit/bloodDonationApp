@@ -181,7 +181,8 @@ include 'header.php';
 		                  	        		break;
 		                  	          case "textarea":
 		                  	        	   $ctrl.val(value);
-		                  	        		break;
+		                  	      
+		                  	        
 		                  	            case "radio" : case "checkbox":   
 		                  	                $ctrl.each(function(){
 		                  	                   if($(this).attr('value') == value) {  $(this).attr("checked",value); } });   
@@ -200,6 +201,7 @@ include 'header.php';
 				   $("#state").val(userDetails.state);
 				   $("#area").val(userDetails.area);
 				   $("#blood_group").val(userDetails.blood_group);
+				   $("#status").val(userDetails.donation_status);
 				   $(".gender").val(userDetails.gender);
 				}
 				
@@ -342,6 +344,8 @@ include 'header.php';
 			            	success: function(data)
 	                     		{
 			            		userDetails = data;
+			            		 $("#errorMsg").html("Invalid Captcha").hide();
+			            		  $("#errorMsg").html("UPDATED SUCEESSFULLY").show();
 			            		
 	                     		},
 	                     		error: function(xhr, error){
