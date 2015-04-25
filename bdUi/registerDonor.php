@@ -432,13 +432,13 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign captcha-center-details">
+						<div class="captcha-center-details2">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 <!-- 				<input type="hidden" id="salt" value="123456"> -->
-					<div class="section otp-center-details">
+					<div class="section ">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
 						</div>

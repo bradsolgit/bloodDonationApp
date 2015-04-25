@@ -165,7 +165,7 @@ include 'header.php';
     <label class="radio-inline">
       <input type="radio" name="needle-stick">Yes
     </label>
-    <p class="even1">5. Had sexual contact with anyone who has HIV/AIDS or has had a  positive test for the HIV/AIDS virus?</p>
+    <p class="even1">5. Had sexual contact with anyone who has HIV/AIDS or has had a  Â‰positive test for the HIV/AIDS virus?</p>
          <label class="radio-inline">
       <input type="radio" name="schiv">No
     </label>
@@ -179,7 +179,7 @@ include 'header.php';
     <label class="radio-inline">
       <input type="radio" name="scprostitute">Yes
     </label>
-    <p class="even1">7. Had sexual contact with anyone who has hemophilia or has used  
+    <p class="even1">7. Had sexual contact with anyone who has hemophilia or has used Â‰ Â‰
 clotting factor concentrates?</p>
         <label class="radio-inline">
       <input type="radio" name="hemophilia">No
@@ -187,7 +187,7 @@ clotting factor concentrates?</p>
     <label class="radio-inline">
       <input type="radio" name="hemophilia">Yes
     </label>
-    <p class="odd1">8. Female donors: Had sexual contact with a male who has ever had I am sexual contact with another male? (Males: check “I am male.”) </p>
+    <p class="odd1">8. Female donors: Had sexual contact with a male who has ever had I am sexual contact with another male? (Males: check â€œI am male.â€�) </p>
       <label class="radio-inline">
       <input type="radio" name="fscam">No
     </label>
@@ -211,12 +211,11 @@ clotting factor concentrates?</p>
     </div>
  		</div>
         
-        <input class="bluebutton faq-donor" id="donorfaq" type="button" value="Login" /> 
+        <input class="bluebutton faq-donor" id="donorfaq" type="button" value="Submit" /> 
         </form>
     </div>
 </div>
-</div></div>
-		        <div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+</div></div> <div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
 	</div>
 	<div style="clear:both;"></div>
 			</div>

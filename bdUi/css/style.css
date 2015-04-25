@@ -87,8 +87,7 @@ float: right;
 	color:#000;
 }
 .navg{
-	//float:right;
-	text-align:right;
+
 }
 .navg ul{
 	list-style:none;
@@ -1456,11 +1455,12 @@ span.u:hover{
       -o-transition: all 0.3s ease;
 }
 .get-right textarea {
-	width: 86%;
-	height: 12em;
-	outline: none;
-	resize: none;
-	padding: 10px;
+width: 86%;
+height: 12em;
+outline: none;
+resize: none;
+padding: 10px;
+border: 1px solid #ccc;
 }
 .get-left p {
 	font-size: 15px;
@@ -1488,7 +1488,6 @@ span.u:hover{
 font-size: 14px;
 font-weight: 400;
 color: #777;
-background: rgb(204, 215, 219);
 line-height: 1.8em;
 }
 .map iframe{
@@ -1587,7 +1586,7 @@ span.menu{
 }
 .menu-bs{display:none;}
 ul.res{
-	 display:none;
+	// display:none;
 	 padding:0px;
 }
 .navg{
@@ -2945,6 +2944,20 @@ ul.p_n-list li {
    // width: 261px;
  
 	}
+	.captcha-center-details2 .is-realperson{
+	float: left;
+width: 33%;
+		 border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #747474;
+    padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+			background-image:url("../images/captcha.png");
+	background-position:6px 12px ;
+	background-repeat:no-repeat;
+		padding: 9px 45px;
+    transition: all 0.3s ease 0s;
+}
 	/* contact start here form */
 	
 	.get-in-touch{
@@ -3367,6 +3380,15 @@ transition: all 0.3s ease-out;
 	opacity: 1;
 	pointer-events: auto;
 }
+.l1{
+	padding:9px 0 0 0 !important;
+	margin:0px !important;
+}
+
+.l2{
+	padding:0px !important;
+	margin:0px !important;
+}
 /*****/
 .wrapper-dropdown-2 span {
 	float: right;
@@ -3433,7 +3455,7 @@ border-radius: 5px;
 border: 1px solid #ddd;
 margin-bottom: 15px;
 overflow-x: scroll;
-background: rgba(159, 168, 171, 0.5);
+//background: rgba(159, 168, 171, 0.5);
 overflow-y: hidden;
 width: 100%;
 box-shadow: 0 0 2px 0;

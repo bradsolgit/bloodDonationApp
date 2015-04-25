@@ -1,8 +1,11 @@
 /* Real Person jQuery plugin styles v2.0.1. */
 .realperson-challenge {
-	display: block;
-	color: #000;
+display: block;
+color: #000;
+float: left;
+width: 25%;
 }
+
 .realperson-text {
 	font-family: "Courier New",monospace !important;
 	font-size: 6px;
