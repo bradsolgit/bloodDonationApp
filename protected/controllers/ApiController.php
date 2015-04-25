@@ -381,7 +381,7 @@ class ApiController extends Controller {
 				if (! isset ( $_POST ['captcha'] ))
 					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 				
-					if (Utilities::rpHash($_POST ['captcha']) == $_POST['hash']) {
+					if (Utilities::rpHash64($_POST ['captcha']) == $_POST['hash']) {
 						$message = "Valid";
 					}
 				$this->_sendResponse ( 200, CJSON::encode ( $message ) );
