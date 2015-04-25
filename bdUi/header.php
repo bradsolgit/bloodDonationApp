@@ -7,9 +7,14 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/jquery.realperson.css"> 
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-<!--js-->
+<link rel="stylesheet" href="/resources/demos/style.css"><!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+
+  
+  
+
 <script src="js/constants.js"></script>
 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script src="js/jquery.dataTables.js"></script>
@@ -25,6 +30,7 @@
 <script type="text/javascript" src="js/jquery.realperson.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
+
 	$(".scroll").click(function(event){
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);

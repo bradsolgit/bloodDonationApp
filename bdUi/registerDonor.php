@@ -80,6 +80,14 @@ include 'header.php';
 					$("#loginForm").hide();
             		$("#forgotForm").show();
 				});
+				$("#loginLinkButton").click(function(){
+			
+					$("#forgotForm").hide();
+					$("#loginForm").show();
+				
+					
+            		
+				});
 				$("#otpForm").validate({
 					rules: {
 						otp: "required",
@@ -291,8 +299,9 @@ include 'header.php';
 		                     		{
 				            		confirmCode = data.confirmation_code;
 				            		userDetails = data;
-				            		$("#userForm").hide();
-				            		$("#otpForm").show();
+				            		
+				            		$('#otpForm').bPopup();
+				            		
 		                     		},
 		                     		error: function(xhr, error){
 		                     	        $("#errorMsg").html(xhr.responseText).show();
@@ -303,6 +312,7 @@ include 'header.php';
 						}
 				}
 				$("#forgotForm").hide();
+				$("#otpForm").hide();
 			});
 	</script>
 	<div class="blog">
@@ -406,7 +416,7 @@ include 'header.php';
 					</div>
 					<div class="section">
 						<div class="section-address details blood-icon">
-						<select id="bloodgroup" name="blood_group"  class="frm-field required" >
+						<select id="blood_group" name="blood_group"  class="frm-field required" >
 						<option value="" selected="selected">Blood Group</option>
 						</select>
 						
@@ -432,13 +442,13 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="captcha-center-details2">
+						<div class="input-sign captcha-center-details">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 <!-- 				<input type="hidden" id="salt" value="123456"> -->
-					<div class="section ">
+					<div class="section otp-center-details">
 					<input type="checkbox" class="checkbox agree" id="agree" name="agree"><label for="agree">Agree to our policy</label>
 						
 						</div>
@@ -453,7 +463,9 @@ include 'header.php';
 			
 			<form class="sign simple-form" id="otpForm" name="userForm">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			
+			<div class="formtitle">OTP DETAILS </div>
+				<!----------start top_section----------->
+				<span>OTP is sent to your mobile successfully</span>
 			<div class="section">
 						<div class="input-sign otp-center-details">
 							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
@@ -522,7 +534,8 @@ include 'header.php';
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-					<div class="input-sign login-mbnumber">
+					<div class="buttons login-button1">
+					<a href="#" id="loginLinkButton">Login Form?</a>
 							<input class="bluebutton" id="forgotButton" type="button" value="Login" />
 						
 					</div>
