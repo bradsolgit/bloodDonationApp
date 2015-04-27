@@ -30,9 +30,11 @@
 				<div class="col-md-4 footer-middle">
 					<span id="erMsg" style="display: none;"></span>
 					<h3>NEWS LETTER</h3>
-					
-					<input type="text" id="email"  value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}"/>
-					<input type="submit" id="Subscribe" value="Subscribe">
+					<span id="inval" class="error" style="display: none;">Invalid Otp</span>
+					<form  id="newsemail"  action="" method="post" >
+		 			<input type="text" value="Enter your email" id="newsMail" name="newsemail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}"/>
+										<input type="submit" id="Subscribed" value="Subscribe">
+					</form>
 				</div>
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
@@ -70,33 +72,63 @@ $(function(){
 												easingType: 'linear' 
 									 		};
 											*/
-											
+											 $("#newsemail").validate({
+													rules: {
+														
+														newsemail:{
+												            required: true,
+												            email: true
+												        }
+														
+														
+													
+													},
+													messages: {
+														newsemail: {
+															required: "Please enter email",
+															email: "Your enter a valid email"
+														},
+										
+													
+														
+															
+													}
+												});
 											$().UItoTop({ easingType: 'easeOutQuart' });
-											$("#Subscribe").click(function(){
-												var email=$("#email").val();
+											
+											$("#Subscribed").click(function(){	
+												if($("#newsemail").valid()){
+									
+												var email=$("#newsMail").val();
+										
 												 $.ajax({
 										            	type: 'POST',
-										           		url: url+'/user/resetPassword/'+$("#number").val(),
+										            	url: url+'/api/newsletterDetails',
 														dataType: 'json',
 														data: {email:email},
 										            	success: function(data)
 								                     		{
-										            		
+										            		 sessionStorage.setItem("subscribe","true");
 										            		 window.location="index.php";
+										            		
 										            		
 								                     		},
 								                     		error: function(xhr, error){
-								                     			
-								                     	        $("#erMsg").html(xhr.responseText).show();
+								                     	
+								                     	        $("#errMsg").html(xhr.responseText).show();
 								                     		 }
 														});
-												
-												
-											
-												
-							            		
+												}
 											});
-											
+											var number=sessionStorage.getItem("subscribe");
+											if(sessionStorage.getItem("subscribe") ==="null"){
+												$("#newsemail").show();
+												
+											}
+											else
+											{
+												$("#newsemail").hide();
+											}
 										});
 									</script>
 						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

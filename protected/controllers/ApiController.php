@@ -243,6 +243,8 @@ class ApiController extends Controller {
 				$tempModel->state = $model->state0->lookup_value;
 				$tempModel->area = $model->area0->lookup_value;
 				$tempModel->blood_group = $model->bloodGroup->lookup_value;
+			$tempModel->date=date("l, F d, Y",strtotime($model->date));
+				
 				$models[$i] = $tempModel;
 			}
 			break;
@@ -430,6 +432,10 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 					case 'donationRequest1' :
 						$model = new DonationRequest ();
 						break;
+						case 'newsletterDetails' :
+							$model = new NewsletterDetails();
+							break;
+						
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>create</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
 				Yii::app ()->end ();
@@ -472,7 +478,6 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 		}
 		elseif ($_GET ['model'] == "donationRequest1") {
 				
-				
 			
 			if ($model->save ()) {
 				
@@ -491,6 +496,27 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				$this->_sendResponse ( 500, $msg );
 			}
 				
+		}
+		elseif ($_GET ['model'] == "newsletterDetails") {
+		
+				
+			if ($model->save ()) {
+		
+		
+		
+				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
+			} else {
+				// Errors occurred
+				$msg = "";
+				$msg .= "<ul>";
+				foreach ( $model->errors as $attribute => $attr_errors ) {
+					foreach ( $attr_errors as $attr_error )
+						$msg .= "<li>$attr_error</li>";
+				}
+				$msg .= "</ul>";
+				$this->_sendResponse ( 500, $msg );
+			}
+		
 		}
 		elseif ($_GET ['model'] == "donationRequest") {
 			

@@ -37,12 +37,7 @@ include 'header.php';
 		getStateValues();
 		getBloodGroupValues();
 
-		$(function() {
-		    $( "#datepicker" ).datepicker({
-		      changeMonth: true,
-		      changeYear: true
-		    });
-		  });
+		
 		 $('#state').change(function(event){
 		    	
 		    	var state= this.value;
@@ -132,8 +127,8 @@ include 'header.php';
                      		{
 		            		
 		            		userDetails = data;
-		            		 $("#requestForm").hide();
-		            		 $("#otpForm").show();
+		           
+		            		 $("#otpForm").bPopup();
 		            		
 		            		
                      		},
@@ -208,8 +203,8 @@ include 'header.php';
 			            	success: function(data)
 	                     		{
 			            
-			            		
-			            		 $("#errorMsg").html("SUCCESSFULLY REQUEST RAISED").show();
+			            		$("#invalidOtpMsg").hide();
+			            		 $("#sucMsg").show();
 			            		
 	                     		},
 	                     		error: function(xhr, error){
@@ -240,7 +235,7 @@ include 'header.php';
 	<div class="bloodRq col-lg-8 col-md-8 col-xs-12 ">
 		<form class="sign simple-form" id="requestForm"  action="" method="post" >
 	<span id="errorMsg" class="error" style="display: none;"></span>
-		<span id="successMsg" class="error" style="display: none;"></span>
+		
 					<div class="formtitle">Blood Request Form</div>
 					
 					<!----------start city section----------->
@@ -317,7 +312,8 @@ include 'header.php';
 
 			</form>
 			<form class="sign simple-form" id="otpForm" name="userForm">
-			<span id="successMsg" class="error" style="display: none;"></span>
+			<div class="formtitle">OTP Form</div>
+		<span id="sucMsg"  style="display: none;">request raiseed successfully</span>
 				<span id="errorMsg" class="error" style="display: none;"></span>
 			<span id="invalidOtpMsg" class="error"style="display: none;">Invalid OTP Code</span>
 			<span id="invalidCaptchaMsg" class="error" style="display: none;">Invalid Captcha</span>

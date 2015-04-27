@@ -55,6 +55,7 @@ class DonationRequest extends CActiveRecord
 			array('name, area, city, state, number, hospital, date, blood_group, confirmatiocode', 'required'),
 			array('area, city, state, district, blood_group', 'numerical', 'integerOnly'=>true),
 			array('name, hospital', 'length', 'max'=>100),
+				array('date', 'length', 'max'=>30),
 			array('number, confirmatiocode', 'length', 'max'=>10),
 			array('validatestatus', 'length', 'max'=>1),
 			// The following rule is used by search().

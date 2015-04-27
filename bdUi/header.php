@@ -6,11 +6,16 @@
 <!--web-fonts-->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/jquery.realperson.css"> 
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"> 
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="/resources/demos/style.css"><!--js-->
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/jquery.bpopup.min.js"></script>
+<script src="js/jquery-ui.js"></script>
 
   
   
@@ -20,13 +25,24 @@
 <script src="js/jquery.dataTables.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
 <meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript" src="js/jquery.plugin.js"></script> 
 <script type="text/javascript" src="js/jquery.realperson.js"></script>
+<script>
+$(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  </script>
+ 
+  
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 
@@ -46,8 +62,10 @@ jQuery(document).ready(function($) {
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");
 		 sessionStorage.setItem("number", "null");
+		 sessionStorage.setItem("subscribe", "null");
 		 window.location="index.php";
 	});
+	
 });
 </script>
 <script type="text/javascript">
