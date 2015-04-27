@@ -1584,7 +1584,7 @@ span.menu{
 	 float:right;
 	 padding-top: 5px;
 }
-.menu-bs{display:none;}
+.menu-bs{//display:none;}
 ul.res{
 	// display:none;
 	 padding:0px;
