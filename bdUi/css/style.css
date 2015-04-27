@@ -10,7 +10,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	outline:none;
 	border:none;
 }
+.terms h2{
+font-size:18px;
+background: #F7F7F7;
+line-height:39px;
+margin-top:20px;
+padding-left:10px;
+}
+.terms h3{
+font-size:18px;
+line-height:39px;
+margin-top:20px;
+padding-left:10px;
+}
+.terms ul{
+	padding-left:20px;
+}
 
+.services_top img{
+	width:100%;
+	height:auto;
+}
+.gallery-main .row{
+	margin-bottom:20px;
+}
 a:focus, a:active, 
 button::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
@@ -135,7 +158,12 @@ span.menu {
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
 	-o-background-size:cover;
-	-ms-background-size:cove
+	-ms-background-size:cover;
+}
+.width-60{
+	width:60%;
+	height:auto;
+	margin:0 auto;
 }
 .banner-main {
 	text-align: center;
@@ -1509,6 +1537,9 @@ line-height: 1.8em;
 	background-size: 35px;
 	background: url(../images/scroll.png) no-repeat 0px 0px;
 }
+.dps-none-min-768{
+	display:none;
+}
 /*--contact end here
  /*--media quiries start here--*/
 @media(max-width:1280px){
@@ -1817,6 +1848,7 @@ ul.popular-tag li a {
 }
 }
 @media(max-width:640px){
+
 .logo img {
 	width: 75%;
 }
@@ -1874,6 +1906,14 @@ ul.popular-tag li a {
 	font-size: 2em;
 	margin-bottom: 0em;
 }
+h3{
+	line-height:40px;
+	margin-top:30px;
+	padding-top:30px;
+}
+.terms ul{
+	padding-left:40px;
+}
 .footer-navg ul li a {
 	font-size: 13px;
 }
@@ -1923,6 +1963,9 @@ ul.p_n-list li {
 }
 }
 @media(max-width:480px){
+	div.dataTables_filter label{
+	clear:both !important;
+	}
 .banner-main h1 {
 	font-size: 1.5em;
 }	
@@ -3174,6 +3217,7 @@ select {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	margin-top: 9px;
 }
 .copy_right  {
 color: #fff;
@@ -3451,25 +3495,17 @@ transition: all 0.3s ease-out;
 .tb-mgn-top{
 	
 margin-top: 20px;
-border-radius: 5px;
-border: 1px solid #ddd;
+
 margin-bottom: 15px;
-overflow-x: scroll;
-//background: rgba(159, 168, 171, 0.5);
-overflow-y: hidden;
-width: 100%;
-box-shadow: 0 0 2px 0;
--moz-box-shadow: 0 0 2px 0;
--webkit-box-shadow: 0 0 2px 0;
--o-box-shadow: 0 0 2px 0;
--ms-box-shadow: 0 0 2px 0;
+
     }
+
 
 .table-responsive input[type="search"]{
 	margin: 2px  !important;
 border-radius: 5px  !important;
 background-color: transparent !important;
-border: 1px dashed #fd9  !important;
+border: 1px solid #fd9  !important;
 box-shadow: 0 0 2px 0;
 -moz-box-shadow: 0 0 2px 0;
 -webkit-box-shadow: 0 0 2px 0;
@@ -3483,7 +3519,7 @@ background-repeat:no-repeat;
 margin: 2px  !important;
 border-radius: 5px  !important;
 background-color: transparent !important;
-border: 1px dashed #fd9  !important;
+border: 1px solid #fd9  !important;
 box-shadow: 0 0 2px 0;
 -moz-box-shadow: 0 0 2px 0;
 -webkit-box-shadow: 0 0 2px 0;
@@ -3498,7 +3534,31 @@ box-shadow: 0 0 2px 0;
     margin: 10px;
     padding: 9px;
 }
-
+.row-padding-0 .row{
+	padding:0px;
+	margin:0px;
+}
+.row-padding-0 .row .l1{
+	
+	padding-top:0px;
+}
+.row-padding-0 .row .col-lg-11, .row-padding-0 .row .col-md-11, .row-padding-0 .row .col-sm-11, .row-padding-0 .row .col-xs-11{
+		padding:0px;
+	margin:0px;
+	
+}
+.row-padding-0 .row .col-lg-1, .row-padding-0 .row .col-md-1, .row-padding-0 .row .col-sm-1, .row-padding-0 .row .col-xs-1{
+		padding:0px;
+	margin:0px;
+	
+}
+.update-mbn{
+	width:20px;
+	height:22px;
+background-image:url("../images/mbn-udate.png");
+background-position:center right;
+background-repeat:no-repeat;
+}
 /* geting data from database display as table responsive end  here */
 /****-----end-copyright----****/
 /****----*media Queries----****/
@@ -3519,7 +3579,9 @@ box-shadow: 0 0 2px 0;
 	.wrapper-demo {
 	width: 300px;
 	}
-	.
+	.login-mbnumber, .login-button1, .captcha-reset-details, .otp-reset-details{
+	width:100%;
+	}
 }
 @media only screen and (max-width: 320px) and (min-width:240px)
 {
@@ -3974,6 +4036,22 @@ font-size:24px;
 	display:none !important;
 	
 }
+.wrapper-dropdown-2 .dropdown{
+	left:0px;
+}
+.menu-bs a{
+		display:none;
+}
+.mb-dsp-none{
+	display:none;
+	
+}
+	.dps-none-min-768{
+	display:block;
+}
+.dps-none-max-768{
+		display:none;
+}
 .tb-mgn-top1{
 	
 	margin-top:20px;
@@ -3993,7 +4071,9 @@ font-size:24px;
 }
 @media (max-width:768px){
 
-  
+  .left-mb{
+float:left !important;
+  }
   .twr a.hvr-bounce-to-top {
   background: url("../images/twt.png")no-repeat 40px 15px #11aade;
   padding: 1em 5.9em;
@@ -4001,6 +4081,18 @@ font-size:24px;
 .username, .email, .details,.cnf-password, .details1{
 	clear:both;
 	width:100%;
+}
+.dropdown::before {
+    border-color: #fff rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 0 12px 12px;
+    content: "";
+    height: 0;
+    left: 3px;
+    margin-top: -6px;
+    position: absolute;
+    top: -3%;
+    width: 0;
 }
   
 }

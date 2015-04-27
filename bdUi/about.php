@@ -17,8 +17,12 @@ include 'header.php';
 ?>
 <!---about charity start here-->
 <div class="about">
-     <div class="container">
-	     <div class="about-main">
+
+	<div class="container-fluid">
+<div class="row about-main">
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+<div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
+	   
 	  	     <div class="about-top">
 	  	     	 <h3>ABOUT CHARITY</h3>
 	  	     </div>
@@ -40,6 +44,7 @@ include 'header.php';
 					</ul>
 				<div class="clearfix"> </div>
 				</div>
+				
 				<div class="col-md-4 about-right">
 					<h3>Quisquam</h3>
 					<div class="about-bottom">
@@ -54,7 +59,15 @@ include 'header.php';
 				</div>
 			<div class="clearfix"> </div>
 		</div>
-		<div class="aboutus-top">
+		      <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+	
+	
+		<div style="clear:both;"></div>
+			</div>
+		</div>
+		
+		<div class="aboutus-top container">
+		
 				<div class="col-md-4  aboutus-left">
 					<img src="images/gl.jpg" alt=""/>
 					<h4>Malorum</h4>

@@ -441,10 +441,12 @@ include 'header.php';
 					</div>
 					<div style="clear:both;"></div>
 					</div>
-					<div class="section">
-						<div class="input-sign captcha-center-details">
+						<div class="section">
+						<div class="captcha-center-details2">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
+						<div class="clear"> </div>
+					</div>
 						<div class="clear"> </div>
 					</div>
 <!-- 				<input type="hidden" id="salt" value="123456"> -->

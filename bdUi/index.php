@@ -16,18 +16,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 include 'header.php';
 ?>
 
-			
-<div class="banner">
-	<div class="container">
+	<div class="banner">
+	<div class="container-fluid">
+<div class="row">
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+<div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
 		<div class="banner-main">
 			<h1>WELCOME  TO  MY  CHARITY</h1>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
 		 <div class="bwn">
 			<a href="registerDonor.php"> Become a Donor </a>
-		</div>
-		</div>
-	</div>
-</div>
+		</div></div></div>
+	        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+	
+	
+		<div style="clear:both;"></div>
+			</div>
+		
+			</div>
+			</div>
 <!--banner end here-->
 <!--below banner start here-->
 <div class="section1">
