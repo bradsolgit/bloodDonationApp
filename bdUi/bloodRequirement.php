@@ -16,6 +16,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 include 'header.php';
 ?>
 <script type="text/javascript">
+
 	var bloodGroups = [];
 	var districts = [];
 	var states = [];
@@ -35,7 +36,13 @@ include 'header.php';
 		
 		getStateValues();
 		getBloodGroupValues();
-		
+
+		$(function() {
+		    $( "#datepicker" ).datepicker({
+		      changeMonth: true,
+		      changeYear: true
+		    });
+		  });
 		 $('#state').change(function(event){
 		    	
 		    	var state= this.value;
@@ -253,7 +260,7 @@ include 'header.php';
 							<input type="text" class="text" name="hospital"  placeholder="Hospital" /> 
 						</div>
 						<div class="input-sign details1 date-bdApp">
-							<input type="date" class="text" name="date" placeholder="Date of Requirement" /> 
+							<input type="text" id="datepicker" class="text" name="date" placeholder="Date of Requirement" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
