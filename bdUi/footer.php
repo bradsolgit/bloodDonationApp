@@ -29,9 +29,10 @@
 				</div>
 				<div class="col-md-4 footer-middle">
 					<span id="erMsg" style="display: none;"></span>
+					<form  id="newsLetter"  action="" method="post" >
 					<h3>NEWS LETTER</h3>
 					<span id="inval" class="error" style="display: none;">Invalid Otp</span>
-					<form  id="newsemail"  action="" method="post" >
+					
 		 			<input type="text" value="Enter your email" id="newsMail" name="newsemail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}"/>
 										<input type="submit" id="Subscribed" value="Subscribe">
 					</form>
@@ -64,6 +65,15 @@ $(function(){
 });</script>
 			<script type="text/javascript">
 										$(document).ready(function() {
+							
+									
+											if(sessionStorage.getItem("login1") === "null"){
+
+												$("#newsLetter").show();
+											}else{
+												
+												$("#newsLetter").hide();
+											}
 											/*
 											var defaults = {
 									  			containerID: 'toTop', // fading element id
@@ -108,8 +118,9 @@ $(function(){
 														data: {email:email},
 										            	success: function(data)
 								                     		{
-										            		 sessionStorage.setItem("subscribe","true");
+										            		 sessionStorage.setItem("login1", "true");
 										            		 window.location="index.php";
+										         
 										            		
 										            		
 								                     		},
@@ -120,15 +131,8 @@ $(function(){
 														});
 												}
 											});
-											var number=sessionStorage.getItem("subscribe");
-											if(sessionStorage.getItem("subscribe") ==="null"){
-												$("#newsemail").show();
-												
-											}
-											else
-											{
-												$("#newsemail").hide();
-											}
+								
+											
 										});
 									</script>
 						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

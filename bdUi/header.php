@@ -29,6 +29,8 @@
 <script type="text/javascript" src="js/jquery.realperson.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
+	
+	
 
 	$(".scroll").click(function(event){
 		event.preventDefault();
@@ -38,13 +40,16 @@ jQuery(document).ready(function($) {
 		$("#dd").hide();
 		$("#loginLink").show();
 	}else{
-		$("#dd").show();
 		$("#loginLink").hide();
+		$("#dd").show();
+	
 	}
+	
 	$(".captcha").realperson({chars: $.realperson.alphanumeric});
 	
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");
+		sessionStorage.setItem("login1", "null");
 		 sessionStorage.setItem("number", "null");
 		 window.location="index.php";
 	});

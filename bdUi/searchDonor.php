@@ -190,8 +190,7 @@ include 'header.php';
 							
 				 });
 				 $("#jsontable_wrapper").hide();
-				 
-		
+
 	</script>
 <!-- //end-smoth-scrolling -->
 	
