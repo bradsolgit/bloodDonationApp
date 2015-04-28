@@ -45,23 +45,27 @@ $(function() {
   
 <script type="text/javascript">
 jQuery(document).ready(function($) {
+	
+	
 
 	$(".scroll").click(function(event){
 		event.preventDefault();
 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 	});
 	if(sessionStorage.getItem("login") === "null"){
-		$("#ddDD").hide();
+		$("#dd").hide();
 		$("#loginLink").show();
 	}else{
-		$("#ddDD").show();
 		$("#loginLink").hide();
+		$("#dd").show();
+	
 	}
 	
 	$(".captcha").realperson({chars: $.realperson.alphanumeric});
 	
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");
+		sessionStorage.setItem("login1", "null");
 		 sessionStorage.setItem("number", "null");
 	
 		 window.location="index.php";
@@ -102,7 +106,7 @@ $(function(){
 <div class="menu-bs col-lg-1 col-md-1 col-sm-12 col-xs-12"><!--banner start here-->
 <div class="row">
 <div class="menu-bs col-lg-4 col-md-4 col-sm-12 col-xs-12 l1"><a href="blog.php" style="font-size:13px;">BLOG</a></div>
-<div class="menu-bs col-lg-8 col-md-8 l2 col-sm-12 col-xs-12">	<div id="ddDD" class="wrapper-dropdown-2" tabindex="1"><span class="left-mb"><img src="images/menu.png"/></span>
+<div class="menu-bs col-lg-8 col-md-8 l2 col-sm-12 col-xs-12">	<div id="dd" class="wrapper-dropdown-2" tabindex="1"><span class="left-mb"><img src="images/menu.png"/></span>
 							<ul class="dropdown">
 							
 									<li><a href="editDonor.php">Edit Personal Details <span class="icon"> </span></a></li>

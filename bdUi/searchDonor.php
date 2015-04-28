@@ -190,14 +190,7 @@ include 'header.php';
 							
 				 });
 				 $("#jsontable_wrapper").hide();
-				 
-				 if(sessionStorage.getItem("login") == null){
-						$("#dd").hide();
-						$("#loginLink").show();
-					}else{
-						$("#dd").show();
-						$("#loginLink").hide();
-					}
+				
 				 });
 	</script>
 <!-- //end-smoth-scrolling -->
