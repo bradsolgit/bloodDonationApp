@@ -16,10 +16,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 include 'header.php';
 ?>
 </head>
-						<div class="container-fluid">
+						<div class="container">
 <div class="row magin-top">
-<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-<div class="col-lg-8 col-md-8 col-xs-12 ">
+
 <div class="contact">
 	<div class="container1">
 		<div class="contact-main">
@@ -31,7 +30,7 @@ include 'header.php';
 <!--contact end here-->
 <!--get touch start here-->
 <div class="get">
-	<div class="container1">
+	<div class="container">
 		<div class="get-main">
 			  <h3>Get in Touch</h3>
 			  <div class="col-md-6 get-left">
@@ -59,12 +58,9 @@ include 'header.php';
 	</div>
 </div>
 </div>
+</div>
 	
-		        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-	</div>
-	<div style="clear:both;"></div>
-			</div>
-			</div>
+		       
 <div class="map">
 	<div class="container">
 		 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387144.007583421!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1415253431785"  frameborder="0" style="border:0"></iframe>

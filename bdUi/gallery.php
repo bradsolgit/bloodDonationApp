@@ -38,10 +38,8 @@ include 'header.php';
 <div class="gallery">
 	<div class="wrap">
 		<div class="gallery-main">
-			<div class="container-fluid">
-<div class="row magin-top">
-<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-<div class="col-lg-8 col-md-8 col-xs-12 ">
+			<div class="container">
+
 			<h3>GALLERY</h3>
 			<div class='services_top'>
 	 	  <div class="portfolio_top row">
@@ -142,12 +140,7 @@ include 'header.php';
 	 	  </div>
 	    </div></div>
 	
-		        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
-	</div>
-	<div style="clear:both;"></div>
-			</div>
-			</div>
-			</div>
+		        
 		</div>
 	</div>
 </div>

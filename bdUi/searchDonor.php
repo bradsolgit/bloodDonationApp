@@ -191,21 +191,14 @@ include 'header.php';
 				 });
 				 $("#jsontable_wrapper").hide();
 				 
-				 if(sessionStorage.getItem("login") == null){
-						$("#dd").hide();
-						$("#loginLink").show();
-					}else{
-						$("#dd").show();
-						$("#loginLink").hide();
-					}
-				 });
+		
 	</script>
 <!-- //end-smoth-scrolling -->
 	
 		<div class="blog">
 	<div class="container">
 <div class="row">
-<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"></div>
 <div class="bd-search col-lg-8 col-md-8 col-xs-12 ">
 			<!----------star form----------->
 			<form class="sign simple-form" id="searchForm"  action="" method="post" >
@@ -264,7 +257,7 @@ include 'header.php';
 				<!----------end form----------->
 		
 	</div>	
-	   <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/search-side-ads.jpg" class="img-responsive" alt="logo"/></div>
+	   <div class="ads-right col-lg-2 col-md-2 col-xs-12 "></div>
 	<div style="clear:both;"></div>
 		<div class="table-responsive tb-mgn-top">
 		<table id="jsontable" class="display table table-bordered table">

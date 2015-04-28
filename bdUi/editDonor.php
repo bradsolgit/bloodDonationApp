@@ -261,7 +261,7 @@ include 'header.php';
 				
 				$("#updteNum").click(function(){	
 					if(confirm("Do you want to change the mobile number?")){
-					
+		
 						$("#numForm").bPopup();
 						}
 					
@@ -305,7 +305,7 @@ include 'header.php';
 		                     		 }
 								});
 					}else{
-						 $("#OtpMsg").bPopup();
+						 $("#OtpMsg").show(); 
 					 }
 					}
 				function updateNumber(data){
@@ -364,7 +364,7 @@ include 'header.php';
 	<div class="blog">
 <div class="container">
 		<div class="row magin-top">
-			<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+			<div class="left-ads col-lg-2 col-md-2 col-xs-12"></div>
 				<div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
@@ -391,9 +391,13 @@ include 'header.php';
 						<div class="input-sign details">
 							<input type="email" class="text" name="email"  placeholder="Your Email" /> 
 						</div>
-						<div class="input-sign details1">
-							<input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required/>
-							<input type="button" class="update-mbn" value="Update Number" id="updteNum"> 
+						<div class="input-sign details1 row-padding-0">
+						<div class="row">
+							<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><input type="text" disabled="disabled" class="text mbnumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number" placeholder="Your Number" value="" required /></div>
+							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><input type="button" class="update-mbn" value="" id="updteNum" /> </div>
+						<div class="clear"> </div>
+						</div>
+						
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -474,11 +478,12 @@ include 'header.php';
 					</div>
 					<div style="clear:both;"></div>
 					</div>
-					<div class="section">
-						<div class="input-sign captcha-reset-details">
+						<div class="section">
+						<div class="captcha-center-details2">
 							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+								<div class="clear"> </div>
 						</div>
-						<div class="clear"> </div>
+					
 					</div>
 					<div class="submit">
 					<input class="bluebutton" id="updateBtn" type="button" value="Update" />	
@@ -489,26 +494,33 @@ include 'header.php';
 			<!----------end form----------->
 			
 			<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
-			<div class="formtitle">Update Number</div>
+			<div class="formtitle">Upadate Number</div>
 			<span id="invalidCaptcha" class="error" style="display: none;">Invalid Captcha</span>
 			
 			<span id="invalidOtp" class="error" style="display: none;">Invalid Otp</span>
 					<div class="section">
-					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
-						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
-					</div>
-					<div style="clear:both;"></div>
+					<div class="input-sign login-mbnumber row-padding-0">
+						<div class="row">
+					<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11"><input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> </div>
+						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><input type="button" class="update-mbn" value="" id="reqOtpBtn" /> </div>
+						
+					
+						
+						
+						<div class="clear"> </div>
+						</div>
+						
+						</div>
 					</div>
 					<div class="section">
 						<div class="input-sign otp-reset-details">
-							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+							<input type="text" name="otp" id="otp"  class="input-90" placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
-					<div class="section">
-						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="numCaptcha" /> 
+					<div class="section width-60">
+						<div class="captcha-center-details2">
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -555,9 +567,9 @@ include 'header.php';
 					</div>
 					<div class="clear"> </div>
 					</div>
-						<div class="section">
-						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="resetCaptcha" /> 
+					<div class="section width-60">
+						<div class="captcha-center-details2">
+							<input type="text" class="text captcha" name="resetCaptcha"  id="resetCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
@@ -579,7 +591,7 @@ include 'header.php';
 				</div>
 	</div>
 	</div>
-	 		<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+	 		<div class="ads-right col-lg-2 col-md-2 col-sm-2 col-xs-12 "></div>
 	<div style="clear:both;"></div>
 	</div>
 	</div>

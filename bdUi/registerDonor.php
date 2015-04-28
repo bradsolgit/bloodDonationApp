@@ -318,7 +318,7 @@ include 'header.php';
 	<div class="blog">
 	<div class="container">
 <div class="row magin-top">
-<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+<div class="left-ads col-lg-2 col-md-2 col-xs-12"></div>
 <div class="sap_tabs col-lg-8 col-md-8 col-xs-12 ">
 			<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 			  <ul class="resp-tabs-list">
@@ -528,12 +528,12 @@ include 'header.php';
 					</div>
 					<div style="clear:both;"></div>
 					</div>
-					<div class="section">
-					<div class="input-sign login-mbnumber">
-							<input type="text" class="text captcha" name="forgotCaptcha"  id="forgotCaptcha" /> 
-						
-					</div>
-					<div style="clear:both;"></div>
+					
+					<div class="section width-60">
+						<div class="captcha-center-details2">
+							<input type="text" class="text captcha" name="forgotCaptcha"  id="forgotCaptcha" />
+						</div>
+						<div class="clear"> </div>
 					</div>
 					<div class="section">
 					<div class="buttons login-button1">
@@ -557,7 +557,7 @@ include 'header.php';
 		        </div>
 	
 			
-		        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="logo"/></div>
+		        <div class="ads-right col-lg-2 col-md-2 col-xs-12 "></div>
 	</div>
 	<div style="clear:both;"></div>
 			</div>
