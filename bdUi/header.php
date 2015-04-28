@@ -7,11 +7,12 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/jquery.realperson.css"> 
 <link href="css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/jquery.bpopup.min.js"></script>
-
+<script src="js/jquery-ui.js"></script>
   
   
 

@@ -28,6 +28,10 @@ include 'header.php';
 	        value.match(/[789][0-9]{9}/);
 		}, "Please enter a valid number, or 'NA'");
 	jQuery(document).ready(function($) {
+		 $( "#datepicker" ).datepicker({
+		      changeMonth: true,
+		      changeYear: true
+		    });
 		var oTable = $('#jsontable').dataTable();
 		$(".scroll").click(function(event){		
 			event.preventDefault();
@@ -202,7 +206,7 @@ include 'header.php';
 							 data: userDetails,
 			            	success: function(data)
 	                     		{
-			            
+			            		 $("#invalidCaptchaMsg").hide();
 			            		$("#invalidOtpMsg").hide();
 			            		 $("#sucMsg").show();
 			            		
