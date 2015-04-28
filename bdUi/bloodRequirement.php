@@ -231,7 +231,7 @@ include 'header.php';
 <div class="blog">
 	<div class="container">
 		<div class="row">
-			<div class="left-ads col-lg-2 col-md-2 col-xs-12"><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+			<div class="left-ads col-lg-2 col-md-2 col-xs-12"></div>
 	<div class="bloodRq col-lg-8 col-md-8 col-xs-12 ">
 		<form class="sign simple-form" id="requestForm"  action="" method="post" >
 	<span id="errorMsg" class="error" style="display: none;"></span>
@@ -339,7 +339,7 @@ include 'header.php';
 		
 
 	
-					<div class="ads-right col-lg-2 col-md-2 col-xs-12 "><img src="images/side-bg.jpg" class="img-responsive" alt="sidebg"/></div>
+					<div class="ads-right col-lg-2 col-md-2 col-xs-12 "></div>
 
 	<div style="clear:both;"></div>
 		<div class="table-responsive tb-mgn-top">
