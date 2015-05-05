@@ -30,6 +30,24 @@ class Utilities {
 				'lookup_type_id' => 1 
 		) ), 'lookup_id', 'lookup_value' );
 	}
+	static function getLookupListByCityId($id) {
+		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_type_id' =>5,
+				'lookup_value' =>$id
+		) ), 'lookup_id', 'lookup_id' );
+	}
+	static function getLookupListByStateId($id) {
+		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_type_id' =>1,
+				'lookup_value' =>$id
+		) ), 'lookup_id', 'lookup_id' );
+	}
+	static function getLookupListByBloodgroupId($id) {
+		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_type_id' =>4,
+				'lookup_value' =>$id
+		) ), 'lookup_id', 'lookup_id' );
+	}
 	static function getLookupListByDistrict($id) {
 		return LookupDetails::model ()->findAllByAttributes ( array (
 				'lookup_type_id' => 2,
@@ -42,6 +60,7 @@ class Utilities {
 				'lookup_parent_id' => ( int ) $id 
 		) );
 	}
+	
 	static function getLookupListByArea($id) {
 		return LookupDetails::model ()->findAllByAttributes ( array (
 				'lookup_type_id' => 3,

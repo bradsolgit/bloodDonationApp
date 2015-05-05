@@ -118,6 +118,7 @@ class ApiController extends Controller {
 					case 'city' :
 						$model = Utilities::getCity ( $_GET ['id'] );
 						break;
+						
 					case 'area' :
 						$model = Utilities::getArea ( $_GET ['id'] );
 						break;
@@ -189,6 +190,17 @@ class ApiController extends Controller {
 		else
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 	}
+	public function actionlookupValueList() {
+		if (! isset ( $_GET ['value'] ))
+			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
+	
+		$model = Utilities::getLookupListByCityvalue( $_GET ['value'] );
+		// Did we find the requested model? If not, raise an error
+		if (is_null ( $model ))
+			$this->_sendResponse ( 404, 'No Item found with id ' . $_GET ['id'] );
+		else
+			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
+	}
 	
 	public function actionlookupIdList() {
 		if (! isset ( $_GET ['id'] ))
@@ -199,6 +211,7 @@ class ApiController extends Controller {
 			case 'city' :
 				$model = Utilities::getLookupListByCity ( $_GET ['id'] );
 				break;
+				
 			case 'district' :
 				$model = Utilities::getLookupListByDistrict ( $_GET ['id'] );
 				break;
@@ -221,7 +234,48 @@ class ApiController extends Controller {
 	public function actionsearchApi(){
 		
 		switch ($_GET ['type']) {
-			
+			case 'bloodgroup':
+				$keyword = $_POST ['bloodgroup'];
+				$criteria = new CDbCriteria ();
+				 // select fields which you want in output
+
+				$criteria->condition = 'lookup_value LIKE :keyword';
+				$criteria->params = array(':keyword'=>$keyword.'%');
+				
+				$criteria->addCondition('lookup_type_id = :username');
+				$criteria->params[ ':username' ] =4;
+				
+				$models =LookupDetails::model ()->findAll( $criteria );
+				
+				break;
+				case 'state':
+					$keyword = $_POST ['state'];
+					$criteria = new CDbCriteria ();
+					// select fields which you want in output
+				
+					$criteria->condition = 'lookup_value LIKE :keyword';
+					$criteria->params = array(':keyword'=>$keyword.'%');
+				
+					$criteria->addCondition('lookup_type_id = :username');
+					$criteria->params[ ':username' ] =1;
+				
+					$models =LookupDetails::model ()->findAll( $criteria );
+				
+					break;
+				case 'city':
+					$keyword = $_POST ['city'];
+					$criteria = new CDbCriteria ();
+					// select fields which you want in output
+				
+					$criteria->condition = 'lookup_value LIKE :keyword';
+					$criteria->params = array(':keyword'=>$keyword.'%');
+				
+					$criteria->addCondition('lookup_type_id = :username');
+					$criteria->params[ ':username' ] =5;
+				
+					$models =LookupDetails::model ()->findAll( $criteria );
+				
+					break;
 			case 'donationRequest' :
 				$state = $_POST ['state'];
 				$city = $_POST ['city'];
@@ -243,22 +297,29 @@ class ApiController extends Controller {
 				$tempModel->state = $model->state0->lookup_value;
 				$tempModel->area = $model->area0->lookup_value;
 				$tempModel->blood_group = $model->bloodGroup->lookup_value;
-			$tempModel->date=date("l, F d, Y",strtotime($model->date));
+				$date = new DateTime($model->date);
+				$now = new DateTime();
+				$interval = $now->diff($date);
+				
+			//$tempModel->date=date("l, F d, Y",strtotime($model->date));
 				
 				$models[$i] = $tempModel;
 			}
 			break;
 			case 'donors' :
-				$state = $_POST ['state'];
+				//$state = $_POST ['state'];
 				$city = $_POST ['city'];
-				$area =$_POST ['area'];
-				$district = $_POST ['district'];
-				$blood_group = $_POST ['blood_group'];
+				$city = Utilities::getLookupListByCityId($_POST ['city']);
+				
+				//$area =$_POST ['area'];
+				//$district = $_POST ['district'];
+				$blood_group = $_POST ['bloodgroup'];
+$blood_group = Utilities::getLookupListByBloodgroupId($_POST ['bloodgroup']);
 				$criteria = new CDbCriteria ();
-				$criteria->compare ( 'area', $area );
+				//$criteria->compare ( 'area', $area );
 				$criteria->compare ( 'city', $city );
-				$criteria->compare ( 'state', $state );
-				$criteria->compare ( 'district', $district );
+				//$criteria->compare ( 'state', $state );
+				//$criteria->compare ( 'district', $district );
 				$criteria->compare ( 'blood_group', $blood_group );
 				$models = array();
 				$srchResults = UserDetails::model ()->findAll ( $criteria );
@@ -312,11 +373,11 @@ class ApiController extends Controller {
 		$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 	}
 	public function actionsendPASSWORD(){
-		if (! isset ( $_POST ['number']))
+		if (! isset ( $_POST ['forgotpassword']))
 			$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 	
 	
-		$Number = $_POST ['number'];
+		$Number = $_POST ['forgotpassword'];
 	
 		$user = UserDetails::model()->findByAttributes ( array (
 				'number' => $Number
@@ -345,11 +406,11 @@ class ApiController extends Controller {
 		switch ($_GET ['validate']) {
 			// Get an instance of the respective model
 			case 'password' :
-				if (! isset ( $_POST ['number'] ) && ! isset ( $_POST ['lgpassword'] ))
+				if (! isset ( $_POST ['number'] ) && ! isset ( $_POST ['password'] ))
 					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 				
 				$number = $_POST ['number'];
-				$password = $_POST ['lgpassword'];
+				$password = $_POST ['password'];
 				
 				$user = UserDetails::model ()->findByAttributes ( array (
 						'number' => $number,
@@ -453,7 +514,24 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 		// Try to save the model
 		if ($_GET ['model'] == "userDetails") {
 			
-			
+			$blood_group = Utilities::getLookupListByBloodgroupId($model->blood_group);
+			foreach($blood_group as $value)
+			{
+				$blood_group=$value[0];
+			}
+			$model->blood_group=$blood_group;
+			$state = Utilities::getLookupListByStateId($model->state);
+			foreach($state as $value)
+			{
+				$state=$value[0];
+			}
+			$model->state=$state;
+			$city = Utilities::getLookupListByCityId($model->city);
+			foreach($city as $value)
+			{
+				$city=$value[0];
+			}
+			$model->city=$city;
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;

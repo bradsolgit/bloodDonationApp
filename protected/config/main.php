@@ -50,6 +50,7 @@ return array(
 			array('api/modelList', 'pattern'=>'api/<model:\w+>', 'verb'=>'GET'),
 			array('api/modelId', 'pattern'=>'api/<model:\w+>/<id:\d+>', 'verb'=>'GET'),
 			array('api/lookupIdList', 'pattern'=>'lookupId/<name:\w+>/<id:\d+>', 'verb'=>'GET'),
+					array('api/lookupValueList', 'pattern'=>'lookupValue/<value:\w+>', 'verb'=>'GET'),
 			array('api/lookupTypeList', 'pattern'=>'lookupType/<id:\w+>', 'verb'=>'GET'),
 			array('api/searchApi', 'pattern'=>'search/<type:\w+>', 'verb'=>'POST'),
 			array('api/validateApi', 'pattern'=>'validate/<validate:\w+>', 'verb'=>'POST'),

@@ -56,7 +56,7 @@ class UserDetails extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, email, number, area, city, state, district, password, confirmation_code, donation_status, blood_group', 'required'),
+			array('name, number,  city, state,  blood_group', 'required'),
 			array('area, city, number,state, district, blood_group', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>100),
 			array('number', 'unique'),
