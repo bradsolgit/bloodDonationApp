@@ -33,20 +33,22 @@ include 'header.php';
 	<div class="container">
 		<div class="get-main">
 			  <h3>Get in Touch</h3>
+			  <form action="mailto:ramesh.bogandla@bradsol.com" method="post" autocomplte="on">
 			  <div class="col-md-6 get-left">
 			  	 <p>Name</p>
-			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
-			  	 <p>Email</p>
-			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+			  	 <input type="text" placeholder="Enter Your Name" required="required"/>
+			  	 <p>Email</p> 
+			  	 <input type="email" placeholder="Enter Your Email" required="required"/>
 			  	 <p>Telephone</p>
-			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+			  	 <input type="text" placeholder="Enter Your Telephone" required="required"/>
 			  	 <p>Website</p>
-			  	 <input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+			  	 <input type="url" placeholder="website" required="required"/>
 			  	 <input type="submit" value="Send">
 			  </div>
 			  <div class="col-md-6 get-right">
 			  	<h4>Message</h4>
-			  	<textarea   onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/> </textarea>
+			<textarea required="required"></textarea>
+			</form>
 			  	<h3>Contact us</h3>
 					<p>Address : 8-2-248/A, First Floor,</p>
 					<p>Maharishi House, Road No. 3,</p>

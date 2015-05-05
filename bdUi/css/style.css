@@ -1460,13 +1460,14 @@ span.u:hover{
 	margin-bottom: 1em;
 	color: brown;
 }
-.get-left input[type="text"] {
+.get-left input[type="text"], .get-left input[type="email"], .get-left input[type="url"] {
  	width: 95%;
  	outline:none;
  	margin-bottom: 10px;
  	padding: 8px;
  	border:1px solid #ccc;
 }
+
 .get-left input[type="submit"] {
 	width: 21%;
 //	padding: 10px 15px;

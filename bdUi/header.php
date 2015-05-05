@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -88,16 +88,9 @@ $(function(){
 			
 <div class="menu-bs col-lg-2 col-md-2 col-sm-4 col-xs-12"><!--banner start here-->
 <div class="row">
-<div class="menu-bs col-lg-4 col-md-4 col-sm-4 col-xs-12 l1"><a href="blog.php" class="dps-none-768"style="font-size:13px;">BLOG</a></div>
+<div class="menu-bs col-lg-4 col-md-4 col-sm-4 col-xs-12 l1"><a href="blog.php" class="dps-none-768"style="font-size:13px;">Login</a></div>
 <div class="menu-bs col-lg-8 col-md-8 l2 col-sm-8 col-xs-12">
-<div id="loginLink" ><a href="registerDonor.php">LOGIN/REGISTER</a></div><div id="dd" class="wrapper-dropdown-2" tabindex="1"><span class="left-mb"><img src="images/menu.png"/></span>
-							<ul class="dropdown">
-							
-									<li><a href="editDonor.php">Edit Personal Details <span class="icon "> </span></a></li>
-									<li><a href="editDonor.php">Reset Password<span class="icon stat"> </span></a></li>
-									<li><a href="#" id="signOut">Sign out<span class="icon signout"> </span></a></li>
-							</ul>
-</div><span class="menu mobile-menu"> <img src="images/icon.png" alt=""/></span></div>
+<div id="loginLink" ><a href="registerDonor.php">REGISTER</a></div>
 <div class="clear"> </div>
 </div>
 </div>

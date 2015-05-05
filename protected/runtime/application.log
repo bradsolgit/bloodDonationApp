@@ -5841,3 +5841,435 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/user/number/null
 HTTP_REFERER=http://localhost/bloodDonationApp/bdUi/editDonor.php
 ---
+2015/04/28 06:20:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 06:20:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 06:25:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 07:09:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 07:10:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 08:01:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 08:03:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:17:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:21:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:21:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:21:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:22:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:23:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:23:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:25:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:33:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:33:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:34:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:34:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:35:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:35:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:38:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:39:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:46:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:46:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:47:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:48:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:51:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:54:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:54:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:57:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 09:57:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:41:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:41:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:45:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:45:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:46:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 10:50:23 [error] [php] file_get_contents(): php_network_getaddresses: getaddrinfo failed: No such host is known.  (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:462)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/api/userDetails
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (462)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/28 11:04:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 11:19:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 11:22:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 11:30:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 11:37:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 11:58:21 [error] [php] file_get_contents(): php_network_getaddresses: getaddrinfo failed: No such host is known.  (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:306)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/sendOTP/9700077968
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (306)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/28 12:08:08 [error] [php] file_get_contents(): php_network_getaddresses: getaddrinfo failed: No such host is known.  (C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:330)
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/sendPASSWORD/9494494085
+in C:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (330)
+in C:\xampp\htdocs\bdApp\index.php (13)
+2015/04/28 13:56:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---
+2015/04/28 14:44:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi/editDonor.php
+---

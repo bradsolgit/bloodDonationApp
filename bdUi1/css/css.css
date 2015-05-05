@@ -1,0 +1,163 @@
+*{
+margin:0px;
+padding:0px;
+}
+body{
+	background-image:url("../images/bd.jpg");
+background-position:center right;
+background-repeat:no-repeat;
+}
+.hbgcolor h1, .in{
+	color:#fff;
+}
+ .row {
+margin-right: 0px;
+margin-left: 0px;
+}
+.header-fullwidth .row {
+background:#7C1515;
+
+}
+.hrmtop{
+margin-top:34px;
+}
+.hrmtop a{
+margin-left:14px;
+color: #fff;
+}
+
+.footer-fullwidth{
+background:#4D0606;
+line-height:50px;
+}
+.form-center{
+margin:230px auto;
+}
+/* popup start here */
+.ppInfo{
+	display:none;
+	padding:15px;
+	boder:1px solid #000;
+	float:left;
+	font-size:1.2em;
+	position:fixed;
+
+
+	z-index:99999;
+	box-shadow:0px 0px 4px #000;
+		-moz-box-shadow:0px 0px 4px #000;
+			-webkit-box-shadow:0px 0px 4px #000;
+			border-radius:5px;
+				-webkit-border-radius:5px;
+					-moz-border-radius:5px;
+					background: rgb(255, 226, 221);
+	
+}
+#mask{
+	display:none;
+	top:0;
+	left:0;
+	position:fixed;
+	z-index:8888;
+	width:100%;
+	height:100%;
+	opacity:1;
+	background:#cc999c;
+}
+/* popup end here */
+.loginform-dsplay{
+	
+	width:200px;
+	height:200px;
+	background:blue;
+	display:none;
+	position:absolute;
+	z-index:1;
+	background: rgb(255, 10, 0);
+}
+.width-mrgn{
+width: 255px;
+	height:auto;
+	margin:0 auto;
+}
+.mgrn-top{
+	top:100px;
+}
+.availability{
+	margin-left:12px;
+}
+.forgot-pwd{
+	
+	width:100px;
+	margin:0 auto;
+	
+}
+.fbgcolor a{
+	color:#fff;
+}
+.pull-right{
+	margin-right:10px;
+}
+#signup-popup .row{
+	margin-top:10px;
+}
+textarea{
+margin-left: 7px;
+    padding: 0 12px;
+    width: 96%;
+}
+.loginform-dsplay a{
+	color:#fff;
+}
+.input-group{
+	margin:10px;
+}
+@media only screen and (max-width: 350px) {
+	
+}
+
+@media only screen and (max-width: 350px) and (min-width:320px){
+.loginform-dsplay{
+
+    left: 100px;
+    top: 123px;
+}
+.checkbox-inline, .radio-inline{
+	padding-left:12px;
+}
+}
+@media only screen and (max-width: 360px) and (min-width:355px){
+.loginform-dsplay{
+
+    left: 116px;
+    top: 70px;
+}
+}
+@media only screen and (max-width: 414px) and (min-width:361px){
+	.loginform-dsplay{
+
+    left: 116px;
+    top: 70px;
+}
+	}
+	@media only screen and (max-width: 480px) and (min-width:415px){
+	.loginform-dsplay{
+
+    left: 186px;
+    top: 70px;
+}
+	}
+		@media only screen and (max-width: 640px) and (min-width:481px){
+	.loginform-dsplay{
+
+    right: 86px;
+    top: 70px;
+}
+	}
+			@media only screen and (max-width: 800px) and (min-width:768px){
+	.loginform-dsplay{
+
+    right: 86px;
+    top: 70px;
+}
+	}
