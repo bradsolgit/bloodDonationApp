@@ -517,21 +517,22 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 			$blood_group = Utilities::getLookupListByBloodgroupId($model->blood_group);
 			foreach($blood_group as $value)
 			{
-				$blood_group=$value[0];
+				$blood_group=$value;
 			}
 			$model->blood_group=$blood_group;
 			$state = Utilities::getLookupListByStateId($model->state);
 			foreach($state as $value)
 			{
-				$state=$value[0];
+				$state=$value;
 			}
 			$model->state=$state;
 			$city = Utilities::getLookupListByCityId($model->city);
 			foreach($city as $value)
 			{
-				$city=$value[0];
+				$city=$value;
 			}
 			$model->city=$city;
+			$model->password="password";
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;

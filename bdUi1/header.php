@@ -4,28 +4,20 @@
   <title>Blood Donation App</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="css/css.css" type="text/css" />
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"></script>
+   <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.bpopup.min.js"></script>
+       <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
   <script src="js/jquery.validate.min.js"></script>
-  
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
 <script src="js/constants.js"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>
-
-
-
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript" src="js/jquery.plugin.js"></script> 
-<script type="text/javascript" src="js/jquery.realperson.js"></script>
+    <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
 <script type="text/javascript"> 
   var geocoder;
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
 } 
@@ -67,6 +59,16 @@ function errorFunction(){
                     //this is the object you are looking for
                     var city= results[0].address_components[i];
                     document.getElementById("city").value=city.short_name;
+                    document.getElementById("regcity").value=city.short_name;
+                    
+                    break;
+                }
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    var city= results[0].address_components[i];
+                    document.getElementById("regstate").value=city.short_name;
+                   
+                    
                     break;
                 }
             }
@@ -88,7 +90,7 @@ function errorFunction(){
   <script>
   jQuery(document).ready(function($) {
   if(sessionStorage.getItem("login") === "null"){
-		$("#loginout").hide();
+		$("#signout").hide();
 		$("#edit").hide();
 		$("#login").show();
 		$("#register").show();
@@ -96,10 +98,10 @@ function errorFunction(){
 	}else{
 		$("#login").hide();
 		$("#register").hide();
-		$("#loginout").show();
+		$("#signout").show();
 		$("#edit").show();
 	}
-  $("#loginout").click(function(event){
+  $("#signout").click(function(event){
 		sessionStorage.setItem("login", "null");
 		
 		 sessionStorage.setItem("number", "null");
@@ -115,7 +117,7 @@ function errorFunction(){
 <div class="container">
 <header class="hbgcolor">
 <div class="clearfix">
-<div class="logo pull-left"><h1>Logo Name</h1></div><div class="pull-right hrmtop"><a href="#" id="edit" class="loginform">Edit</a><a href="#" id="login" class="loginform">login</a><a href="#" id="loginout" class="loginform">logout</a><a href="#signup-popup" id="register" class="popup-window1">Register</a><div class="loginform-dsplay">
+<div class="logo pull-left"><h1>Logo Name</h1></div><div class="pull-right hrmtop"> <div class="login-hide"><a href="#" id="login"class="loginform">login</a><a href="#signup-popup" id="register"class="popup-window1">Register</a><a href="#signup-popup" id="signout">Sign Out</a><a href="#signup-popup" id="edit"class="popup-window1">Edit</a><div class="loginform-dsplay">
 <form name="form" id="loginForm" class="form-horizontal" enctype="multipart/form-data" method="POST">
                    <span id="errorMsg" class="ppInfo" style="display:none">Inavalid Credentials</span>
                     <div class="input-group">
@@ -135,10 +137,38 @@ function errorFunction(){
                         </div>
                     </div>
 
-                </form>   </div></div></div>
+                </form>
+               
+                   </div></div></div>
 </div>
 </header>
 </div>
 </div>
-</div>
 
+<script>
+
+    $(".loginform").click(function(){
+        $(".loginform-dsplay").slideToggle("slow");
+    });
+    $("a.login-after").click(function(){
+    	$('#login-after-popup').bPopup();
+    	if( $(".login-hide").length ) { //check if div with id "login-hide" exists
+    		$('.hrmtop .login-hide').hide();
+    		$('.hrmtop').append("<div class='signout-div'><a href='#'class='sign-out'>Sign Out</a></div>");
+    		}
+    		else {
+    			$('.hrmtop .login-hide').show();
+    		}
+    });
+
+    $("a.edit-profile").click(function(){
+    	$('#editprofile-popup').bPopup();
+    	
+    });
+    $("a.edit-profile1").click(function(){
+    	$('#editprofile-popup1').bPopup();
+    	
+    });
+   
+
+</script>

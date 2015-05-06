@@ -3,9 +3,10 @@ margin:0px;
 padding:0px;
 }
 body{
-	background-image:url("../images/bd.jpg");
+	background-image:url("../images/bd1.jpg");
 background-position:center right;
 background-repeat:no-repeat;
+
 }
 .hbgcolor h1, .in{
 	color:#fff;
@@ -52,6 +53,9 @@ margin:230px auto;
 					-moz-border-radius:5px;
 					background: rgb(255, 226, 221);
 	
+}
+.dropdown-menu{
+	z-index:111111;
 }
 #mask{
 	display:none;
@@ -112,6 +116,39 @@ margin-left: 7px;
 .input-group{
 	margin:10px;
 }
+/*tab start here*/
+.nav-tabs {
+    margin: 0;
+    padding: 0;
+    border: 0;    
+}
+.nav-tabs > li > a {
+    background: #DADADA;
+    border-radius: 0;
+    box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover {
+    background: #F5F5F5;
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4);
+}
+
+/* Tab Content */
+.tab-pane {
+    background: #F5F5F5;
+    box-shadow: 0 0 4px rgba(0,0,0,.4);
+    border-radius: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+.tab-pane h2, .tab-content span, label.radio-inline{
+	color:#000;
+}
+.tab-content textarea{
+	width:98%;
+}
+/* tab end here */
 @media only screen and (max-width: 350px) {
 	
 }
