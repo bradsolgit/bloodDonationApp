@@ -26,7 +26,10 @@ $("a.popup-window1").click(function(){
 
 	$('#editprofile-popup').bPopup();
 });
+$("a.popup-register").click(function(){
 
+	$('#signup-popup').bPopup();
+});
 
 $("#table").hide();
 

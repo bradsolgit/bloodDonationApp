@@ -127,7 +127,7 @@ function errorFunction(){
 						<div class="pull-right hrmtop">
 							<div class="login-hide">
 								<a href="#" id="login" class="loginform">login</a><a
-									href="#signup-popup" id="register" class="popup-window1">Register</a><a
+									href="#signup-popup" id="register" class="popup-register">Register</a><a
 									href="#signup-popup" id="signout">Sign Out</a><a
 									href="#signup-popup" id="edit" class="popup-window1">Edit</a>
 								<div class="loginform-dsplay">
