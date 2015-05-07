@@ -8003,3 +8003,47 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/api/userDetails
 HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php?InputName=A&BloodGroup=A&BloodGroup=AA&BloodGroup=A&BloodGroup=A&BloodGroup=&submit=Submit
 ---
+2015/05/07 15:27:14 [error] [php] Undefined index: bloodgroup (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:238)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/search/bloodgroup
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (238)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/07 15:30:17 [error] [php] Undefined index: bloodgroup (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:238)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/search/bloodgroup
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (238)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/07 15:30:22 [error] [php] Undefined index: bloodgroup (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:238)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/search/bloodgroup
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (238)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/07 15:30:24 [error] [php] Undefined index: bloodgroup (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:238)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/search/bloodgroup
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (238)
+in D:\xampp\htdocs\bdApp\index.php (13)

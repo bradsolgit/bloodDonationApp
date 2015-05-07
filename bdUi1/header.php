@@ -15,6 +15,8 @@
 <script src="js/constants.js"></script>
   <link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
     <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
 <script type="text/javascript"> 
   var geocoder;
@@ -117,7 +119,7 @@ function errorFunction(){
 <div class="container">
 <header class="hbgcolor">
 <div class="clearfix">
-<div class="logo pull-left"><h1>Logo Name</h1></div><div class="pull-right hrmtop"> <div class="login-hide"><a href="#" id="login"class="loginform">login</a><a href="#signup-popup" id="register"class="popup-window1">Register</a><a href="#signup-popup" id="signout">Sign Out</a><a href="#signup-popup" id="edit"class="popup-window1">Edit</a><div class="loginform-dsplay">
+<div class="logo pull-left"><h1>Logo Name</h1></div><div class="pull-right hrmtop"> <div class="login-hide"><a href="#" id="login"class="loginform">login</a><a href="#signup-popup" id="register"class="popup-window1">Register</a><a href="#signup-popup" id="signout">Sign Out</a><a href="#signup-popup" id="edit" class="popup-window1">Edit</a><div class="loginform-dsplay">
 <form name="form" id="loginForm" class="form-horizontal" enctype="multipart/form-data" method="POST">
                    <span id="errorMsg" class="ppInfo" style="display:none">Inavalid Credentials</span>
                     <div class="input-group">
