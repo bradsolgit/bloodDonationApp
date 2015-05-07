@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Blood Donation App</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery.min.js"></script>
-   <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.bpopup.min.js"></script>
-       <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+<title>Blood Donation App</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.bpopup.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="js/constants.js"></script>
-  <link rel="stylesheet" href="css/css.css" type="text/css" />
+<link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>
 <script src="js/login.js"></script>
 <script src="js/register.js"></script>
-    <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+<script src="js/search.js"></script>
+<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
 <script type="text/javascript"> 
   var geocoder;
   if (navigator.geolocation) {
@@ -89,7 +91,7 @@ function errorFunction(){
     
   }
   </script>
-  <script>
+<script>
   jQuery(document).ready(function($) {
   if(sessionStorage.getItem("login") === "null"){
 		$("#signout").hide();
@@ -110,44 +112,68 @@ function errorFunction(){
 		 window.location="index.php";
 	});
   });
-</script> 
+</script>
 </head>
 
-<body onload="initialize()"> 
-<div class="header-fullwidth">
-<div class="row">
-<div class="container">
-<header class="hbgcolor">
-<div class="clearfix">
-<div class="logo pull-left"><h1>Logo Name</h1></div><div class="pull-right hrmtop"> <div class="login-hide"><a href="#" id="login"class="loginform">login</a><a href="#signup-popup" id="register"class="popup-window1">Register</a><a href="#signup-popup" id="signout">Sign Out</a><a href="#signup-popup" id="edit" class="popup-window1">Edit</a><div class="loginform-dsplay">
-<form name="form" id="loginForm" class="form-horizontal" enctype="multipart/form-data" method="POST">
-                   <span id="errorMsg" class="ppInfo" style="display:none">Inavalid Credentials</span>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="user" type="text" class="form-control" name="number" id="number" value="" placeholder="User" required>                                        
-                    </div>
+<body onload="initialize()">
+	<div class="header-fullwidth">
+		<div class="row">
+			<div class="container">
+				<header class="hbgcolor">
+					<div class="clearfix">
+						<div class="logo pull-left">
+							<h1>Logo Name</h1>
+						</div>
+						<div class="pull-right hrmtop">
+							<div class="login-hide">
+								<a href="#" id="login" class="loginform">login</a><a
+									href="#signup-popup" id="register" class="popup-window1">Register</a><a
+									href="#signup-popup" id="signout">Sign Out</a><a
+									href="#signup-popup" id="edit" class="popup-window1">Edit</a>
+								<div class="loginform-dsplay">
+									<form name="form" id="loginForm" class="form-horizontal"
+										enctype="multipart/form-data" method="POST">
+										<span id="errorMsg" class="ppInfo" style="display: none">Inavalid
+											Credentials</span>
+										<div class="input-group">
+											<span class="input-group-addon"><i
+												class="glyphicon glyphicon-user"></i></span> <input
+												id="user" type="text" class="form-control" name="number"
+												id="number" value="" placeholder="User" required>
+										</div>
 
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                    </div>                                                                  
-					<div class="input-group"><span><a href="#login-popup" class="popup-window">forgot password</a></span></div>
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-sm-12 controls">
-                            <button  type="button"  id="loginButton" class="btn btn-success pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
-                        </div>
-                    </div>
+										<div class="input-group">
+											<span class="input-group-addon"><i
+												class="glyphicon glyphicon-lock"></i></span> <input
+												id="password" type="password" class="form-control"
+												name="password" id="password" placeholder="Password"
+												required>
+										</div>
+										<div class="input-group">
+											<span><a href="#login-popup" class="popup-window">forgot
+													password</a></span>
+										</div>
+										<div class="form-group">
+											<!-- Button -->
+											<div class="col-sm-12 controls">
+												<button type="button" id="loginButton"
+													class="btn btn-success pull-right">
+													<i class="glyphicon glyphicon-log-in"></i> Log in
+												</button>
+											</div>
+										</div>
 
-                </form>
-               
-                   </div></div></div>
-</div>
-</header>
-</div>
-</div>
+									</form>
 
-<script>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+			</div>
+		</div>
+
+		<script>
 
     $(".loginform").click(function(){
         $(".loginform-dsplay").slideToggle("slow");

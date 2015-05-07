@@ -56,7 +56,7 @@ $("#city").autocomplete(
 
 
 $("#searchBtn").click(function(){	
-
+	var oTable = $('#jsontable').dataTable();
 	 
 	var searchCrit = $("#searchForm").serialize();
 	 
