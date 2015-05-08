@@ -16,7 +16,7 @@
 			<!-- Button -->
 			<div class="col-sm-12 controls">
 				<button type="button" id="forgotButton"
-					class="btn btn-success pull-right">
+					class="btn btn-dgn pull-right">
 					<i class="glyphicon glyphicon-log-in"></i> Submit
 				</button>
 			</div>

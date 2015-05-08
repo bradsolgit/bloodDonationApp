@@ -20,6 +20,8 @@
 <script src="js/register.js"></script>
 <script src="js/search.js"></script>
 <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
 <script type="text/javascript"> 
   var geocoder;
   if (navigator.geolocation) {
@@ -117,7 +119,7 @@ function errorFunction(){
 
 <body onload="initialize()">
 	<div class="header-fullwidth">
-		<div class="row">
+		<div class="row row-1">
 			<div class="container">
 				<header class="hbgcolor">
 					<div class="clearfix">
@@ -135,19 +137,17 @@ function errorFunction(){
 										enctype="multipart/form-data" method="POST">
 										<span id="errorMsg" class="ppInfo" style="display: none">Inavalid
 											Credentials</span>
-										<div class="input-group">
-											<span class="input-group-addon"><i
-												class="glyphicon glyphicon-user"></i></span> <input
-												id="user" type="text" class="form-control" name="number"
-												id="number" value="" placeholder="User" required>
+										<div class="input-group-1">
+											<input
+												id="user" type="text" class="form-control l-user" name="number"
+												id="number" value="" placeholder="User" required /> 
 										</div>
 
-										<div class="input-group">
-											<span class="input-group-addon"><i
-												class="glyphicon glyphicon-lock"></i></span> <input
-												id="password" type="password" class="form-control"
+										<div class="input-group-1">
+											
+											<input id="password" type="password" class="form-control l-pwd"
 												name="password" id="password" placeholder="Password"
-												required>
+												required />
 										</div>
 										<div class="input-group">
 											<span><a href="#login-popup" class="popup-window">forgot
@@ -157,7 +157,7 @@ function errorFunction(){
 											<!-- Button -->
 											<div class="col-sm-12 controls">
 												<button type="button" id="loginButton"
-													class="btn btn-success pull-right">
+													class="btn login-btn pull-right">
 													<i class="glyphicon glyphicon-log-in"></i> Log in
 												</button>
 											</div>
@@ -171,6 +171,7 @@ function errorFunction(){
 					</div>
 				</header>
 			</div>
+		</div>
 		</div>
 
 		<script>

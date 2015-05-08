@@ -1,5 +1,12 @@
 <?php
 ?>
+    <script> $(document).ready(function () {                                  
+            $('.datepicker').datepicker({
+                format: "mm/dd/yyyy",
+                autoclose: true
+            });
+
+        });  </script>
 <!-- signup  start here -->
 <div id="signup-popup" class="ppInfo">
 	<div class="container">

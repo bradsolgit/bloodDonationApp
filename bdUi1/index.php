@@ -42,7 +42,7 @@ $("#table").hide();
 
 <?php include 'loginForm.php';?>
 
-<a href="#login-after-popup" class="login-after">Login-After</a>
+
 
 <?php include 'editUserForm.php';?>
 
@@ -280,9 +280,6 @@ $('.btn-toggle').click(function() {
     $(this).find('.btn').toggleClass('btn-default');
        
 });
-
-
-$('.datepicker').datepicker()
 </script>
 <?php
 include 'footer.php';
