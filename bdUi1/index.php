@@ -30,6 +30,11 @@ $("a.popup-register").click(function(){
 
 	$('#signup-popup').bPopup();
 });
+$("a.loginform").click(function(){
+
+	$('.loginform-dsplay').bPopup();
+});
+
 
 $("#table").hide();
 

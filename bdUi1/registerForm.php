@@ -85,7 +85,7 @@
 
 						<div class="input-group">
 							<input type="text" class="form-control" name="state"
-								id="regstate" placeholder=" Sate"> <span
+								id="regstate" placeholder=" State"> <span
 								class="input-group-addon"><span
 								class="glyphicon glyphicon-map-marker"></span></span>
 						</div>

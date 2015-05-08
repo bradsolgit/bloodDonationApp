@@ -99,6 +99,12 @@ background-repeat:no-repeat;
 background-position:right center;
 background-repeat:no-repeat;
 }
+.popup-window{
+			background-image:url("../images/f-pwd.png");
+background-position:left center;
+background-repeat:no-repeat;
+	padding: 32px 0px 31px 45px;
+}
 .login-btn{
 		background-color: rgba(255, 255, 255, 0.7);
     border: medium none;
@@ -146,12 +152,16 @@ ul li{
 .footer-fullwidth{
 background-color: rgba(255, 255, 255, 0.3);
 line-height:30px;
+position:fixed;
+bottom:0px;
+right:0px;
+left:0px;
 }
 
 
 .loginform-dsplay a{
   color: #300;
-	
+
 }
 /* popup start here */
 .ppInfo{
