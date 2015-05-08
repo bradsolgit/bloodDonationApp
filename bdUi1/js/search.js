@@ -73,7 +73,7 @@ $("#searchBtn").click(function(){
        		for(var i = 0; i < data.length; i++) {
        		oTable.fnAddData([
        		data[i].name,
-       		data[i].email,
+       		data[i].city,
        		data[i].number,
        		data[i].blood_group
        		]);

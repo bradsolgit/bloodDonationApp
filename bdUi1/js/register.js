@@ -32,39 +32,15 @@ $(document).ready(function(){
 	
 	$("#regButton").click(function(){	
 		
-		
-		if($("#userForm").valid()){
-			var myID=$("#avil").find('.btn btn-lg btn-primary').val();
+	
+			if($("#userForm").valid()){
 			
-			 //alert("hduwhu"+myID );
-			//var status=$(this).attr('btn btn-lg btn-primary');
-			//var status=$(".btn btn-lg btn-primary").val();
-			//var userValues = $("#userForm").serialize()+'&donation_status='+status;
+			 validateCaptcha($("#regCaptcha").val(),$("#regCaptcha").realperson('getHash'),saveUser);
+			// var hash = $("#usrCaptcha").realperson('getHash');
+			// var valid = "valid";
 			
-			 
-			 var user = $("#userForm").serializeArray();
-			 
-				 $.ajax({
-		            	type: 'POST',
-		           		url: url+'/api/userDetails',
-						dataType: 'json',
-						 data:userValues,
-		            	success: function(data)
-	                		{
-		            		confirmCode = data.confirmation_code;
-		            		userDetails = data;
-		            		
-		            		$('#otpForm').bPopup();
-		            		
-	                		},
-	                		error: function(xhr, error){
-	                	        $("#errorMsg").html(xhr.responseText).show();
-	                		 }
-						});
-				
-				}
-		
-
+			}
+	
 		
 	});
 	
@@ -151,6 +127,88 @@ $(document).ready(function(){
 		      });
 		     },
 		   });
+	$("#otpForm").validate({
+		rules: {
+			otp: "required",
+		},
+		messages: {
+			otp: "Please enter your name"
+		}
+	});
+	$("#otpButton").click(function(){
+		$("#invalidOtpMsg").hide();
+		$.ajax({
+        	type: 'POST',
+       		url: url+'/validate/validateotp',
+			dataType: 'json',
+			 data: {otp:$("#otp").val(),number: userDetails.number},
+        	success: function(data)
+         		{
+        		if(data == "Valid"){
+					 $.ajax({
+			            	type: 'POST',
+			           		url: url+'/validate/validatestatus',
+							dataType: 'json',
+							 data: {user_id: userDetails.user_id},
+			            	success: function(data)
+	                     		{
+			            		if(data == "Valid"){
+									 sessionStorage.setItem("login", "true");
+									 sessionStorage.setItem("number", userDetails.number);
+									 window.location="index.php";
+									 }else{
+										 $("#invalidOtpMsg").toggle("slow"); 
+									 }
+	                    		},
+	                     		error: function(xhr, error){
+	                     	        $("#errorMsg").html(xhr.responseText).show();
+	                     		 }
+							});
+					
+					 
+					 }else{
+						 $("#invalidOtpMsg").toggle("slow"); 
+					 }
+        		},
+         		error: function(xhr, error){
+         	        $("#errorMsg").html(xhr.responseText).show();
+         		 }
+			});
+		});
+	function saveUser(valid){
+		
+var status=$('.btn-primary-R .btn-primary ').val();
+		
+		alert("jhxj"+status)
+		
+		
+		var userValues = $("#userForm").serialize()+'&donation_status='+status;
+		alert("jhxj"+userValues)
+	
+		 
+		 var user = $("#userForm").serializeArray();
+		 if(valid === "Valid"){
+			 $.ajax({
+	            	type: 'POST',
+	           		url: url+'/api/userDetails',
+					dataType: 'json',
+					 data: userValues,
+	            	success: function(data)
+                 		{
+	            		confirmCode = data.confirmation_code;
+	            		userDetails = data;
+	            		$('#signup-popup').hide();
+	            		$('#otpForm').show();
+	            		
+                 		},
+                 		error: function(xhr, error){
+                 	        $("#regerrorMsg").html(xhr.responseText).show();
+                 		 }
+					});
+			 }else{
+				 $("#regcaptchaMsg").html("Invalid Captcha").show("show");
+			}
+	}
 
 
 });

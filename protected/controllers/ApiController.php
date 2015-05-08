@@ -373,11 +373,11 @@ $blood_group = Utilities::getLookupListByBloodgroupId($_POST ['bloodgroup']);
 		$this->_sendResponse ( 200, CJSON::encode ( $message ) );
 	}
 	public function actionsendPASSWORD(){
-		if (! isset ( $_POST ['forgotpassword']))
+		if (! isset ( $_POST ['number']))
 			$this->_sendResponse ( 500, 'Error: Parameter is missing' );
 	
 	
-		$Number = $_POST ['forgotpassword'];
+		$Number = $_POST ['number'];
 	
 		$user = UserDetails::model()->findByAttributes ( array (
 				'number' => $Number

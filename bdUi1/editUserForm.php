@@ -67,14 +67,14 @@
         </script>
 				</div>
 				<div class="tab-pane fade" id="changepwd">
-					<form>
+					<form id="resetPasswordForm">
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">
 									<span class="glyphicon glyphicon-lock"></span>
 								</div>
 								<input class="form-control" type="password"
-									placeholder="Current Password">
+									name="password" placeholder="Current Password">
 							</div>
 						</div>
 						<div class="form-group">
@@ -95,7 +95,7 @@
 									placeholder="Confirm Password">
 							</div>
 						</div>
-						<input type="submit" name="submit" id="submit" value="Submit"
+						<input type="button" name="submit" id="resetButton" value="Submit"
 							class="btn btn-success">
 					</form>
 				</div>

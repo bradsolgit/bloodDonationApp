@@ -48,6 +48,19 @@ class Utilities {
 				'lookup_value' =>$id
 		) ), 'lookup_id', 'lookup_id' );
 	}
+	
+	static function getLookupListByCityValue($id) {
+		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_type_id' =>5,
+				'lookup_id' =>$id
+		) ), 'lookup_id', 'lookup_value' );
+	}
+	static function getLookupListByBloodgroupValue($id) {
+		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_type_id' =>4,
+				'lookup_id' =>$id
+		) ), 'lookup_id', 'lookup_value' );
+	}
 	static function getLookupListByDistrict($id) {
 		return LookupDetails::model ()->findAllByAttributes ( array (
 				'lookup_type_id' => 2,

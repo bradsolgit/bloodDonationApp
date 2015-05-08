@@ -36,7 +36,7 @@
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Email</th>
+				<th>city</th>
 				<th>Number</th>
 				<th>Blood Group</th>
 			</tr>

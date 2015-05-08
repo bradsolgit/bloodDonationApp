@@ -12,7 +12,9 @@
 	<div class="container">
 
 		<form id="userForm" role="form">
-			<span id="errorMsg" style="display: none"></span>
+			<span id="regerrorMsg" style="display: none"></span>
+			<span id="regsucMsg" style="display: none"></span>
+			<span id="regcaptchaMsg" style="display: none"></span>
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
@@ -115,7 +117,7 @@
 					<div class="form-group">
 						<div class="availability">
 							<span>Availability</span>
-							<div id="avil" class="btn-group btn-toggle">
+							<div id="avil" class="btn-group btn-toggle btn-primary-R">
 								<button type="button" value="Y" id="status"
 									name="donation_status" class="btn btn-lg btn-default active">yes</button>
 								<button type="button" value="N" id="status"
@@ -124,12 +126,29 @@
 						</div>
 					</div>
 				</div>
-
+<div class="captcha-center-details2">
+							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
+						</div>
 			</div>
 			<input type="button" id="regButton" value="Submit"
 				class="btn btn-success pull-right">
 		</form>
-
+		<!-- otp form  start here -->
+<form  id="otpForm" name="userForm" class="ppInfo" style="display:none">
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<div class="formtitle">OTP DETAILS </div>
+				<!----------start top_section----------->
+				<span>OTP is sent to your mobile successfully</span>
+			<div class="section">
+						<div class="input-sign otp-center-details">
+							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+				<div class="submit">
+					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
+					</div>
+			</form>
 
 	</div>
 </div>

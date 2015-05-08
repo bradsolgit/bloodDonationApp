@@ -5,20 +5,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.realperson.css"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/jquery.bpopup.min.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
+
 <script type="text/javascript"
-	src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="js/constants.js"></script>
 <link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>
 <script src="js/login.js"></script>
 <script src="js/register.js"></script>
 <script src="js/search.js"></script>
+<script src="js/edit.js"></script>
+<script type="text/javascript" src="js/jquery.plugin.js"></script>
+<script type="text/javascript" src="js/jquery.realperson.js"></script>
 <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
 <link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
 <link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
@@ -95,6 +100,7 @@ function errorFunction(){
   </script>
 <script>
   jQuery(document).ready(function($) {
+	
   if(sessionStorage.getItem("login") === "null"){
 		$("#signout").hide();
 		$("#edit").hide();
@@ -107,12 +113,15 @@ function errorFunction(){
 		$("#signout").show();
 		$("#edit").show();
 	}
+  
+  $('.captcha').realperson({chars: $.realperson.alphanumeric});
   $("#signout").click(function(event){
 		sessionStorage.setItem("login", "null");
 		
 		 sessionStorage.setItem("number", "null");
 		 window.location="index.php";
 	});
+ 
   });
 </script>
 </head>

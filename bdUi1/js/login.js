@@ -58,6 +58,9 @@ $(document).ready(function(){
 	            required: true,
 	            custom_number: true
 	        },
+	        captcha:{
+	        	 required: true,
+	        }
 		
 		},
 		messages: {
@@ -67,40 +70,54 @@ $(document).ready(function(){
 				required: "Please enter number",
 				minlength: "Your enter a valid number"
 			},
+			captcha: {
+				required: "Please enter captcha",
+				
+			},
 		}
 	});
 	
+
+	$("#avil22").click(function(){
+		alert("njhdjwh");
+	});
 	
 	$("#forgotButton").click(function(){	
-		
+	
 		if($("#forgotForm").valid()){
-			
-		var forgotpassword=$("#forgotFor").val();;
 		
+		 validateCaptcha($("#forgotCaptcha").val(),$("#forgotCaptcha").realperson('getHash'),forgotUser);
+		// var hash = $("#usrCaptcha").realperson('getHash');
+		// var valid = "valid";
+		
+		}
+	});
+	function forgotUser(valid){
 			
+		 
+		
+		 if(valid === "Valid"){
+			 var number=$("#forgotnumber").val();
 			 $.ajax({
 	            	type: 'POST',
-	            	   url: url+'/sendPASSWORD/'+forgotpassword,
-	                   data: {forgotpassword:forgotpassword},
+	            	   url: url+'/sendPASSWORD/'+number,
+	                   data: {number: number},
 					dataType: 'json',
 					 
 	            	success: function(data)
-	             		{
-	             		if(data == "Valid")
-	             		{
+                		{
 	            		 $("#erMsg").hide();
 	            		 $("#successMsg").html("PASSWORD IS SEND TO YOUR MOBILE NUMBER").show("show");
-	             		}
-	             		else
-	             		{
-	             			 $("#successMsg").hide();
-	             			 $("#erMsg").html("PASSWORD IS INVALID").show("show");
-	             		}
-	             		}
-	      
+	            		
+                		},
+                		error: function(xhr, error){
+                	        $("#erMsg").html(xhr.responseText).show();
+                		 }
 					});
-			 }
-
-	});
+			 }else{
+				 $("#erMsg").html("Invalid Captcha").show("show");
+			}
+	}
+	
 
 });

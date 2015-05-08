@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 	
 	}
 	
-	$(".captcha").realperson({chars: $.realperson.alphanumeric});
+	$('.captcha').realperson({chars: $.realperson.alphanumeric});
 	
 	$("#signOut").click(function(event){
 		sessionStorage.setItem("login", "null");
