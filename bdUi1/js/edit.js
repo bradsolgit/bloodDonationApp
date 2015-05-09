@@ -1,9 +1,5 @@
 jQuery(document).ready(function($) {
 	
-	
-	
-	
-	
 	$("#resetPasswordForm").validate({
 		rules: {
 			
@@ -42,6 +38,7 @@ jQuery(document).ready(function($) {
 			},
 		}
 	});
+	
 	var number = sessionStorage.getItem("loginnumber");
 	var frm = $("#editForm");
 	$.ajax({
@@ -65,38 +62,6 @@ jQuery(document).ready(function($) {
         		$("#editForm #yesBtn").addClass("btn-default");
         	}
         	
-//        	  	 $.each(data, function(key, value){
-//				   // $('[name='+key+']', frm).val(value);
-//              		var $ctrl = $('[name='+key+']', frm); 
-//              		
-//              	    if($ctrl.is('select')){
-//              	       
-//              	    }
-//              	    else {
-//              	        switch($ctrl.attr("type"))  
-//              	        {  
-//              	            case "text" :    
-//              	                $ctrl.val(value);   
-//              	                break;
-//              	          case "email" :    
-//              	                $ctrl.val(value);   
-//              	                break;
-//              	          case "hidden": 
-//              	        	   $ctrl.val(value);
-//              	        		break;
-//              	          case "textarea":
-//              	        	   $ctrl.val(value);
-//              	      
-//              	        
-//              	            case "radio" : case "checkbox":   
-//              	                $ctrl.each(function(){
-//              	                   if($(this).attr('value') == value) {  $(this).attr("checked",value); } });   
-//              	                break;
-//              	        } 
-//              	    }
-//              	  
-//				  });
-//              	$("#address").val(data["address"]);
 			}
  		});
 	
@@ -109,6 +74,7 @@ jQuery(document).ready(function($) {
 	   $("#status").val(userDetails.donation_status);
 	   $(".gender").val(userDetails.gender);
 	}
+	
 	$("#resetButton").click(function(){	
 	
 		if($("#resetPasswordForm").valid()){

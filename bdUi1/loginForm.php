@@ -42,8 +42,8 @@
 			<div class="availability">
 				<span>Availability</span>
 				<div id="avil"class="btn-group btn-toggle btn-A">
-					<button type="button" value="Y" class="btn btn-lg  AVIL btn-default active sss"  >yes</button>
-					<button   type="button" value="N" class="btn btn-lg  AVIL btn-primary sss" >No</button>
+					<button type="button" value="Y" class="btn btn-lg AVIL btn-default active">Yes</button>
+					<button   type="button" value="N" class="btn btn-lg AVIL btn-primary" >No</button>
 				</div>
 			</div>
 		</div>

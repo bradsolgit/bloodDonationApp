@@ -131,14 +131,14 @@
 							<span>Availability</span>
 							<div id="avil" class="btn-group btn-toggle btn-primary-R">
 								<button type="button" value="Y" id="status"
-									name="donation_status" class="btn btn-lg btn-default active">yes</button>
+									name="donation_status" class="btn btn-lg btn-primary">Yes</button>
 								<button type="button" value="N" id="status"
-									name="donation_status" class="btn btn-lg btn-primary ">No</button>
+									name="donation_status" class="btn btn-lg btn-default">No</button>
 							</div>
 						</div>
 					</div>
 				</div>
-<div class="captcha-center-details2">
+				<div class="captcha-center-details2">
 							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
 						</div>
 			</div>
@@ -146,7 +146,7 @@
 				class="btn btn-success pull-right">
 		</form>
 		<!-- otp form  start here -->
-<form  id="otpForm" name="userForm" class="ppInfo" style="display:none">
+		<form  id="otpForm" name="userForm" class="ppInfo" style="display:none">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
 			<div class="formtitle">OTP DETAILS </div>
 				<!----------start top_section----------->

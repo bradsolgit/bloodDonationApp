@@ -8805,3 +8805,32 @@ Stack trace:
 REQUEST_URI=/bdApp/index.php/search/donors
 HTTP_REFERER=http://localhost/bdApp/bdUi1/index.php?city=Hyderabad
 ---
+2015/05/09 13:26:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/index.php
+---
+2015/05/09 13:29:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/index.php
+---
+2015/05/09 13:29:40 [error] [php] Creating default object from empty value (D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php:662)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/user/resetPassword/9966866886
+in D:\xampp\htdocs\bdApp\protected\controllers\ApiController.php (662)
+in D:\xampp\htdocs\bdApp\index.php (13)

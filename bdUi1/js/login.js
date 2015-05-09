@@ -23,10 +23,7 @@ $(document).ready(function(){
 	$("#loginButton").click(function(){
 	
 		if($("#loginForm").valid()){
-			
-			
 			var userValues = $("#loginForm").serialize();
-			 
 			 var user = $("#loginForm").serializeArray();
 		$.ajax({
 	    	type: 'POST',
@@ -37,15 +34,23 @@ $(document).ready(function(){
 	     		{
 	    		if(data == "Valid"){
 					 sessionStorage.setItem("login", "true");
-					 sessionStorage.setItem("loginnumber", $("#loginnumber").val() );
-					
-					 $("#login-after-popup").bPopup();
+					 sessionStorage.setItem("loginnumber", $("#loginnumber").val());
+//					 if(data["donation_status"] == "Y"){
+//			        		$("#login-after-popup #yesBtn").addClass("btn-primary");
+//			        		$("#login-after-popup #noBtn").removeClass("btn-primary");
+//			        		$("#login-after-popup #noBtn").addClass("btn-default");
+//			        	}else{
+//			        		$("#login-after-popup #noBtn").addClass("btn-primary");
+//			        		$("#login-after-popup #yesBtn").removeClass("btn-primary");
+//			        		$("#login-after-popup #yesBtn").addClass("btn-default");
+//			        	}
+					 	$("#login-after-popup").bPopup();
 					 }
 				 else
 					 {
 						 $("#errorMsg").bPopup();
 					 
-	     		}
+					 }
 	     		}
 			});
 			
