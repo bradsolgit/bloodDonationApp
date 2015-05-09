@@ -292,7 +292,7 @@ include 'header.php';
 				            	type: 'POST',
 				           		url: url+'/user/resetPassword/'+$("#number").val(),
 								dataType: 'json',
-								data: {password:password},
+								data: {password:password,},
 				            	success: function(data)
 		                     		{
 				            		

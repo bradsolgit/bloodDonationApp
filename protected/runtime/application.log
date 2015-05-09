@@ -8553,3 +8553,192 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
 HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
 ---
+2015/05/08 15:37:41 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:328)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (328)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 15:38:08 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:328)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (328)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 15:38:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:328)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (328)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 15:38:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:328)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (328)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 15:39:06 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:328)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/search/donors
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (328)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 16:53:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_blood_donation`.`user_details`, CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `user_details` (`validate_Status`, `name`, `blood_group`, `dob`, `number`, `city`, `state`, `gender`, `password`, `confirmation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9).
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (539)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/08 16:53:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`db_blood_donation`.`user_details`, CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `user_details` (`validate_Status`, `name`, `blood_group`, `dob`, `number`, `city`, `state`, `gender`, `password`, `confirmation_code`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8, :yp9)' in C:\xampp\htdocs\bloodDonationApp\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php(539): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\actions\CInlineAction.php(49): ApiController->actionCreate()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodDonationApp/index.php/api/userDetails
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 10:08:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 10:10:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 10:16:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 10:17:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
+---
+2015/05/09 10:18:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 10:22:59 [error] [php] Undefined index: password (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:678)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/9603370171
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (678)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/09 11:50:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/resetPassword/[object HTMLInputElement]".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/[object%20HTMLInputElement]
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/09 11:52:32 [error] [php] Creating default object from empty value (C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php:678)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/user/resetPassword/9603370171
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (678)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/09 12:19:57 [error] [php] Missing argument 2 for Utilities::getMobileNo(), called in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php on line 83 and defined (C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php:88)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/user/number/9603370171
+in C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php (88)
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (83)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/09 12:20:41 [error] [php] Missing argument 2 for Utilities::getMobileNo(), called in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php on line 83 and defined (C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php:88)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/user/number/9603370171
+in C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php (88)
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (83)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/09 12:22:15 [error] [php] Missing argument 2 for Utilities::getMobileNo(), called in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php on line 83 and defined (C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php:88)
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): ApiController->runAction()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): ApiController->runActionWithFilters()
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): ApiController->run()
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\bloodDonationApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodDonationApp/index.php/user/number/9603370171
+in C:\xampp\htdocs\bloodDonationApp\protected\components\Utilities.php (88)
+in C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php (83)
+in C:\xampp\htdocs\bloodDonationApp\index.php (13)

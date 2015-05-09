@@ -21,7 +21,10 @@ $(document).ready(function(){
 	});
 	
 	$("#loginButton").click(function(){
+	
 		if($("#loginForm").valid()){
+			
+			
 			var userValues = $("#loginForm").serialize();
 			 
 			 var user = $("#loginForm").serializeArray();
@@ -34,7 +37,7 @@ $(document).ready(function(){
 	     		{
 	    		if(data == "Valid"){
 					 sessionStorage.setItem("login", "true");
-					 sessionStorage.setItem("number", $("#number").val() );
+					 sessionStorage.setItem("loginnumber", $("#loginnumber").val() );
 					
 					 $("#login-after-popup").bPopup();
 					 }
@@ -78,8 +81,39 @@ $(document).ready(function(){
 	});
 	
 
-	$("#avil22").click(function(){
-		alert("njhdjwh");
+	$(".AVIL").click(function(){
+		
+	
+		
+		var value = this.value;
+		var number=sessionStorage.getItem("loginnumber");
+		
+			 $.ajax({
+	            	type: 'POST',
+	           		url: url+'/validate/donationstatus',
+					dataType: 'json',
+					 data: {number:number,value:value},
+	            	success: function(data)
+              		{
+	            		if(data == "Valid"){
+							 
+							 window.location="index.php";
+							 }else{
+								 $("#invalidOtpMsg").toggle("slow"); 
+							 }
+             		},
+              		error: function(xhr, error){
+              	        $("#errorMsg").html(xhr.responseText).show();
+              		 }
+					});
+		
+		
+		
+		
+		
+		
+		
+		
 	});
 	
 	$("#forgotButton").click(function(){	

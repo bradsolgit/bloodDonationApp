@@ -85,9 +85,16 @@ class Utilities {
 				'lookup_type_id' => 4 
 		) ), 'lookup_id', 'lookup_value' );
 	}
-	static function getMobileNo($id) {
+	static function getDetails($id) {
 		return UserDetails::model ()->findByAttributes ( array (
 				'number' => $id 
+			
+		) );
+	}
+	static function getMobileNo($id,$password) {
+		return UserDetails::model ()->findByAttributes ( array (
+				'number' => $id ,
+				'password'=>$password
 		) );
 	}
 	static function getLookupParent($id) {

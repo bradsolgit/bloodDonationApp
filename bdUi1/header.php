@@ -16,6 +16,7 @@
 
 <script type="text/javascript"
 src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="js/constants.js"></script>
 <link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>
@@ -101,25 +102,26 @@ function errorFunction(){
   </script>
 <script>
   jQuery(document).ready(function($) {
-	
-  if(sessionStorage.getItem("login") === "null"){
+	alert(sessionStorage.getItem("login"))
+  if(sessionStorage.getItem("login") === "true"){
+	  $("#login").hide();
+		$("#register").hide();
+		$("#signout").show();
+		$("#edit").show();
+		
+		
+	}else{
 		$("#signout").hide();
 		$("#edit").hide();
 		$("#login").show();
 		$("#register").show();
-		
-	}else{
-		$("#login").hide();
-		$("#register").hide();
-		$("#signout").show();
-		$("#edit").show();
 	}
   
   $('.captcha').realperson({chars: $.realperson.alphanumeric});
   $("#signout").click(function(event){
 		sessionStorage.setItem("login", "null");
 		
-		 sessionStorage.setItem("number", "null");
+		 sessionStorage.setItem("loginnumber", "null");
 		 window.location="index.php";
 	});
  
@@ -149,14 +151,14 @@ function errorFunction(){
 											Credentials</span>
 										<div class="input-group-1">
 											<input
-												id="user" type="text" class="form-control l-user" name="number"
-												id="number" value="" placeholder="User" required /> 
+												 type="text" class="form-control l-user" name="number"
+												id="loginnumber"  placeholder="User" required /> 
 										</div>
 
 										<div class="input-group-1">
 											
 											<input id="password" type="password" class="form-control l-pwd"
-												name="password" id="password" placeholder="Password"
+												name="password"  placeholder="Password"
 												required />
 										</div>
 										<div class="input-group">
@@ -189,17 +191,7 @@ function errorFunction(){
     $(".loginform").click(function(){
         $(".loginform-dsplay").slideToggle("slow");
     });
-    $("a.login-after").click(function(){
-    	$('#login-after-popup').bPopup();
-    	if( $(".login-hide").length ) { //check if div with id "login-hide" exists
-    		$('.hrmtop .login-hide').hide();
-    		$('.hrmtop').append("<div class='signout-div'><a href='#'class='sign-out'>Sign Out</a></div>");
-    		}
-    		else {
-    			$('.hrmtop .login-hide').show();
-    		}
-    });
-
+    
     $("a.edit-profile").click(function(){
     	$('#editprofile-popup').bPopup();
     	

@@ -153,8 +153,7 @@ $(document).ready(function(){
 			            	success: function(data)
 	                     		{
 			            		if(data == "Valid"){
-									 sessionStorage.setItem("login", "true");
-									 sessionStorage.setItem("number", userDetails.number);
+									 
 									 window.location="index.php";
 									 }else{
 										 $("#invalidOtpMsg").toggle("slow"); 

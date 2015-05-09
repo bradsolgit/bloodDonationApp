@@ -41,9 +41,9 @@
 		<div class="form-group">
 			<div class="availability">
 				<span>Availability</span>
-				<div id="avil"class="btn-group btn-toggle">
-					<button type="button" value="yes" class="btn btn-lg btn-default active"  >yes</button>
-					<button   type="button" value="n" class="btn btn-lg btn-primary" >No</button>
+				<div id="avil"class="btn-group btn-toggle btn-A">
+					<button type="button" value="Y" class="btn btn-lg  AVIL btn-default active sss"  >yes</button>
+					<button   type="button" value="N" class="btn btn-lg  AVIL btn-primary sss" >No</button>
 				</div>
 			</div>
 		</div>

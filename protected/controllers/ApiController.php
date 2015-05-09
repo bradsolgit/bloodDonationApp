@@ -80,7 +80,7 @@ class ApiController extends Controller {
 		switch ($_GET ['property']) {
 			// Find respective model
 			case 'number' :
-				$model = Utilities::getMobileNo($_GET ['id']);
+				$model = Utilities::getDetails($_GET ['id']);
 				break;
 			case 'user_id' :
 				$model = new UserDetails;
@@ -440,6 +440,24 @@ $blood_group = Utilities::getLookupListByBloodgroupId($_POST ['bloodgroup']);
 					$message = "Valid";
 				}
 				break;
+				case 'donationstatus' :
+					if (! isset ( $_POST ['number'] ))
+						$this->_sendResponse ( 500, 'Error: Parameter is missing' );
+						
+					$number = $_POST ['number'];
+				
+					// $user_id =5;
+					$user = UserDetails::model ()->findByAttributes ( array (
+							'number' => $number
+					) );
+				
+					if (! empty ( $user )) {
+							
+						$user->donation_status =$_POST ['value'];
+						if($user->save())
+							$message = "Valid";
+					}
+					break;
 			case 'captcha' :
 				if (! isset ( $_POST ['captcha'] ))
 					$this->_sendResponse ( 500, 'Error: Parameter is missing' );
@@ -656,7 +674,7 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				$model->number = $_POST['number'];
 				break;
 				case 'resetPassword' :
-					$model = Utilities::getMobileNo ( $_GET ['id'] );
+					$model = Utilities::getMobileNo ( $_GET ['id'],$_POST['oldpassword'] );
 					$model->password = $_POST['password'];
 					break;
 			default :
