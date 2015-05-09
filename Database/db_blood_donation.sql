@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2015 at 11:26 AM
+-- Generation Time: May 09, 2015 at 01:16 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -1728,7 +1728,14 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `donation_status` char(1) NOT NULL,
   `blood_group` int(11) NOT NULL,
   `validate_Status` char(1) NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`user_id`, `name`, `email`, `number`, `area`, `city`, `state`, `district`, `gender`, `address`, `dob`, `password`, `confirmation_code`, `donation_status`, `blood_group`, `validate_Status`) VALUES
+(26, 'Rohit Bhattad', '', '9966866886', 0, 2582, 58, 0, 'M', NULL, '0000-00-00', 'password', '5028', 'N', 17, 'N');
 
 --
 -- Indexes for dumped tables
@@ -1770,7 +1777,7 @@ MODIFY `lookup_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2681;
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- Constraints for dumped tables
 --
@@ -1792,13 +1799,10 @@ ADD CONSTRAINT `fk_dstid1` FOREIGN KEY (`district`) REFERENCES `lookup_details` 
 -- Constraints for table `user_details`
 --
 ALTER TABLE `user_details`
-ADD CONSTRAINT `fk_AreaId` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_BgrpId` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_CityId` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_StateId` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_bgid` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
-ADD CONSTRAINT `fk_dstid` FOREIGN KEY (`district`) REFERENCES `lookup_details` (`lookup_id`),
-ADD CONSTRAINT `user_details_lookup_details` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details_2` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details_3` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `user_details_lookup_details_4` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`);

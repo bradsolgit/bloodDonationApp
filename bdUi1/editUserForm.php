@@ -24,8 +24,8 @@
 							<div class="availability">
 								<span>Availability</span>
 								<div class="btn-group btn-toggle">
-									<button class="btn btn-lg btn-default active">yes</button>
-									<button class="btn btn-lg btn-primary ">No</button>
+									<button type="button" class="btn btn-lg btn-default" id="yesBtn">Yes</button>
+									<button type="button" class="btn btn-lg btn-primary" id="noBtn">No</button>
 								</div>
 							</div>
 
@@ -35,8 +35,8 @@
 						<div class="form-group">
 
 							<div class="input-group">
-								<input type="text" class="form-control" name="BloodGroup"
-									id="number" placeholder=" Edit Mobile Number"
+								<input type="text" class="form-control" name="number"
+									id="number" placeholder="Edit Mobile Number"
 									disabled required> <span class="input-group-addon"><span id="updteNum"
 									class="glyphicon glyphicon-edit"></span></span>
 							</div>
@@ -45,14 +45,14 @@
 
 						<div class="form-group">
 							<div class="input-group">
-								<input type="text" class="form-control" name="BloodGroup"
-									id="city" placeholder=" city" required> <span
+								<input type="text" class="form-control" name="city"
+									id="city" placeholder="City" required> <span
 									class="input-group-addon"><span
 									class="glyphicon glyphicon-map-marker"></span></span>
 							</div>
 						</div>
 						<div class="form-group">
-							<textarea placeholder="Address"></textarea>
+							<textarea placeholder="Address" name="address" id="address"></textarea>
 
 						</div>
 						<input type="submit" name="submit" id="submit" value="Submit"

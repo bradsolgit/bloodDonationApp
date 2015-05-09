@@ -176,16 +176,9 @@ $(document).ready(function(){
 		});
 	function saveUser(valid){
 		
-var status=$('.btn-primary-R .btn-primary ').val();
-		
-		alert("jhxj"+status)
-		
-		
+		var status=$('.btn-primary-R .btn-primary ').val();
 		var userValues = $("#userForm").serialize()+'&donation_status='+status;
-		alert("jhxj"+userValues)
-	
-		 
-		 var user = $("#userForm").serializeArray();
+		var user = $("#userForm").serializeArray();
 		 if(valid === "Valid"){
 			 $.ajax({
 	            	type: 'POST',

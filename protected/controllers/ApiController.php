@@ -74,6 +74,9 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 	}
 	
+	/**
+	 * 
+	 */
 	public function actionuserDetails(){
 		if (! isset ( $_GET ['property'] ) && ! isset ( $_GET ['id'] ))
 			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
@@ -81,6 +84,7 @@ class ApiController extends Controller {
 			// Find respective model
 			case 'number' :
 				$model = Utilities::getDetails($_GET ['id']);
+				$model->city = $model->city0->lookup_value;
 				break;
 			case 'user_id' :
 				$model = new UserDetails;
@@ -277,58 +281,37 @@ class ApiController extends Controller {
 				
 					break;
 			case 'donationRequest' :
-				$state = $_POST ['state'];
 				$city = $_POST ['city'];
-				$area =$_POST ['area'];
-				$district = $_POST ['district'];
 				$blood_group = $_POST ['blood_group'];
 				$criteria = new CDbCriteria ();
-				$criteria->compare ( 'area', $area );
 				$criteria->compare ( 'city', $city );
-				$criteria->compare ( 'state', $state );
-				$criteria->compare ( 'district', $district );
 				$criteria->compare ( 'blood_group', $blood_group );
-			$models = array();
-			$srchResults = DonationRequest::model ()->findAll ( $criteria );
+				$models = array();
+				$srchResults = DonationRequest::model ()->findAll ( $criteria );
 			foreach ($srchResults as $i=>$model){
 				$tempModel = $model;
-				$tempModel->district = $model->district0->lookup_value;
 				$tempModel->city = $model->city0->lookup_value;
 				$tempModel->state = $model->state0->lookup_value;
-				$tempModel->area = $model->area0->lookup_value;
 				$tempModel->blood_group = $model->bloodGroup->lookup_value;
 				$date = new DateTime($model->date);
 				$now = new DateTime();
 				$interval = $now->diff($date);
-				
-			//$tempModel->date=date("l, F d, Y",strtotime($model->date));
-				
 				$models[$i] = $tempModel;
 			}
 			break;
 			case 'donors' :
-				//$state = $_POST ['state'];
 				$city = $_POST ['city'];
 				$city = Utilities::getLookupListByCityId($_POST ['city']);
-				
-				//$area =$_POST ['area'];
-				//$district = $_POST ['district'];
 				$blood_group = $_POST ['bloodgroup'];
-$blood_group = Utilities::getLookupListByBloodgroupId($_POST ['bloodgroup']);
+				$blood_group = Utilities::getLookupListByBloodgroupId($_POST ['bloodgroup']);
 				$criteria = new CDbCriteria ();
-				//$criteria->compare ( 'area', $area );
 				$criteria->compare ( 'city', $city );
-				//$criteria->compare ( 'state', $state );
-				//$criteria->compare ( 'district', $district );
 				$criteria->compare ( 'blood_group', $blood_group );
 				$models = array();
 				$srchResults = UserDetails::model ()->findAll ( $criteria );
 				foreach ($srchResults as $i=>$model){
 					$tempModel = $model;
-					$tempModel->district = $model->district0->lookup_value;
 					$tempModel->city = $model->city0->lookup_value;
-					$tempModel->state = $model->state0->lookup_value;
-					$tempModel->area = $model->area0->lookup_value;
 					$tempModel->blood_group = $model->bloodGroup->lookup_value;
 					$models[$i] = $tempModel;
 				}
@@ -672,6 +655,7 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 			case 'number' :
 				$model = Utilities::getMobileNo ( $_GET ['id'] );
 				$model->number = $_POST['number'];
+				$model->city = $model->city0->lookup_value; 
 				break;
 				case 'resetPassword' :
 					$model = Utilities::getMobileNo ( $_GET ['id'],$_POST['oldpassword'] );

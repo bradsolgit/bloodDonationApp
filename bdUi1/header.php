@@ -102,7 +102,7 @@ function errorFunction(){
   </script>
 <script>
   jQuery(document).ready(function($) {
-	alert(sessionStorage.getItem("login"))
+	
   if(sessionStorage.getItem("login") === "true"){
 	  $("#login").hide();
 		$("#register").hide();

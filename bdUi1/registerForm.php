@@ -34,6 +34,18 @@
 					<div class="form-group">
 
 						<div class="input-group">
+							<input type="text" class="form-control" name="password"
+								id="password" placeholder=" Passwor" required> <span
+								class="input-group-addon"><span class="glyphicon glyphicon-tint"></span></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+					<div class="form-group">
+
+						<div class="input-group">
 							<input type="text" class="form-control" name="blood_group"
 								id="regbloodgroup" placeholder=" Blood Group" required> <span
 								class="input-group-addon"><span class="glyphicon glyphicon-tint"></span></span>

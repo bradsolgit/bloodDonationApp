@@ -22,11 +22,9 @@
  * @property string $validate_Status
  *
  * The followings are the available model relations:
- * @property LookupDetails $area0
  * @property LookupDetails $bloodGroup
  * @property LookupDetails $city0
  * @property LookupDetails $state0
- * @property LookupDetails $district0
  */
 class UserDetails extends CActiveRecord
 {
@@ -80,11 +78,9 @@ class UserDetails extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
 			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
-			'district0' => array(self::BELONGS_TO, 'LookupDetails', 'district'),
 		);
 	}
 

@@ -51,46 +51,52 @@ jQuery(document).ready(function($) {
         success: function(data)
           {
         	
-        	userDetails = data;
+        	//userDetails = data;
+        	$("#editForm #number").val(data['number']);
+        	$("#editForm #city").val(data['city']);
+        	$("#editForm #address").val(data['address']);
+        	if(data["donation_status"] == "Y"){
+        		$("#editForm #yesBtn").addClass("btn-primary");
+        		$("#editForm #noBtn").removeClass("btn-primary");
+        		$("#editForm #noBtn").addClass("btn-default");
+        	}else{
+        		$("#editForm #noBtn").addClass("btn-primary");
+        		$("#editForm #yesBtn").removeClass("btn-primary");
+        		$("#editForm #yesBtn").addClass("btn-default");
+        	}
         	
-        
-        	getStateValues();
-        	getBloodGroupValues();
-        	getDistrictValues(data["state"]);
-        	getCityValues(data["district"]);
-        	getAreaValues(data["city"],setValues);
-              	 $.each(data, function(key, value){
-				   // $('[name='+key+']', frm).val(value);
-              		var $ctrl = $('[name='+key+']', frm); 
-              		
-              	    if($ctrl.is('select')){
-              	       
-              	    }
-              	    else {
-              	        switch($ctrl.attr("type"))  
-              	        {  
-              	            case "text" :    
-              	                $ctrl.val(value);   
-              	                break;
-              	          case "email" :    
-              	                $ctrl.val(value);   
-              	                break;
-              	          case "hidden": 
-              	        	   $ctrl.val(value);
-              	        		break;
-              	          case "textarea":
-              	        	   $ctrl.val(value);
-              	      
-              	        
-              	            case "radio" : case "checkbox":   
-              	                $ctrl.each(function(){
-              	                   if($(this).attr('value') == value) {  $(this).attr("checked",value); } });   
-              	                break;
-              	        } 
-              	    }
-              	  
-				  });
-              	$("#address").val(data["address"]);
+//        	  	 $.each(data, function(key, value){
+//				   // $('[name='+key+']', frm).val(value);
+//              		var $ctrl = $('[name='+key+']', frm); 
+//              		
+//              	    if($ctrl.is('select')){
+//              	       
+//              	    }
+//              	    else {
+//              	        switch($ctrl.attr("type"))  
+//              	        {  
+//              	            case "text" :    
+//              	                $ctrl.val(value);   
+//              	                break;
+//              	          case "email" :    
+//              	                $ctrl.val(value);   
+//              	                break;
+//              	          case "hidden": 
+//              	        	   $ctrl.val(value);
+//              	        		break;
+//              	          case "textarea":
+//              	        	   $ctrl.val(value);
+//              	      
+//              	        
+//              	            case "radio" : case "checkbox":   
+//              	                $ctrl.each(function(){
+//              	                   if($(this).attr('value') == value) {  $(this).attr("checked",value); } });   
+//              	                break;
+//              	        } 
+//              	    }
+//              	  
+//				  });
+//              	$("#address").val(data["address"]);
 			}
  		});
 	
