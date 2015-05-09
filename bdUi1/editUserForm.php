@@ -20,6 +20,7 @@
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="Edit-Account">
 					<form id="editForm">
+					<span id="editerrorMsg" style="disolay:none"></span>
 						<div class="form-group">
 							<div class="availability">
 								<span>Availability</span>
@@ -46,7 +47,7 @@
 						<div class="form-group">
 							<div class="input-group">
 								<input type="text" class="form-control" name="city"
-									id="city" placeholder="City" required> <span
+									id="editcity" placeholder="City" required> <span
 									class="input-group-addon"><span
 									class="glyphicon glyphicon-map-marker"></span></span>
 							</div>
@@ -55,7 +56,7 @@
 							<textarea placeholder="Address" name="address" id="address"></textarea>
 
 						</div>
-						<input type="submit" name="submit" id="submit" value="Submit"
+						<input type="button" name="submit" id="updateBtn" value="Submit"
 							class="btn btn-success">
 					</form>
 					
@@ -96,41 +97,7 @@
 					
 				</div>
 				<div>
-				<form class="sign simple-form" id="numForm" name="numForm" style="display: none;">
-			<div class="formtitle">Upadate Number</div>
-			<span id="invalidCaptcha" class="error" style="display: none;">Invalid Captcha</span>
-			
-			<span id="invalidOtp" class="error" style="display: none;">Invalid Otp</span>
-					<div class="section">
-					<div class="input-sign login-mbnumber row-padding-0">
-						<div class="row">
-					<div ><input type="text"   placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> </div>
-						<div><input type="button"  id="reqOtpBtn" /> </div>
-						
-					
-						
-						
-						<div class="clear"> </div>
-						</div>
-						
-						</div>
-					</div>
-					<div class="section">
-						<div class="input-sign otp-reset-details">
-							<input type="text" name="otp" id="otp"  class="input-90" placeholder="OTP Code" /> 
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="section width-60">
-						<div class="captcha-center-details2">
-							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
-						</div>
-						<div class="clear"> </div>
-					</div>
-					<div class="submit">
-					<input class="bluebutton" id="numButton" type="button" value="Update Mobile Number" />	
-					</div>
-			</form>
+				
 				
 				
 				</div>

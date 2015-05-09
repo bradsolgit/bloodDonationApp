@@ -2,7 +2,7 @@
 /**
  * 
  */
-url = 'http://localhost/bdApp/index.php';
+url = 'http://localhost/bloodDonationApp/index.php';
 
 
 function validateCaptcha(captcha,hash,callback){

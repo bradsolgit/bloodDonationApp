@@ -533,7 +533,7 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				$city=$value;
 			}
 			$model->city=$city;
-			$model->password="password";
+		
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;
@@ -642,15 +642,13 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 			// Get an instance of the respective model
 			case 'update' :
 				$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
-				foreach ( $_POST as $var => $value ) {
-					// Does the model have this attribute? If not raise an error
-					if ($model->hasAttribute ( $var ))
-						$model->$var = $value;
-					// else
-					// $this->_sendResponse(500,
-					// sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
-					// $_GET['model']) );
+				$city = Utilities::getLookupListByCityId($_POST['city']);
+				foreach($city as $value)
+				{
+					$city=$value;
 				}
+				$model->city=$city;
+				
 				break;
 			case 'number' :
 				$model = Utilities::getMobileNo ( $_GET ['id'] );

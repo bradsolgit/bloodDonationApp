@@ -153,7 +153,7 @@
 				<span>OTP is sent to your mobile successfully</span>
 			<div class="section">
 						<div class="input-sign otp-center-details">
-							<input type="text" name="otp" id="otp"  placeholder="OTP Code" /> 
+							<input type="text" name="otp" id="regotp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>

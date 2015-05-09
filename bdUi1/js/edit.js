@@ -38,7 +38,25 @@ jQuery(document).ready(function($) {
 			},
 		}
 	});
-	
+	$("#editForm").validate({
+		rules: {
+			
+			editcity: {
+				required: true,
+			
+			},
+			
+			
+		},
+		messages: {
+			
+			editcity: {
+				required: "Please enter vity",
+				
+			},
+			
+		}
+	});
 	var number = sessionStorage.getItem("loginnumber");
 	var frm = $("#editForm");
 	$.ajax({
@@ -48,9 +66,9 @@ jQuery(document).ready(function($) {
         success: function(data)
           {
         	
-        	//userDetails = data;
+        	userDetails = data;
         	$("#editForm #number").val(data['number']);
-        	$("#editForm #city").val(data['city']);
+        	$("#editForm #editcity").val(data['city']);
         	$("#editForm #address").val(data['address']);
         	if(data["donation_status"] == "Y"){
         		$("#editForm #yesBtn").addClass("btn-primary");
@@ -66,7 +84,7 @@ jQuery(document).ready(function($) {
  		});
 	
 	function setValues(){
-		$("#city").val(userDetails.city);
+		$("#editcity").val(userDetails.city);
 	   $("#district").val(userDetails.district);
 	   $("#state").val(userDetails.state);
 	   $("#area").val(userDetails.area);
@@ -110,6 +128,57 @@ jQuery(document).ready(function($) {
 			$("#numForm").bPopup();
 			}
 		
+	});
+	$("#editcity").autocomplete(
+		    {
+		    minLength: 1,
+		    source: function (request, response)
+		    {
+		    $.ajax(
+		    {
+		    	 url:url+'/search/city',
+		    	 type: "POST",
+		        data: {city:$('#editcity').val() },
+		        dataType: "json",
+		        success: function (jsonDataReceivedFromServer)
+		        {
+		        //alert (JSON.stringify (jsonDataReceivedFromServer));
+		        // console.log (jsonDataReceivedFromServer);
+		        response ($.map(jsonDataReceivedFromServer, function (item)
+		            {
+		            console.log (item.firstname);
+		                            // NOTE: BRACKET START IN THE SAME LINE AS RETURN IN 
+		                            //       THE FOLLOWING LINE
+		            return {
+		                id: item.lookup_value, value: item.lookup_value };
+		            }));
+		        }
+		      });
+		     },
+		   });
+	$("#updateBtn").click(function(){	
+		alert("hbwhjs");
+		if($("#editForm").valid()){
+			
+		var userValues = $("#editForm").serialize();
+		 $.ajax({
+           	type: 'POST',
+          		url: url+'/user/update/'+userDetails.user_id,
+				dataType: 'json',
+				 data: userValues,
+           	success: function(data)
+            		{
+           		userDetails = data;
+           		 $("#editerrorMsg").html("Invalid Captcha").hide();
+           		  $("#editerrorMsg").html("UPDATED SUCEESSFULLY").show();
+           		
+            		},
+            		error: function(xhr, error){
+            	        $("#editerrorMsg").html(xhr.responseText).show();
+            		 }
+				});
+	
+	}
 	});
 
 });

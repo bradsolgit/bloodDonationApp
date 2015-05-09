@@ -137,11 +137,13 @@ $(document).ready(function(){
 	});
 	$("#otpButton").click(function(){
 		$("#invalidOtpMsg").hide();
+		otp=$("#regotp").val();
+	
 		$.ajax({
         	type: 'POST',
        		url: url+'/validate/validateotp',
 			dataType: 'json',
-			 data: {otp:$("#otp").val(),number: userDetails.number},
+			 data: {otp:otp,number: userDetails.number},
         	success: function(data)
          		{
         		if(data == "Valid"){
@@ -189,7 +191,7 @@ $(document).ready(function(){
                  		{
 	            		confirmCode = data.confirmation_code;
 	            		userDetails = data;
-	            		$('#signup-popup').hide();
+	            		$('#userForm').hide();
 	            		$('#otpForm').show();
 	            		
                  		},
