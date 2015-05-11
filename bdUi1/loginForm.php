@@ -1,16 +1,6 @@
 <?php
 ?>
-<script>
-<script> $(document).ready(function () {                                  
-    
 
-	$("a.form-tile").click(function(){
-	  $('#loginForm').hide();
-	  $('forgotForm').show();
-	});
-});
-
-</script>
 
 
 

@@ -20,7 +20,7 @@ $(document).ready(function(){
 	
 $("a.popup-window").click(function(){
 
-	$('#login-popup').bPopup({ showCloseBtn :true,});
+	$('#login-popup').bPopup();
 });
 $("a.popup-window1").click(function(){
 

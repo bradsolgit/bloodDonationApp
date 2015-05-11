@@ -129,60 +129,6 @@ jQuery(document).ready(function($) {
 			}
 		
 	});
-	$("#reqOtpBtn").click(function(){
-		
-		 $("#valMobMsg").hide();
-		var val = 	$("#updateNumber").val();
-		if (!val.match(/[789][0-9]{9}/)) {
-           $("#valMobMsg").show();
-           return false;
-       }else{
-		if(confirm("Do you want to send OTP to this mobile number?")){
-			sendOtp(val,showConfMsg)
-			}
-       }
-		
-	});
-	$("#numButton").click(function(){
-		
-		if($("#numForm").valid()){
-			 validateCaptcha($("#numCaptcha").val(),$("#numCaptcha").realperson('getHash'),otpValidate);
-			}
-		});
-
-	function otpValidate(data){
-		if(data === "Valid"){
-			var formVals = $("#numForm").serialize();
-			validateOTP($("#otp").val(),$("#updNumber").val(),updateNumber);
-		 }else{
-			 $("#invalidCaptcha").show();
-			}
-	}
-	function updateNumber(data){
-		if(data == "Valid"){
-			var number=$("#updateNumber").val();
-			 $.ajax({
-	            	type: 'POST',
-	           		url: url+'/user/number/'+userDetails.number,
-					dataType: 'json',
-					data: {number:number},
-	            	success: function(data)
-                 		{
-	            		userDetails = data;
-	            		 sessionStorage.setItem("number",userDetails.number);
-	            		window.location="editDonor.php";
-	            		
-                 		},
-                 		error: function(xhr, error){
-                 		
-                 	        $("#errorMsg").html(xhr.responseText).show();
-                 		 }
-					});
-		}else{
-			 $("#invalidCaptcha").hide();
-			$("#invalidOtp").show();
-		 }
-		}
 	$("#editcity").autocomplete(
 		    {
 		    minLength: 1,
@@ -214,8 +160,7 @@ jQuery(document).ready(function($) {
 		alert("hbwhjs");
 		if($("#editForm").valid()){
 			
-			var status=$('.btn-primary-E .btn-primary ').val();
-			var userValues = $("#userForm").serialize()+'&donation_status='+status;
+		var userValues = $("#editForm").serialize();
 		 $.ajax({
            	type: 'POST',
           		url: url+'/user/update/'+userDetails.user_id,
@@ -235,9 +180,7 @@ jQuery(document).ready(function($) {
 	
 	}
 	});
-	function showConfMsg(){
-		 $("#otpCnfMsg").show("slow");
-	}
+
 });
 
 

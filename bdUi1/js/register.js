@@ -176,33 +176,6 @@ $(document).ready(function(){
          		 }
 			});
 		});
-	 $("#regcity").blur(function(){
-		var value=$("#regcity").val();
-	       
-	        
-	        $.ajax({
-	        	 url:url+'/search/state1',
-		    	 type: "POST",
-		        data: {value:value},
-		        dataType: "json",
-				
-            	success: function(data)
-             		{
-            	
-            		 data.forEach( function (item)
-                    			{
-         				     
-         				
-         				$("#regstate").val(item.lookup_value);
-         				  });
-            		
-             		},
-             		error: function(xhr, error){
-             	        $("#regerrorMsg").html(xhr.responseText).show();
-             		 }
-				});
-	        
-	     });
 	function saveUser(valid){
 		
 		var status=$('.btn-primary-R .btn-primary ').val();
