@@ -136,15 +136,17 @@ function errorFunction(){
 				<header class="hbgcolor">
 					<div class="clearfix">
 						<div class="logo pull-left">
-							<h1>Logo Name</h1>
+							<h1><img src="images/logo.png" alt="logo" class="img-responsive" /></h1>
 						</div>
 						<div class="pull-right hrmtop">
 							<div class="login-hide">
-								<a href="#" id="login" class="loginform">login</a><a
-									href="#signup-popup" id="register" class="popup-register">Register</a><a
+								<a href="#" id="login" class="loginform"><span class="glyphicon glyphicon-lock"></span>login</a><a
+									href="#signup-popup" id="register" class="popup-register"><span class="glyphicon glyphicon-user"></span>Register</a><a
 									href="#signup-popup" id="signout">Sign Out</a><a
-									href="#signup-popup" id="edit" class="popup-window1">Edit</a>
+									href="#signup-popup" id="edit" class="popup-window1">Edit Account</a>
 								<div class="loginform-dsplay">
+								 <span class="button b-close">X</span>
+								 <p class="form-tile"><span class="glyphicon glyphicon-lock"></span> Login</p>
 									<form name="form" id="loginForm" class="form-horizontal"
 										enctype="multipart/form-data" method="POST">
 										<span id="errorMsg" class="ppInfo" style="display: none">Inavalid
@@ -161,7 +163,7 @@ function errorFunction(){
 												name="password"  placeholder="Password"
 												required />
 										</div>
-										<div class="input-group">
+										<div class="input-group forgot-top">
 											<span><a href="#login-popup" class="popup-window">forgot
 													password</a></span>
 										</div>
@@ -189,11 +191,13 @@ function errorFunction(){
 		<script>
 
     $(".loginform").click(function(){
-        $(".loginform-dsplay").slideToggle("slow");
+        $(".loginform-dsplay1").slideToggle("slow");
     });
     
     $("a.edit-profile").click(function(){
-    	$('#editprofile-popup').bPopup();
+    	$('#editprofile-popup').bPopup(   {easing: 'easeOutBack', //uses jQuery easing plugin
+                speed: 450,
+                transition: 'slideDown'});
     	
     });
     $("a.edit-profile1").click(function(){

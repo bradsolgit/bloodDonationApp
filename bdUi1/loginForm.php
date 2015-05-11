@@ -1,23 +1,35 @@
 <?php
 ?>
+<script>
+<script> $(document).ready(function () {                                  
+    
 
+	$("a.form-tile").click(function(){
+	  $('#loginForm').hide();
+	  $('forgotForm').show();
+	});
+});
+
+</script>
 
 
 
 
 <div id="login-popup" class="ppInfo mgrn-top width-mrgn">
+ <p class="button b-close">X</p>
+<span class="form-tile">Forget Password</span>
 	<form name="form" id="forgotForm" class="form-horizontal"
 		enctype="multipart/form-data" method="POST">
 		<span id="erMsg" style="display: none"> </span> <span id="successMsg"
 			style="display: none"> </span>
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-			<input type="password" id="forgotnumber" class="form-control"
+	
+			<div class="input-group-1">
+											<input type="password" id="forgotnumber" class="form-control mobile-icon"
 				name="forgotnumber" placeholder="Enter Mobile Number">
-		</div>
+										</div>
 
 						<div class="captcha-center-details2">
-							<input type="text" class="captcha" name="captcha"  id="forgotCaptcha" /> 
+							<input type="text" class="captcha" name="captcha"  id="forgotCaptcha" placeholder="captcha" /> 
 						</div>
 						
 					
@@ -25,8 +37,7 @@
 			<!-- Button -->
 			<div class="col-sm-12 controls">
 				<button type="button" id="forgotButton"
-					class="btn btn-dgn pull-right">
-					<i class="glyphicon glyphicon-log-in"></i> Submit
+					class="btn forgot-btn pull-right"><i class="glyphicon glyphicon-log-in"></i> Send
 				</button>
 			</div>
 		</div>

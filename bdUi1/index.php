@@ -26,13 +26,19 @@ $("a.popup-window1").click(function(){
 
 	$('#editprofile-popup').bPopup();
 });
-$("a.popup-register").click(function(){
 
-	$('#signup-popup').bPopup();
-});
 $("a.loginform").click(function(){
 
-	$('.loginform-dsplay').bPopup();
+	$('.loginform-dsplay').bPopup({
+        speed: 450,
+        fadeSpeed: 'slow',
+        modalColor: 'greenYellow',
+        transitionClose: 'slideBack',
+        opacity: 1.6,
+        modalClose: false,
+        transition: 'slideDown'
+     
+            });
 });
 
 
@@ -77,6 +83,7 @@ $("#table").hide();
 						<div class="container">
 
 							<form role="form">
+							
 								<div class="row">
 									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 

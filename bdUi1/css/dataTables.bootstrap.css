@@ -49,9 +49,35 @@ table.dataTable {
 	clear: both;
 	margin-top: 6px !important;
 	margin-bottom: 6px !important;
-	max-width: none !important;
+//	max-width: none !important;
+width:100%;
+border-top:3px double #000;
+border-bottom:3px double #000;
 }
+#jsontable_previous{
+	border:1px solid #000;
+	color: #FFFFFF;
+padding: 5px;
+border-radius: 5px;
+font-size: 12px;
+text-decoration: none;
+	}
+#jsontable_next{
+	border:1px solid #000;
+	color: #FFFFFF;
+padding: 5px;
+border-radius: 5px;
+font-size: 12px;
+text-decoration: none;
+	}
+	.paginate_button{
 
+	color: #FFFFFF;
+padding: 5px;
+border-radius: 5px;
+font-size: 12px;
+text-decoration: none;
+	}
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc,

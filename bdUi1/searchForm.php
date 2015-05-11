@@ -31,7 +31,7 @@
 		</form>
 	
 </div>
-<div id=table class="ppInfo">
+<div id=table class="ppInfo container">
 	<table id="jsontable">
 		<thead>
 			<tr>

@@ -85,7 +85,7 @@
 			@property [chars=alphabetic] {string} The characters allowed. */
 		defaultOptions: {
 			length: 6,
-			regenerate: 'Click to change',
+			regenerate: '',
 			hashName: '{n}Hash',
 			dot: '*',
 			dots: DOTS,
