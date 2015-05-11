@@ -99,15 +99,35 @@
 
 					
 
+<<<<<<< HEAD
 						<div class="input-group1">
 							<input type="text" class="form-control l-pwd" name="password"
 								id="password" placeholder=" Password" required> 
+=======
+						<div class="input-group">
+							<input type="text" class="form-control" name="city" id="regcity" 
+								placeholder=" city" required> <span class="input-group-addon"><span
+								class="glyphicon glyphicon-map-marker"></span></span>
+>>>>>>> d8f1329146b42d16a86a5d0366f69c41df9b1c0d
 						</div>
 			
 				</div>
+<<<<<<< HEAD
 
 							
 	<div style="clear:both;"></div>
+=======
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<div class="form-group">
+
+						<div class="input-group">
+							<input type="text" class="form-control" name="state"
+								id="regstate" placeholder=" State" disabled> <span
+								class="input-group-addon"><span
+								class="glyphicon glyphicon-map-marker"></span></span>
+						</div>
+					</div>
+>>>>>>> d8f1329146b42d16a86a5d0366f69c41df9b1c0d
 				</div>
 				<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

@@ -98,9 +98,14 @@ class Utilities {
 		) );
 	}
 	static function getLookupParent($id) {
-		return LookupDetails::model ()->findAllByAttributes ( array (
-				'lookup_parent_id' => ( int ) $id 
+		return LookupDetails::model ()->findByAttributes ( array (
+				'lookup_value' => $id 
 		) );
+	}
+	static function getLookupParentValue($id) {
+		return LookupDetails::model ()->findAllByAttributes ( array (
+				'lookup_id' =>$id
+		));
 	}
 	static function getLookupType($id) {
 		return LookupDetails::model ()->findAllByAttributes ( array (
