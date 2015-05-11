@@ -160,8 +160,7 @@ class ApiController extends Controller {
 						$model = Utilities::getLookupListByArea ( $_GET ['id'] );
 						break;
 					
-					case 'lookupParent' :
-						$model = Utilities::getLookupParent ( $_GET ['id'] );
+					
 						break;
 					case 'lookupType' :
 						$model = Utilities::getLookupType ( $_GET ['id'] );
@@ -222,6 +221,7 @@ class ApiController extends Controller {
 			case 'area' :
 				$model = Utilities::getLookupListByArea ( $_GET ['id'] );
 				break;
+			
 			default :
 				$this->_sendResponse ( 501, sprintf ( 'Mode <b>view</b> is not implemented for model <b>%s</b>', $_GET ['name'] ) );
 				Yii::app ()->end ();
@@ -252,6 +252,17 @@ class ApiController extends Controller {
 				$models =LookupDetails::model ()->findAll( $criteria );
 				
 				break;
+				case 'state1' :
+					$model=array();
+					$model = Utilities::getLookupParent ( $_POST ['value'] );
+					
+					
+						$id=$model['lookup_parent_id'];
+					
+					
+					$models=Utilities::getLookupParentValue($model['lookup_parent_id']);
+					
+					break;
 				case 'state':
 					$keyword = $_POST ['state'];
 					$criteria = new CDbCriteria ();

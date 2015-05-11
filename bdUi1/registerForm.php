@@ -85,19 +85,18 @@
 					<div class="form-group">
 
 						<div class="input-group">
-							<input type="text" class="form-control" name="city" id="regcity"
+							<input type="text" class="form-control" name="city" id="regcity" 
 								placeholder=" city" required> <span class="input-group-addon"><span
 								class="glyphicon glyphicon-map-marker"></span></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-
 					<div class="form-group">
 
 						<div class="input-group">
 							<input type="text" class="form-control" name="state"
-								id="regstate" placeholder=" State"> <span
+								id="regstate" placeholder=" State" disabled> <span
 								class="input-group-addon"><span
 								class="glyphicon glyphicon-map-marker"></span></span>
 						</div>
