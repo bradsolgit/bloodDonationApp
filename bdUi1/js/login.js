@@ -44,7 +44,17 @@ $(document).ready(function(){
 //			        		$("#login-after-popup #yesBtn").removeClass("btn-primary");
 //			        		$("#login-after-popup #yesBtn").addClass("btn-default");
 //			        	}
-					 	$("#login-after-popup").bPopup();
+					 $('.loginform-dsplay').bPopup().close();
+					 	$("#login-after-popup").bPopup({
+							
+						    speed: 450,
+				            fadeSpeed: 'slow',
+				            modalColor: '#2d9',
+				        
+				            opacity: 1.0,
+				            modalClose: false,
+				            transition: 'slideIn'
+						});
 					 }
 				 else
 					 {
@@ -57,6 +67,26 @@ $(document).ready(function(){
 		}
 		 
 	});
+	
+	/*   forget form start script here */
+	
+	$("a.popup-window").click(function(){
+		$('.loginform-dsplay').bPopup().close();
+		
+
+		$('#login-popup').bPopup({
+			
+		    speed: 450,
+            fadeSpeed: 'slow',
+            modalColor: 'lightblue',
+        
+            opacity: 1.0,
+            modalClose: false,
+            transition: 'slideIn'
+		});
+	});
+	
+	/*forget form start script here*/
 	
 	
 	$("#forgotForm").validate({

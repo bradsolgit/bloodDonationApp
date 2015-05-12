@@ -190,9 +190,7 @@ function errorFunction(){
 
 		<script>
 
-    $(".loginform").click(function(){
-        $(".loginform-dsplay1").slideToggle("slow");
-    });
+  
     
     $("a.edit-profile").click(function(){
     	$('#editprofile-popup').bPopup(   {easing: 'easeOutBack', //uses jQuery easing plugin

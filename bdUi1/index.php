@@ -18,10 +18,7 @@ $(document).ready(function(){
 	var oTable = $('#jsontable').dataTable();
 	
 	
-$("a.popup-window").click(function(){
 
-	$('#login-popup').bPopup();
-});
 $("a.popup-window1").click(function(){
 
 	$('#editprofile-popup').bPopup();

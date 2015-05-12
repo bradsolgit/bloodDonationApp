@@ -124,7 +124,7 @@ jQuery(document).ready(function($) {
 });
 	$("#updteNum").click(function(){	
 		if(confirm("Do you want to change the mobile number?")){
-
+			$("#editprofile-popup").bPopup().close();
 			$("#numForm").bPopup();
 			}
 		

@@ -19,6 +19,72 @@ margin-left: 0px;
 background-color: rgba(255, 255, 255, 0.3);
     min-height: 105px;
 }
+.edituserform .form-control1{
+
+margin-left: 0px !important;
+background-color: rgba(255, 255, 255, 0.5);
+margin-top:20px;
+width: 94%;
+margin-top: 10px;
+border-radius:5px;
+color: #000;
+box-shadow: none;
+border: 1px solid #ccc;
+line-height: 30px;
+padding-left: 20px;
+font-size: 14px;
+
+outline: 0px;
+width: 94%;
+}
+.mbn{
+	width:4%;
+	float:right;	
+	margin-top:20px;
+	margin-right:13px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.mbn-filed{
+width:90%;
+margin-left: 10px !important;
+margin-top:20px;
+border-radius:5px;
+color: #000;
+box-shadow: none;
+border: 1px solid #ccc;
+line-height: 30px;
+padding-left: 20px;
+font-size: 14px;
+outline: 0px;
+float:left;
+
+}
+.input-sign{
+	width: 83%;
+margin: 0 auto;
+	
+}
+.update-mbn{
+	padding: 5px;
+	font-size:14px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.bluebutton{
+	padding: 5px;
+	font-size:14px;
+	margin-top:20px;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.mbnumber{
+	width:67%;
+	padding:5px;
+	font-size:14px;
+}
+.otp-enter{
+	width:97%;
+	padding:5px;
+	font-size:14px;
+}
 .hrmtop{
 margin-top:34px;
 }
@@ -107,7 +173,8 @@ background-repeat:no-repeat;
 			background-image:url("../images/f-pwd.png");
 background-position:left center;
 background-repeat:no-repeat;
-	padding: 32px 0px 31px 45px;
+	padding-left:45px;
+	line-height:50px;
 }
 .login-btn{
 		background-color: rgba(255, 255, 255, 0.5);
@@ -149,14 +216,24 @@ height: 32px;
 margin-top: 1px;
 background-color: rgba(255, 255, 255, 0.5);
 margin-left: 3%;
-width: 35%;
-border: none;
+width: 60%;
+border: 1px solid #ccc;
 outline: none;
 background-image: url("../images/captcha.png");
 background-position: right center;
 background-repeat: no-repeat;
 padding-left:10px;
     
+}
+.successmsg{
+	font-weight:100;
+	font-size:12px;
+	color:green;
+}
+.error{
+		font-weight:100;
+	font-size:12px;
+	color:red;
 }
 input[type=search]{
 	border-radius: 5px;
@@ -209,7 +286,7 @@ bottom: 10px;
 ul li{
 	
 	list-style:none;
-	width:100%;
+	width:50%;
 	height:auto;
 }
 
@@ -326,6 +403,7 @@ margin: 2px 5px;
     text-align: center;
     padding: 10px;
 }
+
 .ui-autocomplete{
 	z-index:999999 !important;
 }
@@ -333,8 +411,10 @@ margin: 2px 5px;
 	color:#000;
 }
 .tab-content textarea{
-	width:98%;
+	width:94%;
+	color:#000;
 }
+
 
 /* registration form start */
 .address{
@@ -346,8 +426,11 @@ border-radius: 5px;
 font-size: 14px;
  margin: 10px 20px;
 padding: 8px 10px 0 13px;
-width: 47%;
+
 	background-color: rgba(255, 255, 255,0.5);
+}
+.mgn-top{
+	margin-top:27px;
 }
 .user-name{
 	background-image: url("../images/user.png");
@@ -382,8 +465,14 @@ background-repeat: no-repeat;
     left: 100px;
     top: 123px;
 }
+.mbn{
+	margin-left:5px;
+}
 .checkbox-inline, .radio-inline{
 	padding-left:12px;
+}
+.mbn-filed{
+	width:85%;
 }
 }
 @media only screen and (max-width: 360px) and (min-width:355px){
@@ -392,12 +481,22 @@ background-repeat: no-repeat;
     left: 116px;
     top: 70px;
 }
+.mbn{
+	margin-left:1px;
+	width:7%;
+}
+.mbn-filed{
+	width:85%;
+}
 }
 @media only screen and (max-width: 414px) and (min-width:361px){
 	.loginform-dsplay{
 
     left: 116px;
     top: 70px;
+}
+.mbn-filed{
+	width:89%;
 }
 	}
 	@media only screen and (max-width: 480px) and (min-width:415px){
@@ -420,4 +519,12 @@ background-repeat: no-repeat;
     right: 86px;
     top: 70px;
 }
+.mbn-filed{
+	width:88%;
+}
 	}
+		@media only screen and (max-width: 1280px) and (min-width:1024px){
+		.mbn-filed{
+	width:85%;
+}
+		}

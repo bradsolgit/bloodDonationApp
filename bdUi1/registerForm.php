@@ -62,13 +62,38 @@
 				<div style="clear:both;"></div>
 				</div>
 				<div class="row">
+				
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+					
+
+						<div class="input-group1">
+							<input type="text" class="form-control l-pwd" name="password"
+								id="password" placeholder=" Password" required> 
+						</div>
+			
+				</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+					
+
+						<div class="input-group1">
+							<input type="text" class="form-control l-pwd" name="password"
+								id="password" placeholder=" Confirm Password" required> 
+						</div>
+			
+				</div>
+				<div style="clear:both;"></div>
+				</div>
+		
+			<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
 		
 
 						<div class="input-group1">
 							<input type="text" class="form-control locator" name="state"
-								id="regstate" placeholder=" State"> 
+								id="regstate" placeholder=" State" disabled /> 
 						</div>
 			
 				</div>
@@ -86,6 +111,15 @@
 				</div>
 		
 			<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				
+
+						<div class="input-group1">
+							<input type="text" class="form-control datepicker calender" name="dob"
+								id="dob" placeholder=" Date of Birth" required> 
+						</div>
+
+				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
 
@@ -95,60 +129,24 @@
 						</div>
 	
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-					
-
-						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Password" required> 
-						</div>
-			
-				</div>
+	
 
 							
 	<div style="clear:both;"></div>
 				</div>
 				<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				
-
-						<div class="input-group1">
-							<input type="text" class="form-control datepicker calender" name="dob"
-								id="dob" placeholder=" Date of Birth" required> 
-						</div>
-
-				</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						
-
-				
-
-						<label class="radio-inline"> Gender: </label> <label
-							class="radio-inline"> <input type="radio" name="gender" value="M">Male
-						</label> <label class="radio-inline"> <input type="radio"
-							name="gender" value="F">Female
-						</label>
-		
-				</div>
-											
-	<div style="clear:both;"></div>
-				</div>
-				
-			
-
-				
 	
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				
 						<textarea placeholder="Enter Your Address" class="address form-control"></textarea>
 
 		
 				</div>
-					
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						
 
-			
+					<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="availability">
 							<span>Availability</span>
 							<div id="avil" class="btn-group btn-toggle btn-primary-R">
@@ -159,20 +157,40 @@
 							</div>
 	
 					</div>
-				</div>
-			
-				
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-				<div class="captcha-center-details2">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="captcha-center-details2">
 							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
 						</div>
-	
+					</div>
+					
+					</div>
+
+				
+		
+				</div>
+											
+	<div style="clear:both;"></div>
+				</div>
+				
+			
+
+		<div class="row">
+									
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<label class="radio-inline"> Gender: </label> <label
+							class="radio-inline"> <input type="radio" name="gender" value="M">Male
+						</label> <label class="radio-inline"> <input type="radio"
+							name="gender" value="F">Female
+						</label>
+	</div>
+				</div>
 			<button type="button" id="regButton"
 				class="btn btn-success pull-right"><i class="glyphicon glyphicon-log-in"></i>  register</button>
-				</div>
-				</div>
+			
+				
 		</form>
+		
 		<!-- otp form  start here -->
 		<form  id="otpForm" name="userForm" class="ppInfo" style="display:none">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>

@@ -85,7 +85,7 @@
 			@property [chars=alphabetic] {string} The characters allowed. */
 		defaultOptions: {
 			length: 6,
-			regenerate: '',
+			regenerate: '<img src="images/refresh.png" />',
 			hashName: '{n}Hash',
 			dot: '*',
 			dots: DOTS,

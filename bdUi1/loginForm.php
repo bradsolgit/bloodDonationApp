@@ -5,13 +5,13 @@
 
 
 
-<div id="login-popup" class="ppInfo mgrn-top width-mrgn">
+<div id="login-popup" class="ppInfo class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
  <p class="button b-close">X</p>
 <span class="form-tile">Forget Password</span>
 	<form name="form" id="forgotForm" class="form-horizontal"
 		enctype="multipart/form-data" method="POST">
-		<span id="erMsg" style="display: none"> </span> <span id="successMsg"
-			style="display: none"> </span>
+		<span id="erMsg" class="error" style="display: none"> </span> 
+		<span id="successMsg" class="successmsg" style="display: none"> </span>
 	
 			<div class="input-group-1">
 											<input type="password" id="forgotnumber" class="form-control mobile-icon"
@@ -37,7 +37,9 @@
 
 <!-- login after start here -->
 <div id="login-after-popup" class="ppInfo">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <p class="button b-close">X</p>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mgn-top">
 
 		<div class="form-group">
 			<div class="availability">
