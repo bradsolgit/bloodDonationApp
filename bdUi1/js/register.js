@@ -5,6 +5,7 @@ $(document).ready(function(){
 			name: "required",
 			number:"required",
 			dob:"required",
+
 			
 			city: "required",
 			state: "required",
@@ -15,12 +16,14 @@ $(document).ready(function(){
 			captcha : "required"
 		},
 		messages: {
-			name: "Please enter your name",
-			number:"Please enter your number",
-			dob:"Please enter your dob",
-			
+			name: "Please enter your Name",
+			number:"Please enter your Number",
+			dob:"Please enter your DOB",
+			password:"Please enter your Password",
+			confpwd:"Conform your Password",
 			city: "Please select City",
 			state: "Please select State",
+			reqpwd:"Please enter your password",
 			
 			blood_group: "Please select Blood Group",
 			donation_status: "Please select Donation Status",
