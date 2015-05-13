@@ -3,6 +3,9 @@
 <!-- edit admin profile for user start here -->
 
 <div id="admin-login" class="ppInfo col-lg-8 col-md-8 col-sm-8 col-xs-12 edituserform">
+	
+ <span class="button b-close">X</span>
+  <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs admin-tabs" role="tablist">
 				<li class="active"><a href="#addmember" role="tab"
@@ -182,8 +185,8 @@
 				</div>
 				<div class="tab-pane fade" id="addmembers">
 				<span id="reseterrMsg" style="display:none" ></span>
-				 <form action="demo_form.asp">
-<form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+				 <form action="">
+
     <!-- Redirect browsers with JavaScript disabled to the origin page -->
     <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -211,18 +214,11 @@
     <!-- The table listing the files available for upload/download -->
     <table role="presentation"><tbody class="files"></tbody></table>
 </form>
-</form> 
+ 
 					
 				</div>
 <div class="tab-pane fade" id="editmembers">
-		<script>
-$(document).ready(function(){
-    
-    $("#btn2").click(function(){
-        $("ol").append("<li>Appended item</li>");
-    });
-});
-</script>
+
 
 <div class="admin-edit">
   <h2>Table</h2>

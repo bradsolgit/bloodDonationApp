@@ -34,7 +34,7 @@
 <div id=table class="ppInfo container">
  <span class="button b-close">X</span>
   <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
-	<table id="jsontable">
+	<div class="table" id="jsontable">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -46,4 +46,5 @@
 
 
 	</table>
+</div>
 </div>

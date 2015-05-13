@@ -1,12 +1,14 @@
 *{
 margin:0px;
 padding:0px;
+
 }
 body{
 	background-image:url("../images/bd1.jpg");
 background-size:cover;
 background-repeat:no-repeat;
 background-color: rgba(255, 255, 255, 0.3);
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 .hbgcolor h1, .in{
 	color:#fff;
@@ -148,6 +150,10 @@ background-color: rgba(255, 255, 255, 0.3);
 	font-weight:400;
 	font-size:18px;
 	
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+background-color: #908B8B;
+opacity: 1;
 }
 
 .btn-dgn{
@@ -337,6 +343,7 @@ bottom: 10px;
 }
 .form-tile{
 	text-align:center;
+	color:#fff;
 	
 }
 .loginform-dsplay{
