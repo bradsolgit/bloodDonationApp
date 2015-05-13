@@ -62,7 +62,7 @@ $("#table").hide();
 
 <?php include 'editUserForm.php';?>
 
-
+<?php include 'admin.php';?>
 <!-- edit profile for Admin start here -->
 
 <div id="editprofile-popup1" class="ppInfo">

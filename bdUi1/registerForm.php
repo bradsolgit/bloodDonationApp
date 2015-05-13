@@ -186,8 +186,7 @@
 						</label>
 	</div>
 				</div>
-			<button type="button" id="regButton"
-				class="btn login-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  register</button>
+			<button type="button" id="regButton" class="btn login-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  register</button>
 			
 				
 		</form>

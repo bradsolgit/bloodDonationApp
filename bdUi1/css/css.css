@@ -11,6 +11,9 @@ background-color: rgba(255, 255, 255, 0.3);
 .hbgcolor h1, .in{
 	color:#fff;
 }
+ul.admin-tabs li{
+width:33.3%;	
+}
  .row {
 margin-right: 0px;
 margin-left: 0px;
@@ -103,6 +106,29 @@ margin: 13px auto;
 		border:1px solid #ccc;
 			border-radius:5px;
 			outline:none;
+}
+.start, .cancel{
+padding: 5px;
+color: #000;
+font-size: 17px;
+background-color: rgba(255, 255, 255, 0.5);
+}
+.admin-edit td{
+	color:#000;
+}
+.center-block1{
+display: block;
+margin-right: auto;
+margin-left: auto;
+width: 28%;
+margin-bottom: 20px;
+margin-top: 60px;
+}
+.center-block1 input[type=file]{
+	padding: 5px;
+color: #000;
+font-size: 17px;
+background-color: rgba(255, 255, 255, 0.5);
 }
 .hrmtop{
 margin-top:34px;
@@ -396,6 +422,11 @@ width: 255px;
 	height:auto;
 	margin:0 auto;
 }
+.close, .pencil{
+	padding:2px;
+		background:#cc999c;
+		margin-left:2px;
+}
 .mgrn-top{
 	top:100px;
 }
@@ -415,7 +446,7 @@ width: 255px;
 .pull-right{
 	margin-right:10px;
 }
-#signup-popup .row{
+#signup-popup .row, #signup-popup-admin .row{
 	margin-top:10px;
 }
 .input-group {
@@ -516,6 +547,9 @@ background-repeat: no-repeat;
 .mbn-filed{
 	width:85%;
 }
+.input-group1{
+	margin-top:10px;
+}
 }
 @media only screen and (max-width: 360px) and (min-width:355px){
 .loginform-dsplay{
@@ -530,6 +564,9 @@ background-repeat: no-repeat;
 .mbn-filed{
 	width:85%;
 }
+.input-group1{
+	margin-top:10px;
+}
 }
 @media only screen and (max-width: 414px) and (min-width:361px){
 	.loginform-dsplay{
@@ -540,6 +577,9 @@ background-repeat: no-repeat;
 .mbn-filed{
 	width:89%;
 }
+.input-group1{
+	margin-top:10px;
+}
 	}
 	@media only screen and (max-width: 480px) and (min-width:415px){
 	.loginform-dsplay{
@@ -547,12 +587,18 @@ background-repeat: no-repeat;
     left: 186px;
     top: 70px;
 }
+.input-group1{
+	margin-top:10px;
+}
 	}
 		@media only screen and (max-width: 640px) and (min-width:481px){
 	.loginform-dsplay{
 
     right: 86px;
     top: 70px;
+}
+.input-group1{
+	margin-top:10px;
 }
 	}
 			@media only screen and (max-width: 800px) and (min-width:768px){
