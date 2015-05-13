@@ -51,8 +51,8 @@
 					<div class="input-group1">
 							<textarea rows="4" cols="4" class="form-control1" placeholder="Address"></textarea></div>
 					
-						<input type="button" name="submit" id="updateBtn" value="Submit"
-							class="btn btn-success">
+						<button type="button" name="submit" id="updateBtn" value=""
+							class="btn login-btn"><i class="glyphicon glyphicon-log-in"></i> Update </button>
 					</form>
 					
 				</div>
@@ -79,8 +79,8 @@
 								id="confirmPassword" name="confirmPassword"	placeholder="Confirm Password">
 							</div>
 					
-						<input type="button" name="submit" id="resetButton" value="Submit"
-							class="btn btn-success"/>
+						<button type="button" name="submit" id="resetButton"
+							class="btn reset-button"><i class="glyphicon glyphicon-log-in"></i> Reset Password</button>
 					</form>
 					
 				</div>
@@ -121,15 +121,64 @@
 						<div class="clear"> </div>
 					</div>
 					<div class="submit">
-					<input class="bluebutton" id="otpButton" type="button" value="Update Mobile Number" />	
+					<button class="bluebutton update-mbnumber-btn" id="otpButton" type="button" value="Update Mobile Number" ><i class="glyphicon glyphicon-log-in"></i>	Update Mobile Number</button>
+					</div>
+			</form>
+		
+	</div>
+<div id="admin-login" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 updateform">
+<span class="button b-close">X</span>
+<p class="form-tile">Update Mobile Number</p>	
+<form class="sign simple-form" name="numForm">
+			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
+			<span id="invalidCaptchapMsg" style="display: none;">Please enter valid captcha</span>
+			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
+			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
+			
+					<div class="section">
+					<div class="input-sign login-mbnumber">
+						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
+					</div>
+					<div style="clear:both;"></div>
+					</div>
+					<div class="section">
+						<div class="input-sign otp-reset-details">
+							<input type="text" name="otp" id="otp" class="otp-enter"  placeholder="OTP Code" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+					<div class="section">
+						<div class="input-sign captcha-reset-details">
+							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+						</div>
+						<div class="clear"> </div>
+					</div>
+					<div class="submit">
+					<button class="bluebutton update-mbnumber-btn" id="otpButton" type="button" value="Update Mobile Number" ><i class="glyphicon glyphicon-log-in"></i>	Update Mobile Number</button>
 					</div>
 			</form>
 		
 	</div>
 
 
+<script>	
+$(document).ready(function(){
+$("a.admin-loginform").click(function(){
+	$('#admin-login').bPopup({
+		
+	    speed: 450,
+        fadeSpeed: 'slow',
+        modalColor: '#000',
+    
+        opacity: 0.8,
+        modalClose: false,
+        transition: 'slideIn'
+	});
 
-
+});
+});
+</script>
 
 
 

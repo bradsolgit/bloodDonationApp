@@ -49,16 +49,16 @@ $(document).ready(function(){
 							
 						    speed: 450,
 				            fadeSpeed: 'slow',
-				            modalColor: '#2d9',
+				            modalColor: '#000',
 				        
-				            opacity: 1.0,
+				            opacity: 0.8,
 				            modalClose: false,
 				            transition: 'slideIn'
 						});
 					 }
 				 else
 					 {
-						 $("#errorMsg").bPopup();
+						 $("#errorMsg").show();
 					 
 					 }
 	     		}
@@ -78,15 +78,15 @@ $(document).ready(function(){
 			
 		    speed: 450,
             fadeSpeed: 'slow',
-            modalColor: 'lightblue',
+            modalColor: '#000',
         
-            opacity: 1.0,
+            opacity: 0.8,
             modalClose: false,
             transition: 'slideIn'
 		});
 	});
-	
-	/*forget form start script here*/
+
+/*	forget form start script here*/
 	
 	
 	$("#forgotForm").validate({

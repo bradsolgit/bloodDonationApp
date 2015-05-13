@@ -140,16 +140,17 @@ function errorFunction(){
 						</div>
 						<div class="pull-right hrmtop">
 							<div class="login-hide">
+							<a href="#admin-login" id="11" class="admin-loginform"><span class="glyphicon glyphicon-lock"></span>Admin-login</a>
 								<a href="#" id="login" class="loginform"><span class="glyphicon glyphicon-lock"></span>login</a><a
 									href="#signup-popup" id="register" class="popup-register"><span class="glyphicon glyphicon-user"></span>Register</a><a
-									href="#signup-popup" id="signout">Sign Out</a><a
-									href="#signup-popup" id="edit" class="popup-window1">Edit Account</a>
-								<div class="loginform-dsplay">
+									href="#signup-popup" id="signout"><span class="glyphicon glyphicon-lock"></span> Sign Out</a><a
+									href="#signup-popup" id="edit" class="user-edit-account"><span class="glyphicon glyphicon-lock"></span> Edit Account</a>
+								<div class="loginform-dsplay col-lg-4 col-md-6 col-sm-8 col-xs-12">
 								 <span class="button b-close">X</span>
-								 <p class="form-tile"><span class="glyphicon glyphicon-lock"></span> Login</p>
-									<form name="form" id="loginForm" class="form-horizontal"
+								 <p class="form-tile"><span class="glyphicon glyphicon-lock" style="margin-top: 27px;" ></span> Login</p>
+									<form name="form" id="loginForm" class="form-horizontal" 
 										enctype="multipart/form-data" method="POST">
-										<span id="errorMsg" class="ppInfo" style="display: none">Inavalid
+										<span id="errorMsg" class="error" style="display: none">Inavalid
 											Credentials</span>
 										<div class="input-group-1">
 											<input
@@ -164,8 +165,8 @@ function errorFunction(){
 												required />
 										</div>
 										<div class="input-group forgot-top">
-											<span><a href="#login-popup" class="popup-window">forgot
-													password</a></span>
+											<span><a href="#login-popup" class="popup-window">Forgot
+													Password</a></span>
 										</div>
 										<div class="form-group">
 											<!-- Button -->
@@ -190,18 +191,31 @@ function errorFunction(){
 
 		<script>
 
-  
+  <!--
     
     $("a.edit-profile").click(function(){
-    	$('#editprofile-popup').bPopup(   {easing: 'easeOutBack', //uses jQuery easing plugin
-                speed: 450,
-                transition: 'slideDown'});
+    	$('#editprofile-popup').bPopup(   {    speed: 450,
+            fadeSpeed: 'slow',
+            modalColor: '#000',
+        
+            opacity: 0.8,
+            modalClose: false,
+            transition: 'slideIn');
     	
     });
     $("a.edit-profile1").click(function(){
-    	$('#editprofile-popup1').bPopup();
+    	$('#editprofile-popup1').bPopup({
+
+    	    speed: 450,
+            fadeSpeed: 'slow',
+            modalColor: '#000',
+        
+            opacity: 0.8,
+            modalClose: false,
+            transition: 'slideIn'
+    	});
     	
     });
-   
+   -->
 
 </script>

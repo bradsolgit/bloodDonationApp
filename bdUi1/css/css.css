@@ -19,6 +19,12 @@ margin-left: 0px;
 background-color: rgba(255, 255, 255, 0.3);
     min-height: 105px;
 }
+.min-height-all-page{
+	min-height:500px;
+}
+.form-control{
+	border-radius:0px;
+}
 .edituserform .form-control1{
 
 margin-left: 0px !important;
@@ -26,14 +32,13 @@ background-color: rgba(255, 255, 255, 0.5);
 margin-top:20px;
 width: 94%;
 margin-top: 10px;
-border-radius:5px;
+border-radius:0px;
 color: #000;
 box-shadow: none;
 border: 1px solid #ccc;
 line-height: 30px;
 padding-left: 20px;
 font-size: 14px;
-
 outline: 0px;
 width: 94%;
 }
@@ -42,7 +47,7 @@ width: 94%;
 	float:right;	
 	margin-top:20px;
 	margin-right:13px;
-	background-color: rgba(255, 255, 255, 0.5);
+	
 }
 .mbn-filed{
 width:90%;
@@ -60,14 +65,20 @@ float:left;
 
 }
 .input-sign{
-	width: 83%;
-margin: 0 auto;
+
+width: 83%;
+margin: 13px auto;
 	
 }
 .update-mbn{
 	padding: 5px;
 	font-size:14px;
 	background-color: rgba(255, 255, 255, 0.5);
+		border:1px solid #ccc;
+			border-radius:5px;
+			outline:none;
+}
+
 }
 .bluebutton{
 	padding: 5px;
@@ -79,18 +90,26 @@ margin: 0 auto;
 	width:67%;
 	padding:5px;
 	font-size:14px;
+			background-color: rgba(255, 255, 255, 0.5);
+			border:1px solid #ccc;
+			border-radius:5px;
+			outline:none;
 }
 .otp-enter{
 	width:97%;
 	padding:5px;
 	font-size:14px;
+	background-color: rgba(255, 255, 255, 0.5);
+		border:1px solid #ccc;
+			border-radius:5px;
+			outline:none;
 }
 .hrmtop{
 margin-top:34px;
 }
 .hrmtop a{
 margin-left:14px;
-color: #fff;
+color: #4C4C4C;
 }
 /* search form start */
 .search-padding-bg{
@@ -108,16 +127,17 @@ background-color: rgba(255, 255, 255, 0.3);
 .btn-dgn{
 	background-color: rgba(255, 255, 255, 0.5);
     border: medium none;
-    border-radius: 0;
+    border-radius: 0 !important;
     box-shadow: none;
     outline: medium none;
     margin-top:20px;
-    		background-image:url("../images/search.png");
-background-position:right center;
-background-repeat:no-repeat;
+    		
 width:150px;
 margin-right:20px;
 	
+}
+.btn{
+	    border-radius: 0 !important;
 }
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9{
 	margin:0px;
@@ -174,7 +194,7 @@ background-repeat:no-repeat;
 background-position:left center;
 background-repeat:no-repeat;
 	padding-left:45px;
-	line-height:50px;
+	
 }
 .login-btn{
 		background-color: rgba(255, 255, 255, 0.5);
@@ -182,9 +202,32 @@ background-repeat:no-repeat;
     border-radius: 0;
     box-shadow: none;
     outline: medium none;
-    margin-top:20px;
 
 width:100px;
+margin-right:20px;
+}
+
+.update-mbnumber-btn{
+background-color: rgba(255, 255, 255, 0.5);
+border: medium none;
+border-radius: 0;
+box-shadow: none;
+outline: medium none;
+margin-top: 20px;
+width: 173px;
+margin-right: 20px;
+font-size: 14px;
+padding: 3px;
+	}
+.reset-button{
+			background-color: rgba(255, 255, 255, 0.5);
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: medium none;
+    margin-top:20px;
+
+width:140px;
 margin-right:20px;
 }
 .forgot-btn{
@@ -200,7 +243,7 @@ width:80px;
 margin-right:20px;
 }
 .input-group-1 input{
- border-radius:5px;
+
 
     margin-top: 13px;
  	background-color: rgba(255, 255, 255, 0.5);
@@ -211,19 +254,22 @@ margin-left:3%;
 	margin-top:13px;
 }
 .captcha{
-border-radius: 5px;
 height: 32px;
 margin-top: 1px;
 background-color: rgba(255, 255, 255, 0.5);
 margin-left: 3%;
-width: 60%;
+width: 59%;
 border: 1px solid #ccc;
 outline: none;
 background-image: url("../images/captcha.png");
 background-position: right center;
 background-repeat: no-repeat;
 padding-left:10px;
+font-weight:100;
     
+}
+.btn:hover{
+	background:#ff0000;
 }
 .successmsg{
 	font-weight:100;
@@ -236,7 +282,7 @@ padding-left:10px;
 	color:red;
 }
 input[type=search]{
-	border-radius: 5px;
+
 height: 27px;
 background-color: rgba(255, 255, 255, 0.5);
 background-image: url("../images/search.png");
@@ -247,7 +293,7 @@ border: none;
 outline: none;
 }
 div.dataTables_length select{
-	border-radius: 5px;
+	
 height: 27px;
 background-color: rgba(255, 255, 255, 0.5);
 padding-left:10px;
@@ -265,11 +311,11 @@ bottom: 10px;
 }
 .form-tile{
 	text-align:center;
-	border-bottom:1px solid #fff;
+	
 }
 .loginform-dsplay{
 	
-	width:200px;
+	//width:200px;
 	height:auto;
 
 	display:none;
@@ -302,10 +348,7 @@ background-repeat:no-repeat;
 .footer-fullwidth{
 background-color: rgba(255, 255, 255, 0.3);
 line-height:30px;
-position:fixed;
-bottom:0px;
-right:0px;
-left:0px;
+
 }
 
 
@@ -376,7 +419,7 @@ width: 255px;
 	margin-top:10px;
 }
 .input-group {
-margin: 2px 5px;
+ 
 }
 /*tab start here*/
 .nav-tabs {
@@ -397,7 +440,7 @@ margin: 2px 5px;
 
 /* Tab Content */
 .tab-pane {
-    background: #F5F5F5;
+    
     box-shadow: 0 0 4px rgba(0,0,0,.4);
     border-radius: 0;
     text-align: center;
@@ -422,7 +465,6 @@ background-image: url("../images/locator.png");
 background-position: right center;
 background-repeat: no-repeat;
 border: 1px solid #ccc;
-border-radius: 5px;
 font-size: 14px;
  margin: 10px 20px;
 padding: 8px 10px 0 13px;

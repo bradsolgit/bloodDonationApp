@@ -125,7 +125,15 @@ jQuery(document).ready(function($) {
 	$("#updteNum").click(function(){	
 		if(confirm("Do you want to change the mobile number?")){
 			$("#editprofile-popup").bPopup().close();
-			$("#numForm").bPopup();
+			$("#numForm").bPopup({
+				 speed: 450,
+			        fadeSpeed: 'slow',
+			        modalColor: '#000',
+			        transitionClose: 'slideBack',
+			        opacity: 0.8,
+			        modalClose: false,
+			        transition: 'slideDown'
+			});
 			}
 		
 	});

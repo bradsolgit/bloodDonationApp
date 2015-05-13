@@ -2,7 +2,7 @@
 include 'header.php';
 ?>
 
-
+<div class="min-height-all-page">
 
 
 <script>
@@ -17,21 +17,29 @@ include 'header.php';
 $(document).ready(function(){
 	var oTable = $('#jsontable').dataTable();
 	
-	
+	<!-- edit popup start here -->
 
-$("a.popup-window1").click(function(){
+$("a.user-edit-account").click(function(){
 
-	$('#editprofile-popup').bPopup();
+	$('#editprofile-popup').bPopup({
+        speed: 450,
+        fadeSpeed: 'slow',
+        modalColor: '#000',
+        transitionClose: 'slideBack',
+        opacity: 0.8,
+        modalClose: false,
+        transition: 'slideDown'
+	});
 });
-
+<!-- edit popup end here  -->
 $("a.loginform").click(function(){
 
 	$('.loginform-dsplay').bPopup({
         speed: 450,
         fadeSpeed: 'slow',
-        modalColor: 'greenYellow',
+        modalColor: '#000',
         transitionClose: 'slideBack',
-        opacity: 1.6,
+        opacity: 0.8,
         modalClose: false,
         transition: 'slideDown'
      
@@ -203,13 +211,7 @@ $("#table").hide();
 
 						</div>
 					</div>
-					<script>
-        $(document).ready(function(){
-   			 $("#Edit-Account .glyphicon-edit").click(function(){
-          $( "#edit-mobile-number" ).prop( "disabled", false );
-          });
-          });
-        </script>
+
 				</div>
 				<div class="tab-pane fade" id="add-multiple-members">
 					<div class="container">
@@ -263,7 +265,7 @@ $("#table").hide();
 		</div>
 	</div>
 
-
+</div>
 
 </div>
 <!-- edit Admin profile end here -->

@@ -27,11 +27,13 @@
 	</div>	
 <div style="clear:both;"></div>	
 </div>
-<button type="button" id="searchBtn" class="btn btn-dgn">Get Donor</button>
+<button type="button" id="searchBtn" class="btn btn-dgn"><i class="glyphicon glyphicon-search"></i>	 Get Donor</button>
 		</form>
 	
 </div>
 <div id=table class="ppInfo container">
+ <span class="button b-close">X</span>
+  <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
 	<table id="jsontable">
 		<thead>
 			<tr>

@@ -68,7 +68,13 @@ $("#searchBtn").click(function(){
 			 data: searchCrit,
        	success: function(data)
         		{
-       		$('#table').bPopup();
+       		$('#table').bPopup({ speed: 450,
+			        fadeSpeed: 'slow',
+			        modalColor: '#000',
+			        transitionClose: 'slideBack',
+			        opacity: 0.8,
+			        modalClose: false,
+			        transition: 'slideDown'});
        		oTable.fnClearTable();
        		for(var i = 0; i < data.length; i++) {
        		oTable.fnAddData([

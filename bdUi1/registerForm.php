@@ -12,13 +12,13 @@
             $("a.popup-register").click(function(){
 
             	$('#signup-popup').bPopup({
-                    speed: 450,
-                    fadeSpeed: 'slow',
-                    modalColor: 'greenYellow',
-                
-                    opacity: 1.6,
-                    modalClose: false,
-                    transition: 'slideIn'
+            		 speed: 450,
+            	        fadeSpeed: 'slow',
+            	        modalColor: '#000',
+            	        transitionClose: 'slideDown',
+            	        opacity: 0.8,
+            	        modalClose: false,
+            	        transition: 'slideDown'
                  
                         });
             });
@@ -87,25 +87,26 @@
 				</div>
 		
 			<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-		
-
-						<div class="input-group1">
-							<input type="text" class="form-control locator" name="state"
-								id="regstate" placeholder=" State" disabled /> 
-						</div>
-			
-				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
 				
 
 						<div class="input-group1">
 							<input type="text" class="form-control locator" name="city" id="regcity"
-								placeholder=" city" required> 
+								placeholder=" City" required> 
 						</div>
 					</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+		
+
+						<div class="input-group1">
+							<input type="text" class="form-control locator" name="state"
+								id="regstate" placeholder=" State" disabled required /> 
+						</div>
+			
+				</div>
+			
 	
 	<div style="clear:both;"></div>
 				</div>
@@ -186,7 +187,7 @@
 	</div>
 				</div>
 			<button type="button" id="regButton"
-				class="btn btn-success pull-right"><i class="glyphicon glyphicon-log-in"></i>  register</button>
+				class="btn login-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  register</button>
 			
 				
 		</form>
