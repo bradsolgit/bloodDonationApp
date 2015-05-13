@@ -127,12 +127,7 @@
 			</form>
 		
 	</div>
-<<<<<<< Updated upstream
 
-
-
-=======
->>>>>>> Stashed changes
 
 
 

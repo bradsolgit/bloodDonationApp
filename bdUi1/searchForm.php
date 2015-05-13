@@ -34,6 +34,10 @@
 <div id=table class="ppInfo container">
  <span class="button b-close">X</span>
   <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
+<<<<<<< HEAD
+=======
+  <div>
+>>>>>>> 390ad7d3f3dab77b4b026c0340651e3614f7aaf0
 	<table id="jsontable">
 		<thead>
 			<tr>
@@ -43,8 +47,6 @@
 				<th>Blood Group</th>
 			</tr>
 		</thead>
-
-
 	</table>
-</div>
+	</div>
 </div>
