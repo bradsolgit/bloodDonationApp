@@ -652,7 +652,18 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 		switch ($_GET ['property']) {
 			// Get an instance of the respective model
 			case 'update' :
+				
 				$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
+				foreach ( $_POST as $var => $value ) {
+					// Does the model have this attribute? If not raise an error
+					
+						$model->$var = $value;
+					// else
+					// $this->_sendResponse(500,
+					// sprintf('Parameter <b>%s</b> is not allowed for model <b>%s</b>', $var,
+					// $_GET['model']) );
+				}
+				
 				$city = Utilities::getLookupListByCityId($_POST['city']);
 				foreach($city as $value)
 				{
@@ -661,13 +672,14 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				$model->city=$city;
 				
 				break;
+				
 			case 'number' :
-				$model = Utilities::getMobileNo ( $_GET ['id'] );
+				$model = Utilities::getDetailswithNo ( $_GET ['id'] );
 				$model->number = $_POST['number'];
-				$model->city = $model->city0->lookup_value; 
+				
 				break;
-				case 'resetPassword' :
-					$model = Utilities::getMobileNo ( $_GET ['id'],$_POST['oldpassword'] );
+			case 'resetPassword' :
+					$model = Utilities::getDetailswithPasswordNo ( $_GET ['id'],$_POST['oldpassword'] );
 					$model->password = $_POST['password'];
 					break;
 			default :

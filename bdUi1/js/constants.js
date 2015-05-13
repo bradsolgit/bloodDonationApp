@@ -165,7 +165,7 @@ $.ajax({
 	type: 'POST',
 		url: url+'/validate/validateotp',
 	dataType: 'json',
-	 data: {otp:$("#otp").val(),number: userDetails.number},
+	 data: {otp:otp,number: userDetails.number},
 	success: function(data)
  		{
 		callback(data);

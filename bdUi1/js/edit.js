@@ -38,6 +38,25 @@ jQuery(document).ready(function($) {
 			},
 		}
 	});
+	$("#numberForm").validate({
+		rules: {
+			number:{
+	            required: true,
+	            custom_number: true
+	        },
+			captcha: "required",
+			otp : "required"
+			
+		},
+		messages: {
+			number: {
+				required: "Please enter number",
+				minlength: "Your enter a valid number"
+			},
+			captcha: "Please enter values as shown in Figure",
+			otp : "Please enter OTP"
+		}
+	});
 	$("#editForm").validate({
 		rules: {
 			
@@ -83,14 +102,74 @@ jQuery(document).ready(function($) {
 			}
  		});
 	
-	function setValues(){
-		$("#editcity").val(userDetails.city);
-	   $("#district").val(userDetails.district);
-	   $("#state").val(userDetails.state);
-	   $("#area").val(userDetails.area);
-	   $("#blood_group").val(userDetails.blood_group);
-	   $("#status").val(userDetails.donation_status);
-	   $(".gender").val(userDetails.gender);
+	$("#reqOtpBtn").click(function(){
+		
+		 $("#valMobMsg").hide();
+		var val = 	$("#updateNumber").val();
+		if (!val.match(/[789][0-9]{9}/)) {
+           $("#valMobMsg").show();
+           return false;
+       }else{
+		if(confirm("Do you want to send OTP to this mobile number?")){
+			sendOtp(val,showConfMsg)
+			}
+       }
+		
+	});
+	$("#numButton").click(function(){
+		alert("jwisji");
+		
+		if($("#numberForm").valid()){
+			 validateCaptcha($("#numCaptcha").val(),$("#numCaptcha").realperson('getHash'),otpValidate);
+			}
+		});
+	function otpValidate(data){
+		if(data === "Valid"){
+			var formVals = $("#numberForm").serialize();
+			validateOTP($("#updatenumotp").val(),$("#updateNumber").val(),updateNumber);
+		 }else{
+			 $("#invalidCaptcha").show();
+			}
+	}
+	function updateNumber(data){
+		if(data == "Valid"){
+			var number=$("#updateNumber").val();
+			 $.ajax({
+	            	type: 'POST',
+	           		url: url+'/user/number/'+userDetails.number,
+					dataType: 'json',
+					data: {number:number},
+	            	success: function(data)
+                 		{
+	            		userDetails = data;
+	            		 sessionStorage.setItem("loginnumber",userDetails.number);
+	            		 $("#editForm #number").val(userDetails.number);
+	            		 $("#numForm").bPopup().close();
+	            		 $("#editprofile-popup").bPopup({
+	         				 speed: 450,
+	         			        fadeSpeed: 'slow',
+	         			        modalColor: '#000',
+	         			        transitionClose: 'slideBack',
+	         			        opacity: 0.8,
+	         			        modalClose: false,
+	         			        transition: 'slideDown'
+	         			});
+	            		
+                 		},
+                 		error: function(xhr, error){
+                 		
+                 	        $("#upnumerrorMsg").html(xhr.responseText).show();
+                 		 }
+					});
+		}else{
+			 $("#invalidCaptcha").hide();
+			$("#invalidnumOtpMsg").show();
+		 }
+		}
+	function showConfMsg(){
+		 $("#invalidCaptcha").hide();
+			$("#invalidnumOtpMsg").hide();
+		 $("#otpCnfMsg").show("slow");
 	}
 	
 	$("#resetButton").click(function(){	
@@ -165,10 +244,11 @@ jQuery(document).ready(function($) {
 		     },
 		   });
 	$("#updateBtn").click(function(){	
-		alert("hbwhjs");
+		
 		if($("#editForm").valid()){
-			
-		var userValues = $("#editForm").serialize();
+			var status=$('.btn-primary-E .btn-primary ').val();
+			alert("hbwhjs"+status);
+			var userValues = $("#editForm").serialize()+'&donation_status='+status;
 		 $.ajax({
            	type: 'POST',
           		url: url+'/user/update/'+userDetails.user_id,

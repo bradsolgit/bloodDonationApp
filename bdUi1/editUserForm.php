@@ -24,9 +24,9 @@
 						
 							<div class="availability">
 								<span>Availability</span>
-								<div class="btn-group btn-toggle">
-									<button type="button" class="btn btn-lg btn-default" id="yesBtn">Yes</button>
-									<button type="button" class="btn btn-lg btn-primary" id="noBtn">No</button>
+								<div class="btn-group btn-toggle btn-primary-E">
+									<button type="button" value="Y" class="btn btn-lg btn-default" id="yesBtn">Yes</button>
+									<button type="button" value="N"  class="btn btn-lg btn-primary" id="noBtn">No</button>
 								</div>
 							</div>
 
@@ -49,7 +49,7 @@
 							</div>
 						
 					<div class="input-group1">
-							<textarea rows="4" cols="4" class="form-control1" placeholder="Address"></textarea></div>
+							<textarea rows="4" cols="4" class="form-control1" name="address" placeholder="Address"></textarea></div>
 					
 						<button type="button" name="submit" id="updateBtn" value=""
 							class="btn login-btn"><i class="glyphicon glyphicon-log-in"></i> Update </button>
@@ -95,40 +95,44 @@
 	<div id="numForm" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 updateform">
 <span class="button b-close">X</span>
 <p class="form-tile">Update Mobile Number</p>	
-<form class="sign simple-form" name="numForm">
-			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			<span id="invalidCaptchapMsg" style="display: none;">Please enter valid captcha</span>
+<form class="sign simple-form" id="numberForm"name="numForm">
+			<span id="invalidnumOtpMsg" style="display: none;">Invalid OTP Code</span>
+		<span id="upnumerrorMsg" style="display: none;"></span>
+			<span id="invalidCaptcha" style="display: none;">Please enter valid captcha</span>
 			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
 			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
 			
 					<div class="section">
 					<div class="input-sign login-mbnumber">
-						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
 						<div class="input-sign otp-reset-details">
-							<input type="text" name="otp" id="otp" class="otp-enter"  placeholder="OTP Code" /> 
+							<input type="text" name="otp" id="updatenumotp" class="otp-enter"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					<div class="section">
 						<div class="input-sign captcha-reset-details">
-							<input type="text" class="text captcha" name="captcha"  id="usrCaptcha" /> 
+							<input type="text" class="text captcha" name="captcha"  id="numCaptcha" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 					<div class="submit">
-					<button class="bluebutton update-mbnumber-btn" id="otpButton" type="button" value="Update Mobile Number" ><i class="glyphicon glyphicon-log-in"></i>	Update Mobile Number</button>
+					<button class="bluebutton update-mbnumber-btn" id="numButton" type="button" value="Update Mobile Number" ><i class="glyphicon glyphicon-log-in"></i>	Update Mobile Number</button>
 					</div>
 			</form>
 		
 	</div>
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 
 
 

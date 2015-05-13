@@ -319,8 +319,9 @@ include 'header.php';
 			            	success: function(data)
 	                     		{
 			            		userDetails = data;
-			            		 sessionStorage.setItem("number",userDetails.number);
-			            		window.location="editDonor.php";
+			            		 sessionStorage.setItem("loginnumber",userDetails.number);
+			            		 
+			            		
 			            		
 	                     		},
 	                     		error: function(xhr, error){

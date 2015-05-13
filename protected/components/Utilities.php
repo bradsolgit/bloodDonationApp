@@ -91,7 +91,13 @@ class Utilities {
 			
 		) );
 	}
-	static function getMobileNo($id,$password) {
+	static function getDetailswithNo($id) {
+		return UserDetails::model ()->findByAttributes ( array (
+				'number' => $id ,
+			
+		) );
+	}
+	static function getDetailswithPasswordNo($id,$password) {
 		return UserDetails::model ()->findByAttributes ( array (
 				'number' => $id ,
 				'password'=>$password
