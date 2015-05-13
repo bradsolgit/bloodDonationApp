@@ -104,8 +104,9 @@
 			
 					<div class="section">
 					<div class="input-sign login-mbnumber">
+					<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn">
 						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
-						<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn"> 
+						 
 					</div>
 					<div style="clear:both;"></div>
 					</div>

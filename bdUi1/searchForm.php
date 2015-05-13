@@ -31,11 +31,12 @@
 		</form>
 	
 </div>
-<div id=table class="ppInfo container">
+<div id="table" class="ppInfo col-lg-10 col-md-10 col-sm-10 col-xs-12">
+
  <span class="button b-close">X</span>
-  <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
-  <div>
-	<table id="jsontable">
+  <p class="form-tile"><span class="glyphicon glyphicon-search"></span> Search Results </p>
+  <div class="table-responsive">
+  	<table id="jsontable" class="table">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -46,4 +47,5 @@
 		</thead>
 	</table>
 	</div>
-</div>
+	</div>
+
