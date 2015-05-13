@@ -1,5 +1,4 @@
-<?php
-?>
+
 <!-- edit admin profile for user start here -->
 
 <div id="admin-login" class="ppInfo col-lg-8 col-md-8 col-sm-8 col-xs-12 edituserform">
@@ -21,11 +20,13 @@
 
 			<!-- Tab panes -->
 			<div class="tab-content">
-				<div class="tab-pane fade active in" id="addmember">
-	<div  id="signup-popup-admin"><form id="adminForm" role="form">
+				<div class="tab-pane fade active in" >
+	<div  id="signup-popup-admin">
+	
+	<form id="adminuserForm" role="form">
 			<span id="regerrorMsg" style="display: none"></span>
-			<span id="regsucMsg" style="display: none"></span>
-			<span id="regcaptchaMsg" style="display: none"></span>
+			<span id="adminerrorMsg" style="display: none"></span>
+			<span id="admincaptchaMsg" style="display: none"></span>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
@@ -45,7 +46,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control bdgp" name="blood_group"
-								id="regbloodgroup" placeholder=" Blood Group" required> 
+								id="adminbloodgroup" placeholder=" Blood Group" required> 
 						</div>
 					</div>
 
@@ -59,7 +60,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Password" required> 
+								id="adminpassword" placeholder=" Password" required> 
 						</div>
 			
 				</div>
@@ -68,8 +69,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Confirm Password" required> 
+							<input type="text" class="form-control l-pwd" name="confirmpassword"
+								id="confirmpassword" placeholder=" Confirm Password" required> 
 						</div>
 			
 				</div>
@@ -82,7 +83,7 @@
 				
 
 						<div class="input-group1">
-							<input type="text" class="form-control locator" name="city" id="regcity"
+							<input type="text" class="form-control locator" name="city" id="admincity"
 								placeholder=" City" required> 
 						</div>
 					</div>
@@ -91,8 +92,7 @@
 		
 
 						<div class="input-group1">
-							<input type="text" class="form-control locator" name="state"
-								id="regstate" placeholder=" State" disabled required /> 
+							<input type="text" class="form-control locator" name="state" id="adminstate" placeholder=" State" disabled required /> 
 						</div>
 			
 				</div>
@@ -140,7 +140,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="availability">
 							<span>Availability</span>
-							<div id="avil" class="btn-group btn-toggle btn-primary-R">
+							<div id="avil" class="btn-group btn-toggle btn-primary-A">
 								<button type="button" value="Y" id="status"
 									name="donation_status" class="btn btn-primary">Yes</button>
 								<button type="button" value="N" id="status"
@@ -151,7 +151,7 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="captcha-center-details2">
-							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
+							<input type="text" class="captcha" name="captcha"  id="adminCaptcha"  /> 
 						</div>
 					</div>
 					
@@ -176,8 +176,7 @@
 						</label>
 	</div>
 				</div>
-			<button type="button" id="regButtonAdmin"
-				class="btn login-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  Add Member</button>
+			<button type="button" id="adminregButton" class="btn login-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  Add Member</button>
 			
 				
 		</form></div>
@@ -223,31 +222,29 @@
 <div class="admin-edit">
   <h2>Table</h2>
   <p>Using all the table classes on one table:</p>                                          
-  <table class="table table-striped table-bordered table-hover table-condensed">
+  <table id="adminjsontable" class="table table-striped table-bordered table-hover table-condensed">
     <thead>
       <tr>
         <th>Full Name</th>
-        <th>Mobile Number</th>
-        <th>Gender</th>
-        <th>Blood Group</th>
+        
+        
+       
         <th>City</th>
-        <th>Edit</th>
+        <th>Mobile Number</th>
+         <th>Blood Group</th>
+        <th>Update</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Ramesh Bogandla</td>
-        <td>9494494085</td>
-        <td>Male</td>
-        <td>AB+</td>
-        <td>Hyderabad</td>
-        <td> <span  class="close">X</span><span class="glyphicon glyphicon-pencil pencil"></span></td>
-      </tr>
+      
+        
+        
+      
     
     </tbody>
   </table>
 </div>
-<button id="btn2">Append list item</button>
+
 					
 				</div>
 			</div>

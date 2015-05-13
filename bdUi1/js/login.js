@@ -35,6 +35,7 @@ $(document).ready(function(){
 	    		if(data == "Valid"){
 					 sessionStorage.setItem("login", "true");
 					 sessionStorage.setItem("loginnumber", $("#loginnumber").val());
+					 
 //					 if(data["donation_status"] == "Y"){
 //			        		$("#login-after-popup #yesBtn").addClass("btn-primary");
 //			        		$("#login-after-popup #noBtn").removeClass("btn-primary");

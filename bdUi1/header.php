@@ -24,6 +24,8 @@ src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="js/register.js"></script>
 <script src="js/search.js"></script>
 <script src="js/edit.js"></script>
+<script src="js/admin.js"></script>
+
 <script type="text/javascript" src="js/jquery.plugin.js"></script>
 <script type="text/javascript" src="js/jquery.realperson.js"></script>
 <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
@@ -103,20 +105,30 @@ function errorFunction(){
 <script>
   jQuery(document).ready(function($) {
 	
-  if(sessionStorage.getItem("login") === "true"){
-	  $("#login").hide();
-		$("#register").hide();
-		$("#signout").show();
-		$("#edit").show();
+
+
+
+
+		if(sessionStorage.getItem("login") === "true"){
+			  $("#login").hide();
+				$("#register").hide();
+				$("#signout").show();
+				$("#edit").show();
+				
+				
+			}else{
+				$("#signout").hide();
+				$("#edit").hide();
+				$("#login").show();
+				$("#register").show();
+			}
+
+
+
+
+
+
 		
-		
-	}else{
-		$("#signout").hide();
-		$("#edit").hide();
-		$("#login").show();
-		$("#register").show();
-	}
-  
   $('.captcha').realperson({chars: $.realperson.alphanumeric});
   $("#signout").click(function(event){
 		sessionStorage.setItem("login", "null");

@@ -117,7 +117,7 @@ jQuery(document).ready(function($) {
 		
 	});
 	$("#numButton").click(function(){
-		alert("jwisji");
+		
 		
 		if($("#numberForm").valid()){
 			 validateCaptcha($("#numCaptcha").val(),$("#numCaptcha").realperson('getHash'),otpValidate);
