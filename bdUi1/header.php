@@ -140,7 +140,7 @@ function errorFunction(){
 						</div>
 						<div class="pull-right hrmtop">
 							<div class="login-hide">
-							<a href="#admin-login" id="11" class="admin-loginform"><span class="glyphicon glyphicon-lock"></span>Admin-login</a>
+						
 								<a href="#" id="login" class="loginform"><span class="glyphicon glyphicon-lock"></span>login</a><a
 									href="#signup-popup" id="register" class="popup-register"><span class="glyphicon glyphicon-user"></span>Register</a><a
 									href="#signup-popup" id="signout"><span class="glyphicon glyphicon-lock"></span> Sign Out</a><a
@@ -189,33 +189,3 @@ function errorFunction(){
 		</div>
 		</div>
 
-		<script>
-
-  <!--
-    
-    $("a.edit-profile").click(function(){
-    	$('#editprofile-popup').bPopup(   {    speed: 450,
-            fadeSpeed: 'slow',
-            modalColor: '#000',
-        
-            opacity: 0.8,
-            modalClose: false,
-            transition: 'slideIn');
-    	
-    });
-    $("a.edit-profile1").click(function(){
-    	$('#editprofile-popup1').bPopup({
-
-    	    speed: 450,
-            fadeSpeed: 'slow',
-            modalColor: '#000',
-        
-            opacity: 0.8,
-            modalClose: false,
-            transition: 'slideIn'
-    	});
-    	
-    });
-   -->
-
-</script>
