@@ -34,18 +34,12 @@
 <div id="table" class="ppInfo col-lg-10 col-md-10 col-sm-10 col-xs-12">
 
  <span class="button b-close">X</span>
-<<<<<<< HEAD
-  <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Registration </p>
-<<<<<<< HEAD
-=======
-  <div>
->>>>>>> 390ad7d3f3dab77b4b026c0340651e3614f7aaf0
-	<table id="jsontable">
-=======
+
+
   <p class="form-tile"><span class="glyphicon glyphicon-search"></span> Search Results </p>
   <div class="table-responsive">
   	<table id="jsontable" class="table">
->>>>>>> a1c18279deb77def68335d1020a501717c9ccc74
+
 		<thead>
 			<tr>
 				<th>Name</th>
