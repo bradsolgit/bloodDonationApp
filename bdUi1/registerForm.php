@@ -68,8 +68,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="reqpwd"
-								id="password" placeholder=" Password" required> 
+							<input type="text" class="form-control l-pwd" name="password"
+								id="regpassword" placeholder=" Password" required> 
 						</div>
 			
 				</div>
@@ -78,8 +78,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Confirm Password" required> 
+							<input type="text" class="form-control l-pwd" name="confirmPassword"
+								id="confirmPassword" placeholder=" Confirm Password" required> 
 						</div>
 			
 				</div>

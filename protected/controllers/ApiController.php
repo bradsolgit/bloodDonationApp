@@ -24,13 +24,15 @@ class ApiController extends Controller {
 		// Get the respective model instance
 		switch ($_GET ['model']) {
 			case 'userDetails' :
-				$models = UserDetails::model ()->findAll ();
+				$srchResults = UserDetails::model ()->findAll ();
+			
+			
 				break;
 			case 'donationRequest' :
-				$models = DonationRequest::model ()->findAll ();
+				$srchResults = DonationRequest::model ()->findAll ();
 				break;
 			case 'lookupDetails' :
-				$models = LookupDetails::model ()->findAll ();
+				$srchResults = LookupDetails::model ()->findAll ();
 				break;
 			default :
 				// Model not implemented error
@@ -38,16 +40,19 @@ class ApiController extends Controller {
 				Yii::app ()->end ();
 		}
 		// Did we get some results?
-		if (empty ( $models )) {
+		if (empty ( $srchResults )) {
 			// No
 			$this->_sendResponse ( 200, sprintf ( 'No items where found for model <b>%s</b>', $_GET ['model'] ) );
 		} else {
-			// Prepare response
-			$rows = array ();
-			foreach ( $models as $model )
-				$rows [] = $model->attributes;
-				// Send the response
-			$this->_sendResponse ( 200, CJSON::encode ( $rows ) );
+		$models = array();
+			
+				foreach ($srchResults as $i=>$model){
+					$tempModel = $model;
+					$tempModel->city = $model->city0->lookup_value;
+					$tempModel->blood_group = $model->bloodGroup->lookup_value;
+					$models[$i] = $tempModel;
+				}
+			$this->_sendResponse ( 200, CJSON::encode ( $models ) );
 		}
 	}
 	public function actionmodelId() {
@@ -59,6 +64,7 @@ class ApiController extends Controller {
 			// Find respective model
 			case 'userDetails' :
 				$model = UserDetails::model ()->findByPk ( $_GET ['id'] );
+				
 				break;
 			case 'donationRequest' :
 				$model = DonationRequest::model ()->findByPk ( $_GET ['id'] );
@@ -252,6 +258,27 @@ class ApiController extends Controller {
 				$models =LookupDetails::model ()->findAll( $criteria );
 				
 				break;
+				case 'excel':
+					$file=$_POST ['file'];
+					Yii::import('ext.vendors.PHPExcel',true);
+					$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+					$objPHPExcel = $objReader->load($file); //$file --> your filepath and filename
+					
+					$objWorksheet = $objPHPExcel->getActiveSheet();
+					$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
+					$highestColumn = $objWorksheet->getHighestColumn(); // e.g 'F'
+					$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); // e.g. 5
+					echo '<table>' . "\n";
+					for ($row = 2; $row <= $highestRow; ++$row) {
+						echo '<tr>' . "\n";
+						for ($col = 0; $col <= $highestColumnIndex; ++$col) {
+							echo '<td>' . $objWorksheet->getCellByColumnAndRow($col, $row)->getValue() . '</td>' . "\n";
+						}
+						echo '</tr>' . "\n";
+					}
+					echo '</table>' . "\n";
+						
+					break;
 				case 'state1' :
 					$model=array();
 					$model = Utilities::getLookupParent ( $_POST ['value'] );
@@ -549,7 +576,7 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;
 			if ($model->save ()) {
-				$model->password="";
+	
 				$payload = file_get_contents ( Utilities::getSMSURL($otp, $number));
 				
 				

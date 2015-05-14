@@ -6,7 +6,11 @@ $(document).ready(function(){
 			number:"required",
 			dob:"required",
 			password:"required",
-			
+			confirmPassword: {
+				required: true,
+				equalTo: '#regpassword'
+				
+			},
 
 			
 			city: "required",
@@ -22,7 +26,12 @@ $(document).ready(function(){
 			number:"Please enter your Number",
 			dob:"Please enter your DOB",
 			password:"Please enter your Password",
-			confpwd:"Conform your Password",
+			confirmPassword: {
+				required: "Please enter confirmpassword",
+				equalTo:"Please enter same as password"
+				
+				
+			},
 			city: "Please select City",
 			state: "Please select State",
 			
@@ -181,6 +190,28 @@ $(document).ready(function(){
          		 }
 			});
 		});
+	$("#regcity").blur(function(){	
+		 $.ajax({
+        	type: 'POST',
+        	 url:url+'/search/state1',
+				dataType: 'json',
+				  data: {value:$('#regcity').val() },
+        	success: function(data)
+         		{
+        		 data.forEach( function (item)
+               			{
+        			 alert(item.lookup_value);
+    				    $("#regstate").val(item.lookup_value)
+    				  });
+        		
+         		},
+         		error: function(xhr, error){
+         	        $("#regerrorMsg").html(xhr.responseText).show();
+         		 }
+				});
+		
+		
+	});
 	function saveUser(valid){
 		
 		var status=$('.btn-primary-R .btn-primary ').val();

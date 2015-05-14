@@ -23,9 +23,10 @@
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="addmember">
 	<div  id="signup-popup-admin"><form id="adminForm" role="form">
-			<span id="regerrorMsg" style="display: none"></span>
-			<span id="regsucMsg" style="display: none"></span>
-			<span id="regcaptchaMsg" style="display: none"></span>
+	<span id="adminsuccessMsg" style="display: none"></span>
+			<span id="adminerrorMsg" style="display: none"></span>
+			
+			<span id="admincaptchaMsg" style="display: none"></span>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
@@ -45,7 +46,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control bdgp" name="blood_group"
-								id="regbloodgroup" placeholder=" Blood Group" required> 
+								id="adminbloodgroup" placeholder=" Blood Group" required> 
 						</div>
 					</div>
 
@@ -59,7 +60,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Password" required> 
+								id="NNpassword" placeholder=" Password" required> 
 						</div>
 			
 				</div>
@@ -68,8 +69,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Confirm Password" required> 
+							<input type="text" class="form-control l-pwd" name="adminpassword"
+								id="adminpassword" placeholder=" Confirm Password" required> 
 						</div>
 			
 				</div>
@@ -82,7 +83,7 @@
 				
 
 						<div class="input-group1">
-							<input type="text" class="form-control locator" name="city" id="regcity"
+							<input type="text" class="form-control locator" name="city" id="admincity"
 								placeholder=" City" required> 
 						</div>
 					</div>
@@ -92,7 +93,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control locator" name="state"
-								id="regstate" placeholder=" State" disabled required /> 
+								id="adminstate" placeholder=" State" disabled required /> 
 						</div>
 			
 				</div>
@@ -140,7 +141,7 @@
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="availability">
 							<span>Availability</span>
-							<div id="avil" class="btn-group btn-toggle btn-primary-R">
+							<div id="avil" class="btn-group btn-toggle btn-primary-A">
 								<button type="button" value="Y" id="status"
 									name="donation_status" class="btn btn-primary">Yes</button>
 								<button type="button" value="N" id="status"
@@ -151,7 +152,7 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="captcha-center-details2">
-							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
+							<input type="text" class="captcha" name="captcha"  id="adminCaptcha" /> 
 						</div>
 					</div>
 					
@@ -176,7 +177,7 @@
 						</label>
 	</div>
 				</div>
-			<button type="button" id="regButtonAdmin"
+			<button type="button" id="adminButton"
 				class="btn admin-btn pull-right"><i class="glyphicon glyphicon-log-in"></i>  Add Member</button>
 			
 				
@@ -185,7 +186,7 @@
 				</div>
 				<div class="tab-pane fade" id="addmembers">
 				<span id="reseterrMsg" style="display:none" ></span>
-				 <form action="">
+				 <form action="" enctype="multipart/form-data">
 
     <!-- Redirect browsers with JavaScript disabled to the origin page -->
     <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
@@ -195,9 +196,9 @@
             <!-- The fileinput-button span is used to style the file input field as button -->
             <span class="fileinput-button  center-block1">
               
-                <input type="file" name="files[]" multiple>
+                <input type="file" id="Uploadfile" name="file" multiple>
             </span>
-            <button type="submit" class="start">Start upload</button>
+            <button type="button" id="UploadButton" class="start">Start upload</button>
             <button type="reset" class="cancel">Cancel upload</button>
 
             <!-- The global file processing state -->
@@ -223,26 +224,19 @@
 <div class="admin-edit">
   <h2>Table</h2>
   <p>Using all the table classes on one table:</p>                                          
-  <table class="table table-striped table-bordered table-hover table-condensed">
+  <table id="adminjsontable" class="table table-striped table-bordered table-hover table-condensed">
     <thead>
       <tr>
         <th>Full Name</th>
         <th>Mobile Number</th>
-        <th>Gender</th>
+       
         <th>Blood Group</th>
         <th>City</th>
         <th>Edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Ramesh Bogandla</td>
-        <td>9494494085</td>
-        <td>Male</td>
-        <td>AB+</td>
-        <td>Hyderabad</td>
-        <td> <span  class="close">X</span><span class="glyphicon glyphicon-pencil pencil"></span></td>
-      </tr>
+     
     
     </tbody>
   </table>

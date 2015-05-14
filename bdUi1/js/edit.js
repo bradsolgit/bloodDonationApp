@@ -33,6 +33,7 @@ jQuery(document).ready(function($) {
 			
 			confirmPassword: {
 				required: "Please enter confirmpassword",
+				equalTo:"Please emter same as password"
 				
 				
 			},
