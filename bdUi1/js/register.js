@@ -40,8 +40,15 @@ $(document).ready(function(){
 			donation_status: "Please select Donation Status",
 			gender: "Please select Gender",
 			captcha : "Please enter captcha"
-				
-		}
+			},
+		errorPlacement: function(error, element) {
+			        if ( element.is(":radio") ) {
+			            error.prependTo(".gender-error-msg");
+			        }
+			        else { // This is the default behavior of the script for all fields
+			            error.insertAfter( element );
+			        }
+			    }
 	});
 	
 	$("#regButton").click(function(){	
@@ -193,16 +200,15 @@ $(document).ready(function(){
 	$("#regcity").blur(function(){	
 		 $.ajax({
         	type: 'POST',
-        	 url:url+'/search/state1',
-				dataType: 'json',
-				  data: {value:$('#regcity').val() },
+        	url:url+'/search/state1',
+			dataType: 'json',
+			data: {value:$('#regcity').val() },
         	success: function(data)
          		{
         		 data.forEach( function (item)
-               			{
-        			 alert(item.lookup_value);
-    				    $("#regstate").val(item.lookup_value)
-    				  });
+           		{
+    			    $("#regstate").val(item.lookup_value)
+				  });
         		
          		},
          		error: function(xhr, error){
@@ -215,7 +221,7 @@ $(document).ready(function(){
 	function saveUser(valid){
 		
 		var status=$('.btn-primary-R .btn-primary ').val();
-		var userValues = $("#userForm").serialize()+'&donation_status='+status;
+		var userValues = $("#userForm").serialize()+'&donation_status='+status+'&state='+$("#regstate").val();
 		var user = $("#userForm").serializeArray();
 		 if(valid === "Valid"){
 			 $.ajax({

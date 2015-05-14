@@ -2,6 +2,17 @@
  * 
  */
 $(document).ready(function(){
+	
+    $(".regreset").click(function(){
+  	  $('#loginForm').trigger("reset");
+  	  $('#loginForm').data('validator').resetForm();
+    });
+    
+    $(".regreset").click(function(){
+    	  $('#forgotForm').trigger("reset");
+    	  $('#forgotForm').data('validator').resetForm();
+      });
+      
 	$("#loginForm").validate({
 		rules: {
 			number:{
