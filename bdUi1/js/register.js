@@ -5,6 +5,8 @@ $(document).ready(function(){
 			name: "required",
 			number:"required",
 			dob:"required",
+			password:"required",
+			
 
 			
 			city: "required",
@@ -23,7 +25,7 @@ $(document).ready(function(){
 			confpwd:"Conform your Password",
 			city: "Please select City",
 			state: "Please select State",
-			reqpwd:"Please enter your password",
+			
 			
 			blood_group: "Please select Blood Group",
 			donation_status: "Please select Donation Status",

@@ -78,7 +78,7 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="confpwd"
+							<input type="text" class="form-control l-pwd" name="password"
 								id="password" placeholder=" Confirm Password" required> 
 						</div>
 			

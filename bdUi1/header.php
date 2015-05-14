@@ -152,7 +152,7 @@ function errorFunction(){
 						</div>
 						<div class="pull-right hrmtop">
 							<div class="login-hide">
-						
+						<a href="#" id="login" class="admin-loginform"><span class="glyphicon glyphicon-lock"></span>Admin-Login</a>
 								<a href="#" id="login" class="loginform"><span class="glyphicon glyphicon-lock"></span>Login</a><a
 									href="#signup-popup" id="register" class="popup-register"><span class="glyphicon glyphicon-user"></span>Register</a><a
 									href="#signup-popup" id="signout"><span class="glyphicon glyphicon-lock"></span> Sign Out</a><a
