@@ -104,7 +104,10 @@ jQuery(document).ready(function($) {
  		});
 	
 	$("#reqOtpBtn").click(function(){
-		
+		 $("#invalidCaptcha").hide();
+			$("#invalidnumOtpMsg").hide();
+			 $("#otperrorMsg").hide();
+			 $("#otpCnfMsg").hide();
 		 $("#valMobMsg").hide();
 		var val = 	$("#updateNumber").val();
 		if (!val.match(/[789][0-9]{9}/)) {
@@ -119,7 +122,11 @@ jQuery(document).ready(function($) {
 	});
 	$("#numButton").click(function(){
 		
-		
+		 $("#invalidCaptcha").hide();
+			$("#invalidnumOtpMsg").hide();
+			 $("#otperrorMsg").hide();
+			 $("#otpCnfMsg").hide();
+			
 		if($("#numberForm").valid()){
 			 validateCaptcha($("#numCaptcha").val(),$("#numCaptcha").realperson('getHash'),otpValidate);
 			}
@@ -167,11 +174,17 @@ jQuery(document).ready(function($) {
 			$("#invalidnumOtpMsg").show();
 		 }
 		}
-	function showConfMsg(){
-		 $("#invalidCaptcha").hide();
-			$("#invalidnumOtpMsg").hide();
+	function showConfMsg(data){
+		
+		if(data == "Valid"){
+		
 		 $("#otpCnfMsg").show("slow");
 	}
+		else
+			{
+			 $("#otperrorMsg").show("slow");
+			}
+	}	
 	
 	$("#resetButton").click(function(){	
 	
@@ -195,7 +208,7 @@ jQuery(document).ready(function($) {
                      		},
                      		error: function(xhr, error){
                      		
-                     	        $("#reseterrMsg").html("Inavakid  Old Password").show();
+                     	        $("#resetpasswordErrorMsg").html("Inavalid  Old Password").show();
                      		 }
 						});
 			
@@ -248,7 +261,7 @@ jQuery(document).ready(function($) {
 		
 		if($("#editForm").valid()){
 			var status=$('.btn-primary-E .btn-primary ').val();
-			alert("hbwhjs"+status);
+			
 			var userValues = $("#editForm").serialize()+'&donation_status='+status;
 		 $.ajax({
            	type: 'POST',

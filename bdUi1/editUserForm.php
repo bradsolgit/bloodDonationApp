@@ -57,8 +57,9 @@
 					
 				</div>
 				<div class="tab-pane fade" id="changepwd">
-				<span id="reseterrMsg" style="display:none" ></span>
-					<form id="resetPasswordForm">
+				<span id="resetpasswordErrorMsg" style="display:none" ></span>
+				
+					<form id="resetPasswordForm" >
 						
 							<div class="input-group1">
 						
@@ -101,7 +102,7 @@
 			<span id="invalidCaptcha" style="display: none;">Please enter valid captcha</span>
 			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
 			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
-			
+				<span id="otperrorMsg" style="display: none;">This is already used</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 					<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn">
