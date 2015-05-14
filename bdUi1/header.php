@@ -158,7 +158,7 @@ function errorFunction(){
 									href="#signup-popup" id="signout"><span class="glyphicon glyphicon-lock"></span> Sign Out</a><a
 									href="#signup-popup" id="edit" class="user-edit-account"><span class="glyphicon glyphicon-user"></span> Edit Account</a>
 								<div class="loginform-dsplay col-lg-4 col-md-6 col-sm-8 col-xs-12">
-								 <span class="button b-close">X</span>
+								 <span class="button b-close regreset">X</span>
 								 <p class="form-tile"><span class="glyphicon glyphicon-lock" style="margin-top: 27px;" ></span> Login</p>
 									<form name="form" id="loginForm" class="form-horizontal" 
 										enctype="multipart/form-data" method="POST">

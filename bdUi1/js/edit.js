@@ -1,5 +1,15 @@
 jQuery(document).ready(function($) {
 	
+    $(".regreset").click(function(){
+    	  $('#resetPasswordForm').trigger("reset");
+    	  $('#resetPasswordForm').data('validator').resetForm();
+      });
+      
+    $(".regreset").click(function(){
+  	  $('#numberForm').trigger("reset");
+  	  $('#numberForm').data('validator').resetForm();
+    });
+    
 	$("#resetPasswordForm").validate({
 		rules: {
 			
@@ -33,7 +43,6 @@ jQuery(document).ready(function($) {
 			
 			confirmPassword: {
 				required: "Please enter confirmpassword",
-				equalTo:"Please emter same as password"
 				
 				
 			},

@@ -6,7 +6,7 @@
 
 
 <div id="login-popup" class="ppInfo col-lg-4 col-md-6 col-sm-8 col-xs-12">
- <span class="button b-close">X</span>
+ <span class="button b-close regreset">X</span>
 <p class="form-tile">Forgot Password<p/>
 	<form name="form" id="forgotForm" class="form-horizontal"
 		enctype="multipart/form-data" method="POST">

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $(".regreset").click(function(){
+  	  $('#userForm').trigger("reset");
+  	  $('#userForm').data('validator').resetForm();
+    });
 $("#bloodgroup").autocomplete(
 	    {
 	    minLength: 1,

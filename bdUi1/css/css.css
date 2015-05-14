@@ -14,6 +14,10 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     border: 0 ;
     outline : 0 ;
 }
+#regcaptchaMsg{
+	color:red;
+	margin-left: 22px;
+}
  input[type="radio"]:active, input[type="radio"]:focus, .btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus{
 	
 	   border: 0 ;
@@ -104,12 +108,15 @@ width: 83%;
 margin: 13px auto;
 	
 }
+.mbnumber {
+	padding: 5px 0;
+}
 .update-mbn{
 	padding: 5px;
 	font-size:14px;
 	background-color: rgba(255, 255, 255, 0.5);
 		border:1px solid #ccc;
-			border-radius:5px;
+			//border-radius:5px;
 			outline:none;
 }
 
@@ -127,7 +134,7 @@ background-color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     outline: medium none;
     padding: 8px;
-    width: 64%;
+    width: 68%;
 }
 .otp-enter{
 	width:97%;
@@ -135,8 +142,10 @@ background-color: rgba(255, 255, 255, 0.5);
 	font-size:14px;
 	background-color: rgba(255, 255, 255, 0.5);
 		border:1px solid #ccc;
-		
 			outline:none;
+}
+#updatenumotp{
+		padding:5px 0;
 }
 .start, .cancel{
 padding: 5px;
@@ -354,6 +363,9 @@ font-weight:100;
 	font-size:12px;
 	color:red;
 }
+input{
+	background-color: rgba(255, 255, 255, 0.3) !important;
+}
 input[type=search]{
 
 height: 27px;
@@ -399,9 +411,11 @@ bottom: 10px;
 }
 .error{
 	color:#f20;
-	padding-left:13px;
-	font-size:10px;
+background:#000;
+	font-size:12px;
 	font-weight:100;
+	margin-left: 22px;
+    padding: 0px 5px;
 }
 ul li{
 	
@@ -438,8 +452,6 @@ line-height:30px;
 	float:left;
 	font-size:1.2em;
 	position:fixed;
-
-
 	z-index:99999;
 	box-shadow:0px 0px 4px #000;
 		-moz-box-shadow:0px 0px 4px #000;
@@ -451,7 +463,7 @@ line-height:30px;
 	
 }
 .dropdown-menu, .form-control{
-	z-index:111111;
+	z-index:10000;
 }
 #mask{
 	display:none;

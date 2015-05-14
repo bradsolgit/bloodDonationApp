@@ -3524,3 +3524,192 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/search/excel
 HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/
 ---
+2015/05/14 15:38:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:38:41 [error] [exception.Exception] exception 'Exception' with message 'Could not open  for reading! File does not exist.' in C:\xampp\htdocs\bloodDonationApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:299
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php(265): PHPExcel_Reader_Excel2007->load('')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\actions\CInlineAction.php(49): ApiController->actionsearchApi()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): CController->run('searchApi')
+#6 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#7 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/excel
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:38:47 [error] [exception.Exception] exception 'Exception' with message 'Could not open C:\fakepath\screenshot-6.jpg for reading! File does not exist.' in C:\xampp\htdocs\bloodDonationApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:299
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php(265): PHPExcel_Reader_Excel2007->load('C:\\fakepath\\scr...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\actions\CInlineAction.php(49): ApiController->actionsearchApi()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): CController->run('searchApi')
+#6 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#7 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/excel
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:38:56 [error] [exception.Exception] exception 'Exception' with message 'Could not open  for reading! File does not exist.' in C:\xampp\htdocs\bloodDonationApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:299
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\controllers\ApiController.php(265): PHPExcel_Reader_Excel2007->load('')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\actions\CInlineAction.php(49): ApiController->actionsearchApi()
+#2 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(282): CController->run('searchApi')
+#6 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/searchApi')
+#7 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/bloodDonationApp/index.php/search/excel
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:42:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:43:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:43:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:49:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:59:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 15:59:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:02:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:03:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:04:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:04:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:04:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/index.php
+---
+2015/05/14 16:04:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/
+---
+2015/05/14 16:04:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/
+---
+2015/05/14 16:09:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/
+---
+2015/05/14 16:09:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\bloodDonationApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 C:\xampp\htdocs\bloodDonationApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\bloodDonationApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bloodDonationApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bloodDonationApp/bdUi1/
+---

@@ -3,7 +3,7 @@
 <!-- edit profile for user start here -->
 
 <div id="editprofile-popup" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 edituserform">
-<span class="button b-close">X</span>
+<span class="button b-close regreset">X</span>
 <p class="form-tile">Edit Account</p>
 		<div class="">
 
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 	<div id="numForm" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 updateform">
-<span class="button b-close">X</span>
+<span class="button b-close regreset">X</span>
 <p class="form-tile">Update Mobile Number</p>	
 <form class="sign simple-form" id="numberForm"name="numForm">
 			<span id="invalidnumOtpMsg" style="display: none;">Invalid OTP Code</span>

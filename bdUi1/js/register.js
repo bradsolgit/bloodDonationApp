@@ -40,8 +40,15 @@ $(document).ready(function(){
 			donation_status: "Please select Donation Status",
 			gender: "Please select Gender",
 			captcha : "Please enter captcha"
-				
-		}
+			},
+		errorPlacement: function(error, element) {
+			        if ( element.is(":radio") ) {
+			            error.prependTo(".gender-error-msg");
+			        }
+			        else { // This is the default behavior of the script for all fields
+			            error.insertAfter( element );
+			        }
+			    }
 	});
 	
 	$("#regButton").click(function(){	
