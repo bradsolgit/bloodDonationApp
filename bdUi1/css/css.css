@@ -268,6 +268,16 @@ background-repeat:no-repeat;
 width:100px;
 margin-right:20px;
 }
+.admin-btn{
+		background-color: rgba(255, 255, 255, 0.5);
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: medium none;
+
+width:130px;
+margin-right:20px;
+}
 
 .update-mbnumber-btn{
  background-color: rgba(255, 255, 255, 0.5);
