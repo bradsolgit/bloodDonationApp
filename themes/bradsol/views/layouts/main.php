@@ -38,29 +38,12 @@
 		<ul>
 		<li class='active'><a href='<?php echo $this->createUrl('site/index')?>'><span>Home</span></a></li>
 	
-	<li class='has-sub'><a href='#'><span>Donor Details</span></a>
-      <ul>
-          <li><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
-           <li><a href='<?php echo $this->createUrl('userDetails/index')?>'><span>View User</span></a></li>
-           <li class='last'><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
-      </ul>
-  	 </li>
-  	 <li class='has-sub'><a href='#'><span>Lookup Details</span></a>
-      <ul>
-          <li><a href='<?php echo $this->createUrl('lookupDetails/create')?>'><span>Create Lookup</span></a></li>
-           <li><a href='<?php echo $this->createUrl('lookupDetails/index')?>'><span>View Lookup</span></a></li>
-           <li class='last'><a href='<?php echo $this->createUrl('lookupDetails/admin')?>'><span>Search Lookup</span></a></li>
-      </ul>
-  	 </li>
-  	 <li class='has-sub'><a href='#'><span>Donation Request</span></a>
-      <ul>
-          <li><a href='<?php echo $this->createUrl('donationRequest/create')?>'><span>Create Donation Request</span></a></li>
-           <li><a href='<?php echo $this->createUrl('donationRequest/index')?>'><span>View Donation Request</span></a></li>
-           <li><a href='<?php echo $this->createUrl('donationRequest/admin')?>'><span>Search Donation Request</span></a></li>
-           
-        
-      </ul>
-  	 </li>
+	<li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
+    
+  	
+  	 <li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
+  	  <li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/upload')?>'><span>Add Multiple Users</span></a></li>
+     
   	 
 	</ul>
 	</div>

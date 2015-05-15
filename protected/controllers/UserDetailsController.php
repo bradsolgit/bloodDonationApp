@@ -6,7 +6,7 @@ class UserDetailsController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column1';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class UserDetailsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getCity','getArea','admin','getDistrict','create','Forget','reset','validateOtp'),
+				'actions'=>array('index','view','suggestName','upload'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,6 +49,15 @@ class UserDetailsController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
+	public function actionSuggestName($term)
+	{
+		//the $term parameter is what the user typed in on the control
+	
+		//send back an array of data:
+		echo CJSON::encode(array('one', 'two', 'three'));
+	
+		Yii::app()->end();
+	}
 	public function actionView($id)
 	{
 		$this->render('view',array(
@@ -60,44 +69,35 @@ class UserDetailsController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actiongetDistrict()
+	public function actionUpload()
 	{
-		$id=$_POST['state'];
-		  $data=Utilities::getLookupListByDistrict($id);
+	
+		if (isset($_POST['file']))
+		{
+		
+$uploadFile=$_POST['file'];
 
-	
-		$data=CHtml::listData($data,'lookup_id','lookup_value');
-		foreach($data as $value=>$name)
-		{
-			echo CHtml::tag('option',
-					array('value'=>$value),CHtml::encode($name),true);
-		}
-	}
-	public function actiongetCity()
-	{
-		$id=$_POST['district'];
-		$data=Utilities::getLookupListByCity($id);
-	
-	
-		$data=CHtml::listData($data,'lookup_id','lookup_value');
-		foreach($data as $value=>$name)
-		{
-			echo CHtml::tag('option',
-					array('value'=>$value),CHtml::encode($name),true);
-		}
-	}
-	public function actiongetArea()
-	{
-	$id=$_POST['city'];
-		  $data=Utilities::getLookupListByArea($id);
 
-	
-		$data=CHtml::listData($data,'lookup_id','lookup_value');
-		foreach($data as $value=>$name)
-		{
-			echo CHtml::tag('option',
-					array('value'=>$value),CHtml::encode($name),true);
+		$photos = CUploadedFile::getInstancesByName('document');
+		Yii::import('ext.vendors.PHPExcel',true);
+		$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+		$objPHPExcel = $objReader->load($file); //$file --> your filepath and filename
+			
+		$objWorksheet = $objPHPExcel->getActiveSheet();
+		$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
+		$highestColumn = $objWorksheet->getHighestColumn(); // e.g 'F'
+		$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); // e.g. 5
+		echo '<table>' . "\n";
+		for ($row = 2; $row <= $highestRow; ++$row) {
+			echo '<tr>' . "\n";
+			for ($col = 0; $col <= $highestColumnIndex; ++$col) {
+				echo '<td>' . $objWorksheet->getCellByColumnAndRow($col, $row)->getValue() . '</td>' . "\n";
+			}
+			echo '</tr>' . "\n";
 		}
+		echo '</table>' . "\n";
+		}
+		$this->render('upload');
 	}
 	public function actionCreate()
 	{
@@ -109,124 +109,13 @@ class UserDetailsController extends Controller
 		if(isset($_POST['UserDetails']))
 		{
 			$model->attributes=$_POST['UserDetails'];
-			$model->city=$_POST['city'];
-			$model->district=$_POST['district'];
-			$model->state=$_POST['state'];
-			$model->area=$_POST['area'];
-	$time = strtotime($model->dob);
-
-$newformat = date('Y-m-d',$time);
-$model->dob=$newformat;
-$number=$model->number;
-$message=Utilities::generateRandomString();
-$model->confirmation_code=$message;
-
 			if($model->save())
-
-				$payload = file_get_contents('http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to='.$number.'&from=BHATTD&message='.$message);
-				$this->redirect(array("validateOtp"));
-				
-			}
-		
+				$this->redirect(array('view','id'=>$model->user_id));
+		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
-	}
-	
-	public function actionreset()
-	{
-	
-		 
-		$model=new UserDetails();
-	
-		if (isset($_POST['old_password']))
-		{
-	
-			$oldid = $_POST['old_password'];
-			$record=UserDetails::model()->findByAttributes(array('password' =>$oldid));
-			if(empty($record))
-			{
-					
-				Yii::app()->user->setFlash('error', "INVALID PASSWORD");
-	
-					
-					
-			}
-			else if(strlen($_POST['new_password'])>10)
-			{
-				Yii::app()->user->setFlash('error', "new password is too long min 10 char ");
-			}
-			
-			else if($_POST['new_password']==$_POST['old_password'])
-			{
-				Yii::app()->user->setFlash('error', "old password and new password same");
-			}
-			else if($_POST['new_password']!=$_POST['confirm_password'])
-			{
-				Yii::app()->user->setFlash('error', "new password and confirm password does not matched");
-			}
-			else{
-				$newPassword = $_POST['new_password'];
-				$userid= Yii::app()->user->getState("user_id");
-	
-				$mod=UserDetails::model()->findByAttributes(array('password' =>$oldid));
-	
-				$mod->password =$_POST['new_password'];
-				$mod->save();
-				if($mod->save())
-					$this->redirect(array('view','id'=>$model->user_id));
-	
-			}
-		}
-	
-	
-		$this->render('reset',array(
-				'model'=>$model,
-		));
-	
-	}
-	public function actionForget() {
-	
-		$record=UserDetails::model()->findByAttributes(array('number' => Yii::app()->request->getPost('number')));
-		
-		if ($record != NULL) {
-			if(isset($_POST['number'])) {
-				$number=$record->number;
-				$password=$record->password;
-				$payload = file_get_contents('http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to='.$number.'&from=BHATTD&message='.$password);
-				Yii::app()->user->setFlash('success', "your password is send to your mobile no successfully");
-			
-	
-			}
-		}
-	
-		$this->render('password'); //show the view with the password field}}
-		
-	
-	}
-	public function actionvalidateOtp()
-	{
-		if(isset($_POST['otp']))
-		{
-			$record=UserDetails::model()->findByAttributes(array('confirmation_code' =>$_POST['otp']));
-			
-			$id=$record->user_id;
-			
-			if ($record != NULL) {
-			$model=$this->loadModel($id);
-			if($model->confirmation_code==$_POST['otp'])
-			{
-				$model->validate_Status="Y";
-				$model->save();
-				$this->redirect(Yii::app()->user->returnUrl);
-			}
-			else {
-				Yii::app()->user->setFlash('error', "otp password is wrong");
-			}
-		}
-		}
-		$this->render('validateOtp');
 	}
 
 	/**
@@ -244,14 +133,6 @@ $model->confirmation_code=$message;
 		if(isset($_POST['UserDetails']))
 		{
 			$model->attributes=$_POST['UserDetails'];
-			$model->city=$_POST['city'];
-			$model->district=$_POST['district'];
-			$model->state=$_POST['state'];
-			$model->area=$_POST['area'];
-$time = strtotime($model->dob);
-
-$newformat = date('Y-m-d',$time);
-$model->dob=$newformat;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->user_id));
 		}

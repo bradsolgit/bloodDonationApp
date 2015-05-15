@@ -56,7 +56,7 @@ class UserDetails extends CActiveRecord
 		return array(
 			array('name, number,  city, state,  blood_group', 'required'),
 			array('area, city, number,state, district, blood_group', 'numerical', 'integerOnly'=>true),
-			array('name, email', 'length', 'max'=>100),
+			array('name', 'length', 'max'=>100),
 			array('number', 'unique'),
 			array('number', 'length','min'=>10, 'max'=>10),
 			array('gender, donation_status, validate_Status', 'length', 'max'=>1),
