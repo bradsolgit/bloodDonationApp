@@ -71,14 +71,73 @@ class UserDetailsController extends Controller
 	 */
 	public function actionUpload()
 	{
+		$model=new UserDetails();
 	
-		if (isset($_POST['file']))
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+	
+		if(isset($_POST['UserDetails']))
 		{
+			$model->attributes=$_POST['UserDetails'];
+	
+				
+			$donors = array();
+			$uploadedFile=CUploadedFile::getInstance($model,'email');
+			$fileName = str_replace(' ', '', $uploadedFile->name);
+			$images_path = realpath(Yii::app()->basePath . '/../files');
+			$uploadedFile->saveAs($images_path . '/' . $fileName);
+			$path=$images_path . '/' . $fileName;
+			Yii::import('ext.vendors.PHPExcel',true);
+		$objReader = PHPExcel_IOFactory::createReader('Excel2007');
+		$objPHPExcel = $objReader->load($path); //$file --> your filepath and filename
+			
+		$objWorksheet = $objPHPExcel->getActiveSheet();
+		$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
+		$highestColumn = $objWorksheet->getHighestColumn(); // e.g 'F'
+		$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); // e.g. 5
+		echo '<table>' . "\n";
+		for ($row = 2; $row <= $highestRow; ++$row) {
+			echo '<tr>' . "\n";
+			$tempModel=new UserDetails();
+			for ($col = 0; $col <= $highestColumnIndex; ++$col) {
+				echo '<td>' . $objWorksheet->getCellByColumnAndRow($col, $row)->getValue() . '</td>' . "\n";
+			}
+			echo '</tr>' . "\n";
+		}
+		echo '</table>' . "\n";
 		
-$uploadFile=$_POST['file'];
+			
+					
+					
+				
+				
+					
+			
+	
+				
+			
+		}
+	
+		$this->render('upload',array(
+				'model'=>$model,
+		));
+	}
+	public function action()
+	{
+		
+	
+        if(isset($_POST['number']))
+        { 
+       
 
+                   
 
-		$photos = CUploadedFile::getInstancesByName('document');
+                
+$uplodafile=$_FILES['number'];
+$name=$uplodafile['name'];
+$path=$uplodafile['tmp_name'];
+$name->saveAs("C:\xampp\htdocs\images".$name);
+		$file=$path."\\".$name;
 		Yii::import('ext.vendors.PHPExcel',true);
 		$objReader = PHPExcel_IOFactory::createReader('Excel2007');
 		$objPHPExcel = $objReader->load($file); //$file --> your filepath and filename
@@ -97,8 +156,11 @@ $uploadFile=$_POST['file'];
 		}
 		echo '</table>' . "\n";
 		}
+		
 		$this->render('upload');
 	}
+	
+	
 	public function actionCreate()
 	{
 		$model=new UserDetails;
