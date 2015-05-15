@@ -30,3 +30,15 @@ font-family: "Courier New",monospace !important;
 .realperson-disabled .realperson-regen {
 	cursor: default;
 }
+
+@media only screen and (max-width: 800px) and (min-width:768px){
+.realperson-text {
+    font-family: "Courier New",monospace !important;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 2px;
+    margin-left: -16px;
+    margin-top: 12px;
+}
+}

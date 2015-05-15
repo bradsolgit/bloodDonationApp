@@ -32,7 +32,7 @@
 
      </script>
 <!-- signup  start here -->
-<div id="signup-popup" class="ppInfo col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div id="signup-popup" class="ppInfo col-lg-6 col-md-8 col-sm-8 col-xs-12">
 	
 	
  <span class="button b-close regreset">X</span>
@@ -48,7 +48,7 @@
 
 						<div class="input-group1">
 							<input type="text" class="form-control user-name" name="name" id="name"
-								placeholder=" Full Name" required> 
+								placeholder="Full Name" required> 
 						</div>
 			
 
@@ -73,8 +73,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="reqpwd"
-								id="password" placeholder=" Password" required> 
+							<input type="password" class="form-control l-pwd" name="password"
+								id="regpassword" placeholder=" Password" required> 
 						</div>
 			
 				</div>
@@ -83,8 +83,8 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
-								id="password" placeholder=" Confirm Password" required> 
+							<input type="password" class="form-control l-pwd" name="confirmPassword"
+								id="confirmPassword" placeholder=" Confirm Password" required /> 
 						</div>
 			
 				</div>
@@ -199,24 +199,25 @@
 	
 				
 		</form>
-		
+		</div>
 		<!-- otp form  start here -->
-		<form  id="otpForm" name="userForm" class="ppInfo" style="display:none">
+		<form  id="otpForm" name="userForm" class="ppInfo col-lg-6 col-md-8 col-sm-8 col-xs-12" style="display:none">
 			<span id="invalidOtpMsg" style="display: none;">Invalid OTP Code</span>
-			<div class="formtitle">OTP DETAILS </div>
+		 <span class="button b-close regreset">X</span>
+  <p class="form-tile"><span class="glyphicon glyphicon-user"></span> OTP Details </p>
 				<!----------start top_section----------->
-				<span>OTP is sent to your mobile successfully</span>
+				<span class="successMsg">OTP is sent to your mobile successfully</span>
 			<div class="section">
 						<div class="input-sign otp-center-details">
-							<input type="text" name="otp" id="regotp"  placeholder="OTP Code" /> 
+							<input type="text" name="otp" id="regotp"  class="otp-enter otp" placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>
 				<div class="submit">
-					<input class="bluebutton" id="otpButton" type="button" value="Validate" />	
+					<button id="otpButton" type="button"  class="btn login-btn pull-right">Validate</button>
 					</div>
 			</form>
 
-	</div>
+	
 
 <!-- signup  end here -->

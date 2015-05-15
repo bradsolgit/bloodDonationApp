@@ -6,9 +6,15 @@ jQuery(document).ready(function($) {
       });
       
     $(".regreset").click(function(){
-  	  $('#numberForm').trigger("reset");
-  	  $('#numberForm').data('validator').resetForm();
-    });
+    	  $('#numberForm').trigger("reset");
+    	  $('#numberForm').data('validator').resetForm();
+      });
+    
+    $(".regreset").click(function(){
+    	  $('#editForm').trigger("reset");
+    	  $('#editForm').data('validator').resetForm();
+    	  $('#editerrorMsg').hide();
+      });
     
 	$("#resetPasswordForm").validate({
 		rules: {

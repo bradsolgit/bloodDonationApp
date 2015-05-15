@@ -29,11 +29,12 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     overflow-y: hidden;
 }
 body{
-	background-image:url("../images/bd1.jpg");
-background-size:cover;
-background-repeat:no-repeat;
 background-color: rgba(255, 255, 255, 0.3);
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    background-image: url("../images/bd1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 img.responsive{
 	width:100%;
@@ -57,7 +58,7 @@ min-height: 90px;
 	border:none !important;
 }
 .min-height-all-page{
-	min-height:500px;
+	min-height:540px;
 }
 .form-control{
 	border-radius:0px;
@@ -89,9 +90,9 @@ width: 94%;
 }
 .mbn-filed{
 width:90%;
-margin-left: 10px !important;
+
 margin-top:20px;
-border-radius:5px;
+
 color: #000;
 box-shadow: none;
 border: 1px solid #ccc;
@@ -130,10 +131,10 @@ margin: 13px auto;
 .mbnumber{
 background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid #ccc;
-   
     font-size: 14px;
+    margin-left: 0 !important;
     outline: medium none;
-    padding: 8px;
+    padding: 6px !important;
     width: 68%;
 }
 .otp-enter{
@@ -251,16 +252,22 @@ width: 30px;
 }
 
 .l-pwd{
-		background-image:url("../images/pwd.png");
-background-position:right center;
-background-repeat:no-repeat;
+	   background-image: url("../images/f-pwd.png") !important;
+    background-position: right center !important;
+    background-repeat: no-repeat !important;
+}
+.otp{
+		   background-image: url("../images/otp.png") !important;
+    background-position: right center !important;
+    background-repeat: no-repeat !important;
+    margin-left: 0 !important;
 }
 .l-user{
-		background-image:url("../images/user.png");
-background-position:right center;
-background-repeat:no-repeat;
+		background-image:url("../images/user.png") !important;
+background-position:right center !important;
+background-repeat:no-repeat !important;
 }
-.popup-window{
+.forgot-pwd-link{
 			background-image:url("../images/f-pwd.png");
 background-position:left center;
 background-repeat:no-repeat;
@@ -272,6 +279,7 @@ background-repeat:no-repeat;
     border: medium none;
     border-radius: 0;
     box-shadow: none;
+       margin-top: 10px;
     outline: medium none;
 
 width:100px;
@@ -338,7 +346,7 @@ margin-left:3%;
 height: 32px;
 margin-top: 1px;
 background-color: rgba(255, 255, 255, 0.5);
-margin-left: 3%;
+margin-left: 3% !important;
 width: 59%;
 border: 1px solid #ccc;
 outline: none;
@@ -353,7 +361,12 @@ font-weight:100;
 	background:#ff0000;
 	color:#fff;
 }
-.successmsg{
+#regerrorMsg ul li{
+	color:red;
+	font-size:12px;
+	font-weight:100;
+}
+.successmsg, .successMsg{
 	font-weight:100;
 	font-size:12px;
 	color:green;
@@ -531,21 +544,28 @@ width: 255px;
 
 /* Tab Content */
 .tab-pane {
-    
-    box-shadow: 0 0 4px rgba(0,0,0,.4);
+  
     border-radius: 0;
-    text-align: center;
+   // text-align: center;
     padding: 10px;
 }
 
 .ui-autocomplete{
 	z-index:999999 !important;
 }
-.tab-pane h2, .tab-content span, label.radio-inline{
+.tab-pane h2, label.radio-inline{
 	color:#000;
 	font-size: 14px;
     font-weight: 200;
 }
+.updateMsg{
+		color:lightgreen;
+	font-size: 12px;
+    font-weight: 100;
+
+
+}
+
 .tab-content textarea{
 	width:94%;
 	color:#000;
@@ -617,6 +637,9 @@ background-repeat: no-repeat;
 .input-group1{
 	margin-top:10px;
 }
+.nav-tabs > li > a{
+	font-size:13px;
+}
 }
 @media only screen and (max-width: 360px) and (min-width:355px){
 .loginform-dsplay{
@@ -634,6 +657,9 @@ background-repeat: no-repeat;
 .input-group1{
 	margin-top:10px;
 }
+.nav-tabs > li > a{
+	font-size:13px;
+}
 }
 @media only screen and (max-width: 414px) and (min-width:361px){
 	.loginform-dsplay{
@@ -647,6 +673,9 @@ background-repeat: no-repeat;
 .input-group1{
 	margin-top:10px;
 }
+.nav-tabs > li > a{
+	font-size:13px;
+}
 	}
 	@media only screen and (max-width: 480px) and (min-width:415px){
 	.loginform-dsplay{
@@ -657,6 +686,9 @@ background-repeat: no-repeat;
 .input-group1{
 	margin-top:10px;
 }
+.nav-tabs > li > a{
+	font-size:14px;
+}
 	}
 		@media only screen and (max-width: 640px) and (min-width:481px){
 	.loginform-dsplay{
@@ -666,6 +698,9 @@ background-repeat: no-repeat;
 }
 .input-group1{
 	margin-top:10px;
+}
+.nav-tabs > li > a{
+	font-size:14px;
 }
 	}
 			@media only screen and (max-width: 800px) and (min-width:768px){

@@ -21,21 +21,10 @@
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-<?php
-$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
- 'name'=>'name',
- 'sourceUrl'=>'suggestName'
-, 'value'=>'some initial value',
- ));
-?>
-<?php 
-    $this->widget('ext.YiiComplete.YiiComplete', array(
-    'jsonUrl' => 'localhost/bloodDonationApp/index.php/search/city',
-));
-?>
+
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'number'); ?>
+		<?php echo $form->labelEx($model,'Mobile Number'); ?>
 		<?php echo $form->textField($model,'number',array('size'=>30,'maxlength'=>30)); ?>
 		<?php echo $form->error($model,'number'); ?>
 	</div>

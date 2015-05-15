@@ -59,7 +59,7 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="password"
+							<input type="password" class="form-control l-pwd" name="password"
 								id="NNpassword" placeholder=" Password" required> 
 						</div>
 			
@@ -69,7 +69,7 @@
 					
 
 						<div class="input-group1">
-							<input type="text" class="form-control l-pwd" name="adminpassword"
+							<input type="password" class="form-control l-pwd" name="adminpassword"
 								id="adminpassword" placeholder=" Confirm Password" required> 
 						</div>
 			

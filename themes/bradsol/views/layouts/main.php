@@ -31,18 +31,18 @@
 <body>
 <header>
     <div class="header-bs">
-<div class="logo"><img class="img-responsive" src="<?php echo Yii::app()->request->baseUrl; ?>/../img/logo.png" alt=""></div>
+<div class="logo"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png" alt="logo"></div>
 	   <div class="ads">
 	   
-   <div id='cssmenu' style="margin-top:43px;">
+   <div id='cssmenu' style="margin-top:23px;">
 		<ul>
 		<li class='active'><a href='<?php echo $this->createUrl('site/index')?>'><span>Home</span></a></li>
 	
-	<li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
+	<li><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
     
   	
-  	 <li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
-  	  <li class='has-sub'><a href='<?php echo $this->createUrl('userDetails/upload')?>'><span>Add Multiple Users</span></a></li>
+  	 <li><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
+  	  <li><a href='<?php echo $this->createUrl('userDetails/upload')?>'><span>Add Multiple Users</span></a></li>
      
   	 
 	</ul>
@@ -63,9 +63,6 @@
 <div class="logout-not-absolute">
 <p>Welcome back <?php echo Yii::app()->user->name ?></p>
 
-
-
-<p><a class="logout" href="<?php echo $this->createUrl('site/logout')?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logout.png" /></a></p>
 </div>
 <?php }?>
 	   
@@ -80,34 +77,13 @@
      
 
 
-<div class="breadcroumb">
-<span>
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-</span>
-</div>
 <div class="container-fluid">
-	<div class="col-md-3 left-body-sidemenu left-side-menu-margin-top">
-	<?php
-		$this->beginWidget('zii.widgets.CPortlet', array(
-			'title'=>'Operations',
-		));
-		$this->widget('zii.widgets.CMenu', array(
-			'items'=>$this->menu,
-			'htmlOptions'=>array('class'=>'operations'),
-		));
-		$this->endWidget();
-	?>
-	</div>
-	<div class="col-md-9 body-content">
+
 		
-	<div class="col-md-12">
+	<div class="col-md-12 body-content">
 	
 	<?php echo $content; ?>
-	</div>
+	
 	
 	
 	

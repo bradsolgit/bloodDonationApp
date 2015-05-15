@@ -4,7 +4,7 @@
 
 <div id="editprofile-popup" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 edituserform">
 <span class="button b-close regreset">X</span>
-<p class="form-tile">Edit Account</p>
+<p class="form-tile"><span class="glyphicon glyphicon-user"></span> Edit Account</p>
 		<div class="">
 
 			<!-- Nav tabs -->
@@ -20,7 +20,7 @@
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="Edit-Account">
 					<form id="editForm">
-					<span id="editerrorMsg" style="disolay:none"></span>
+					<span id="editerrorMsg" class="updateMsg" style="disolay:none"></span>
 						
 							<div class="availability">
 								<span>Availability</span>
@@ -36,7 +36,7 @@
 						
 
 							<div class="input-group1">
-								<input type="text" class="mbn-filed" name="number"
+								<input type="text" class="mbn-filed mobile-icon" name="number"
 									id="number" placeholder="Edit Mobile Number"
 									disabled required> <span  class="mbn" id="updteNum"><img src="images/mbn-udate.png" width="21" height="20" /></span>
 							</div>
@@ -44,12 +44,12 @@
 						
 						
 							<div class="input-group1">
-								<input type="text" class="form-control1" name="city"
+								<input type="text" class="form-control1 locator" name="city"
 									id="editcity" placeholder="City" required> 
 							</div>
 						
 					<div class="input-group1">
-							<textarea rows="4" cols="4" class="form-control1" name="address" placeholder="Address"></textarea></div>
+							<textarea rows="1" cols="4" class="form-control1 locator" name="address" placeholder="Address"></textarea></div>
 					
 						<button type="button" name="submit" id="updateBtn" value=""
 							class="btn login-btn"><i class="glyphicon glyphicon-log-in"></i> Update </button>
@@ -63,20 +63,20 @@
 						
 							<div class="input-group1">
 						
-								<input class="form-control1" type="password" id="oldPassword"
+								<input class="form-control1 l-pwd" type="password" id="oldPassword"
 									name="oldPassword" placeholder="Current Password">
 							</div>
 				
 							<div class="input-group1">
 								
-								<input class="form-control1" type="password"
+								<input class="form-control1 l-pwd" type="password"
 									id="newPassword" name="newPassword" placeholder="New Password">
 						
 						</div>
 						
 							<div class="input-group1">
 							
-								<input class="form-control1" type="password"
+								<input class="form-control1 l-pwd" type="password"
 								id="confirmPassword" name="confirmPassword"	placeholder="Confirm Password">
 							</div>
 					
@@ -95,7 +95,7 @@
 	</div>
 	<div id="numForm" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 updateform">
 <span class="button b-close regreset">X</span>
-<p class="form-tile">Update Mobile Number</p>	
+<p class="form-tile"><span class="glyphicon glyphicon-phone"></span> Update Mobile Number</p>	
 <form class="sign simple-form" id="numberForm"name="numForm">
 			<span id="invalidnumOtpMsg" style="display: none;">Invalid OTP Code</span>
 		<span id="upnumerrorMsg" style="display: none;"></span>
@@ -106,14 +106,14 @@
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 					<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn">
-						<input type="text" class="text mbnumber"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
+						<input type="text" class="text mbnumber mobile-icon"  placeholder="Updated Mobile Number" id="updateNumber" name="number" pattern="[789][0-9]{9}" title="Please enter a valid Mobile Number"  /> 
 						 
 					</div>
 					<div style="clear:both;"></div>
 					</div>
 					<div class="section">
-						<div class="input-sign otp-reset-details">
-							<input type="text" name="otp" id="updatenumotp" class="otp-enter"  placeholder="OTP Code" /> 
+						<div class="input-sign otp-reset-details ">
+							<input type="text" name="otp" id="updatenumotp" class="otp-enter otp"  placeholder="OTP Code" /> 
 						</div>
 						<div class="clear"> </div>
 					</div>

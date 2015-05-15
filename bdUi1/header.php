@@ -177,8 +177,8 @@ function errorFunction(){
 												required />
 										</div>
 										<div class="input-group forgot-top">
-											<span><a href="#login-popup" class="popup-window">Forgot
-													Password</a></span>
+											<p class="forgot-pwd-link"><a href="#login-popup" class="popup-window" style="margin-left:5px;">Forgot
+													Password</a></p>
 										</div>
 										<div class="form-group">
 											<!-- Button -->
