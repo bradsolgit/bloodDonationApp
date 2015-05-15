@@ -5150,3 +5150,347 @@ Stack trace:
 REQUEST_URI=/bloodDonationApp/index.php/userDetails/upload
 in C:\xampp\htdocs\bloodDonationApp\protected\controllers\UserDetailsController.php (79)
 in C:\xampp\htdocs\bloodDonationApp\index.php (13)
+2015/05/15 14:10:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php:78
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php(104): SiteController->loadModel(NULL)
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('login')
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#7 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/bdApp/index.php/site/login
+HTTP_REFERER=http://localhost/bdApp/index.php/site/login
+---
+2015/05/15 14:10:16 [error] [exception.CException] exception 'CException' with message 'Alias "ext.YiiComplete.YiiComplete" is invalid. Make sure it points to an existing PHP file and the file is readable.' in D:\xampp\htdocs\bdApp\protected\framework\YiiBase.php:316
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.YiiComplete...', true)
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(UserDetailsController), 'ext.YiiComplete...', Array)
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.YiiComplete...', Array)
+#3 D:\xampp\htdocs\bdApp\protected\views\userDetails\_form.php(34): CBaseController->widget('ext.YiiComplete...', Array)
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(126): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(869): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\bdApp\protected\views\userDetails\create.php(18): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(126): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(869): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(118): CController->render('create', Array)
+#13 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionCreate()
+#14 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#21 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#23 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('userDetails/cre...')
+#24 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/bdApp/index.php/userDetails/create
+HTTP_REFERER=http://localhost/bdApp/index.php/site/login
+---
+2015/05/15 14:10:51 [error] [exception.CException] exception 'CException' with message 'Alias "ext.YiiComplete.YiiComplete" is invalid. Make sure it points to an existing PHP file and the file is readable.' in D:\xampp\htdocs\bdApp\protected\framework\YiiBase.php:316
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.YiiComplete...', true)
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(UserDetailsController), 'ext.YiiComplete...', Array)
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.YiiComplete...', Array)
+#3 D:\xampp\htdocs\bdApp\protected\views\userDetails\_form.php(34): CBaseController->widget('ext.YiiComplete...', Array)
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(126): require('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(869): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#7 D:\xampp\htdocs\bdApp\protected\views\userDetails\create.php(18): CController->renderPartial('_form', Array)
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(126): require('D:\\xampp\\htdocs...')
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\xampp\\htdocs...', Array, true)
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(869): CBaseController->renderFile('D:\\xampp\\htdocs...', Array, true)
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(180): CController->render('create', Array)
+#13 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionCreate()
+#14 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#21 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#23 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('userDetails/cre...')
+#24 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/bdApp/index.php/userDetails/create
+---
+2015/05/15 14:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/
+---
+2015/05/15 14:38:36 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:38:50 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:39:20 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:39:55 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:41:17 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:41:47 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:42:28 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:43:01 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:43:36 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:43:52 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:44:19 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:44:29 [error] [php] ZipArchive::getFromName(): Invalid or unitialized Zip object (D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php:272)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(115): PHPExcel_Reader_Excel2007->load()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (272)
+in D:\xampp\htdocs\bdApp\protected\extensions\vendors\PHPExcel\Reader\Excel2007.php (312)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (115)
+2015/05/15 14:46:08 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:48:39 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:49:24 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:54:29 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:55:12 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:56:47 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:57:19 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 14:59:05 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:00:10 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:01:21 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:02:23 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:08:23 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:10:23 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:12:29 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:18:52 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:19:15 [error] [php] Object of class LookupDetails could not be converted to string (D:\xampp\htdocs\bdApp\protected\framework\validators\CNumberValidator.php:83)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(154): UserDetails->validate()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (154)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:20:06 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:23:18 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:24:23 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:24:48 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\bdApp\protected\components\Utilities.php:64)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\components\Utilities.php (64)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (129)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:25:23 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:26:28 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:28:32 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:28:38 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php:162)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (162)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 15:30:15 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)

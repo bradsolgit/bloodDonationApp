@@ -42,11 +42,29 @@ class Utilities {
 				'lookup_value' =>$id
 		) ), 'lookup_id', 'lookup_id' );
 	}
+	
 	static function getLookupListByBloodgroupId($id) {
 		return CHtml::listData ( LookupDetails::model ()->findAllByAttributes ( array (
 				'lookup_type_id' =>4,
 				'lookup_value' =>$id
 		) ), 'lookup_id', 'lookup_id' );
+	}
+	
+	/**
+	 * 
+	 * @param unknown $type_id
+	 * @param unknown $value
+	 * @return Ambigous <mixed, NULL, unknown, multitype:unknown Ambigous <unknown, NULL> >
+	 */
+	static function getLookupIdByValue($type_id,$value) {
+		$model =  LookupDetails::model ()->findByAttributes ( array (
+				'lookup_type_id' =>$type_id,
+				'lookup_value' =>$value
+		) );
+		if(isset($model))
+		return $model->lookup_id;
+		else
+			return "";
 	}
 	
 	static function getLookupListByCityValue($id) {
