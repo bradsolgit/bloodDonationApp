@@ -85,6 +85,8 @@ class UserDetailsController extends Controller {
 		
 		Yii::app ()->end ();
 	}
+	
+	
 	public function actionView($id) {
 		$this->render ( 'view', array (
 				'model' => $this->loadModel ( $id ) 
@@ -105,7 +107,7 @@ class UserDetailsController extends Controller {
 			$model->attributes = $_POST ['UserDetails'];
 			
 			//$donors = array ();
-			$uploadedFile = CUploadedFile::getInstance ( $model, 'email' );
+			$uploadedFile = CUploadedFile::getInstance ( $model, 'donorFile' );
 			$fileName = str_replace ( ' ', '', $uploadedFile->name );
 			$images_path = realpath ( Yii::app ()->basePath . '/../files' );
 			$uploadedFile->saveAs ( $images_path . '/' . $fileName );
@@ -150,6 +152,8 @@ class UserDetailsController extends Controller {
 			
 			foreach ($donors as $i=>$donor){
 				$donor->state = $donor->city0->lookup_parent_id;
+				$donor->password = "password";
+				$donor->validate_Status = "Y";
 				if($donor->validate()){
 					$valid = true;
 				}
@@ -182,11 +186,20 @@ class UserDetailsController extends Controller {
 		
 		if (isset ( $_POST ['UserDetails'] )) {
 			$model->attributes = $_POST ['UserDetails'];
+			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
+			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
+			if(isset($model->city) && $model->city != "")
+			$model->state=$model->city0->lookup_parent_id;
+			$model->validate_Status="Y";
+			$model->password="password";
+			
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
 						'id' => $model->user_id 
 				) );
+				$model->city=$model->city0->lookup_value;
+				$model->blood_group=$model->bloodGroup->lookup_value;
 		}
 		
 		$this->render ( 'create', array (
@@ -209,13 +222,22 @@ class UserDetailsController extends Controller {
 		
 		if (isset ( $_POST ['UserDetails'] )) {
 			$model->attributes = $_POST ['UserDetails'];
+			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
+			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
+			if(isset($model->city) && $model->city != "")
+				$model->state=$model->city0->lookup_parent_id;
+			$model->validate_Status="Y";
+			$model->password="password";
+				
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
 						'id' => $model->user_id 
 				) );
+				
 		}
-		
+		$model->city=$model->city0->lookup_value;
+		$model->blood_group=$model->bloodGroup->lookup_value;
 		$this->render ( 'update', array (
 				'model' => $model 
 		) );

@@ -5494,3 +5494,123 @@ in D:\xampp\htdocs\bdApp\index.php (13)
 2015/05/15 15:30:15 [warning] [application] Failed to set unsafe attribute "email" of "UserDetails".
 in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
 in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/15 16:04:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/
+---
+2015/05/15 16:13:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/index.php
+---
+2015/05/16 07:42:11 [error] [php] get_class() expects parameter 1 to be object, string given (D:\xampp\htdocs\bdApp\protected\framework\web\helpers\CHtml.php:2220)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\helpers\CHtml.php(1434): resolveNameID()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\widgets\CActiveForm.php(717): activeFileField()
+#2 D:\xampp\htdocs\bdApp\protected\views\userDetails\upload.php(29): CActiveForm->fileField()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(126): require()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CBaseController.php(95): UserDetailsController->renderInternal()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(869): UserDetailsController->renderFile()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(782): UserDetailsController->renderPartial()
+#7 D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php(173): UserDetailsController->render()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): UserDetailsController->actionUpload()
+#9 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#11 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#14 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#17 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#18 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/upload
+in D:\xampp\htdocs\bdApp\protected\views\userDetails\upload.php (29)
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (173)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/16 07:43:26 [warning] [application] Failed to set unsafe attribute "donorFile" of "UserDetails".
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (105)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/16 07:44:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/
+---
+2015/05/16 07:47:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/number/null".' in D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('user/number/nul...')
+#1 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/bdApp/index.php/user/number/null
+HTTP_REFERER=http://localhost/bdApp/bdUi1/index.php
+---
+2015/05/16 07:59:16 [error] [exception.CException] exception 'CException' with message 'Property "LookupDetails.client_name" is not defined.' in D:\xampp\htdocs\bdApp\protected\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\db\ar\CActiveRecord.php(143): CComponent->__get('client_name')
+#1 D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php(143): CActiveRecord->__get('client_name')
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\actions\CInlineAction.php(49): SiteController->actionbloodGroups()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): CController->run('bloodGroups')
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bloodGroup...')
+#8 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#9 D:\xampp\htdocs\bdApp\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/bdApp/index.php/site/bloodGroups?term=O
+HTTP_REFERER=http://localhost/bdApp/index.php/userDetails/create
+---
+2015/05/16 08:07:06 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php:189)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(133): UserDetailsController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CInlineFilter.php(58): UserDetailsController->filterAccessControl()
+#4 D:\xampp\htdocs\bdApp\protected\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): UserDetailsController->runActionWithFilters()
+#7 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): UserDetailsController->run()
+#8 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/userDetails/create
+in D:\xampp\htdocs\bdApp\protected\controllers\UserDetailsController.php (189)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/16 08:10:50 [error] [php] Undefined variable: items (D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php:145)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): SiteController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): SiteController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/site/bloodGroups?term=17
+in D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php (145)
+in D:\xampp\htdocs\bdApp\index.php (13)
+2015/05/16 08:10:56 [error] [php] Undefined variable: items (D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php:158)
+Stack trace:
+#0 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(286): SiteController->runAction()
+#1 D:\xampp\htdocs\bdApp\protected\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(282): SiteController->run()
+#3 D:\xampp\htdocs\bdApp\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bdApp\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bdApp\index.php(13): CWebApplication->run()
+REQUEST_URI=/bdApp/index.php/site/cities?term=1687
+in D:\xampp\htdocs\bdApp\protected\controllers\SiteController.php (158)
+in D:\xampp\htdocs\bdApp\index.php (13)

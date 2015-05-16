@@ -112,4 +112,23 @@ class LookupDetails extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	/**
+	 * Suggests a list of existing tags matching the specified keyword.
+	 * @param string the keyword to be matched
+	 * @param integer maximum number of tags to be returned
+	 * @return array list of matching tag names
+	 */
+	public function suggestLookup($keyword,$lookupType,$limit=20)
+	{
+		$tags=$this->findAll(array(
+				'condition'=>'lookup_value LIKE :keyword and lookup_type_id = :lookup_type_id',
+				'limit'=>$limit,
+				'params'=>array(
+						':keyword'=>'%'.strtr($keyword,array('%'=>'\%', '_'=>'\_', '\\'=>'\\\\')).'%',
+						':lookup_type_id'=>$lookupType,
+				),
+		));
+		return $tags;
+	}
 }

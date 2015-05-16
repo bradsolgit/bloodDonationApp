@@ -13,32 +13,21 @@
 	<?php echo CHtml::encode($data->name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-	<?php echo CHtml::encode($data->email); ?>
-	<br />
-
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('number')); ?>:</b>
 	<?php echo CHtml::encode($data->number); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('area')); ?>:</b>
-	<?php echo CHtml::encode($data->area); ?>
-	<br />
-
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('city')); ?>:</b>
-	<?php echo CHtml::encode($data->city); ?>
+	<?php echo CHtml::encode($data->city0->lookup_value); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('state')); ?>:</b>
-	<?php echo CHtml::encode($data->state); ?>
+	<?php echo CHtml::encode($data->state0->lookup_value); ?>
 	<br />
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('district')); ?>:</b>
-	<?php echo CHtml::encode($data->district); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gender')); ?>:</b>
+	<?php echo CHtml::encode($data->getAttributeLabel('gender')); ?>:</b>
 	<?php echo CHtml::encode($data->gender); ?>
 	<br />
 
@@ -50,14 +39,7 @@
 	<?php echo CHtml::encode($data->dob); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
-	<?php echo CHtml::encode($data->password); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('confirmation_code')); ?>:</b>
-	<?php echo CHtml::encode($data->confirmation_code); ?>
-	<br />
-
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('donation_status')); ?>:</b>
 	<?php echo CHtml::encode($data->donation_status); ?>
 	<br />
@@ -66,10 +48,5 @@
 	<?php echo CHtml::encode($data->blood_group); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('validate_Status')); ?>:</b>
-	<?php echo CHtml::encode($data->validate_Status); ?>
-	<br />
-
-	*/ ?>
-
+	
 </div>

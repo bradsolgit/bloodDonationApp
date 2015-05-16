@@ -21,15 +21,10 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	
-	
-
-
-	
-	
+		
 	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo CHtml::activeFileField($model, 'email'); ?> 
+		
+		<?php echo $form->fileField($model, 'donorFile'); ?> 
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 

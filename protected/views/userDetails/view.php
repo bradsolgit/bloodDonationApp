@@ -16,26 +16,19 @@ $this->menu=array(
 );
 ?>
 
-<h1>View UserDetails #<?php echo $model->user_id; ?></h1>
+<h1>View UserDetails</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'user_id',
 		'name',
-		'email',
 		'number',
-		'area',
-		'city',
-		'state',
-		'district',
+		'city0.lookup_value',
+		'state0.lookup_value',
 		'gender',
 		'address',
 		'dob',
-		'password',
-		'confirmation_code',
 		'donation_status',
-		'blood_group',
-		'validate_Status',
+		'bloodGroup.lookup_value',
 	),
 )); ?>

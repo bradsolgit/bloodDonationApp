@@ -133,4 +133,30 @@ class SiteController extends Controller
 		}
 		$this->render('validateOtp');
 	}
+	
+	public function actionbloodGroups(){
+		if(isset($_GET['term']) && ($keyword=trim($_GET['term']))!=='')
+		{
+			$tags=LookupDetails::model()->suggestLookup($keyword,Constants::$bloodgrp_lookup_code);
+			foreach ($tags as $i=>$lookup){
+				//$items[$i]['vendor_id']=$vendor->vendor_id;
+				$items[$i]=$lookup->lookup_value;
+			}
+			echo CJSON::encode($items);
+	
+		}
+	}
+	
+	public function actioncities(){
+		if(isset($_GET['term']) && ($keyword=trim($_GET['term']))!=='')
+		{
+			$tags=LookupDetails::model()->suggestLookup($keyword,Constants::$city_lookup_code);
+			foreach ($tags as $i=>$lookup){
+				//$items[$i]['vendor_id']=$vendor->vendor_id;
+				$items[$i]=$lookup->lookup_value;
+			}
+			echo CJSON::encode($items);
+	
+		}
+	}
 }

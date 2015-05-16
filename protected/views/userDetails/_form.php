@@ -24,35 +24,45 @@
 
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'Mobile Number'); ?>
+		<?php echo $form->labelEx($model,'number'); ?>
 		<?php echo $form->textField($model,'number',array('size'=>30,'maxlength'=>30)); ?>
 		<?php echo $form->error($model,'number'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'blood_group'); ?>
-		<?php echo $form->textField($model,'blood_group'); ?>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+		'model' => $model,
+		'attribute' => 'blood_group',
+		'source'=>$this->createUrl('site/bloodGroups'),
+		'options'=>array(
+				'showAnim'=>'fold',
+		)
+	));
+		 ?>
+		
 		<?php echo $form->error($model,'blood_group'); ?>
 	</div>
 	
-<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'city'); ?>
-		<?php echo $form->textField($model,'city'); ?>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+		'model' => $model,
+		'attribute' => 'city',
+		'source'=>$this->createUrl('site/cities'),
+		'options'=>array(
+				'showAnim'=>'fold',
+		)
+	));
+		 ?>
+		
+		
 		<?php echo $form->error($model,'city'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'state'); ?>
-		<?php echo $form->textField($model,'state'); ?>
-		<?php echo $form->error($model,'state'); ?>
-	</div>
 
-	
 
 	
 	<div class="row">
@@ -76,11 +86,11 @@ $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
 	
 <div class="row">
 		<?php echo $form->labelEx($model,'gender'); ?>
-	male:<?php echo $form->radioButton($model, 'gender', array(
+	Male:<?php echo $form->radioButton($model, 'gender', array(
     'value'=>'M',
     'uncheckValue'=>null
 ));
- ?>female:<?php 
+ ?>Female:<?php 
 echo $form->radioButton($model, 'gender', array(
     'value'=>'F',
     'uncheckValue'=>null
@@ -93,8 +103,8 @@ echo $form->radioButton($model, 'gender', array(
 	<?php 
 		echo $form->dropDownList($model,
                         'donation_status',
-                        array('Y'=>'Y','N'=>'N'),
-                        array('empty'=>'Select Option'));
+                        array('Y'=>'Yes','N'=>'No'),
+                        array('empty'=>'Select Status'));
 		?>
 		<?php echo $form->error($model,'donation_status'); ?>
 	</div>
