@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="row">
-		<a href="<?php echo Yii::app()->request->baseUrl; ?>/img/Donors.xls">Sample Donors File</a>
+		<a href="<?php echo Yii::app()->request->baseUrl; ?>/img/Donors.xlsx">Sample Donors File</a>
 		
 	</div>
 <?php if(count($donors) > 0){?>	
