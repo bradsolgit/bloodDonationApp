@@ -49,7 +49,7 @@
 							</div>
 						
 					<div class="input-group1">
-							<textarea rows="1" cols="4" class="form-control1 locator" name="address" placeholder="Address"></textarea></div>
+							<textarea rows="1" cols="4" class="form-control1 locator" id="address" name="address" placeholder="Address"></textarea></div>
 					
 						<button type="button" name="submit" id="updateBtn" value=""
 							class="btn login-btn"><i class="glyphicon glyphicon-log-in"></i> Update </button>

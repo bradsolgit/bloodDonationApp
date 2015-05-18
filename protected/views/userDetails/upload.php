@@ -10,7 +10,11 @@
 </head>
 </html>
 <div class="form">
-
+<?php
+    foreach(Yii::app()->user->getFlashes() as $key => $message) {
+        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+    }
+?>
 <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'emp-registration-form',
         'enableAjaxValidation'=>false,
@@ -40,6 +44,10 @@
 <th><?php echo $form->labelEx($model,'number'); ?></th>
 <th><?php echo $form->labelEx($model,'blood_group'); ?></th>
 <th><?php echo $form->labelEx($model,'city'); ?></th>
+<th><?php echo $form->labelEx($model,'gender'); ?></th>
+<th><?php echo $form->labelEx($model,'dontion_status'); ?></th>
+<th><?php echo $form->labelEx($model,'address'); ?></th>
+<th><?php echo $form->labelEx($model,'dob'); ?></th>
 </tr>
 <?php foreach($donors as $i=>$donor): ?>
 <tr class="row">
@@ -58,6 +66,22 @@
 <td>
 <?php echo $donor->city.'</br>' ?>
 <?php echo $form->error($donor,'city'); ?>
+</td>
+<td>
+<?php echo $donor->gender.'</br>' ?>
+<?php echo $form->error($donor,'gender'); ?>
+</td>
+<td>
+<?php echo $donor->donation_status.'</br>' ?>
+<?php echo $form->error($donor,'donation_status'); ?>
+</td>
+<td>
+<?php echo $donor->address.'</br>' ?>
+<?php echo $form->error($donor,'address'); ?>
+</td>
+<td>
+<?php echo $donor->dob.'</br>' ?>
+<?php echo $form->error($donor,'dob'); ?>
 </td>
 </tr>
 <?php endforeach; ?>

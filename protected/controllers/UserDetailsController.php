@@ -108,6 +108,11 @@ class UserDetailsController extends Controller {
 			
 			//$donors = array ();
 			$uploadedFile = CUploadedFile::getInstance ( $model, 'donorFile' );
+			if(empty($uploadedFile))
+			{
+				Yii::app()->user->setFlash('error', "Please Select File");
+			}
+			else{
 			$fileName = str_replace ( ' ', '', $uploadedFile->name );
 			$images_path = realpath ( Yii::app ()->basePath . '/../files' );
 			$uploadedFile->saveAs ( $images_path . '/' . $fileName );
@@ -151,25 +156,39 @@ class UserDetailsController extends Controller {
 			$valid = false;
 			
 			foreach ($donors as $i=>$donor){
+if(isset($donor->city))
+{
 				$donor->state = $donor->city0->lookup_parent_id;
+}
+$donor->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
 				$donor->password = "password";
 				$donor->validate_Status = "Y";
 				if($donor->validate()){
 					$valid = true;
 				}
+				
 			}
 			if($valid){
 				foreach ($donors as $i=>$donor){
 					
 					$donor->save(false);
+					Yii::app()->user->setFlash('success', "The File Is Uploaded Successfully");
+					
 				}
 			}
 			foreach ($donors as $i=>$donor){
 				$donor->blood_group= $donor->bloodGroup->lookup_value;
+if(isset($donor->city))
+{
 				$donor->state=$donor->state0->lookup_value;
 				$donor->city=$donor->city0->lookup_value;
+}
+				
+			}
 			}
 		}
+		
+		
 		
 		$this->render ( 'upload', array (
 				'model' => $model,
@@ -185,7 +204,10 @@ class UserDetailsController extends Controller {
 		// $this->performAjaxValidation($model);
 		
 		if (isset ( $_POST ['UserDetails'] )) {
+			
+			
 			$model->attributes = $_POST ['UserDetails'];
+$model->dob = DateTime::createFromFormat('d/m/Y', $$model->dob)->format('Y-m-d');
 			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
 			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
 			if(isset($model->city) && $model->city != "")
@@ -198,9 +220,11 @@ class UserDetailsController extends Controller {
 						'view',
 						'id' => $model->user_id 
 				) );
-				$model->city=$model->city0->lookup_value;
-				$model->blood_group=$model->bloodGroup->lookup_value;
 		}
+				//$model->city=$model->city0->lookup_value;
+				//$model->blood_group=$model->bloodGroup->lookup_value;
+			
+		
 		
 		$this->render ( 'create', array (
 				'model' => $model 
@@ -222,6 +246,8 @@ class UserDetailsController extends Controller {
 		
 		if (isset ( $_POST ['UserDetails'] )) {
 			$model->attributes = $_POST ['UserDetails'];
+$model->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
+
 			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
 			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
 			if(isset($model->city) && $model->city != "")
