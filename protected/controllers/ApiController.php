@@ -535,24 +535,17 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 		// Try to save the model
 		if ($_GET ['model'] == "userDetails") {
 			
-			$blood_group = Utilities::getLookupListByBloodgroupId($model->blood_group);
-			foreach($blood_group as $value)
-			{
-				$blood_group=$value;
-			}
-			$model->blood_group=$blood_group;
+			
+			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code,$model->blood_group); 
 			$state = Utilities::getLookupListByStateId($model->state);
 			foreach($state as $value)
 			{
 				$state=$value;
 			}
-			$model->state=$state;
-			$city = Utilities::getLookupListByCityId($model->city);
-			foreach($city as $value)
-			{
-				$city=$value;
-			}
-			$model->city=$city;
+			
+			
+			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code,$model->city); 
+			$model->state=$model->city0->lookup_parent_id;
 			$model->dob = DateTime::createFromFormat('d/m/Y', $model->dob)->format('Y-m-d');
 				
 			$number = $model->number;
@@ -674,12 +667,9 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 					// $_GET['model']) );
 				}
 				
-				$city = Utilities::getLookupListByCityId($_POST['city']);
-				foreach($city as $value)
-				{
-					$city=$value;
-				}
-				$model->city=$city;
+				$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code,$model->city);
+				$model->state=$model->city0->lookup_parent_id;
+				
 				
 				break;
 				

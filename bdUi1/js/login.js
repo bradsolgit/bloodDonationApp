@@ -165,7 +165,8 @@ $(document).ready(function(){
 	});
 	
 	$("#forgotButton").click(function(){	
-	
+		 $("#erMsg").hide();
+		 $("#successMsg").hide();
 		if($("#forgotForm").valid()){
 		
 		 validateCaptcha($("#forgotCaptcha").val(),$("#forgotCaptcha").realperson('getHash'),forgotUser);
@@ -188,9 +189,16 @@ $(document).ready(function(){
 					 
 	            	success: function(data)
                 		{
+	            		if(data== "Valid")
+	            			{
 	            		 $("#erMsg").hide();
 	            		 $("#successMsg").html("PASSWORD IS SEND TO YOUR MOBILE NUMBER").show("show");
-	            		
+	            			}
+	            		else
+	            			{
+	            			
+	            			 $("#erMsg").html("Invalid Moblie Number").show("show");
+	            			}
                 		},
                 		error: function(xhr, error){
                 	        $("#erMsg").html(xhr.responseText).show();

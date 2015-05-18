@@ -11,6 +11,7 @@
 	<form name="form" id="forgotForm" class="form-horizontal"
 		enctype="multipart/form-data" method="POST">
 		<span id="erMsg" class="error" style="display: none"> </span> 
+		<span id="errrorrMsg" class="error" style="display: none"> </span>
 		<span id="successMsg" class="successmsg" style="display: none"> </span>
 	
 			<div class="input-group-1">

@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 
          $('.datepicker').datepicker({ 
-   		  format: "dd-mm-yyyy" }).on('changeDate', function(ev){
+   		  format: "d/m/yyyy" }).on('changeDate', function(ev){
 		    $(this).datepicker('hide');
 		});
            $("a.popup-register").click(function(){

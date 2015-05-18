@@ -32,7 +32,7 @@ class UserDetailsController extends Controller {
 								'index',
 								'view',
 								'suggestName',
-								'upload' 
+								
 						),
 						'users' => array (
 								'*' 
@@ -52,7 +52,9 @@ class UserDetailsController extends Controller {
 						'allow', // allow admin user to perform 'admin' and 'delete' actions
 						'actions' => array (
 								'admin',
-								'delete' 
+								'delete',
+								'upload'
+								
 						),
 						'users' => array (
 								'admin' 
@@ -114,18 +116,32 @@ class UserDetailsController extends Controller {
 			}
 			else{
 			$fileName = str_replace ( ' ', '', $uploadedFile->name );
+ 
 			$images_path = realpath ( Yii::app ()->basePath . '/../files' );
 			$uploadedFile->saveAs ( $images_path . '/' . $fileName );
 			$path = $images_path . '\\' . $fileName;
 			Yii::import ( 'ext.vendors.PHPExcel', true );
-			$objReader = PHPExcel_IOFactory::createReader ( 'Excel2007' );
+			$extension = end(explode('.', $fileName));
+
+			switch ($extension) {
+				case 'xls':
+					$objReader = PHPExcel_IOFactory::createReader ( 'Excel5' );
+					break;
+				case 'xlsx':
+					$objReader = PHPExcel_IOFactory::createReader ( 'Excel2007' );
+					break;
+			}
+			
 			$objPHPExcel = $objReader->load ( $path ); // $file --> your filepath and filename
+			$coloumn=$objPHPExcel->setActiveSheetIndex(0)->getHighestColumn();
+$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($coloumn);
 			$objWorksheet = $objPHPExcel->getActiveSheet ();
 			$i = 0;
 			foreach ($objWorksheet->getRowIterator() as $key1 => $row) {
 				if($key1 == 1) continue;
 				$cellIterator = $row->getCellIterator();
 				$tempModel = new UserDetails ();
+
 				foreach ($cellIterator as $key => $cell) {
 					if (is_null($cell)) continue; 
 					switch($key) { 
@@ -147,9 +163,10 @@ class UserDetailsController extends Controller {
 						break;
 						default: break; 
 					}
-					 
+					
 				}
 				$donors[$i] = $tempModel;
+
 				$i++;
 			}
 			
@@ -160,7 +177,10 @@ if(isset($donor->city))
 {
 				$donor->state = $donor->city0->lookup_parent_id;
 }
+if(!empty($donor->dob))
+{
 $donor->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
+}
 				$donor->password = "password";
 				$donor->validate_Status = "Y";
 				if($donor->validate()){
@@ -207,11 +227,15 @@ if(isset($donor->city))
 			
 			
 			$model->attributes = $_POST ['UserDetails'];
-$model->dob = DateTime::createFromFormat('d/m/Y', $$model->dob)->format('Y-m-d');
+
 			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
 			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
 			if(isset($model->city) && $model->city != "")
 			$model->state=$model->city0->lookup_parent_id;
+if(!empty($model->dob))
+{
+$model->dob = DateTime::createFromFormat('d/m/Y',$model->dob)->format('Y-m-d');
+}
 			$model->validate_Status="Y";
 			$model->password="password";
 			
@@ -246,7 +270,7 @@ $model->dob = DateTime::createFromFormat('d/m/Y', $$model->dob)->format('Y-m-d')
 		
 		if (isset ( $_POST ['UserDetails'] )) {
 			$model->attributes = $_POST ['UserDetails'];
-$model->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
+
 
 			$model->city=Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
 			$model->blood_group=Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
@@ -254,7 +278,7 @@ $model->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
 				$model->state=$model->city0->lookup_parent_id;
 			$model->validate_Status="Y";
 			$model->password="password";
-				
+			$model->dob = DateTime::createFromFormat('d/m/Y', $model->dob)->format('Y-m-d');
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',

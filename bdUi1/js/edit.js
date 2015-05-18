@@ -22,12 +22,13 @@ jQuery(document).ready(function($) {
 			
 			oldPassword: {
 				required: true,
-				minlength: 5
+				minlength: 5,
+				
 			},
 			newPassword: {
 				required: true,
 				minlength: 5,
-				
+				maxlength: 10,
 			},
 			confirmPassword: {
 				required: true,
@@ -44,8 +45,8 @@ jQuery(document).ready(function($) {
 			},
 			newPassword: {
 				required: "Please enter newpassword",
-				minlength: "Your enter a valid newpassword"
-				
+				minlength: "Your enter newpassword minium 5 char",
+				maxlength: "Your enter newpassword maximum 10 char",
 			},
 			
 			confirmPassword: {
@@ -225,6 +226,8 @@ jQuery(document).ready(function($) {
                      		error: function(xhr, error){
                      		
                      	        $("#resetpasswordErrorMsg").html("Inavalid  Old Password").show();
+                     	    
+                     	        
                      		 }
 						});
 			

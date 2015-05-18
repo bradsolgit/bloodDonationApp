@@ -81,12 +81,12 @@
 <p class="form-tile"><span class="glyphicon glyphicon-phone"></span> Update Mobile Number</p>	
 <form class="sign simple-form" id="numberForm"name="numForm">
 <span class="button b-close MobileNumberReset">X</span>
-			<span id="invalidnumOtpMsg" style="display: none;">Invalid OTP Code</span>
-		<span id="upnumerrorMsg" style="display: none;"></span>
-			<span id="invalidCaptcha" style="display: none;">Please enter valid captcha</span>
-			<span id="valMobMsg" style="display: none;">Enter Valid Mobile Number</span>
-			<span id="otpCnfMsg" style="display: none;">OTP Code sent to Mobile Number</span>
-				<span id="otperrorMsg" style="display: none;">This is already used</span>
+			<span id="invalidnumOtpMsg" class="error" style="display: none;">Invalid OTP Code</span>
+		<span id="upnumerrorMsg" class="error" style="display: none;"></span>
+			<span id="invalidCaptcha" class="error" style="display: none;">Please enter valid captcha</span>
+			<span id="valMobMsg" class="error" style="display: none;">Enter Valid Mobile Number</span>
+			<span id="otpCnfMsg" class="updateMsg" style="display: none;">OTP Code sent to Mobile Number</span>
+				<span id="otperrorMsg" class="error" style="display: none;">This is already used</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 					<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn">

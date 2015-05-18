@@ -63,7 +63,7 @@ class UserDetails extends CActiveRecord
 			array('address', 'length', 'max'=>255),
 			array('password', 'length', 'max'=>10),
 			array('confirmation_code', 'length', 'max'=>20),
-			array('dob', 'safe'),
+	array('dob', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('user_id, name, email, number, area, city, state, district, gender, address, dob, password, confirmation_code, donation_status, blood_group, validate_Status', 'safe', 'on'=>'search'),
