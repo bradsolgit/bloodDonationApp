@@ -553,7 +553,8 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				$city=$value;
 			}
 			$model->city=$city;
-		
+			$model->dob = DateTime::createFromFormat('d/m/Y', $model->dob)->format('Y-m-d');
+				
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmation_code = $otp;
