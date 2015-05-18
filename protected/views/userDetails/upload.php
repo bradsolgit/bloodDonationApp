@@ -9,7 +9,7 @@
 
 </head>
 </html>
-<div class="form">
+<div class="form bg-color-upload">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'emp-registration-form',

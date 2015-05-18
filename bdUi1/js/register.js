@@ -1,5 +1,37 @@
 $(document).ready(function(){
-	
+                                 
+	     
+   	  $("input[type='radio']").click(function(){
+             $(".GenderValidation").hide();
+         });
+         $(".regreset").click(function(){
+       	  $('#userForm').trigger("reset");
+       	  $('#userForm').data('validator').resetForm();
+         });
+         $(".regreset").click(function(){
+          	  $('#otp-req').trigger("reset");
+          	  $('#otp-req').data('validator').resetForm();
+            });
+
+
+         $('.datepicker').datepicker({ 
+   		  format: "dd-mm-yyyy" }).on('changeDate', function(ev){
+		    $(this).datepicker('hide');
+		});
+           $("a.popup-register").click(function(){
+
+           	$('#signup-popup').bPopup({
+           		 speed: 450,
+           	        fadeSpeed: 'slow',
+           	        modalColor: '#000',
+           	        transitionClose: 'slideDown',
+           	        opacity: 0.8,
+           	        modalClose: false,
+           	        transition: 'slideDown'
+                
+                       });
+           });
+
 	$("#userForm").validate({
 		rules: {
 			name: "required",
@@ -233,8 +265,20 @@ $(document).ready(function(){
                  		{
 	            		confirmCode = data.confirmation_code;
 	            		userDetails = data;
-	            		$('#userForm').hide();
-	            		$('#otpForm').show();
+	            		 $('#signup-popup').bPopup().close();
+	            		
+
+	                   	$('#otp-req').bPopup({
+	                   		 speed: 450,
+	                   	        fadeSpeed: 'slow',
+	                   	        modalColor: '#000',
+	                   	        transitionClose: 'slideDown',
+	                   	        opacity: 0.8,
+	                   	        modalClose: false,
+	                   	        transition: 'slideDown'
+	                        
+	                               });
+	            	
 	            		
                  		},
                  		error: function(xhr, error){

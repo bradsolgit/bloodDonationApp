@@ -1,21 +1,22 @@
 jQuery(document).ready(function($) {
 	
-    $(".regreset").click(function(){
-    	  $('#resetPasswordForm').trigger("reset");
-    	  $('#resetPasswordForm').data('validator').resetForm();
-      });
-      
-    $(".regreset").click(function(){
-    	  $('#numberForm').trigger("reset");
-    	  $('#numberForm').data('validator').resetForm();
-      });
-    
-    $(".regreset").click(function(){
+  
+ 	   $(".editReset").click(function(){
     	  $('#editForm').trigger("reset");
     	  $('#editForm').data('validator').resetForm();
     	  $('#editerrorMsg').hide();
       });
-    
+	   $(".changeReset").click(function(){
+	    	  $('#resetPasswordForm').trigger("reset");
+	    	  $('#resetPasswordForm').data('validator').resetForm();
+	    	
+	      });
+	   $(".MobileNumberReset").click(function(){
+	    	  $('#numberForm').trigger("reset");
+	    	  $('#numberForm').data('validator').resetForm();
+	    	
+	      });
+ 
 	$("#resetPasswordForm").validate({
 		rules: {
 			

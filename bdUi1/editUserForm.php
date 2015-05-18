@@ -3,9 +3,9 @@
 <!-- edit profile for user start here -->
 
 <div id="editprofile-popup" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 edituserform">
-<span class="button b-close regreset">X</span>
+
 <p class="form-tile"><span class="glyphicon glyphicon-user"></span> Edit Account</p>
-		<div class="">
+	
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
@@ -20,6 +20,7 @@
 			<div class="tab-content">
 				<div class="tab-pane fade active in" id="Edit-Account">
 					<form id="editForm">
+					<span class="button b-close editReset">X</span>
 					<span id="editerrorMsg" class="updateMsg" style="disolay:none"></span>
 						
 							<div class="availability">
@@ -28,22 +29,11 @@
 									<button type="button" value="Y" class="btn btn-lg btn-default" id="yesBtn">Yes</button>
 									<button type="button" value="N"  class="btn btn-lg btn-primary" id="noBtn">No</button>
 								</div>
-							</div>
-
-					
-
-
-						
-
-							<div class="input-group1">
+							</div><div class="input-group1">
 								<input type="text" class="mbn-filed mobile-icon" name="number"
 									id="number" placeholder="Edit Mobile Number"
 									disabled required> <span  class="mbn" id="updteNum"><img src="images/mbn-udate.png" width="21" height="20" /></span>
-							</div>
-
-						
-						
-							<div class="input-group1">
+							</div>	<div class="input-group1">
 								<input type="text" class="form-control1 locator" name="city"
 									id="editcity" placeholder="City" required> 
 							</div>
@@ -60,7 +50,7 @@
 				<span id="resetpasswordErrorMsg" style="display:none" ></span>
 				
 					<form id="resetPasswordForm" >
-						
+								<span class="button b-close changeReset">X</span>
 							<div class="input-group1">
 						
 								<input class="form-control1 l-pwd" type="password" id="oldPassword"
@@ -82,21 +72,15 @@
 					
 						<button type="button" name="submit" id="resetButton"
 							class="btn reset-button"><i class="glyphicon glyphicon-log-in"></i> Reset Password</button>
-					</form>
-					
-				</div>
+					</form></div>
 				<div>
-				
-				
-				
-				</div>
 			</div>
 		</div>
 	</div>
 	<div id="numForm" class="ppInfo col-lg-4 col-md-4 col-sm-6 col-xs-12 updateform">
-<span class="button b-close regreset">X</span>
 <p class="form-tile"><span class="glyphicon glyphicon-phone"></span> Update Mobile Number</p>	
 <form class="sign simple-form" id="numberForm"name="numForm">
+<span class="button b-close MobileNumberReset">X</span>
 			<span id="invalidnumOtpMsg" style="display: none;">Invalid OTP Code</span>
 		<span id="upnumerrorMsg" style="display: none;"></span>
 			<span id="invalidCaptcha" style="display: none;">Please enter valid captcha</span>

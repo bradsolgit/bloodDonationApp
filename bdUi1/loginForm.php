@@ -14,7 +14,7 @@
 		<span id="successMsg" class="successmsg" style="display: none"> </span>
 	
 			<div class="input-group-1">
-											<input type="password" id="forgotnumber" class="form-control mobile-icon"
+											<input type="text" id="forgotnumber" class="form-control mobile-icon"
 				name="forgotnumber" placeholder="Enter Mobile Number">
 										</div>
 
@@ -36,6 +36,7 @@
 <!-- forgot pwd end here -->
 
 <!-- login after start here -->
+
 <div id="login-after-popup" class="ppInfo">
  <span class="button b-close">X</span>
 <p class="form-tile" style="margin-top:27px;">Are You Ready to Donate Blood</p>
@@ -52,5 +53,6 @@
 		</div>
 	</div>
 </div>
+
 <!-- login after End here -->
 

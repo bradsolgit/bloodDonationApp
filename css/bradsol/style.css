@@ -19,6 +19,14 @@ h1{
 	 font-size: 20px !important;
     padding-top: 54px !important;
 }
+.logo img{width:100%;}
+div.form {
+background: #FFF9F9;
+padding-top: 50px;
+padding-bottom: 40px;
+}
+
+
 .footer{
 	margin-top:0px !important;
 }
@@ -26,7 +34,22 @@ h1{
 	background:#ccc;
 	min-height: 700px;
 	margin-top:0px 1important;
-	background: #F7F4F4;
+background: #FFF9F9;
+}
+.bg-color-upload{
+background: #FFF9F9;
+}
+.body-content h1{
+	background: #FFF9F9;
+	margin-bottom:0px !important;
+}
+.body-content .grid-view{
+	background: #FFF9F9;
+
+}
+.body-content .filters{
+		background: #FFF9F9;
+	}
 }
 .header-bs{
 width:95.5%;
@@ -35,18 +58,14 @@ min-height:115px;
 border-bottom:5px solid #e76517;
 }
 .header-bs .logo{
-width: 35%;
+width: 28%;
 height: auto;
 margin-top: 0px;
-
 margin-right: 2%;
-float:left;
+float: left;
 }
-div.form {
-	padding-top:50px;
-	padding-bottom:40px;
-	
-}
+
+
 .search-button{
 	padding-left:40px;
 }
@@ -70,11 +89,10 @@ button,input[type="submit"]:hover, input[type="button"]:hover{
 	color:#fff;
 	}
 .header-bs .ads{
-width: 41%;
+width: 52%;
 height: auto;
 margin-top: 9px;
-
-float:left;
+float: left;
 }
 .header-bs .ads img{
 width: 100%;
@@ -596,14 +614,13 @@ background: red;
   text-align: left;
 }
 #cssmenu > ul > li > a {
-  padding: 18px 20px 21px 15px;
-  border-right: 1px solid rgba(80, 80, 80, 0.12);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
- letter-spacing: 1px;
+	 color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  letter-spacing: 1px;
+    padding: 19px 19.5px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover,

@@ -6,6 +6,7 @@ $(document).ready(function(){
     $(".regreset").click(function(){
   	  $('#loginForm').trigger("reset");
   	  $('#loginForm').data('validator').resetForm();
+ 	 $("#errorMsg").hide();
     });
     
     $(".regreset").click(function(){
