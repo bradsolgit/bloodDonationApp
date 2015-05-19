@@ -24,7 +24,7 @@ src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="js/register.js"></script>
 <script src="js/search.js"></script>
 <script src="js/edit.js"></script>
-<script src="js/admin.js"></script>
+
 
 <script type="text/javascript" src="js/jquery.plugin.js"></script>
 <script type="text/javascript" src="js/jquery.realperson.js"></script>

@@ -28,12 +28,7 @@ class ApiController extends Controller {
 			
 			
 				break;
-			case 'donationRequest' :
-				$srchResults = DonationRequest::model ()->findAll ();
-				break;
-			case 'lookupDetails' :
-				$srchResults = LookupDetails::model ()->findAll ();
-				break;
+			
 			default :
 				// Model not implemented error
 				$this->_sendResponse ( 501, sprintf ( 'Error: Mode <b>list</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
@@ -106,87 +101,6 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 	}
 	
-	public function actionmodelNameId() {
-		// Check if id was submitted via GET
-		if (! isset ( $_GET ['id'] ))
-			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
-		switch ($_GET ['model']) {
-			// Find respective model
-			case 'userDetails' :
-				switch ($_GET ['name']) {
-					// Find respective model
-					
-					case 'mobileno' :
-						$model = Utilities::getMobileNo ( $_GET ['id'] );
-						break;
-					case 'state' :
-						$model = Utilities::getState ( $_GET ['id'] );
-						break;
-					case 'district' :
-						$model = Utilities::getDistrict ( $_GET ['id'] );
-						break;
-					case 'city' :
-						$model = Utilities::getCity ( $_GET ['id'] );
-						break;
-						
-					case 'area' :
-						$model = Utilities::getArea ( $_GET ['id'] );
-						break;
-					case 'bloodgroup' :
-						$model = Utilities::getBloodGroup ( $_GET ['id'] );
-						break;
-					case 'password' :
-						$message = "Invalid";
-						$number = $_POST ['number'];
-						$password = $_POST ['password'];
-						$user = Utilities::getMobileNo ( $number );
-						if ($user->password == $password) {
-							$message = "Valid";
-						}
-						$this->_sendResponse ( 200, CJSON::encode ( $message ) );
-					case 'otp' :
-						$model = new UserDetails ();
-						break;
-					
-					default :
-						$this->_sendResponse ( 501, sprintf ( 'Mode <b>view</b> is not implemented for model <b>%s</b>', $_GET ['name'] ) );
-						Yii::app ()->end ();
-				}
-				break;
-			case 'lookupDetails' :
-				switch ($_GET ['name']) {
-					// Find respective model
-					case 'city' :
-						$model = Utilities::getLookupListByCity ( $_GET ['id'] );
-						break;
-					case 'district' :
-						$model = Utilities::getLookupListByDistrict ( $_GET ['id'] );
-						break;
-					case 'area' :
-						$model = Utilities::getLookupListByArea ( $_GET ['id'] );
-						break;
-					
-					
-						break;
-					case 'lookupType' :
-						$model = Utilities::getLookupType ( $_GET ['id'] );
-						break;
-					default :
-						$this->_sendResponse ( 501, sprintf ( 'Mode <b>view</b> is not implemented for model <b>%s</b>', $_GET ['name'] ) );
-						Yii::app ()->end ();
-				}
-				break;
-			default :
-				$this->_sendResponse ( 501, sprintf ( 'Mode <b>view</b> is not implemented for model <b>%s</b>', $_GET ['model'] ) );
-				Yii::app ()->end ();
-		}
-		
-		// Did we find the requested model? If not, raise an error
-		if (is_null ( $model ))
-			$this->_sendResponse ( 404, 'No Item found with id ' . $_GET ['id'] );
-		else
-			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-	}
 	
 	public function actionlookupTypeList() {
 		if (! isset ( $_GET ['id'] ))
@@ -211,35 +125,6 @@ class ApiController extends Controller {
 			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 	}
 	
-	public function actionlookupIdList() {
-		if (! isset ( $_GET ['id'] ))
-			$this->_sendResponse ( 500, 'Error: Parameter <b>id</b> is missing' );
-		
-		switch ($_GET ['name']) {
-			// Find respective model
-			case 'city' :
-				$model = Utilities::getLookupListByCity ( $_GET ['id'] );
-				break;
-				
-			case 'district' :
-				$model = Utilities::getLookupListByDistrict ( $_GET ['id'] );
-				break;
-			case 'area' :
-				$model = Utilities::getLookupListByArea ( $_GET ['id'] );
-				break;
-			
-			default :
-				$this->_sendResponse ( 501, sprintf ( 'Mode <b>view</b> is not implemented for model <b>%s</b>', $_GET ['name'] ) );
-				Yii::app ()->end ();
-		}
-			
-		//$model = Utilities::getLookupType ( $_GET ['id'] );
-		// Did we find the requested model? If not, raise an error
-		if (is_null ( $model ))
-			$this->_sendResponse ( 404, 'No Item found with id ' . $_GET ['id'] );
-		else
-			$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-	}
 	
 	public function actionsearchApi(){
 		
@@ -300,25 +185,7 @@ class ApiController extends Controller {
 					$models =LookupDetails::model ()->findAll( $criteria );
 				
 					break;
-			case 'donationRequest' :
-				$city = $_POST ['city'];
-				$blood_group = $_POST ['blood_group'];
-				$criteria = new CDbCriteria ();
-				$criteria->compare ( 'city', $city );
-				$criteria->compare ( 'blood_group', $blood_group );
-				$models = array();
-				$srchResults = DonationRequest::model ()->findAll ( $criteria );
-			foreach ($srchResults as $i=>$model){
-				$tempModel = $model;
-				$tempModel->city = $model->city0->lookup_value;
-				$tempModel->state = $model->state0->lookup_value;
-				$tempModel->blood_group = $model->bloodGroup->lookup_value;
-				$date = new DateTime($model->date);
-				$now = new DateTime();
-				$interval = $now->diff($date);
-				$models[$i] = $tempModel;
-			}
-			break;
+			
 			case 'donors' :
 				$city = $_POST ['city'];
 				$city = Utilities::getLookupListByCityId($_POST ['city']);
@@ -570,48 +437,7 @@ $this->_sendResponse ( 200, CJSON::encode ( $message ) );
 				}
 			
 		}
-		elseif ($_GET ['model'] == "donationRequest1") {
-				
-			
-			if ($model->save ()) {
-				
 		
-		
-				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-			} else {
-				// Errors occurred
-				$msg = "";
-				$msg .= "<ul>";
-				foreach ( $model->errors as $attribute => $attr_errors ) {
-					foreach ( $attr_errors as $attr_error )
-						$msg .= "<li>$attr_error</li>";
-				}
-				$msg .= "</ul>";
-				$this->_sendResponse ( 500, $msg );
-			}
-				
-		}
-		elseif ($_GET ['model'] == "newsletterDetails") {
-		
-				
-			if ($model->save ()) {
-		
-		
-		
-				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
-			} else {
-				// Errors occurred
-				$msg = "";
-				$msg .= "<ul>";
-				foreach ( $model->errors as $attribute => $attr_errors ) {
-					foreach ( $attr_errors as $attr_error )
-						$msg .= "<li>$attr_error</li>";
-				}
-				$msg .= "</ul>";
-				$this->_sendResponse ( 500, $msg );
-			}
-		
-		}
 		elseif ($_GET ['model'] == "donationRequest") {
 			
 				

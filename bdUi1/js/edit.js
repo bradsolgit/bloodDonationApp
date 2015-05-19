@@ -234,6 +234,39 @@ jQuery(document).ready(function($) {
 		}
 
 });
+	$("#edit").click(function(){
+		
+		
+		var number = sessionStorage.getItem("loginnumber");
+		var frm = $("#editForm");
+		$.ajax({
+	        type: 'GET',
+	        url: url+'/user/number/'+number,
+			dataType: 'json',
+	        success: function(data)
+	          {
+	        	
+	        	userDetails = data;
+	        	$("#editForm #number").val(data['number']);
+	        	$("#editForm #editcity").val(data['city']);
+	        	$("#editForm #address").val(data['address']);
+	        	if(data["donation_status"] == "Y"){
+	        		$("#editForm #yesBtn").addClass("btn-primary");
+	        		$("#editForm #noBtn").removeClass("btn-primary");
+	        		$("#editForm #noBtn").addClass("btn-default");
+	        	}else{
+	        		$("#editForm #noBtn").addClass("btn-primary");
+	        		$("#editForm #yesBtn").removeClass("btn-primary");
+	        		$("#editForm #yesBtn").addClass("btn-default");
+	        	}
+	        	
+				}
+	 		});
+		
+		
+		
+	});
+	
 	$("#updteNum").click(function(){	
 		if(confirm("Do you want to change the mobile number?")){
 			$("#editprofile-popup").bPopup().close();
