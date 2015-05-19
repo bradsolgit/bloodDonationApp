@@ -9,17 +9,13 @@
 
 </head>
 </html>
-<<<<<<< HEAD
 <div class="form bg-color-upload">
-
-=======
-<div class="form">
 <?php
     foreach(Yii::app()->user->getFlashes() as $key => $message) {
         echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
     }
 ?>
->>>>>>> 6b104cbe76a38e75e688934fbc85007b076b3c86
+
 <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'emp-registration-form',
         'enableAjaxValidation'=>false,

@@ -80,13 +80,9 @@
 
 		
 	<div class="col-md-12 body-content">
-	
+	<div class="all-pagesBgcolor">
 	<?php echo $content; ?>
-	
-	
-	
-	
-
+	</div>
 	</div>
 	</div>
 	<div class="footer">
