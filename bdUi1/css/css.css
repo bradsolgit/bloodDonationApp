@@ -641,6 +641,15 @@ background-repeat: no-repeat;
 .nav-tabs > li > a{
 	font-size:13px;
 }
+.realperson-text {
+    font-family: "Courier New",monospace !important;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 2px;
+    margin-left: 24px;
+    margin-top: 12px;
+}
 }
 @media only screen and (max-width: 360px) and (min-width:355px){
 .loginform-dsplay{
@@ -661,6 +670,15 @@ background-repeat: no-repeat;
 .nav-tabs > li > a{
 	font-size:13px;
 }
+.realperson-text {
+    font-family: "Courier New",monospace !important;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 2px;
+    margin-left: 24px;
+    margin-top: 12px;
+}
 }
 @media only screen and (max-width: 414px) and (min-width:361px){
 	.loginform-dsplay{
@@ -677,6 +695,15 @@ background-repeat: no-repeat;
 .nav-tabs > li > a{
 	font-size:13px;
 }
+.realperson-text {
+    font-family: "Courier New",monospace !important;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 2px;
+    margin-left: 24px;
+    margin-top: 12px;
+}
 	}
 	@media only screen and (max-width: 480px) and (min-width:415px){
 	.loginform-dsplay{
@@ -689,6 +716,15 @@ background-repeat: no-repeat;
 }
 .nav-tabs > li > a{
 	font-size:14px;
+}
+.realperson-text {
+    font-family: "Courier New",monospace !important;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 2px;
+    margin-left: 24px;
+    margin-top: 12px;
 }
 	}
 		@media only screen and (max-width: 640px) and (min-width:481px){
@@ -703,6 +739,7 @@ background-repeat: no-repeat;
 .nav-tabs > li > a{
 	font-size:14px;
 }
+
 	}
 			@media only screen and (max-width: 800px) and (min-width:768px){
 	.loginform-dsplay{
