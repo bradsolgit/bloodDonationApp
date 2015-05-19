@@ -232,7 +232,7 @@ $(document).ready(function(){
 	$("#regcity").blur(function(){	
 		 $.ajax({
         	type: 'POST',
-        	url:url+'/search/state1',
+        	url:url+'/search/state',
 			dataType: 'json',
 			data: {value:$('#regcity').val() },
         	success: function(data)

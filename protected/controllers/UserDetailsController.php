@@ -108,6 +108,7 @@ class UserDetailsController extends Controller {
 		if (isset ( $_POST ['UserDetails'] )) {
 			$model->attributes = $_POST ['UserDetails'];
 			
+
 			//$donors = array ();
 			$uploadedFile = CUploadedFile::getInstance ( $model, 'donorFile' );
 			if(empty($uploadedFile))
@@ -122,6 +123,8 @@ class UserDetailsController extends Controller {
 			$path = $images_path . '\\' . $fileName;
 			Yii::import ( 'ext.vendors.PHPExcel', true );
 			$extension = end(explode('.', $fileName));
+if($extension === 'xls' && $extension === 'xlsx')
+{
 
 			switch ($extension) {
 				case 'xls':
@@ -173,7 +176,7 @@ $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($coloumn);
 			$valid = false;
 			
 			foreach ($donors as $i=>$donor){
-if(isset($donor->city))
+if(!empty($donor->city))
 {
 				$donor->state = $donor->city0->lookup_parent_id;
 }
@@ -192,19 +195,24 @@ $donor->dob = DateTime::createFromFormat('d/m/Y', $donor->dob)->format('Y-m-d');
 				foreach ($donors as $i=>$donor){
 					
 					$donor->save(false);
-					Yii::app()->user->setFlash('success', "The File Is Uploaded Successfully");
+					Yii::app()->user->setFlash('success', "The Donors Are Uploaded Successfully");
 					
 				}
 			}
 			foreach ($donors as $i=>$donor){
 				$donor->blood_group= $donor->bloodGroup->lookup_value;
-if(isset($donor->city))
+if(!empty($donor->city))
 {
 				$donor->state=$donor->state0->lookup_value;
 				$donor->city=$donor->city0->lookup_value;
 }
 				
 			}
+}
+else
+{
+Yii::app()->user->setFlash('error', "Please Select File xls,xlsx Only");
+}
 			}
 		}
 		

@@ -86,7 +86,7 @@
 			<span id="invalidCaptcha" class="error" style="display: none;">Please enter valid captcha</span>
 			<span id="valMobMsg" class="error" style="display: none;">Enter Valid Mobile Number</span>
 			<span id="otpCnfMsg" class="updateMsg" style="display: none;">OTP Code sent to Mobile Number</span>
-				<span id="otperrorMsg" class="error" style="display: none;">This is already used</span>
+				<span id="otperrorMsg" class="error" style="display: none;">The Number Already Exist.Please Enter Different Number</span>
 					<div class="section">
 					<div class="input-sign login-mbnumber">
 					<input type="button" class="update-mbn" value="Request OTP" id="reqOtpBtn">

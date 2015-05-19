@@ -261,7 +261,7 @@ class ApiController extends Controller {
 					
 						
 				
-				case 'state1' :
+				case 'state' :
 					$model=array();
 					$model = Utilities::getLookupParent ( $_POST ['value'] );
 					
@@ -272,7 +272,7 @@ class ApiController extends Controller {
 					$models=Utilities::getLookupParentValue($model['lookup_parent_id']);
 					
 					break;
-				case 'state':
+				case 'state1':
 					$keyword = $_POST ['state'];
 					$criteria = new CDbCriteria ();
 					// select fields which you want in output

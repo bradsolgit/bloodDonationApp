@@ -16,7 +16,7 @@
 
 <script type="text/javascript"
 src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
 <script src="js/constants.js"></script>
 <link rel="stylesheet" href="css/css.css" type="text/css" />
 <script src="js/jquery.dataTables.js"></script>

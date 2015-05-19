@@ -197,7 +197,7 @@ $(document).ready(function(){
 	            		else
 	            			{
 	            			
-	            			 $("#erMsg").html("Invalid Moblie Number").show("show");
+	            			 $("#errrorrMsg").html("Invalid Moblie Number").show("show");
 	            			}
                 		},
                 		error: function(xhr, error){
