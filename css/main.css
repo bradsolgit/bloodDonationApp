@@ -89,11 +89,25 @@ div.flash-error, div.flash-notice, div.flash-success
 
 div.flash-error
 {
-	background:#FBE3E4;
-	color:#8a1f11;
-	border-color:#FBC2C4;
+ -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fbe3e4 none repeat scroll 0 0;
+    border-color: #000 #000 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: #8a1f11;
+    margin: 0 auto;
+    text-align: center;
+    width: 40%;
 }
-
+@media only screen and (max-width: 640px) {
+	div.flash-error{
+	    width: 100%;
+	}
+	}
 div.flash-notice
 {
 	background:#FFF6BF;
