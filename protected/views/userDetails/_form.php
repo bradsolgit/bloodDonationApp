@@ -78,7 +78,7 @@ $this->widget('ext.my97DatePicker.JMy97DatePicker',array(
     'name'=>CHtml::activeName($model,'dob'),
     'value'=>$model->dob,
 		
-    'options'=>array('dateFmt'=>'d/m/yyyy',),
+    'options'=>array('dateFmt'=>'d/M/yyyy',),
 ));
 ?>
 		<?php echo $form->error($model,'dob'); ?>

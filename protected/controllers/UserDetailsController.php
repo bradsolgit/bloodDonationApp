@@ -272,7 +272,7 @@ $model->dob = DateTime::createFromFormat('d/m/Y',$model->dob)->format('Y-m-d');
 	 */
 	public function actionUpdate($id) {
 		$model = $this->loadModel ( $id );
-		
+		$model->dob=DateTime::createFromFormat('Y-m-d',$model->dob)->format('d/m/Y');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
