@@ -66,7 +66,7 @@
 				</div>
 				<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<textarea placeholder="Enter Your Address" class="address form-control"></textarea>
+					<textarea placeholder="Enter Your Address" name="address" class="address form-control"></textarea>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="row">
